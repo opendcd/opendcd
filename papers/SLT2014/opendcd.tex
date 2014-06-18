@@ -3,7 +3,7 @@
 %          IEEEbib.bst - IEEE bibliography style file.
 % --------------------------------------------------------------------------
 \documentclass{article}
-\usepackage{spconf,amsmath,graphicx}
+\usepackage{spconf,amsmath,graphicx,minted}
 
 % Example definitions.
 % --------------------
@@ -16,8 +16,8 @@
 %
 % Single address.
 % ---------------
-\name{Author(s) Name(s)}
-\address{Author Affiliation(s)}
+%\name{Author(s) Name(s)}
+%\address{Yandex LLC}
 %
 % For example:
 % ------------
@@ -63,19 +63,42 @@ tools for manipulating automata, building language models, all the way up
 build sophisticated speech recognitions system.  However, the state of modern 
 decoding libraries is still lagging. In this paper we describe the OpenDcd release. 
 One extremely important feature of the toolkit is it can be built as 
-The toolkit can be built as standalone.
+The toolkit can be built as standalone decoder with no dependencies, or as addon
+with Kaldi. For the latter there is full access to all of the IO mechanims and 
+acoustic models avaliable in Kaldi. Futhermore the modular nature of OpenDcd's 
 
 \section{Introduction}
 \label{sec:format}
+There are several components in the system. The cascade tools, the decoder core
+and the results post-processing tools.
 
 \section{Decoder Core}
 \label{sec:decodercore}
 
 \subsection{Customization}
-\label{sec:}
+\label{sec:custom}
 
-\subsection{Instrumentation}
+The core of the decoder is the \texttt{ArcDecoder} class that is paramterized on a transition
+model, Fst  and lattice.
+\begin{minted}[mathescape,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{cpp}
+  template<class T, class F, class L>
+  class ArcDecoder;
+\end{minted}
+
+\subsection{Lattice Generation}
+The decoder supports lattice generation based on the \emph{phone-pair}
+approximation and a \emph{full} lattice generation strategy.
+%\url{https://code.google.com/p/shinyprofiler/}
+
+\section{Instrumentation and Logging}
 \label{sec:instrumentation}
+The decoder has several built analysis mechanism, these are the call analyzer,
+memory analyzer and the search space analyzer. For fined grained analysis we 
+make use of the ShinyProfiler which generate very detailed call graphs.
 
 \section{Cascade Tools}
 \label{sec:cascade}
@@ -88,11 +111,10 @@ The toolkit can be built as standalone.
 
 \subsection{Wall Street Journal}
 
-\subsection{Voice Search}
-
 \section{Summary}
 \label{sec:page}
-In this paper we have described OpenDcd a toolkit.
+In this paper we have described OpenDcd a toolkit. In other papers we intend to
+describe the algoritms in more depth.
 
 \bibliographystyle{IEEEbib}
 \bibliography{strings,refs}
