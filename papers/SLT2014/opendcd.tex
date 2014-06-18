@@ -1,0 +1,100 @@
+% Template for ICIP-2012 paper; to be used with:
+%          spconf.sty  - ICASSP/ICIP LaTeX style file, and
+%          IEEEbib.bst - IEEE bibliography style file.
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,amsmath,graphicx}
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+
+% Title.
+% ------
+\title{OpenDcd: Open Source WFST Decoding Toolkit}
+%
+% Single address.
+% ---------------
+\name{Author(s) Name(s)}
+\address{Author Affiliation(s)}
+%
+% For example:
+% ------------
+%\address{School\\
+%	Department\\
+%	Address}
+%
+% Two addresses (uncomment and modify for two-address case).
+% ----------------------------------------------------------
+%\twoauthors
+%  {A. Author-one, B. Author-two\sthanks{Thanks to XYZ agency for funding.}}
+%	{School A-B\\
+%	Department A-B\\
+%	Address A-B}
+%  {C. Author-three, D. Author-four\sthanks{The fourth author performed the work
+%	while at ...}}
+%	{School C-D\\
+%	Department C-D\\
+%	Address C-D}
+%
+\begin{document}
+%\ninept
+%
+\maketitle
+%
+\begin{abstract}
+In this paper we introduce \emph{OpenDcd} a lightweight and portable Weighted Finite State
+Transducer based speech decoding toolkit. The toolkit is faster and requires
+substantially less memory than other open source alternatives.
+\end{abstract}
+%
+\begin{keywords}
+WFST, Decoding, Speech recognition, Open source
+\end{keywords}
+%
+\section{Introduction}
+\label{sec:intro}
+
+
+Open source and reproducible results are speech recognition are an essential
+part of modern science. Recently, there has become available many excellent
+tools for manipulating automata, building language models, all the way up
+build sophisticated speech recognitions system.  However, the state of modern 
+decoding libraries is still lagging. In this paper we describe the OpenDcd release. 
+One extremely important feature of the toolkit is it can be built as 
+The toolkit can be built as standalone.
+
+\section{Introduction}
+\label{sec:format}
+
+\section{Decoder Core}
+\label{sec:decodercore}
+
+\subsection{Customization}
+\label{sec:}
+
+\subsection{Instrumentation}
+\label{sec:instrumentation}
+
+\section{Cascade Tools}
+\label{sec:cascade}
+
+\section{Post-processing Tools}
+\label{sec:postprocess}
+
+\section{Evaluations}
+\label{sec:majhead}
+
+\subsection{Wall Street Journal}
+
+\subsection{Voice Search}
+
+\section{Summary}
+\label{sec:page}
+In this paper we have described OpenDcd a toolkit.
+
+\bibliographystyle{IEEEbib}
+\bibliography{strings,refs}
+
+\end{document}
