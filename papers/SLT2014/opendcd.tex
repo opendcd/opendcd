@@ -3,7 +3,7 @@
 %          IEEEbib.bst - IEEE bibliography style file.
 % --------------------------------------------------------------------------
 \documentclass{article}
-\usepackage{spconf,amsmath,graphicx,minted}
+\usepackage{spconf,amsmath,graphicx,minted,url}
 
 % Example definitions.
 % --------------------
@@ -16,8 +16,8 @@
 %
 % Single address.
 % ---------------
-%\name{Author(s) Name(s)}
-%\address{Yandex LLC}
+\name{Paul R. Dixon \quad Josef R. Novak}
+\address{Yandex Zurich}
 %
 % For example:
 % ------------
@@ -48,6 +48,7 @@ In this paper we introduce \emph{OpenDcd} a lightweight and portable Weighted Fi
 Transducer based speech decoding toolkit. OpenDcd is a collection or tools for speech
 recognition decoding, cascade construction and related conversion and results manipulation.
 The toolkit is faster and requires substantially less memory than other open source alternatives.
+We hope this toolkit rescues from inefficient full $HCLG$ compilations.
 \end{abstract}
 %
 \begin{keywords}
@@ -80,13 +81,24 @@ The library started off as an internal project for research use we are
 releasing the project under an open source licence. One design goal was 
 to allow for customization via \texttt{C++} templates.
 
-\section{Introduction}
+\section{Overview}
 \label{sec:format}
 There are several components in the system. The cascade tools, the decoder core
-and the results post-processing tools.
+and utility tools. In addition we provide a set of helpful scripts and Kaldi style
+example that show how to integrate the decoder into a standard Kaldi reciee.
 
 \section{Decoder Core}
 \label{sec:decodercore}
+
+\subsection{Transition Model}
+The search component assumes that the transition model\footnote{Our model and definition of TransitionModel
+are different to that used in Kaldi.} will consume a single
+frame of speech per time step. The transition module (nearly) full encapsulates
+the acoustic model. The decoupling allows for specialized token expansion algorithm
+to handle any topolgy of HMM or even allow for totally arbitrary non-finite state
+models. 
+
+
 
 \subsection{Customization}
 \label{sec:custom}
@@ -110,13 +122,13 @@ output distributions and generates lattice.
                gobble=2,
                frame=lines,
                framesep=2mm]{cpp}
-  typedef HMMTransitionModel<GMMDecodable> TransModel;
-  ArcDecoder<StdFst, TransModel, ApproxLattice> Decoder;
+  typedef HMMTransitionModel<DecodableAmNnet> 
+    ObservationModel;
+
+  ArcDecoder<StdFst,         
+             ObservationModel,
+             SimpleLattice> Decoder;
 \end{minted}
-
-
-
-
 
 \subsection{Lattice Generation}
 The decoder supports lattice generation based on the \emph{phone-pair}
@@ -147,8 +159,11 @@ component construction. We
 The ngram model uses the direct minimalistic construction proposed by
 Caseiro~\cite{caseiro01} and implemented by OpenGRM.
 
-\section{Post-processing Tools}
+\section{Utility Tools}
 \label{sec:postprocess}
+In addition to main decoding command, the OpenDcd distribution contains
+many useful tools. These include the following:
+
 
 \section{Kaldi Interop}
 With recent importance of Kaldi with provide two levels of compatability.
@@ -158,6 +173,8 @@ of Kaldi features and writing for alignment formats.
 
 \section{Evaluations}
 \label{sec:majhead}
+In this section we demonstrate the performance of the decoder on several 
+tasks.
 
 \subsection{Wall Street Journal}
 
@@ -166,6 +183,11 @@ of Kaldi features and writing for alignment formats.
 In this paper we have described OpenDcd a toolkit. In other papers we intend to
 describe the algoritms and cusomization in more depth. In future release we
 plan to release one-pass neural network re-scoring.
+
+We hope readers to will download OpenDcd from  \url{http://www.opendcd.org} and
+try the easy to use scripts and command line tools with their existing Kaldi setups.
+We hope that this library will become the default library and toolkit for many 
+years to come.
 
 \bibliographystyle{IEEEbib}
 \bibliography{WFSTSpeech}
@@ -199,3 +221,47 @@ in ``batch'' speech recognition training and testing. There is a C++
 library-level set of routines that is meant for easy integration into an ASR
 system. The components are quite modular and independent, so the user can
 select which functionality they require.
+
+
+ SEARCH MODULE ACOUSTIC MODEL
+       The  search module assumes the acoustic model consists of a set of HMMs
+       consecutively numbered from 1. Each  HMM h consists of  a  set  of  HMM
+       states.   The  initial HMM state of h is numbered 1. There is a transi-
+       tion between each HMM state i of HMM h and its successor state i+1 and,
+       if  the  DSearchParams self_loop flag is set, there is also a self-loop
+       transition on each HMM state.  More general  HMM  topologies  are  cur-
+       rently  not  directly supported (but see Caveats). Associated with each
+       HMM state is a probability density. In addition, an acoustic model  may
+       support an HMM duration model or an HMM state duration model.
+
+       The  class  DSearchModel  is the acoustic model interface for  DSearch,
+       the DCD library search module (dsearch(3)). Any class correctly derived
+       from  this  abstract  base  class will work with DSearch (passed in the
+       DSearchParams parameter class).  The derived class's  constructor  must
+       set  _hmms to point to a vector of integer vectors. Each integer vector
+       represents the states in a particular HMM with the $m$-th HMM's  states
+       being  stored in the top-level vector's $m-1$-th location.  The derived
+       class's constructor must also set the number of distinct HMM states  in
+       _nstates,  and  the flags _sdurs and _hdurs according to which, if any,
+       types of duration model are provided (it would be odd but  not  prohib-
+       ited  to  provide  both  types).  A data member interface rather than a
+       virtual function interface is used for  these  quantities  for  maximal
+       efficiency.  These protected data members can then be accessed publicly
+       via several inline member functions that are provided.
+
+       The stateCost member funtion returns the negative log  acoustic  proba-
+       bility given the HMM state ID.  The hmmDurationCost (stateDurationCost)
+       virtual member function returns the negative log probability given  the
+       HMM ID (HMM state ID) and the model (state) duration in frames, and the
+       transition type, as appropriate; the transition costs may be  duration-
+       dependent  with  DSearch.   Note  that  caching  of these model values,
+       important for efficient decoding, is assumed to be done by the  derived
+       model class and not the search module.
+
+       Also  note  that stateCost does not take the acoustic feature vector as
+       an argument. Instead, acoustic features are passed to the model via the
+       nextFrame member function of the DModel class in the next section. This
+       design choice makes the search module  completely  independent  of  the
+       acoustic front-end.
+
+
