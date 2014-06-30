@@ -45,10 +45,14 @@
 %
 \begin{abstract}
 In this paper we introduce \emph{OpenDcd} a lightweight and portable Weighted Finite State
-Transducer based speech decoding toolkit. OpenDcd is a collection or tools for speech
+Transducer based speech decoding toolkit written in C++. OpenDcd is a collection or tools for speech
 recognition decoding, cascade construction and related conversion and results manipulation.
 The toolkit is faster and requires substantially less memory than other open source alternatives.
 We hope this toolkit rescues from inefficient full $HCLG$ compilations.
+
+Through sophisticated use of templates OpenDcd can be built against Kaldi and re-use the
+frontend and acoustic scoring. This Allows OpenDcd to be used easily as a complete speech recognition system.
+
 \end{abstract}
 %
 \begin{keywords}
@@ -65,7 +69,7 @@ decoding libraries is still lagging. In this paper we describe the OpenDcd
 release a set of tools under active development for constructing and decoding
 finite state speech recognition cascades. The toolkit makes use of OpenFst for the 
 underlying finite state representations
-and operations, and the OpenGRM~\cite{roark12} for language model conversion.
+and operations, and the OpenGrm~\cite{roark12} for language model conversion.
 
 One extremely important feature of the toolkit is it can be built as 
 The toolkit can be built as standalone decoder with no dependencies, or as addon
@@ -74,6 +78,10 @@ acoustic models available in Kaldi. In later sections we discuss the lattice gen
 mechanisms that make it possible to use the OpenDcd in many of Kaldi's training and
 rescoring pipelines. 
 
+This means if you have a set of converted Kaldi models no additional software needs
+to be installed. OpenDcd without Kaldi can be deployed to any platform and the
+recognition system run. 
+
 Furthermore the modular nature of OpenDcd's  design allow for new types of 
 acoustic model for example LSTM or RNN to plugged into the decoder. 
 
@@ -81,11 +89,19 @@ The library started off as an internal project for research use we are
 releasing the project under an open source licence. One design goal was 
 to allow for customization via \texttt{C++} templates.
 
+The focus of the toolkit is provide a fast easy-to-use WFST decoder,
+with minimal dependencies that can be used as a tool research or
+as part of a larger software system.
+
 \section{Overview}
 \label{sec:format}
 There are several components in the system. The cascade tools, the decoder core
 and utility tools. In addition we provide a set of helpful scripts and Kaldi style
 example that show how to integrate the decoder into a standard Kaldi reciee.
+
+
+\subsection{Weighted Finite State Transducers}
+
 
 \section{Decoder Core}
 \label{sec:decodercore}
@@ -98,6 +114,13 @@ the acoustic model. The decoupling allows for specialized token expansion algori
 to handle any topolgy of HMM or even allow for totally arbitrary non-finite state
 models. 
 
+
+The recognition output is written as either an OpenFst FAR file or a Kaldi table. Each of which can
+stored in the tropical semiring or a Kaldi lattice weight. In addition tools are provided to convert
+between FAR and table formats. To batch manipulate the results we provided a reimplementation of
+the AT\&T \texttt{farfilter} command. \texttt{farprintnbeststrings} adds AT\&T functionality missing
+from OpenFst that is the ability to print an nbest list from lattices contained within a FAR file,
+we make use of two different algoritms. 
 
 
 \subsection{Customization}
@@ -124,7 +147,6 @@ output distributions and generates lattice.
                framesep=2mm]{cpp}
   typedef HMMTransitionModel<DecodableAmNnet> 
     ObservationModel;
-
   ArcDecoder<StdFst,         
              ObservationModel,
              SimpleLattice> Decoder;
@@ -132,7 +154,16 @@ output distributions and generates lattice.
 
 \subsection{Lattice Generation}
 The decoder supports lattice generation based on the \emph{phone-pair}
-approximation and a \emph{full} lattice generation strategy.
+approximation and a \emph{full} lattice generation strategy. In addition 
+there a two approaches for generating full state level lattices. The first
+is compose a HMM level.
+
+The decoder can be simply configured to generate lattice any of the below formats
+Tropical, Log, Lattice and CompactLattice. Not there are certain restrictions.
+In addtion the toolkit provides the code necesssary to build dynamic shared objects
+that allow the OpenFst tools to work with Kaldi's custom weight semirings.
+
+
 %\url{https://code.google.com/p/shinyprofiler/}
 
 \section{Instrumentation and Logging}
