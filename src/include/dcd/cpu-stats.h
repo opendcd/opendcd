@@ -27,6 +27,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+//Taken from Google mozc project and adapted for OpenDcd
+
 #ifndef DCD_BASE_CPU_STATS_H__
 #define DCD_BASE_CPU_STATS_H__
 
@@ -80,4 +82,4 @@ class CPUStats : public CPUStatsInterface {
 };
 }  // namespace dcd
 
-#endif  // ZGF_CPU_STATS_H__
+#endif  // DCD_CPU_STATS_H__

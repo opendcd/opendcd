@@ -1,5 +1,4 @@
 // hash-list.h
-
 // Copyright 2009-2011     Microsoft Corporation
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,8 +14,10 @@
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
 
+// Modified file from Kaldi standalone OpenDcd standalone compilation
 #ifndef DCD_HASH_LIST_H__
 #define DCD_HASH_LIST_H__
+
 #include <vector>
 #include <set>
 #include <algorithm>

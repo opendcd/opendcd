@@ -18,8 +18,8 @@
 //Most classes have a Clear() method that will reset the internals of
 //a class this more efficient than destroying and allocating new classes
 
-#ifndef ZGF_HMM_ARC_DECODER_H__
-#define ZGF_HMM_ARC_DECODER_H__
+#ifndef DCD_HMM_ARC_DECODER_H__
+#define DCD_HMM_ARC_DECODER_H__
 
 #include <algorithm> //For min
 #include <iostream>

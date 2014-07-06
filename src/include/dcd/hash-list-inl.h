@@ -1,5 +1,7 @@
-// util/hash-list-inl.h
+#ifndef DCD_UTIL_HASH_LIST_INL_H__
+#define DCD_UTIL_HASH_LIST_INL_H__
 
+// hash-list-inl.h
 // Copyright 2009-2011     Microsoft Corporation
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,13 +16,10 @@
 // MERCHANTABLITY OR NON-INFRINGEMENT.
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
+// Do not include this file directly.
+// It is included by fast-hash.h
 
-
-#ifndef DCD_UTIL_HASH_LIST_INL_H__
-#define DCD_UTIL_HASH_LIST_INL_H__
-
-// Do not include this file directly.  It is included by fast-hash.h
-
+// Modified file from Kaldi standalone OpenDcd standalone compilation
 
 namespace dcd {
 

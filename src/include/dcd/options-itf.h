@@ -17,7 +17,7 @@
 
 // Modifed by Paul Dixon 2013 for standalone compilation and changed default
 // namespace
-//
+
 #ifndef DCD_OPTIONS_ITF_H__
 #define DCD_OPTIONS_ITF_H__
 
@@ -46,6 +46,6 @@ class OptionsItf {
 
 }  // namespace Kaldi
 
-#endif  // ZGF_OPTIONS_ITF_H__
+#endif // DCD_OPTIONS_ITF_H__
 
 

@@ -1,15 +1,20 @@
-// feat-readers2.h
-
-// LICENSE-GOES-HERE
+// feat-readers.h
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-// Copyright 2013- Yandex LLC
-// Author: jorono@yandex-team.ru (Josef Novak),
-//         dixonp@yandex-team.ru (Paul Dixon)
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
-
-/// \file
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Copyright 2013-2014 Yandex LLC
+// \file
 /// Basic standalone feature reader for Kaldi .ark
-/// files.  Supports text and binary format, but
+/// files. Supports text and binary format, but
 /// currently limited to matrix float readers.
 
 #ifndef DCD_FEATREADERS_H__
@@ -270,4 +275,5 @@ class SimpleDecodableHitStats {
   DISALLOW_COPY_AND_ASSIGN(SimpleDecodableHitStats);
 };
 }
-#endif // ZGF_FEATREADERS_H__
+
+#endif // DCD_FEATREADERS_H__
