@@ -1,0 +1,40 @@
+.
+arc-decoder.h C
+arc-expand-fst.h C
+cascade.h C
+config.h C
+constants.h C
+cpu-stats.h C
+feat-readers.h C
+generic-state-allocator.h C
+generic-transition-model.h C
+hash-list.h C
+hash-list-inl.h C
+hlevel-decoder.h C
+hmm-transition-model.h C
+kaldi-lattice-arc.h C
+lattice.h C
+lexicon.h
+log.h 
+mbr-decode.h
+memdebug.h
+ngram-count.h
+ngram-input.h
+on-the-fly-rescoring-lattice.h
+options-itf.h
+parse-options.h
+prettyprint.h
+regex.h
+register.h
+search-opts.h
+search-statistics.h
+simple-lattice.h
+stl.h
+text-utils.h
+token.h
+utils.h
+
+
+kaldi-generic-transition-model.h
+kaldi-hclg-emulation-transition-model.h
+kaldi-online-generic-transition-model.h
