@@ -1,3 +1,63 @@
+// utils.cc
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Copyright 2013-2014 Yandex LLC
+// \file
+// Utility functions for system memory usage, take from third party sources
+
+
+// Copyright 2009-2011  Saarland University;  Microsoft Corporation
+
+// See ../../COPYING for clarification regarding multiple authors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+
+//  http://www.apache.org/licenses/LICENSE-2.0
+
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+// WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+// MERCHANTABLITY OR NON-INFRINGEMENT.
+// See the Apache 2 License for the specific language governing permissions and
+// limitations under the License.
+using namespace fst;
+using namespace std;
+
+namespace dcd {
+template<class F>
+bool SplitStringToFloats(const std::string &full,
+                         const char *delim,
+                         bool omit_empty_strings, // typically false
+                         std::vector<F> *out) {
+  assert(out != NULL);
+  if ( *(full.c_str()) == '\0') {
+    out->clear();
+    return true;
+  }
+  std::vector<std::string> split;
+  SplitStringToVector(full, delim, omit_empty_strings, &split);
+  out->resize(split.size());
+  for (size_t i = 0; i < split.size(); i++) {
+    F f = 0;
+    if (!ConvertStringToReal(split[i], &f))
+      return false;
+    (*out)[i] = f;
+  }
+  return true;
+}
+
 /*
  * Author:  David Robert Nadeau
  * Site:    http://NadeauSoftware.com/
@@ -33,38 +93,12 @@
 #endif
 
 
-using namespace fst;
-using namespace std;
-
-namespace dcd {
-template<class F>
-bool SplitStringToFloats(const std::string &full,
-                         const char *delim,
-                         bool omit_empty_strings, // typically false
-                         std::vector<F> *out) {
-  assert(out != NULL);
-  if ( *(full.c_str()) == '\0') {
-    out->clear();
-    return true;
-  }
-  std::vector<std::string> split;
-  SplitStringToVector(full, delim, omit_empty_strings, &split);
-  out->resize(split.size());
-  for (size_t i = 0; i < split.size(); i++) {
-    F f = 0;
-    if (!ConvertStringToReal(split[i], &f))
-      return false;
-    (*out)[i] = f;
-  }
-  return true;
-}
 /**
  * Returns the peak (maximum so far) resident set size (physical
  * memory use) measured in bytes, or zero if the value cannot be
  * determined on this OS.
  */
-size_t GetPeakRSS()
-{
+size_t GetPeakRSS() {
 #if defined(_WIN32)
   /* Windows -------------------------------------------------- */
   PROCESS_MEMORY_COUNTERS info;

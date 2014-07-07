@@ -1,4 +1,5 @@
 # C Copyright notice, S spelling, E 80 columns
+
 C arc-decoder.h
 C arc-expand-fst.h
 C cascade.h
@@ -31,28 +32,34 @@ C utils.h
 
 C on-the-fly-rescoring-lattice.h
 
- lexicon.h
 C ngram-count.h
 C ngram-input.h
 C regex.h
 
 C kaldi-hclg-emulation-transition-model.h
-kaldi-online-generic-transition-model.h
-kaldi-generic-transition-model.h
+C lexicon.h
 
 C arc-expand.cc
-C compiler-flags.cc
-C compiler-version.cc
-dcd-lexicon.cc
-dcd-ngram.cc
-dcd-recog.cc
+C dcd-lexicon.cc
+C dcd-ngram.cc
+C dcd-recog.cc
 C far-to-lattice.cc
-farfilter.cc
-farprintnbeststrings.cc
-farprintstrings2.cc
+C farfilter.cc
+C farprintnbeststrings.cc
 C fstconfidence.cc
 C fstxprintstrings.cc
-gitrevision.cc
 C kaldi-lattice-arc-reg.cc
-test.cc
-tmp.cc
+
+C config.cc
+C cpu-stats.cc
+C feat-readers.cc
+C log.cc
+C memdebug.cc
+C parse-options.cc
+C text-utils.cc
+C utils.cc
+
+online-nnet-loglike-transf-estimator.cc
+online-nnet-transf-decodable.cc
+kaldi-online-generic-transition-model.h
+kaldi-generic-transition-model.h

@@ -1,4 +1,4 @@
-// ngramread.cc
+// dcd-ngram.cc
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@
 //
 // \file
 // Reads textual model representations and produces n-gram model FST
+// Stripped out of OpenGrn Ngram library and namepsace changes 
+// for indepenendent use
 
 #include <string>
 #include <dcd/ngram-input.h>

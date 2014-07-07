@@ -20,9 +20,9 @@
 // limitations under the License.
 
 
-// Modifed by Paul Dixon 2013 for standalone compilation and changed defaul
+// Modifed by 2013 for standalone compilation and changed defaul
 // namespace
-// TODO(JOE) replace the LOG(ERROR)/LOG(WARN) with something threadsafe 
+// TODO replace the LOG(ERROR)/LOG(WARN) with something threadsafe 
 // or colorize maybe? might not matter as this will run before everything else
 // starts
 
