@@ -1,5 +1,5 @@
 #all: dcd-decode fstxprintstrings
-all: fstconfidence dcd-recog farprintnbeststrings
+all: dcd-recog 
 	#arc-expand dcd-lexicon farfilter shiny 
 	#farprintnbeststrings 
 

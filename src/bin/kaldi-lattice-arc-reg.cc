@@ -1,6 +1,4 @@
 // kaldi-lattice-arc-reg.cc
-// Copyright 2014
-// Author: Paul R. Dixon
 // Based on registration code from OpenFst
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,8 +12,8 @@
 // MERCHANTABLITY OR NON-INFRINGEMENT.
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
-
-
+// Copyright 2013-2014
+// /file
 
 #include <fst/const-fst.h>
 #include <fst/edit-fst.h>

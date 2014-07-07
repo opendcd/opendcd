@@ -1,40 +1,58 @@
-.
-arc-decoder.h C
-arc-expand-fst.h C
-cascade.h C
-config.h C
-constants.h C
-cpu-stats.h C
-feat-readers.h C
-generic-state-allocator.h C
-generic-transition-model.h C
-hash-list.h C
-hash-list-inl.h C
-hlevel-decoder.h C
-hmm-transition-model.h C
-kaldi-lattice-arc.h C
-lattice.h C
-lexicon.h
-log.h 
-mbr-decode.h
-memdebug.h
-ngram-count.h
-ngram-input.h
-on-the-fly-rescoring-lattice.h
-options-itf.h
-parse-options.h
-prettyprint.h
-regex.h
-register.h
-search-opts.h
-search-statistics.h
-simple-lattice.h
-stl.h
-text-utils.h
-token.h
-utils.h
+# C Copyright notice, S spelling, E 80 columns
+C arc-decoder.h
+C arc-expand-fst.h
+C cascade.h
+C config.h
+C constants.h
+C cpu-stats.h
+C feat-readers.h
+C generic-state-allocator.h
+C generic-transition-model.h
+C hash-list.h
+C hash-list-inl.h
+C hlevel-decoder.h
+C hmm-transition-model.h
+C kaldi-lattice-arc.h
+C lattice.h
+C log.h
+C mbr-decode.h
+C memdebug.h
+C options-itf.h
+C parse-options.h
+C prettyprint.h
+C register.h
+C search-opts.h
+C search-statistics.h
+C simple-lattice.h
+C stl.h
+C text-utils.h
+C token.h
+C utils.h
 
+C on-the-fly-rescoring-lattice.h
 
-kaldi-generic-transition-model.h
-kaldi-hclg-emulation-transition-model.h
+ lexicon.h
+C ngram-count.h
+C ngram-input.h
+C regex.h
+
+C kaldi-hclg-emulation-transition-model.h
 kaldi-online-generic-transition-model.h
+kaldi-generic-transition-model.h
+
+C arc-expand.cc
+C compiler-flags.cc
+C compiler-version.cc
+dcd-lexicon.cc
+dcd-ngram.cc
+dcd-recog.cc
+C far-to-lattice.cc
+farfilter.cc
+farprintnbeststrings.cc
+farprintstrings2.cc
+C fstconfidence.cc
+C fstxprintstrings.cc
+gitrevision.cc
+C kaldi-lattice-arc-reg.cc
+test.cc
+tmp.cc

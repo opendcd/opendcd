@@ -15,7 +15,7 @@
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
 
-// Modifed by Paul Dixon 2013 for standalone compilation and changed default
+// Modifed for standalone compilation and changed default
 // namespace
 
 #ifndef DCD_OPTIONS_ITF_H__
@@ -44,7 +44,7 @@ class OptionsItf {
   virtual ~OptionsItf() {}
 };
 
-}  // namespace Kaldi
+}  // namespace dcd
 
 #endif // DCD_OPTIONS_ITF_H__
 

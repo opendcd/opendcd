@@ -29,7 +29,7 @@
 
 
 #include <dcd/hash-list.h>
-#include <dcd/lattice-arc.h>
+#include <dcd/kaldi-lattice-arc.h>
 #include <dcd/text-utils.h>
 
 using namespace std;

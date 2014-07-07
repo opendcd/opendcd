@@ -1,5 +1,4 @@
 // log.h
-
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -13,9 +12,9 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
-
 /// \file
 /// Basic logger class with colorization support.
+
 /// TODO: Is it possible that dynamic support for
 /// color-changing could have an impact on thread-safety?
 /// Is the Logger class even thread-safe without it?

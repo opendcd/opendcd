@@ -31,7 +31,7 @@ using fst::StateIterator;
 using fst::StdFst;
 
 class KaldiOnlineGenericTransitionModel {
-  typedef TokenTpl<Lattice::LatticeState*> Token;
+ typedef TokenTpl<Lattice::LatticeState*> Token;
  public:
  KaldiOnlineGenericTransitionModel()
    : decodable_(NULL) { }

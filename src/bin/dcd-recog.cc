@@ -11,7 +11,7 @@
 #include <dcd/cpu-stats.h>
 #include <dcd/generic-transition-model.h>
 #include <dcd/hmm-transition-model.h>
-#include <dcd/lattice-arc.h>
+#include <dcd/kaldi-lattice-arc.h>
 #include <dcd/log.h>
 #include <dcd/memdebug.h>
 #include <dcd/on-the-fly-rescoring-lattice.h>

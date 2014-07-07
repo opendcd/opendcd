@@ -16,12 +16,10 @@
 // Authors: roarkbr@gmail.com  (Brian Roark)
 //          allauzen@google.com (Cyril Allauzen)
 //          riley@google.com (Michael Riley)
-
-// Stripper: jorono@yandex-team.ru (Josef Novak)
 //
 // \file
 // NGram model class for reading in a model or text for building a model
-// Stripped out of the openngram library for independent use.
+// Stripped out of the OpenGrm Ngram library for independent use.
 
 
 #ifndef DCD_NGRAM_INPUT_H__

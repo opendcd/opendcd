@@ -163,6 +163,16 @@ Tropical, Log, Lattice and CompactLattice. Not there are certain restrictions.
 In addtion the toolkit provides the code necesssary to build dynamic shared objects
 that allow the OpenFst tools to work with Kaldi's custom weight semirings.
 
+\subsection{Parallelization}
+The recent work on acoustic lookahead and parallelization only focus on dynamic decoders
+or WFST decoder that use lookahead composition. We introduce a different parallelization
+scheme that uses a worker thread to pre-emp upcoming states and precompute the composition
+state. In practise we find that this heuristic can give an approximately 20\% speed-up.
+
+\subsection{Factorization}
+The de-coupled transition model implemenation not allows for non HMM based models to be easily
+integrated into the decoder but allows for arbitrary topologies that may be the result of more
+complex models or more complex factorizations of the search space.
 
 %\url{https://code.google.com/p/shinyprofiler/}
 
@@ -188,7 +198,10 @@ Shortestpath. The later is handled be the decoder command and by careful
 component construction. We 
 
 The ngram model uses the direct minimalistic construction proposed by
-Caseiro~\cite{caseiro01} and implemented by OpenGRM.
+Caseiro~\cite{caseiro01} and implemented by OpenGrm. In practise we 
+find that the minimized LM improves the performance of the lookahead composition.
+In addtion we find that pushing the labels are forward as possible can also help
+the efficiency substantially.
 
 \section{Utility Tools}
 \label{sec:postprocess}
@@ -197,9 +210,10 @@ many useful tools. These include the following:
 
 
 \section{Kaldi Interop}
-With recent importance of Kaldi with provide two levels of compatability.
-When the decoder is built for standalone operation we provide native reading
-of Kaldi features and writing for alignment formats.
+With recent importance of Kaldi as the foundation of most speech recognition
+research. OpenDcd provides two levels of compatability.
+When the decoder is built for standalone operation we support native reading
+of Kaldi features and writing of the table format.
 
 
 \section{Evaluations}

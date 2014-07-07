@@ -20,7 +20,8 @@
 //
 // \file
 // NGram counting class
-// Stripped out of openngram library for indepenendent use.
+// Stripped out of OpenGrn Ngram library and namepsace changes 
+// for indepenendent use
 
 #ifndef DCD_NGRAM_COUNT_H__
 #define DCD_NGRAM_COUNT_H__

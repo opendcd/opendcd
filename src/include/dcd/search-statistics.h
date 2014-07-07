@@ -1,14 +1,28 @@
+// search-statisitcs.h
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Copyright 2013-2014 Yandex LLC
+// \file
+// This is the decoder statistics. The decoder
+// is templated on this class. Certain implementation
+// will not implement perform anything and will be optimized
+// out. Faster, neater and safer than using ifdef-else macros
+//
 #ifndef DCD_SEARCH_STATISTICS_H__ 
 #define DCD_SEARCH_STATISTICS_H__ 
 
 #include <limits>
 #include <dcd/utils.h>
-
-//This is the decoder statistics. The decoder
-//is templated on this class. Certain implementation
-//will not implement perform anything and will be optimized
-//out. Faster, neater and safer than using if-else definitions
-
 
 namespace dcd {
 

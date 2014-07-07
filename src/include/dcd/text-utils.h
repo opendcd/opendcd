@@ -16,7 +16,7 @@
 // limitations under the License.
 
 
-// Modifed by Paul Dixon 2013 for standalone compilation and changed default
+// Modifed by 2013 for standalone compilation and changed default
 // namespace
 
 #ifndef DCD_TEXT_UTILS_H__

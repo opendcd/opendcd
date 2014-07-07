@@ -1,4 +1,4 @@
-// lat/sausages.h
+// mbr-decode.h
 
 // Copyright 2012  Johns Hopkins University (Author: Daniel Povey)
 
@@ -16,6 +16,10 @@
 // MERCHANTABLITY OR NON-INFRINGEMENT.
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
+
+//Modified 2014 Kaldi MBR decoder that doesn not require state aligments or
+//time information
+
 #ifndef DCD_LAT_SAUSAGES_NOTIME_H__
 #define DCD_LAT_SAUSAGES_NOTIME_H__
 
