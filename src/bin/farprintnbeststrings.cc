@@ -30,11 +30,9 @@
 #include <fst/extensions/far/main.h>
 #include <fst/extensions/far/farscript.h>
 
-#include <dcd/lattice-arc.h>
+#include <dcd/kaldi-lattice-arc.h>
 #include <dcd/mbr-decode.h>
 #include <dcd/utils.h>
-
-#include "utils.h"
 
 
 using namespace std;

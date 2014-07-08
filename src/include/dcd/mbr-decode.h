@@ -30,7 +30,7 @@
 #include <fst/topsort.h>
 #include <fst/vector-fst.h>
 
-#include <dcd/lattice-arc.h>
+#include <dcd/kaldi-lattice-arc.h>
 
 template <class T>
 inline void hash_combine(std::size_t & seed, const T & v)

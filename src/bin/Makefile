@@ -1,7 +1,8 @@
 #all: dcd-decode fstxprintstrings
-all: dcd-recog 
-	#arc-expand dcd-lexicon farfilter shiny 
-	#farprintnbeststrings 
+all: dcd-recog farfilter shiny \
+	   farprintnbeststrings 
+	
+	#arc-expand dcd-lexicon 
 
 #Allow this to be specified for the platform
 include ../dcd.mk
@@ -22,9 +23,9 @@ compiler-flags.cc: Makefile ../dcd.mk
 
 dcd-recog: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrevision.o compiler-flags.o \
 	memdebug.o compiler-version.o cpu-stats.o config.o feat-readers.o
-	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar -lz
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar 
 
-dcd-dcdrecg.cc: ../include/dcd/arc-decoder.h
+dcd-recg.cc: ../include/dcd/arc-decoder.h
 
 fstxprintstrings: fstxprintstrings.o 
 	$(CXX) $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstscript
