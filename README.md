@@ -1,4 +1,4 @@
-opendcd
+OpenDcd
 =======
 
 OpenDcd is a collection or tools for speech recognition decoding, cascade
