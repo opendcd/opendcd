@@ -22,10 +22,10 @@
 #define DCD_SIMPLE_LATTICE_H__
 
 #include <fst/vector-fst.h>
+#include <dcd/constants.h>
 #include <dcd/kaldi-lattice-arc.h>
 #include <dcd/log.h>
 #include <dcd/search-opts.h>
-#include <dcd/constants.h>
 
 using fst::VectorFst;
 

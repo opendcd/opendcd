@@ -35,7 +35,6 @@
 #include <dcd/config.h>
 #include <dcd/lattice.h>
 #include <dcd/log.h>
-#include <dcd/simple-lattice.h>
 #include <dcd/search-opts.h>
 #include <dcd/search-statistics.h>
 #include <dcd/stl.h>

@@ -1,1 +1,1 @@
-const char* g_dcd_cflags = "-I../include/ -Wno-sign-compare -Wno-dangling-else -Wno-deprecated-writable-strings -DOS_MACOSX -O2 -std=c++11 -I/Users/dixonp/tools/kaldi-trunk-latest/src/  -DMEMDEBUG  -I../../3rdparty/"; const char* g_dcd_lflags =" -ldl -L/usr/local/lib/fst/ -L/usr/local/lib/ -lboost_system-mt -lboost_thread-mt ";
+const char* g_dcd_cflags = "-I../include/ -Wno-sign-compare -Wno-dangling-else -Wno-deprecated-writable-strings -DOS_MACOSX -O2 -std=c++11  -DMEMDEBUG  -I../../3rdparty/"; const char* g_dcd_lflags =" -ldl -L/usr/local/lib/fst/ -L/usr/local/lib/ ";

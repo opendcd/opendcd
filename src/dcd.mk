@@ -14,9 +14,9 @@ DOTGITDIR+=../../.git
 
 CXXFLAGS+=-I../include/ \
 					-Wno-sign-compare -Wno-dangling-else \
-					-Wno-deprecated-writable-strings -DOS_MACOSX -O2 -std=c++11 \
-					-I/Users/dixonp/tools/kaldi-trunk-latest/src/
+					-Wno-deprecated-writable-strings -DOS_MACOSX -O2 -std=c++11
 
+#					-I/Users/dixonp/tools/kaldi-trunk-latest/src/
 #CXXFLAGS+=-DNODEBUG -march=native -fomit-frame-pointer -funroll-loops
 #CXXFLAGS+=-DUSERDESTL
 #-g
@@ -24,7 +24,7 @@ CXXFLAGS+=
 #-stdlib=libstdc++ 
 LDFLAGS+=
 #-stdlib=libstdc++ 
-LDFLAGS+= -ldl -L/usr/local/lib/fst/ -L/usr/local/lib/ -lboost_system-mt -lboost_thread-mt
+LDFLAGS+= -ldl -L/usr/local/lib/fst/ -L/usr/local/lib/
 #-g
 
 # -stdlib=libstdc++ 

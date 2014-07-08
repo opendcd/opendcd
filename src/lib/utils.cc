@@ -32,8 +32,8 @@
 // MERCHANTABLITY OR NON-INFRINGEMENT.
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
-using namespace fst;
-using namespace std;
+#include <iostream>
+#include <dcd/utils.h>
 
 namespace dcd {
 template<class F>

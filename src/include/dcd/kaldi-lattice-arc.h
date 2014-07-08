@@ -1,5 +1,7 @@
-// kaldi-lattice-arc.h
-// Original copyright information from kaldi
+//Just a cut and paste job on the Kaldi lattice weight types for standalone
+//Kaldi compatability
+
+//Original copyright information
 // fstext/lattice-weight.h
 // Copyright 2009-2012  Microsoft Corporation
 //                      Johns Hopkins University (author: Daniel Povey)
@@ -19,9 +21,6 @@
 // See the Apache 2 License for the specific language governing permissions and
 // limitations under the License.
 
-//Just a cut and paste job on the Kaldi lattice weight types for standalone
-//Kaldi compatability
-//
 #ifndef FST_LATTICE_ARC_H__
 #define FST_LATTICE_ARC_H__
 
