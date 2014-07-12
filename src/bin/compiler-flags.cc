@@ -1,1 +1,1 @@
-const char* g_dcd_cflags = "-I../include/ -Wno-sign-compare -Wno-dangling-else -Wno-deprecated-writable-strings -DOS_MACOSX -O2 -std=c++11  -DMEMDEBUG  -I../../3rdparty/"; const char* g_dcd_lflags =" -ldl -L/usr/local/lib/fst/ -L/usr/local/lib/ ";
+const char* g_dcd_cflags = "-I../include/ -Wno-sign-compare -Wno-dangling-else -Wno-deprecated-writable-strings -DOS_MACOSX -O2 -std=c++11  -I../../3rdparty/Shiny/include/ -DHAVESHINY  -DMEMDEBUG  -I../../3rdparty/"; const char* g_dcd_lflags =" -ldl -L/usr/local/lib/fst/ -L/usr/local/lib/ -L../../3rdparty/Shiny/lib/ -lshiny ";
