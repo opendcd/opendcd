@@ -13,7 +13,7 @@
 //
 // Copyright 2013-2014 Yandex LLC
 // \file
-// Basic ArcDecoder class
+// Basic CLevelDecoder class
 
 //Most classes have a Clear() method that will reset the internals of
 //a class this more efficient than destroying and allocating new classes
@@ -22,6 +22,7 @@
 #define DCD_HMM_ARC_DECODER_H__
 
 #include <algorithm> //For min
+#include <fstream>
 #include <iostream>
 #include <limits>
 
@@ -33,13 +34,14 @@
 #include <fst/vector-fst.h>
 
 #include <dcd/config.h>
+#include <dcd/constants.h>
 #include <dcd/lattice.h>
 #include <dcd/log.h>
-#include <dcd/search-opts.h>
 #include <dcd/search-statistics.h>
 #include <dcd/stl.h>
 #include <dcd/token.h>
 #include <dcd/utils.h>
+#include <dcd/search-opts.h>
 
 
 namespace dcd {
@@ -52,10 +54,14 @@ using fst::StdArc;
 using fst::VectorFst;
 using fst::MutableFst;
 
+using fst::kNoStateId;
+using fst::PROJECT_OUTPUT;
+using fst::AutoQueue;
+
 //Forward declations for the various decoder classes
 //these classes need to know the names of the other types
 template<class FST, class TransModel, class L, class Statistics>
-class ArcDecoder;
+class CLevelDecoder;
 
 template<class Weight>
 inline float Value(const Weight& w, int time = -1) {
@@ -70,7 +76,7 @@ inline float Value(const KaldiLatticeWeight& w, int time = -1) {
 //FST is uppercase to avoid collision with OpenFst naming
 template<class FST, class TransModel, class L,
   class Statistics = NullStatistics>
-class ArcDecoder {
+class CLevelDecoder {
  public:
   class SearchArc;
   class SearchState;
@@ -186,7 +192,7 @@ class ArcDecoder {
     //activated state. Cost could change due to
     //insertion penalty or duration penally, or get better due
     //on-the-fly rescoring
-    float ExpandToFollowingState(ArcDecoder* decoder) {
+    float ExpandToFollowingState(CLevelDecoder* decoder) {
       if (!tokens_[num_states_].Active())
         return kMaxCost;
       SearchState* ss = FindNextState(*decoder);
@@ -219,7 +225,7 @@ class ArcDecoder {
 
     //Template this so we don't need to see a declaration
     //for the decoders type
-    SearchState* FindNextState(ArcDecoder* decoder) {
+    SearchState* FindNextState(CLevelDecoder* decoder) {
       if (!dest_)
         dest_ = decoder->FindSearchState(nextstate_);
       return dest_;
@@ -394,7 +400,7 @@ class ArcDecoder {
 
     //Returns the best cost that was activated
     float ExpandEpsilonArcs(ActiveStateVector* active_states, EpsQueue* q,
-        ArcDecoder* decoder, float threshold, const SearchOptions& opts) {
+        CLevelDecoder* decoder, float threshold, const SearchOptions& opts) {
       float best = kMaxCost;
       int num_activated = 0;
       for (int i = 0; i != eps_arcs_.size(); ++i) {
@@ -614,7 +620,7 @@ class ArcDecoder {
   };
 
  public:
-  ArcDecoder(FST* fst, TransModel* trans_model, const SearchOptions& opts, 
+  CLevelDecoder(FST* fst, TransModel* trans_model, const SearchOptions& opts, 
       ostream* logstream = &std::cerr, L* lattice = 0) 
     : fst_(fst), trans_model_(trans_model), search_opts_(opts),
     lattice_(0), logger_("dcd-decode", *logstream, opts.colorize), 
@@ -631,7 +637,7 @@ class ArcDecoder {
       }
     }
 
-  virtual ~ArcDecoder() {
+  virtual ~CLevelDecoder() {
     lattice_->Clear();
     if (owns_lattice_)
       delete lattice_;
@@ -1421,7 +1427,7 @@ private:
 
   Statistics search_stats_;
   Timer timer_;
-  DISALLOW_COPY_AND_ASSIGN(ArcDecoder);
+  DISALLOW_COPY_AND_ASSIGN(CLevelDecoder);
 };
 
 } //namespace dcd

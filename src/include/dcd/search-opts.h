@@ -17,6 +17,7 @@
 #ifndef DCD_SEARCH_OPTS_H__
 #define DCD_SEARCH_OPTS_H__
 
+#include <fst/symbol-table.h>
 #include <dcd/config.h>
 #include <dcd/constants.h>
 
@@ -103,8 +104,8 @@ struct SearchOptions {
   float acoustic_scale;
   float trans_scale;
   float lattice_beam;
-  const SymbolTable* wordsyms;
-  const SymbolTable* phonesyms;
+  const fst::SymbolTable* wordsyms;
+  const fst::SymbolTable* phonesyms;
   bool use_lattice_pool;
   bool cache_destinatation_states;
   int gc_period;

@@ -197,7 +197,8 @@ struct LatticeState {
 };
 
 
- explicit SimpleLattice(const SearchOptions& opts) 
+ explicit SimpleLattice(const SearchOptions& opts, ostream* logstream =
+     &std::cerr) 
      : next_id_(0), num_allocs_(0), num_frees_(0) { }
 
  virtual ~SimpleLattice() { 
@@ -257,7 +258,7 @@ struct LatticeState {
   void GcClearMarks() {
   }
 
-  int GcSweep() {
+  int GcSweep(vector<int>* early_mission = 0) {
    return 0;
   }
 
@@ -285,6 +286,14 @@ struct LatticeState {
   }
 
   int FreeListSize() const { return 0; }
+
+  //Debug function to build a tranducers from the partial traceback
+  template<class Arc>
+  void DumpToFst(VectorFst<Arc>* ofst, fst::SymbolTable* ssyms = 0) {
+    typedef typename Arc::Weight W;
+  }
+
+
   
   static string Type() {
     return "SimpleLattice";
