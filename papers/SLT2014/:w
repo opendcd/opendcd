@@ -1,0 +1,327 @@
+% Template for ICIP-2012 paper; to be used with:
+%          spconf.sty  - ICASSP/ICIP LaTeX style file, and
+%          IEEEbib.bst - IEEE bibliography style file.
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,amsmath,graphicx,minted,url}
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+
+% Title.
+% ------
+\title{OpenDcd: Open Source WFST Decoding Toolkit}
+%
+% Single address.
+% ---------------
+\name{Paul R. Dixon \quad Josef R. Novak}
+\address{Yandex Zurich}
+%
+% For example:
+% ------------
+%\address{School\\
+%	Department\\
+%	Address}
+%
+% Two addresses (uncomment and modify for two-address case).
+% ----------------------------------------------------------
+%\twoauthors
+%  {A. Author-one, B. Author-two\sthanks{Thanks to XYZ agency for funding.}}
+%	{School A-B\\
+%	Department A-B\\
+%	Address A-B}
+%  {C. Author-three, D. Author-four\sthanks{The fourth author performed the work
+%	while at ...}}
+%	{School C-D\\
+%	Department C-D\\
+%	Address C-D}
+%
+\begin{document}
+%\ninept
+%
+\maketitle
+%
+\begin{abstract}
+In this paper we introduce \emph{OpenDcd} a lightweight and portable Weighted Finite State
+Transducer based speech decoding toolkit written in C++. OpenDcd is a collection or tools for speech
+recognition decoding, cascade construction and related conversion and results manipulation.
+The toolkit is faster and requires substantially less memory than other open source alternatives.
+We hope this toolkit rescues from inefficient full $HCLG$ compilations.
+
+Through sophisticated use of templates OpenDcd can be built against Kaldi and re-use the
+frontend and acoustic scoring. This Allows OpenDcd to be used easily as a complete speech recognition system.
+
+\end{abstract}
+%
+\begin{keywords}
+WFST, Decoding, Speech recognition, Open source
+\end{keywords}
+%
+\section{Introduction}
+\label{sec:intro}
+Open source and reproducible results are speech recognition are an essential
+part of modern science. Recently, there has become available many excellent
+tools for manipulating automata, building language models, all the way up
+build sophisticated speech recognitions system.  However, the state of modern 
+decoding libraries is still lagging. In this paper we describe the OpenDcd
+release a set of tools under active development for constructing and decoding
+finite state speech recognition cascades. The toolkit makes use of OpenFst for the 
+underlying finite state representations
+and operations, and the OpenGrm~\cite{roark12} for language model conversion.
+
+One extremely important feature of the toolkit is it can be built as 
+The toolkit can be built as standalone decoder with no dependencies, or as addon
+with Kaldi. For the latter there is full access to all of the IO mechanism and 
+acoustic models available in Kaldi. In later sections we discuss the lattice generation
+mechanisms that make it possible to use the OpenDcd in many of Kaldi's training and
+rescoring pipelines. 
+
+This means if you have a set of converted Kaldi models no additional software needs
+to be installed. OpenDcd without Kaldi can be deployed to any platform and the
+recognition system run. 
+
+Furthermore the modular nature of OpenDcd's  design allow for new types of 
+acoustic model for example LSTM or RNN to plugged into the decoder. 
+
+The library started off as an internal project for research use we are
+releasing the project under an open source licence. One design goal was 
+to allow for customization via \texttt{C++} templates.
+
+The focus of the toolkit is provide a fast easy-to-use WFST decoder,
+with minimal dependencies that can be used as a tool research or
+as part of a larger software system.
+
+OpenDcd is by far the best open source decoder avaliable anyway.
+It is a state-of-the-art and highly extensiable toolkit for speech
+recognition. The highly modular and pluggable architecture is designed
+to allow for researcher to integrate new models and algorithms.
+
+
+Goals of the OpenDcd toolkit:
+\textbf{Simplicity}
+\begin{itemize}
+  \item Concise code - only 5000 lines
+  \item It \emph{just works} simple to build with make
+  \item No build dependencies 
+  \item One decoding command
+  \item Streamlined
+\end{itmemize}
+\section{Overview}
+\label{sec:format}
+There are several components in the system. The cascade tools, the decoder core
+and utility tools. In addition we provide a set of helpful scripts and Kaldi style
+example that show how to integrate the decoder into a standard Kaldi reciee.
+
+
+\subsection{Weighted Finite State Transducers}
+
+
+\section{Decoder Core}
+\label{sec:decodercore}
+
+\subsection{Transition Model}
+The search component assumes that the transition model\footnote{Our model and definition of TransitionModel
+are different to that used in Kaldi.} will consume a single
+frame of speech per time step. The transition module (nearly) full encapsulates
+the acoustic model. The decoupling allows for specialized token expansion algorithm
+to handle any topolgy of HMM or even allow for totally arbitrary non-finite state
+models. 
+
+
+The recognition output is written as either an OpenFst FAR file or a Kaldi table. Each of which can
+stored in the tropical semiring or a Kaldi lattice weight. In addition tools are provided to convert
+between FAR and table formats. To batch manipulate the results we provided a reimplementation of
+the AT\&T \texttt{farfilter} command. \texttt{farprintnbeststrings} adds AT\&T functionality missing
+from OpenFst that is the ability to print an nbest list from lattices contained within a FAR file,
+we make use of two different algoritms. 
+
+
+\subsection{Customization}
+\label{sec:custom}
+The core of the decoder is the \texttt{ArcDecoder} class that is parametrized on a transition
+model, Fst  and lattice.
+\begin{minted}[mathescape,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{cpp}
+  template<class T, class F, class L>
+  class ArcDecoder;
+\end{minted}
+
+For example the following code in Kaldi mode will create a decoder that uses
+cascade in the tropical semiring, has HMM transition model with GMM state 
+output distributions and generates lattice.
+
+\begin{minted}[mathescape,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{cpp}
+  typedef HMMTransitionModel<DecodableAmNnet> 
+    ObservationModel;
+  ArcDecoder<StdFst,         
+             ObservationModel,
+             SimpleLattice> Decoder;
+\end{minted}
+
+\subsection{Lattice Generation}
+The decoder supports lattice generation based on the \emph{phone-pair}
+approximation and a \emph{full} lattice generation strategy. In addition 
+there a two approaches for generating full state level lattices. The first
+is compose a HMM level.
+
+The decoder can be simply configured to generate lattice any of the below formats
+Tropical, Log, Lattice and CompactLattice. Not there are certain restrictions.
+In addtion the toolkit provides the code necesssary to build dynamic shared objects
+that allow the OpenFst tools to work with Kaldi's custom weight semirings.
+
+\subsection{Parallelization}
+The recent work on acoustic lookahead and parallelization only focus on dynamic decoders
+or WFST decoder that use lookahead composition. We introduce a different parallelization
+scheme that uses a worker thread to pre-emp upcoming states and precompute the composition
+state. In practise we find that this heuristic can give an approximately 20\% speed-up.
+
+\subsection{Factorization}
+The de-coupled transition model implemenation not allows for non HMM based models to be easily
+integrated into the decoder but allows for arbitrary topologies that may be the result of more
+complex models or more complex factorizations of the search space.
+
+%\url{https://code.google.com/p/shinyprofiler/}
+
+\section{Instrumentation and Logging}
+\label{sec:instrumentation}
+The decoder has several built analysis mechanism, these are the call analyzer,
+memory analyzer and the search space analyzer. For fined grained analysis we 
+make use of the ShinyProfiler which generate very detailed call graphs.
+
+\section{Cascade Tools}
+\label{sec:cascade}
+The toolkit includes a very fast build procedure for constructing a recognition
+\emph{cascade} from a language, lexicon and context-dependency models. In 
+machine translation experimental pipelines have become more popular~\cite{koehn10}. 
+However, most of these are very similar to well known Unix make tool. We make 
+use of \texttt{make} as our basic tool to track the components. 
+If a compoenent in the cascade is modified make we only rebuild.
+
+The FST framework provides many operations for combining and manipulating
+automata. To construct a speech recognition cascade and recognize speech 
+typically requires three core operations: Composition, Determinization and
+Shortestpath. The later is handled be the decoder command and by careful
+component construction. We 
+
+The ngram model uses the direct minimalistic construction proposed by
+Caseiro~\cite{caseiro01} and implemented by OpenGrm. In practise we 
+find that the minimized LM improves the performance of the lookahead composition.
+In addtion we find that pushing the labels are forward as possible can also help
+the efficiency substantially.
+
+\section{Utility Tools}
+\label{sec:postprocess}
+In addition to main decoding command, the OpenDcd distribution contains
+many useful tools. These include the following:
+
+
+\section{Kaldi Interop}
+With recent importance of Kaldi as the foundation of most speech recognition
+research. OpenDcd provides two levels of compatability.
+When the decoder is built for standalone operation we support native reading
+of Kaldi features and writing of the table format.
+
+
+\section{Evaluations}
+\label{sec:majhead}
+In this section we demonstrate the performance of the decoder on several 
+tasks.
+
+\subsection{Wall Street Journal}
+
+\section{Summary}
+\label{sec:page}
+In this paper we have described OpenDcd a toolkit. In other papers we intend to
+describe the algoritms and cusomization in more depth. In future release we
+plan to release one-pass neural network re-scoring.
+
+We hope readers to will download OpenDcd from  \url{http://www.opendcd.org} and
+try the easy to use scripts and command line tools with their existing Kaldi setups.
+We hope that this library will become the default library and toolkit for many 
+years to come.
+
+\bibliographystyle{IEEEbib}
+\bibliography{WFSTSpeech}
+
+\end{document}
+
+
+The DCD Library is a software collection for speech recognition decoding and
+related functions. Based on the Finite-State Machine (FSM) Library, it provides
+higher-level operations needed specifically for decoding. These include
+algorithms that:
+
+make an optimized recognition transducer (``network'') from a grammar, a
+lexicon, and a context-dependency specification search a recognition transducer
+to find the best matching path or a set of paths (``lattice''), given an input
+utterance and an acoustic model weight lattices with just their grammatical and
+acoustic components align reference and hypothesis automata using edit
+distances (``scoring'') This library is not intended to provide a complete
+speech recognition system: there is no acoustic model, no acoustic feature
+generator (``front-end''), and no acoustic, lexical or grammatical training
+provided by this package; all are considered outside the scope of this library.
+It does provide a general, extensible acoustic model interface, it accepts
+general context-dependency, lexical and grammatical models encoded as
+finite-state transducers, and it reads pre-computed acoustic features in a
+variety of formats. Our emphasis is on the generality, flexibility and
+performance of the operations provided here, which are to be used as key
+algorithmic components of an automatic speech recognition (ASR) system. Several
+of the general operations should also find application outside of speech
+recognition.  There is a program-level set of executables that is meant for use
+in ``batch'' speech recognition training and testing. There is a C++
+library-level set of routines that is meant for easy integration into an ASR
+system. The components are quite modular and independent, so the user can
+select which functionality they require.
+
+
+ SEARCH MODULE ACOUSTIC MODEL
+       The  search module assumes the acoustic model consists of a set of HMMs
+       consecutively numbered from 1. Each  HMM h consists of  a  set  of  HMM
+       states.   The  initial HMM state of h is numbered 1. There is a transi-
+       tion between each HMM state i of HMM h and its successor state i+1 and,
+       if  the  DSearchParams self_loop flag is set, there is also a self-loop
+       transition on each HMM state.  More general  HMM  topologies  are  cur-
+       rently  not  directly supported (but see Caveats). Associated with each
+       HMM state is a probability density. In addition, an acoustic model  may
+       support an HMM duration model or an HMM state duration model.
+
+       The  class  DSearchModel  is the acoustic model interface for  DSearch,
+       the DCD library search module (dsearch(3)). Any class correctly derived
+       from  this  abstract  base  class will work with DSearch (passed in the
+       DSearchParams parameter class).  The derived class's  constructor  must
+       set  _hmms to point to a vector of integer vectors. Each integer vector
+       represents the states in a particular HMM with the $m$-th HMM's  states
+       being  stored in the top-level vector's $m-1$-th location.  The derived
+       class's constructor must also set the number of distinct HMM states  in
+       _nstates,  and  the flags _sdurs and _hdurs according to which, if any,
+       types of duration model are provided (it would be odd but  not  prohib-
+       ited  to  provide  both  types).  A data member interface rather than a
+       virtual function interface is used for  these  quantities  for  maximal
+       efficiency.  These protected data members can then be accessed publicly
+       via several inline member functions that are provided.
+
+       The stateCost member funtion returns the negative log  acoustic  proba-
+       bility given the HMM state ID.  The hmmDurationCost (stateDurationCost)
+       virtual member function returns the negative log probability given  the
+       HMM ID (HMM state ID) and the model (state) duration in frames, and the
+       transition type, as appropriate; the transition costs may be  duration-
+       dependent  with  DSearch.   Note  that  caching  of these model values,
+       important for efficient decoding, is assumed to be done by the  derived
+       model class and not the search module.
+
+       Also  note  that stateCost does not take the acoustic feature vector as
+       an argument. Instead, acoustic features are passed to the model via the
+       nextFrame member function of the DModel class in the next section. This
+       design choice makes the search module  completely  independent  of  the
+       acoustic front-end.
+
+

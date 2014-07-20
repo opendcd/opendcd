@@ -1,0 +1,21 @@
+#!/bin/bash
+../src/bin/dcd-recog-profile \
+  --verbose=0 \
+  --tmtype=hmm \
+  --beam=11 \
+  --acoustic-scale=0.11 \
+  --trans-scale=0.1 \
+  --word_symbols_table=/Users/dixonp/work/wsj-test-pkg/models/words.txt \
+  --use_lattice_pool=true \
+  --gc_period=25 \
+  --gc_check=false \
+  --gen_lattice=true \
+  --use_search_pool=false \
+  --cache_dest_states=true \
+  --early_mission=false \
+  --dump_traceback=false \
+  --acoustic_lookahead=1 \
+  --nbest=5 \
+  /Users/dixonp/work/wsj-test-pkg/models/subset.arcs.fsts \
+  /Users/dixonp/work/wsj-test-pkg/models/CLG.lkhd.relabel.const.fst \
+  ark:/Users/dixonp/work/wsj-test-pkg/testset.gmm.likes lats.far

@@ -1,0 +1,79 @@
+\documentclass{article}
+\title{OpenDcd: An Open Source Finite State Decoding Toolkit}
+\author{Paul R. Dixon}
+\begin{document}
+
+\end{document}
+
+## Idea Stream
+What does the compact representation do for a traditional decoder?
+
+##Abstract
+In this paper we introduce a very small and portable Weighted Finite State Transducer based decoding toolkit.
+
+We provide a command line application, we believe this is the first publically avaliable toolkit that is compatible with all the major speech recognition toolkits.
+
+and a library suitable for integration with applications such dialog systems or machine translation. We have made sample application avalaible in verious languages.
+
+It is based on array of excellent open source software including
+Sphinx,OpenFst,Juicer,Kaldi we bring our experience  and should provide the
+researchers, application developers and students. We have also includes
+additional tools
+Although small and extremely portable, the library supports an impressive set
+of state of the art features, these include WFSTs, dynamic composition and deep
+nueral network acoustic model.s
+
+In addition we make baseline pre-built models in English freely available.
+
+##Introduction
+
+Pioneering work was performed as AT&T where they released FSM toolkit, GRM toolkit and DCD toolkit. Recenlty, there has been open source WFST toolkit and language modelling toolkit. However, no one has provided a powerful  and easy to use decoding toolkit that can function as both a research toolkit. In this paper we describe out OpenDcd libary that solves both these problems and bring a large amount of features that will be useful to the speech and developer community at large.
+
+##Decoding Command
+
+##Build Command
+
+##Post processing command
+
+##No dependenices 
+
+Our only dependency is OpenFst, however we bundle a version to help users (in particular those from China or using Windows or both).
+
+Kaldi supports many state-of-the-art features and
+
+For backwards compatability and re-use of existing models we provide converters
+for Sphinx and HTK based models.
+
+Finally, nearly all the code runs on Linux,OSX, Android, and Windows. The only
+acception are a few Kaldi converions tools. However, these would be of use to
+users with a full Kaldi training setup anyway.
+
+We remove the need for the expensive static compilation and this will allow
+users to experiment with new language models and grammers.
+
+
+It seems that label pushing and online minimization really help the lookahead
+composer.
+
+
+  - We provide all dependencies and simple build systems. No need to download
+  - No autotools or similarly terrbile build systems.
+  - No need for a full HTK, Sphinx or Kaldi install.
+
+  - Support Windows even the free tools
+  -  No need for configure
+  - Allow users to mix HTK, Kaldi and Sphinx
+
+## Baseline Models and Experiments
+
+Caching the destination search states really helps!
+
+## Summary 
+The code is currently avaliable as an open source project. In future versions we
+would like add more free models in various language and encourage users to
+contribute models and data.
+It is hoped that the baseline models and decoder can be used when researchers
+benchmark their own propriety decoders and techniqes to fully ascertain the
+
+
+> Written with [StackEdit](https://stackedit.io/).end{document}

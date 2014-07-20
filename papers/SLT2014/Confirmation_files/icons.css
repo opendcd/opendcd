@@ -1,0 +1,2030 @@
+/* For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
+.some-random-bugfix-selector { background-image: url("../PublishingImages/icons-sb4fcaa018f.png"); background-image: url("../PublishingImages/icons2x-s3d67b350b0.png"); }
+
+.ico-social-google:after, .ico-social-google.ico-block, .icon-social-google-plus { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4633px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-google:after, .ico-social-google.ico-block, .icon-social-google-plus { background-position: -4615px 0; } }
+
+.ico-dropdown-book-special-offers:after, .ico-dropdown-book-special-offers.ico-block, .icon-dropdown-book-special-offers { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1556px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-book-special-offers:after, .ico-dropdown-book-special-offers.ico-block, .icon-dropdown-book-special-offers { background-position: -1541px 0; } }
+
+.ico-form-info-bglight:after, .ico-form-info-bglight.ico-block, .icon-form-info-bglight { width: 24px; height: 24px; margin-left: -12px; margin-top: -12px; background-position: -2767px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-form-info-bglight:after, .ico-form-info-bglight.ico-block, .icon-form-info-bglight { background-position: -2752px 0; } }
+
+.ico-round-remove:after, .ico-round-remove.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4174px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-round-remove:after, .ico-round-remove.ico-block { background-position: -4156px 0; } }
+
+.ico-arrownav-bglight-prev-hover:after, .ico-arrownav-bglight-prev-hover.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -601px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bglight-prev-hover:after, .ico-arrownav-bglight-prev-hover.ico-block { background-position: -586px 0; } }
+
+.ico-mobile-nav-toggle:after, .ico-mobile-nav-toggle.ico-block { width: 24px; height: 21px; margin-left: -12px; margin-top: -11px; background-position: -3427px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-mobile-nav-toggle:after, .ico-mobile-nav-toggle.ico-block { background-position: -3409px 0; } }
+
+.ico-shareable-googleplus:after, .ico-shareable-googleplus.ico-block, .icons-shareable-google { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -4425px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-shareable-googleplus:after, .ico-shareable-googleplus.ico-block, .icons-shareable-google { background-position: -4407px 0; } }
+
+.ico-list-bullet:after, .ico-list-bullet.ico-block { width: 6px; height: 6px; margin-left: -3px; margin-top: -3px; background-position: -2933px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-list-bullet:after, .ico-list-bullet.ico-block { background-position: -2918px 0; } }
+
+.ico-winglet-austria-air:after, .ico-winglet-austria-air.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -5056px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-winglet-austria-air:after, .ico-winglet-austria-air.ico-block { background-position: -5038px 0; } }
+
+.ico-email-link:after, .ico-email-link.ico-block { width: 15px; height: 13px; margin-left: -8px; margin-top: -7px; background-position: -2593px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-email-link:after, .ico-email-link.ico-block { background-position: -2578px 0; } }
+
+.ico-arrow-gray3-down:after, .ico-arrow-gray3-down.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -142px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray3-down:after, .ico-arrow-gray3-down.ico-block { background-position: -142px 0; } }
+
+.ico-bookingbar-mybookings-active:after, .ico-bookingbar-mybookings-active.ico-block, .icon-bookingbar-mybookings-active { width: 35px; height: 35px; margin-left: -18px; margin-top: -18px; background-position: -812px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-bookingbar-mybookings-active:after, .ico-bookingbar-mybookings-active.ico-block, .icon-bookingbar-mybookings-active { background-position: -797px 0; } }
+
+.ico-arrow-gray5-right:after, .ico-arrow-gray5-right.ico-block, .arrow-gray5-right { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -222px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray5-right:after, .ico-arrow-gray5-right.ico-block, .arrow-gray5-right { background-position: -222px 0; } }
+
+.ico-arrow-teaser-gray2:after, .ico-arrow-teaser-gray2.ico-block, .arrow-teaser-gray2 { width: 7px; height: 11px; margin-left: -4px; margin-top: -6px; background-position: -301px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-teaser-gray2:after, .ico-arrow-teaser-gray2.ico-block, .arrow-teaser-gray2 { background-position: -286px 0; } }
+
+.ico-opener-economy:after, .ico-opener-economy.ico-block, .icon-add-green { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -3566px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-opener-economy:after, .ico-opener-economy.ico-block, .icon-add-green { background-position: -3548px 0; } }
+
+.ico-winglet-lufthansa:after, .ico-winglet-lufthansa.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -5220px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-winglet-lufthansa:after, .ico-winglet-lufthansa.ico-block { background-position: -5202px 0; } }
+
+.ico-bookingbar-mybookings:after, .ico-bookingbar-mybookings.ico-block, .icon-bookingbar-mybookings, .icon-adult, .icon-child, .icon-infant { width: 35px; height: 35px; margin-left: -18px; margin-top: -18px; background-position: -848px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-bookingbar-mybookings:after, .ico-bookingbar-mybookings.ico-block, .icon-bookingbar-mybookings, .icon-adult, .icon-child, .icon-infant { background-position: -833px 0; } }
+
+.ico-forward-dark:after, .ico-forward-dark.ico-block { width: 18px; height: 18px; margin-left: -9px; margin-top: -9px; background-position: -2792px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-forward-dark:after, .ico-forward-dark.ico-block { background-position: -2777px 0; } }
+
+.ico-login-profile-normal:after, .ico-login-profile-normal.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3182px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-login-profile-normal:after, .ico-login-profile-normal.ico-block { background-position: -3164px 0; } }
+
+.ico-dropdown-prepare-special-services:after, .ico-dropdown-prepare-special-services.ico-block, .icon-dropdown-prepare-special-services { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2532px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-prepare-special-services:after, .ico-dropdown-prepare-special-services.ico-block, .icon-dropdown-prepare-special-services { background-position: -2517px 0; } }
+
+.ico-close-bglight-hover:after, .ico-close-bglight-hover.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -1293px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-bglight-hover:after, .ico-close-bglight-hover.ico-block { background-position: -1278px 0; } }
+
+.ico-error:after, .ico-error.ico-block, .icon-error { width: 26px; height: 26px; margin-left: -13px; margin-top: -13px; background-position: -2609px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-error:after, .ico-error.ico-block, .icon-error { background-position: -2594px 0; } }
+
+.ico-close-fare-family:after, .ico-close-fare-family.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -1357px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-fare-family:after, .ico-close-fare-family.ico-block { background-position: -1342px 0; } }
+
+.ico-arrow-gray3-up:after, .ico-arrow-gray3-up.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -166px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray3-up:after, .ico-arrow-gray3-up.ico-block { background-position: -166px 0; } }
+
+.ico-arrow-gray5-up:after, .ico-arrow-gray5-up.ico-block, .arrow-gray5-up { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -230px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray5-up:after, .ico-arrow-gray5-up.ico-block, .arrow-gray5-up { background-position: -230px 0; } }
+
+.ico-accordion-footer-open:after, .ico-accordion-footer-open.ico-block { width: 12px; height: 7px; margin-left: -6px; margin-top: -4px; background-position: -13px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-accordion-footer-open:after, .ico-accordion-footer-open.ico-block { background-position: -13px 0; } }
+
+.ico-search-white:after, .ico-search-white.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -4270px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-search-white:after, .ico-search-white.ico-block { background-position: -4252px 0; } }
+
+.ico-opener-business-hover:after, .ico-opener-business-hover.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -3479px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-opener-business-hover:after, .ico-opener-business-hover.ico-block { background-position: -3461px 0; } }
+
+.ico-arrownav-bglight-next-hover:after, .ico-arrownav-bglight-next-hover.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -545px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bglight-next-hover:after, .ico-arrownav-bglight-next-hover.ico-block { background-position: -530px 0; } }
+
+.ico-arrow-red-left:after, .ico-arrow-red-left.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -246px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-red-left:after, .ico-arrow-red-left.ico-block { background-position: -246px 0; } }
+
+.ico-arrow-gray1-left:after, .ico-arrow-gray1-left.ico-block, .arrow-gray1-left { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -118px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray1-left:after, .ico-arrow-gray1-left.ico-block, .arrow-gray1-left { background-position: -118px 0; } }
+
+.ico-form-info-bglight-hover:after, .ico-form-info-bglight-hover.ico-block { width: 24px; height: 24px; margin-left: -12px; margin-top: -12px; background-position: -2742px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-form-info-bglight-hover:after, .ico-form-info-bglight-hover.ico-block { background-position: -2727px 0; } }
+
+.ico-passenger-crew-pilot:after, .ico-passenger-crew-pilot.ico-block { width: 8px; height: 23px; margin-left: -4px; margin-top: -12px; background-position: -3803px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-passenger-crew-pilot:after, .ico-passenger-crew-pilot.ico-block { background-position: -3785px 0; } }
+
+.ico-external-link-hover:after, .ico-external-link-hover.ico-block { width: 10px; height: 10px; margin-left: -5px; margin-top: -5px; background-position: -2636px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-external-link-hover:after, .ico-external-link-hover.ico-block { background-position: -2621px 0; } }
+
+.ico-mark-datepicker-today:after, .ico-mark-datepicker-today.ico-block { width: 5px; height: 5px; margin-left: -3px; margin-top: -3px; background-position: -3380px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-mark-datepicker-today:after, .ico-mark-datepicker-today.ico-block { background-position: -3362px 0; } }
+
+.ico-arrow-teaser-red:after, .ico-arrow-teaser-red.ico-block, .arrow-teaser-red { width: 7px; height: 11px; margin-left: -4px; margin-top: -6px; background-position: -317px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-teaser-red:after, .ico-arrow-teaser-red.ico-block, .arrow-teaser-red { background-position: -302px 0; } }
+
+.ico-dropdown-book-corporate-clients:after, .ico-dropdown-book-corporate-clients.ico-block, .icon-dropdown-book-corporate-clients { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1434px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-book-corporate-clients:after, .ico-dropdown-book-corporate-clients.ico-block, .icon-dropdown-book-corporate-clients { background-position: -1419px 0; } }
+
+.ico-pagination-arrow-right-grey:after, .ico-pagination-arrow-right-grey.ico-block { width: 11px; height: 5px; margin-left: -6px; margin-top: -3px; background-position: -3718px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-pagination-arrow-right-grey:after, .ico-pagination-arrow-right-grey.ico-block { background-position: -3700px 0; } }
+
+.ico-dropdown-book-flight-information:after, .ico-dropdown-book-flight-information.ico-block, .icon-dropdown-book-flight-information { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1495px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-book-flight-information:after, .ico-dropdown-book-flight-information.ico-block, .icon-dropdown-book-flight-information { background-position: -1480px 0; } }
+
+.ico-arrow-gray1-up:after, .ico-arrow-gray1-up.ico-block, .arrow-gray1-up { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -134px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray1-up:after, .ico-arrow-gray1-up.ico-block, .arrow-gray1-up { background-position: -134px 0; } }
+
+.ico-arrow-widgets-slider-right-active:after, .ico-arrow-widgets-slider-right-active.ico-block { width: 18px; height: 44px; margin-left: -9px; margin-top: -22px; background-position: -395px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-widgets-slider-right-active:after, .ico-arrow-widgets-slider-right-active.ico-block { background-position: -380px 0; } }
+
+.ico-arrow-gray1-right:after, .ico-arrow-gray1-right.ico-block, .arrow-gray1-right { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -126px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray1-right:after, .ico-arrow-gray1-right.ico-block, .arrow-gray1-right { background-position: -126px 0; } }
+
+.ico-social-twitter-hover:after, .ico-social-twitter-hover.ico-block, .icon-social-twitter:hover, .icon-social-twitter:focus { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4662px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-twitter-hover:after, .ico-social-twitter-hover.ico-block, .icon-social-twitter:hover, .icon-social-twitter:focus { background-position: -4644px 0; } }
+
+.ico-dropdown-explore-bangkok:after, .ico-dropdown-explore-bangkok.ico-block, .icon-dropdown-explore-bangkok { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1678px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-explore-bangkok:after, .ico-dropdown-explore-bangkok.ico-block, .icon-dropdown-explore-bangkok { background-position: -1663px 0; } }
+
+.ico-logout-hover:after, .ico-logout-hover.ico-block { width: 16px; height: 20px; margin-left: -8px; margin-top: -10px; background-position: -3305px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-logout-hover:after, .ico-logout-hover.ico-block { background-position: -3287px 0; } }
+
+.ico-star-special-offer:after, .ico-star-special-offer.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -4902px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-star-special-offer:after, .ico-star-special-offer.ico-block { background-position: -4884px 0; } }
+
+.ico-dropdown-fly-fleet:after, .ico-dropdown-fly-fleet.ico-block, .icon-dropdown-fly-fleet { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2166px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-fly-fleet:after, .ico-dropdown-fly-fleet.ico-block, .icon-dropdown-fly-fleet { background-position: -2151px 0; } }
+
+.ico-passenger-first:after, .ico-passenger-first.ico-block { width: 8px; height: 23px; margin-left: -4px; margin-top: -12px; background-position: -3830px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-passenger-first:after, .ico-passenger-first.ico-block { background-position: -3812px 0; } }
+
+.ico-button-confirmation-print:after, .ico-button-confirmation-print.ico-block { width: 73px; height: 73px; margin-left: -37px; margin-top: -37px; background-position: -925px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-button-confirmation-print:after, .ico-button-confirmation-print.ico-block { background-position: -910px 0; } }
+
+.ico-accordion-footer-white:after, .ico-accordion-footer-white.ico-block { width: 12px; height: 7px; margin-left: -6px; margin-top: -4px; background-position: -26px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-accordion-footer-white:after, .ico-accordion-footer-white.ico-block { background-position: -26px 0; } }
+
+.ico-print-dark:after, .ico-print-dark.ico-block { width: 18px; height: 18px; margin-left: -9px; margin-top: -9px; background-position: -3976px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-print-dark:after, .ico-print-dark.ico-block { background-position: -3958px 0; } }
+
+.ico-search-hover:after, .ico-search-hover.ico-block { width: 12px; height: 13px; margin-left: -6px; margin-top: -7px; background-position: -4257px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-search-hover:after, .ico-search-hover.ico-block { background-position: -4239px 0; } }
+
+.ico-arrow-currency-converter:after, .ico-arrow-currency-converter.ico-block { width: 16px; height: 8px; margin-left: -8px; margin-top: -4px; background-position: -93px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-currency-converter:after, .ico-arrow-currency-converter.ico-block { background-position: -93px 0; } }
+
+.ico-buttonicon-add:after, .ico-buttonicon-add.ico-block { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -999px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-buttonicon-add:after, .ico-buttonicon-add.ico-block { background-position: -984px 0; } }
+
+.ico-shareable-facebook-hover:after, .ico-shareable-facebook-hover.ico-block, .icons-shareable-facebook:hover, .icons-shareable-facebook:focus { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -4362px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-shareable-facebook-hover:after, .ico-shareable-facebook-hover.ico-block, .icons-shareable-facebook:hover, .icons-shareable-facebook:focus { background-position: -4344px 0; } }
+
+.ico-opener-fare-family:after, .ico-opener-fare-family.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3595px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-opener-fare-family:after, .ico-opener-fare-family.ico-block { background-position: -3577px 0; } }
+
+.ico-dropdown-fly-world-of-swiss:after, .ico-dropdown-fly-world-of-swiss.ico-block, .icon-dropdown-fly-world-of-swiss { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2288px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-fly-world-of-swiss:after, .ico-dropdown-fly-world-of-swiss.ico-block, .icon-dropdown-fly-world-of-swiss { background-position: -2273px 0; } }
+
+.ico-social-twitter:after, .ico-social-twitter.ico-block, .icon-social-twitter { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4691px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-twitter:after, .ico-social-twitter.ico-block, .icon-social-twitter { background-position: -4673px 0; } }
+
+.ico-notification:after, .ico-notification.ico-block, .icon-info-notification, .icon-notification { width: 26px; height: 26px; margin-left: -13px; margin-top: -13px; background-position: -3452px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-notification:after, .ico-notification.ico-block, .icon-info-notification, .icon-notification { background-position: -3434px 0; } }
+
+.ico-passenger-business:after, .ico-passenger-business.ico-block { width: 8px; height: 23px; margin-left: -4px; margin-top: -12px; background-position: -3794px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-passenger-business:after, .ico-passenger-business.ico-block { background-position: -3776px 0; } }
+
+.ico-close-bgdark-hover:after, .ico-close-bgdark-hover.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -1237px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-bgdark-hover:after, .ico-close-bgdark-hover.ico-block { background-position: -1222px 0; } }
+
+.ico-accordion-footer-open-white:after, .ico-accordion-footer-open-white.ico-block { width: 12px; height: 7px; margin-left: -6px; margin-top: -4px; background-position: 0 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-accordion-footer-open-white:after, .ico-accordion-footer-open-white.ico-block { background-position: 0 0; } }
+
+.ico-login-bar-profile:after, .ico-login-bar-profile.ico-block { width: 22px; height: 22px; margin-left: -11px; margin-top: -11px; background-position: -3118px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-login-bar-profile:after, .ico-login-bar-profile.ico-block { background-position: -3100px 0; } }
+
+.ico-checked-white:after, .ico-checked-white.ico-block, .icon-checked-white, .checked-white:before { width: 17px; height: 17px; margin-left: -9px; margin-top: -9px; background-position: -1219px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-checked-white:after, .ico-checked-white.ico-block, .icon-checked-white, .checked-white:before { background-position: -1204px 0; } }
+
+.ico-share-light:after, .ico-share-light.ico-block { width: 18px; height: 18px; margin-left: -9px; margin-top: -9px; background-position: -4343px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-share-light:after, .ico-share-light.ico-block { background-position: -4325px 0; } }
+
+.ico-arrow-select:after, .ico-arrow-select.ico-block { width: 22px; height: 40px; margin-left: -11px; margin-top: -20px; background-position: -278px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-select:after, .ico-arrow-select.ico-block { background-position: -278px 0; } }
+
+.ico-pagination-arrow-left-grey:after, .ico-pagination-arrow-left-grey.ico-block { width: 11px; height: 5px; margin-left: -6px; margin-top: -3px; background-position: -3694px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-pagination-arrow-left-grey:after, .ico-pagination-arrow-left-grey.ico-block { background-position: -3676px 0; } }
+
+.ico-dropdown-fly-at-the-airport:after, .ico-dropdown-fly-at-the-airport.ico-block, .icon-dropdown-fly-at-the-airport { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2105px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-fly-at-the-airport:after, .ico-dropdown-fly-at-the-airport.ico-block, .icon-dropdown-fly-at-the-airport { background-position: -2090px 0; } }
+
+.ico-pagination-dotted:after, .ico-pagination-dotted.ico-block { width: 9px; height: 9px; margin-left: -5px; margin-top: -5px; background-position: -3762px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-pagination-dotted:after, .ico-pagination-dotted.ico-block { background-position: -3744px 0; } }
+
+.ico-social-facebook:after, .ico-social-facebook.ico-block, .icon-social-facebook { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4575px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-facebook:after, .ico-social-facebook.ico-block, .icon-social-facebook { background-position: -4557px 0; } }
+
+.ico-arrow-red-right:after, .ico-arrow-red-right.ico-block, .arrow-red-right { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -254px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-red-right:after, .ico-arrow-red-right.ico-block, .arrow-red-right { background-position: -254px 0; } }
+
+.ico-arrow-white-down:after, .ico-arrow-white-down.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -325px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-white-down:after, .ico-arrow-white-down.ico-block { background-position: -310px 0; } }
+
+.ico-bus-booking-matrix:after, .ico-bus-booking-matrix.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -884px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-bus-booking-matrix:after, .ico-bus-booking-matrix.ico-block { background-position: -869px 0; } }
+
+.ico-social-blog:after, .ico-social-blog.ico-block, .icon-social-blog { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4517px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-blog:after, .ico-social-blog.ico-block, .icon-social-blog { background-position: -4499px 0; } }
+
+.ico-dropdown-prepare-immigration-regulation:after, .ico-dropdown-prepare-immigration-regulation.ico-block, .icon-dropdown-prepare-immigration-regulation { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2471px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-prepare-immigration-regulation:after, .ico-dropdown-prepare-immigration-regulation.ico-block, .icon-dropdown-prepare-immigration-regulation { background-position: -2456px 0; } }
+
+.ico-form-info-bgdark:after, .ico-form-info-bgdark.ico-block { width: 24px; height: 24px; margin-left: -12px; margin-top: -12px; background-position: -2717px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-form-info-bgdark:after, .ico-form-info-bgdark.ico-block { background-position: -2702px 0; } }
+
+.ico-backtotop:after, .ico-backtotop.ico-block, .icon-backtotop { width: 10px; height: 11px; margin-left: -5px; margin-top: -6px; background-position: -657px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-backtotop:after, .ico-backtotop.ico-block, .icon-backtotop { background-position: -642px 0; } }
+
+.ico-quote-before:after, .ico-quote-before.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -4069px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-quote-before:after, .ico-quote-before.ico-block { background-position: -4051px 0; } }
+
+.ico-close-bgdark:after, .ico-close-bgdark.ico-block, .icon-close-light { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -1265px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-bgdark:after, .ico-close-bgdark.ico-block, .icon-close-light { background-position: -1250px 0; } }
+
+.ico-faredetails-not-included:after, .ico-faredetails-not-included.ico-block { width: 16px; height: 16px; margin-left: -8px; margin-top: -8px; background-position: -2675px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-faredetails-not-included:after, .ico-faredetails-not-included.ico-block { background-position: -2660px 0; } }
+
+.ico-arrow-gray1-down:after, .ico-arrow-gray1-down.ico-block, .arrow-gray1-down { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -110px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray1-down:after, .ico-arrow-gray1-down.ico-block, .arrow-gray1-down { background-position: -110px 0; } }
+
+.ico-bookingbar-flight-active:after, .ico-bookingbar-flight-active.ico-block, .icon-bookingbar-flight-active { width: 35px; height: 35px; margin-left: -18px; margin-top: -18px; background-position: -668px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-bookingbar-flight-active:after, .ico-bookingbar-flight-active.ico-block, .icon-bookingbar-flight-active { background-position: -653px 0; } }
+
+.ico-info-fare-conditions-hover:after, .ico-info-fare-conditions-hover.ico-block, .icon-info-fare-conditions:hover, .icon-info-fare-conditions:focus { width: 16px; height: 16px; margin-left: -8px; margin-top: -8px; background-position: -2871px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-info-fare-conditions-hover:after, .ico-info-fare-conditions-hover.ico-block, .icon-info-fare-conditions:hover, .icon-info-fare-conditions:focus { background-position: -2856px 0; } }
+
+.ico-arrownav-bgdark-prev:after, .ico-arrownav-bgdark-prev.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -517px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bgdark-prev:after, .ico-arrownav-bgdark-prev.ico-block { background-position: -502px 0; } }
+
+.ico-round-add:after, .ico-round-add.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4116px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-round-add:after, .ico-round-add.ico-block { background-position: -4098px 0; } }
+
+.ico-logo-swiss-winglet-red:after, .ico-logo-swiss-winglet-red.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3223px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-logo-swiss-winglet-red:after, .ico-logo-swiss-winglet-red.ico-block { background-position: -3205px 0; } }
+
+.ico-locate-me:after, .ico-locate-me.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3008px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-locate-me:after, .ico-locate-me.ico-block { background-position: -2990px 0; } }
+
+.ico-checked-red:after, .ico-checked-red.ico-block, .icon-checked-red, .checked-red:before { width: 17px; height: 17px; margin-left: -9px; margin-top: -9px; background-position: -1201px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-checked-red:after, .ico-checked-red.ico-block, .icon-checked-red, .checked-red:before { background-position: -1186px 0; } }
+
+.ico-arrow-teaser-gray6:after, .ico-arrow-teaser-gray6.ico-block, .arrow-teaser-gray6 { width: 7px; height: 11px; margin-left: -4px; margin-top: -6px; background-position: -309px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-teaser-gray6:after, .ico-arrow-teaser-gray6.ico-block, .arrow-teaser-gray6 { background-position: -294px 0; } }
+
+.ico-winglet-default:after, .ico-winglet-default.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -5138px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-winglet-default:after, .ico-winglet-default.ico-block { background-position: -5120px 0; } }
+
+.ico-dropdown-fly-on-board:after, .ico-dropdown-fly-on-board.ico-block, .icon-dropdown-fly-on-board { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2227px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-fly-on-board:after, .ico-dropdown-fly-on-board.ico-block, .icon-dropdown-fly-on-board { background-position: -2212px 0; } }
+
+.ico-close-notification:after, .ico-close-notification.ico-block { width: 10px; height: 10px; margin-left: -5px; margin-top: -5px; background-position: -1398px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-notification:after, .ico-close-notification.ico-block { background-position: -1383px 0; } }
+
+.ico-dropdown-book-where-we-fly:after, .ico-dropdown-book-where-we-fly.ico-block, .icon-dropdown-book-where-we-fly { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1617px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-book-where-we-fly:after, .ico-dropdown-book-where-we-fly.ico-block, .icon-dropdown-book-where-we-fly { background-position: -1602px 0; } }
+
+.ico-social-google-hover:after, .ico-social-google-hover.ico-block, .icon-social-google-plus:hover, .icon-social-google-plus:focus { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4604px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-google-hover:after, .ico-social-google-hover.ico-block, .icon-social-google-plus:hover, .icon-social-google-plus:focus { background-position: -4586px 0; } }
+
+.ico-arrownav-bgdark-prev-hover:after, .ico-arrownav-bgdark-prev-hover.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -489px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bgdark-prev-hover:after, .ico-arrownav-bgdark-prev-hover.ico-block { background-position: -474px 0; } }
+
+.ico-plane-heading-right:after, .ico-plane-heading-right.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3935px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-plane-heading-right:after, .ico-plane-heading-right.ico-block { background-position: -3917px 0; } }
+
+.ico-dropdown-explore-london:after, .ico-dropdown-explore-london.ico-block, .icon-dropdown-explore-london { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1861px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-explore-london:after, .ico-dropdown-explore-london.ico-block, .icon-dropdown-explore-london { background-position: -1846px 0; } }
+
+.ico-opener-economy-hover:after, .ico-opener-economy-hover.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -3537px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-opener-economy-hover:after, .ico-opener-economy-hover.ico-block { background-position: -3519px 0; } }
+
+.ico-success:after, .ico-success.ico-block { width: 26px; height: 26px; margin-left: -13px; margin-top: -13px; background-position: -4943px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-success:after, .ico-success.ico-block { background-position: -4925px 0; } }
+
+.ico-search:after, .ico-search.ico-block, .icon-search { width: 12px; height: 13px; margin-left: -6px; margin-top: -7px; background-position: -4311px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-search:after, .ico-search.ico-block, .icon-search { background-position: -4293px 0; } }
+
+.ico-arrow-select-white:after, .ico-arrow-select-white.ico-block { width: 7px; height: 14px; margin-left: -4px; margin-top: -7px; background-position: -270px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-select-white:after, .ico-arrow-select-white.ico-block { background-position: -270px 0; } }
+
+.ico-bookingbar-flightstatus-active:after, .ico-bookingbar-flightstatus-active.ico-block, .icon-bookingbar-flightstatus-active { width: 35px; height: 35px; margin-left: -18px; margin-top: -18px; background-position: -740px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-bookingbar-flightstatus-active:after, .ico-bookingbar-flightstatus-active.ico-block, .icon-bookingbar-flightstatus-active { background-position: -725px 0; } }
+
+.ico-arrow-gray4-up:after, .ico-arrow-gray4-up.ico-block, .arrow-gray4-up { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -198px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray4-up:after, .ico-arrow-gray4-up.ico-block, .arrow-gray4-up { background-position: -198px 0; } }
+
+.ico-close-white:after, .ico-close-white.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -1409px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-white:after, .ico-close-white.ico-block { background-position: -1394px 0; } }
+
+.ico-login-bar-company:after, .ico-login-bar-company.ico-block { width: 22px; height: 22px; margin-left: -11px; margin-top: -11px; background-position: -3049px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-login-bar-company:after, .ico-login-bar-company.ico-block { background-position: -3031px 0; } }
+
+.ico-calendar-white:after, .ico-calendar-white.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -1124px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-calendar-white:after, .ico-calendar-white.ico-block { background-position: -1109px 0; } }
+
+.ico-opener-first:after, .ico-opener-first.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -3665px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-opener-first:after, .ico-opener-first.ico-block { background-position: -3647px 0; } }
+
+.ico-close-dark:after, .ico-close-dark.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -1349px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-dark:after, .ico-close-dark.ico-block { background-position: -1334px 0; } }
+
+.ico-local-tip-marker:after, .ico-local-tip-marker.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -2967px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-local-tip-marker:after, .ico-local-tip-marker.ico-block { background-position: -2949px 0; } }
+
+.ico-print-light:after, .ico-print-light.ico-block { width: 18px; height: 18px; margin-left: -9px; margin-top: -9px; background-position: -3995px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-print-light:after, .ico-print-light.ico-block { background-position: -3977px 0; } }
+
+.ico-pagination-dotted-active:after, .ico-pagination-dotted-active.ico-block { width: 9px; height: 9px; margin-left: -5px; margin-top: -5px; background-position: -3742px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-pagination-dotted-active:after, .ico-pagination-dotted-active.ico-block { background-position: -3724px 0; } }
+
+.ico-social-facebook-hover:after, .ico-social-facebook-hover.ico-block, .icon-social-facebook:hover, .icon-social-facebook:focus { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4546px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-facebook-hover:after, .ico-social-facebook-hover.ico-block, .icon-social-facebook:hover, .icon-social-facebook:focus { background-position: -4528px 0; } }
+
+.ico-shareable-googleplus-hover:after, .ico-shareable-googleplus-hover.ico-block, .icons-shareable-google:hover, .icons-shareable-google:focus { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -4404px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-shareable-googleplus-hover:after, .ico-shareable-googleplus-hover.ico-block, .icons-shareable-google:hover, .icons-shareable-google:focus { background-position: -4386px 0; } }
+
+.ico-warning:after, .ico-warning.ico-block, .icon-info-warning { width: 26px; height: 26px; margin-left: -13px; margin-top: -13px; background-position: -5029px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-warning:after, .ico-warning.ico-block, .icon-info-warning { background-position: -5011px 0; } }
+
+.ico-lightbox-explore-arrow-left:after, .ico-lightbox-explore-arrow-left.ico-block { width: 13px; height: 20px; margin-left: -7px; margin-top: -10px; background-position: -2905px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-lightbox-explore-arrow-left:after, .ico-lightbox-explore-arrow-left.ico-block { background-position: -2890px 0; } }
+
+.ico-tick-checkbox:after, .ico-tick-checkbox.ico-block { width: 17px; height: 17px; margin-left: -9px; margin-top: -9px; background-position: -4970px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-tick-checkbox:after, .ico-tick-checkbox.ico-block { background-position: -4952px 0; } }
+
+.ico-pagination-arrow-right-white:after, .ico-pagination-arrow-right-white.ico-block { width: 11px; height: 5px; margin-left: -6px; margin-top: -3px; background-position: -3730px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-pagination-arrow-right-white:after, .ico-pagination-arrow-right-white.ico-block { background-position: -3712px 0; } }
+
+.ico-minimize-map:after, .ico-minimize-map.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3386px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-minimize-map:after, .ico-minimize-map.ico-block { background-position: -3368px 0; } }
+
+.ico-forward-light:after, .ico-forward-light.ico-block { width: 18px; height: 18px; margin-left: -9px; margin-top: -9px; background-position: -2811px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-forward-light:after, .ico-forward-light.ico-block { background-position: -2796px 0; } }
+
+.ico-dropdown-explore-top-destinations:after, .ico-dropdown-explore-top-destinations.ico-block, .icon-dropdown-explore-top-destinations { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2044px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-explore-top-destinations:after, .ico-dropdown-explore-top-destinations.ico-block, .icon-dropdown-explore-top-destinations { background-position: -2029px 0; } }
+
+.ico-login-profile-company:after, .ico-login-profile-company.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3141px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-login-profile-company:after, .ico-login-profile-company.ico-block { background-position: -3123px 0; } }
+
+.ico-passenger-economy:after, .ico-passenger-economy.ico-block { width: 8px; height: 23px; margin-left: -4px; margin-top: -12px; background-position: -3821px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-passenger-economy:after, .ico-passenger-economy.ico-block { background-position: -3803px 0; } }
+
+.ico-shareable-twitter:after, .ico-shareable-twitter.ico-block, .icons-shareable-twitter { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -4467px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-shareable-twitter:after, .ico-shareable-twitter.ico-block, .icons-shareable-twitter { background-position: -4449px 0; } }
+
+.ico-bookingbar-flightstatus:after, .ico-bookingbar-flightstatus.ico-block, .icon-bookingbar-flightstatus { width: 35px; height: 35px; margin-left: -18px; margin-top: -18px; background-position: -776px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-bookingbar-flightstatus:after, .ico-bookingbar-flightstatus.ico-block, .icon-bookingbar-flightstatus { background-position: -761px 0; } }
+
+.ico-arrow-gray5-left:after, .ico-arrow-gray5-left.ico-block, .arrow-gray5-left { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -214px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray5-left:after, .ico-arrow-gray5-left.ico-block, .arrow-gray5-left { background-position: -214px 0; } }
+
+.ico-arrow-widgets-slider-left:after, .ico-arrow-widgets-slider-left.ico-block { width: 18px; height: 44px; margin-left: -9px; margin-top: -22px; background-position: -376px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-widgets-slider-left:after, .ico-arrow-widgets-slider-left.ico-block { background-position: -361px 0; } }
+
+.ico-arrownav-bgdark-next:after, .ico-arrownav-bgdark-next.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -461px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bgdark-next:after, .ico-arrownav-bgdark-next.ico-block { background-position: -446px 0; } }
+
+.ico-adress-map-marker:after, .ico-adress-map-marker.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -52px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-adress-map-marker:after, .ico-adress-map-marker.ico-block { background-position: -52px 0; } }
+
+.ico-arrow-gray4-right:after, .ico-arrow-gray4-right.ico-block, .arrow-gray4-right { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -190px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray4-right:after, .ico-arrow-gray4-right.ico-block, .arrow-gray4-right { background-position: -190px 0; } }
+
+.ico-shareable-facebook:after, .ico-shareable-facebook.ico-block, .icons-shareable-facebook { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -4383px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-shareable-facebook:after, .ico-shareable-facebook.ico-block, .icons-shareable-facebook { background-position: -4365px 0; } }
+
+.ico-special-fare-cell:after, .ico-special-fare-cell.ico-block { width: 30px; height: 30px; margin-left: -15px; margin-top: -15px; background-position: -4720px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-special-fare-cell:after, .ico-special-fare-cell.ico-block { background-position: -4702px 0; } }
+
+.ico-arrow-widgets-slider-left-active:after, .ico-arrow-widgets-slider-left-active.ico-block { width: 18px; height: 44px; margin-left: -9px; margin-top: -22px; background-position: -357px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-widgets-slider-left-active:after, .ico-arrow-widgets-slider-left-active.ico-block { background-position: -342px 0; } }
+
+.ico-dropdown-explore-paris:after, .ico-dropdown-explore-paris.ico-block, .icon-dropdown-explore-paris { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1983px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-explore-paris:after, .ico-dropdown-explore-paris.ico-block, .icon-dropdown-explore-paris { background-position: -1968px 0; } }
+
+.ico-dropdown-explore-new-york:after, .ico-dropdown-explore-new-york.ico-block, .icon-dropdown-explore-new-york { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1922px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-explore-new-york:after, .ico-dropdown-explore-new-york.ico-block, .icon-dropdown-explore-new-york { background-position: -1907px 0; } }
+
+.ico-passenger-big:after, .ico-passenger-big.ico-block { width: 21px; height: 60px; margin-left: -11px; margin-top: -30px; background-position: -3772px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-passenger-big:after, .ico-passenger-big.ico-block { background-position: -3754px 0; } }
+
+.ico-arrow-gray4-left:after, .ico-arrow-gray4-left.ico-block, .arrow-gray4-left { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -182px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray4-left:after, .ico-arrow-gray4-left.ico-block, .arrow-gray4-left { background-position: -182px 0; } }
+
+.ico-radio-active:after, .ico-radio-active.ico-block { width: 5px; height: 5px; margin-left: -3px; margin-top: -3px; background-position: -4110px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-radio-active:after, .ico-radio-active.ico-block { background-position: -4092px 0; } }
+
+.ico-bookingbar-flight:after, .ico-bookingbar-flight.ico-block, .icon-bookingbar-flight { width: 35px; height: 35px; margin-left: -18px; margin-top: -18px; background-position: -704px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-bookingbar-flight:after, .ico-bookingbar-flight.ico-block, .icon-bookingbar-flight { background-position: -689px 0; } }
+
+.ico-train-booking-matrix:after, .ico-train-booking-matrix.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -4988px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-train-booking-matrix:after, .ico-train-booking-matrix.ico-block { background-position: -4970px 0; } }
+
+.ico-checked-dark:after, .ico-checked-dark.ico-block, .icon-checked-dark, .checked-dark:before { width: 17px; height: 17px; margin-left: -9px; margin-top: -9px; background-position: -1165px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-checked-dark:after, .ico-checked-dark.ico-block, .icon-checked-dark, .checked-dark:before { background-position: -1150px 0; } }
+
+.ico-arrow-white-right:after, .ico-arrow-white-right.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -341px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-white-right:after, .ico-arrow-white-right.ico-block { background-position: -326px 0; } }
+
+.ico-profile-logged-in:after, .ico-profile-logged-in.ico-block, .icon-profile-logged-in { width: 13px; height: 17px; margin-left: -7px; margin-top: -9px; background-position: -4014px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-profile-logged-in:after, .ico-profile-logged-in.ico-block, .icon-profile-logged-in { background-position: -3996px 0; } }
+
+.ico-list-checklist:after, .ico-list-checklist.ico-block, .icon-list-checklist { width: 26px; height: 26px; margin-left: -13px; margin-top: -13px; background-position: -2940px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-list-checklist:after, .ico-list-checklist.ico-block, .icon-list-checklist { background-position: -2925px 0; } }
+
+.ico-arrow-gray3-right:after, .ico-arrow-gray3-right.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -158px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray3-right:after, .ico-arrow-gray3-right.ico-block { background-position: -158px 0; } }
+
+.ico-opener-business:after, .ico-opener-business.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -3508px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-opener-business:after, .ico-opener-business.ico-block { background-position: -3490px 0; } }
+
+.ico-buttonicon-remove:after, .ico-buttonicon-remove.ico-block { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -1041px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-buttonicon-remove:after, .ico-buttonicon-remove.ico-block { background-position: -1026px 0; } }
+
+.ico-plane-heading-left:after, .ico-plane-heading-left.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3894px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-plane-heading-left:after, .ico-plane-heading-left.ico-block { background-position: -3876px 0; } }
+
+.ico-checked-green:after, .ico-checked-green.ico-block { width: 17px; height: 17px; margin-left: -9px; margin-top: -9px; background-position: -1183px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-checked-green:after, .ico-checked-green.ico-block { background-position: -1168px 0; } }
+
+.ico-arrow-gray5-down:after, .ico-arrow-gray5-down.ico-block, .arrow-gray5-down { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -206px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray5-down:after, .ico-arrow-gray5-down.ico-block, .arrow-gray5-down { background-position: -206px 0; } }
+
+.ico-calendar-grey:after, .ico-calendar-grey.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -1083px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-calendar-grey:after, .ico-calendar-grey.ico-block { background-position: -1068px 0; } }
+
+.ico-plane-booking-matrix:after, .ico-plane-booking-matrix.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3839px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-plane-booking-matrix:after, .ico-plane-booking-matrix.ico-block { background-position: -3821px 0; } }
+
+.ico-arrow-red-up:after, .ico-arrow-red-up.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -262px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-red-up:after, .ico-arrow-red-up.ico-block { background-position: -262px 0; } }
+
+.ico-buttonicon-update:after, .ico-buttonicon-update.ico-block { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -1062px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-buttonicon-update:after, .ico-buttonicon-update.ico-block { background-position: -1047px 0; } }
+
+.ico-arrownav-bgdark-hover:after, .ico-arrownav-bgdark-hover.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -433px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bgdark-hover:after, .ico-arrownav-bgdark-hover.ico-block { background-position: -418px 0; } }
+
+.ico-arrow-white-left:after, .ico-arrow-white-left.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -333px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-white-left:after, .ico-arrow-white-left.ico-block { background-position: -318px 0; } }
+
+.ico-winglet-swiss:after, .ico-winglet-swiss.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -5261px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-winglet-swiss:after, .ico-winglet-swiss.ico-block { background-position: -5243px 0; } }
+
+.ico-dropdown-prepare-checkin-information:after, .ico-dropdown-prepare-checkin-information.ico-block, .icon-dropdown-prepare-checkin-information { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2410px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-prepare-checkin-information:after, .ico-dropdown-prepare-checkin-information.ico-block, .icon-dropdown-prepare-checkin-information { background-position: -2395px 0; } }
+
+.ico-login-bar-logout:after, .ico-login-bar-logout.ico-block { width: 22px; height: 22px; margin-left: -11px; margin-top: -11px; background-position: -3072px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-login-bar-logout:after, .ico-login-bar-logout.ico-block { background-position: -3054px 0; } }
+
+.ico-external-link:after, .ico-external-link.ico-block { width: 10px; height: 10px; margin-left: -5px; margin-top: -5px; background-position: -2647px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-external-link:after, .ico-external-link.ico-block { background-position: -2632px 0; } }
+
+.ico-opener-first-hover:after, .ico-opener-first-hover.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -3636px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-opener-first-hover:after, .ico-opener-first-hover.ico-block { background-position: -3618px 0; } }
+
+.ico-logout-white:after, .ico-logout-white.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3322px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-logout-white:after, .ico-logout-white.ico-block { background-position: -3304px 0; } }
+
+.ico-arrownav-bglight-prev:after, .ico-arrownav-bglight-prev.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -629px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bglight-prev:after, .ico-arrownav-bglight-prev.ico-block { background-position: -614px 0; } }
+
+.ico-close-bglight:after, .ico-close-bglight.ico-block, .icon-close-bglight { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -1321px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-close-bglight:after, .ico-close-bglight.ico-block, .icon-close-bglight { background-position: -1306px 0; } }
+
+.ico-arrow-widgets-slider-right:after, .ico-arrow-widgets-slider-right.ico-block { width: 18px; height: 44px; margin-left: -9px; margin-top: -22px; background-position: -414px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-widgets-slider-right:after, .ico-arrow-widgets-slider-right.ico-block { background-position: -399px 0; } }
+
+.ico-passenger-crew:after, .ico-passenger-crew.ico-block { width: 8px; height: 23px; margin-left: -4px; margin-top: -12px; background-position: -3812px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-passenger-crew:after, .ico-passenger-crew.ico-block { background-position: -3794px 0; } }
+
+.ico-plane-form-tab-nav:after, .ico-plane-form-tab-nav.ico-block { width: 13px; height: 12px; margin-left: -7px; margin-top: -6px; background-position: -3880px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-plane-form-tab-nav:after, .ico-plane-form-tab-nav.ico-block { background-position: -3862px 0; } }
+
+.ico-pagination-arrow-left-white:after, .ico-pagination-arrow-left-white.ico-block { width: 11px; height: 5px; margin-left: -6px; margin-top: -3px; background-position: -3706px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-pagination-arrow-left-white:after, .ico-pagination-arrow-left-white.ico-block { background-position: -3688px 0; } }
+
+.ico-arrow-gray4-down:after, .ico-arrow-gray4-down.ico-block, .arrow-gray4-down { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -174px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray4-down:after, .ico-arrow-gray4-down.ico-block, .arrow-gray4-down { background-position: -174px 0; } }
+
+.ico-winglet-codeshare:after, .ico-winglet-codeshare.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -5097px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-winglet-codeshare:after, .ico-winglet-codeshare.ico-block { background-position: -5079px 0; } }
+
+.ico-quote-after:after, .ico-quote-after.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -4028px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-quote-after:after, .ico-quote-after.ico-block { background-position: -4010px 0; } }
+
+.ico-faredetails-included:after, .ico-faredetails-included.ico-block { width: 16px; height: 16px; margin-left: -8px; margin-top: -8px; background-position: -2658px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-faredetails-included:after, .ico-faredetails-included.ico-block { background-position: -2643px 0; } }
+
+.ico-form-info-bgdark-hover:after, .ico-form-info-bgdark-hover.ico-block { width: 24px; height: 24px; margin-left: -12px; margin-top: -12px; background-position: -2692px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-form-info-bgdark-hover:after, .ico-form-info-bgdark-hover.ico-block { background-position: -2677px 0; } }
+
+.ico-download-document:after, .ico-download-document.ico-block, .icon-download-document { width: 16px; height: 19px; margin-left: -8px; margin-top: -10px; background-position: -1417px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-download-document:after, .ico-download-document.ico-block, .icon-download-document { background-position: -1402px 0; } }
+
+.ico-round-edit:after, .ico-round-edit.ico-block { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4145px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-round-edit:after, .ico-round-edit.ico-block { background-position: -4127px 0; } }
+
+.ico-logout-grey:after, .ico-logout-grey.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -3264px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-logout-grey:after, .ico-logout-grey.ico-block { background-position: -3246px 0; } }
+
+.ico-dropdown-explore-explore-by-interest:after, .ico-dropdown-explore-explore-by-interest.ico-block, .icon-dropdown-explore-explore-by-interest { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1800px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-explore-explore-by-interest:after, .ico-dropdown-explore-explore-by-interest.ico-block, .icon-dropdown-explore-explore-by-interest { background-position: -1785px 0; } }
+
+.ico-buttonicon-edit:after, .ico-buttonicon-edit.ico-block { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -1020px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-buttonicon-edit:after, .ico-buttonicon-edit.ico-block { background-position: -1005px 0; } }
+
+.ico-spickel-recommend:after, .ico-spickel-recommend.ico-block { width: 150px; height: 22px; margin-left: -75px; margin-top: -11px; background-position: -4751px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-spickel-recommend:after, .ico-spickel-recommend.ico-block { background-position: -4733px 0; } }
+
+.ico-dropdown-explore-explore-by-category:after, .ico-dropdown-explore-explore-by-category.ico-block, .icon-dropdown-explore-explore-by-category { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -1739px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-explore-explore-by-category:after, .ico-dropdown-explore-explore-by-category.ico-block, .icon-dropdown-explore-explore-by-category { background-position: -1724px 0; } }
+
+.ico-info-fare-conditions:after, .ico-info-fare-conditions.ico-block, .icon-info-fare-conditions { width: 16px; height: 16px; margin-left: -8px; margin-top: -8px; background-position: -2888px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-info-fare-conditions:after, .ico-info-fare-conditions.ico-block, .icon-info-fare-conditions { background-position: -2873px 0; } }
+
+.ico-accordion-footer:after, .ico-accordion-footer.ico-block { width: 12px; height: 7px; margin-left: -6px; margin-top: -4px; background-position: -39px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-accordion-footer:after, .ico-accordion-footer.ico-block { background-position: -39px 0; } }
+
+.ico-infinite-scroll-load-more:after, .ico-infinite-scroll-load-more.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -2830px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-infinite-scroll-load-more:after, .ico-infinite-scroll-load-more.ico-block { background-position: -2815px 0; } }
+
+.ico-winglet-edelweiss:after, .ico-winglet-edelweiss.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -5179px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-winglet-edelweiss:after, .ico-winglet-edelweiss.ico-block { background-position: -5161px 0; } }
+
+.ico-social-blog-hover:after, .ico-social-blog-hover.ico-block, .icon-social-blog:hover, .icon-social-blog:focus { width: 28px; height: 28px; margin-left: -14px; margin-top: -14px; background-position: -4488px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-social-blog-hover:after, .ico-social-blog-hover.ico-block, .icon-social-blog:hover, .icon-social-blog:focus { background-position: -4470px 0; } }
+
+.ico-login-bar-my-bookings:after, .ico-login-bar-my-bookings.ico-block { width: 22px; height: 22px; margin-left: -11px; margin-top: -11px; background-position: -3095px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-login-bar-my-bookings:after, .ico-login-bar-my-bookings.ico-block { background-position: -3077px 0; } }
+
+.ico-pagination-dotted-hover:after, .ico-pagination-dotted-hover.ico-block { width: 9px; height: 9px; margin-left: -5px; margin-top: -5px; background-position: -3752px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-pagination-dotted-hover:after, .ico-pagination-dotted-hover.ico-block { background-position: -3734px 0; } }
+
+.ico-lightbox-explore-arrow-right:after, .ico-lightbox-explore-arrow-right.ico-block { width: 13px; height: 20px; margin-left: -7px; margin-top: -10px; background-position: -2919px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-lightbox-explore-arrow-right:after, .ico-lightbox-explore-arrow-right.ico-block { background-position: -2904px 0; } }
+
+.ico-arrow-white-up:after, .ico-arrow-white-up.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -349px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-white-up:after, .ico-arrow-white-up.ico-block { background-position: -334px 0; } }
+
+.ico-arrow-gray3-left:after, .ico-arrow-gray3-left.ico-block { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -150px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-gray3-left:after, .ico-arrow-gray3-left.ico-block { background-position: -150px 0; } }
+
+.ico-arrow-red-down:after, .ico-arrow-red-down.ico-block, .arrow-red-down { width: 7px; height: 7px; margin-left: -4px; margin-top: -4px; background-position: -238px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrow-red-down:after, .ico-arrow-red-down.ico-block, .arrow-red-down { background-position: -238px 0; } }
+
+.ico-logout:after, .ico-logout.ico-block { width: 16px; height: 20px; margin-left: -8px; margin-top: -10px; background-position: -3363px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-logout:after, .ico-logout.ico-block { background-position: -3345px 0; } }
+
+.ico-search-active:after, .ico-search-active.ico-block { width: 12px; height: 13px; margin-left: -6px; margin-top: -7px; background-position: -4203px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-search-active:after, .ico-search-active.ico-block { background-position: -4185px 0; } }
+
+.ico-search-grey:after, .ico-search-grey.ico-block { width: 40px; height: 40px; margin-left: -20px; margin-top: -20px; background-position: -4216px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-search-grey:after, .ico-search-grey.ico-block { background-position: -4198px 0; } }
+
+.ico-dropdown-prepare-baggage-regulation:after, .ico-dropdown-prepare-baggage-regulation.ico-block, .icon-dropdown-prepare-baggage-regulation { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; background-position: -2349px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-dropdown-prepare-baggage-regulation:after, .ico-dropdown-prepare-baggage-regulation.ico-block, .icon-dropdown-prepare-baggage-regulation { background-position: -2334px 0; } }
+
+.ico-arrownav-bglight-next:after, .ico-arrownav-bglight-next.ico-block { width: 27px; height: 27px; margin-left: -14px; margin-top: -14px; background-position: -573px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-arrownav-bglight-next:after, .ico-arrownav-bglight-next.ico-block { background-position: -558px 0; } }
+
+.ico-share-dark:after, .ico-share-dark.ico-block { width: 18px; height: 18px; margin-left: -9px; margin-top: -9px; background-position: -4324px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-share-dark:after, .ico-share-dark.ico-block { background-position: -4306px 0; } }
+
+.ico-shareable-twitter-hover:after, .ico-shareable-twitter-hover.ico-block, .icons-shareable-twitter:hover, .icons-shareable-twitter:focus { width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-position: -4446px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico-shareable-twitter-hover:after, .ico-shareable-twitter-hover.ico-block, .icons-shareable-twitter:hover, .icons-shareable-twitter:focus { background-position: -4428px 0; } }
+
+.arrow { background-image: url("../PublishingImages/icons-sb4fcaa018f.png"); background-repeat: no-repeat; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .arrow { background-image: url("../PublishingImages/icons2x-s3d67b350b0.png"); background-size: 5284px auto; } }
+
+.ico-social-google { padding: 0 14px; margin: 0; }
+
+.ico-social-google.ico-block { height: 28px; margin: 0; }
+
+.ico-dropdown-book-special-offers { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-book-special-offers.ico-block { height: 60px; margin: 0; }
+
+.ico-form-info-bglight { padding: 0 12px; margin: 0; }
+
+.ico-form-info-bglight.ico-block { height: 24px; margin: 0; }
+
+.ico-round-remove { padding: 0 14px; margin: 0; }
+
+.ico-round-remove.ico-block { height: 28px; margin: 0; }
+
+.ico-arrownav-bglight-prev-hover { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bglight-prev-hover.ico-block { height: 27px; margin: 0; }
+
+.ico-mobile-nav-toggle { padding: 0 12px; margin: 0; }
+
+.ico-mobile-nav-toggle.ico-block { height: 21px; margin: 0; }
+
+.ico-shareable-googleplus { padding: 0 10px; margin: 0; }
+
+.ico-shareable-googleplus.ico-block { height: 20px; margin: 0; }
+
+.ico-list-bullet { padding: 0 3px; margin: 0; }
+
+.ico-list-bullet.ico-block { height: 6px; margin: 0; }
+
+.ico-winglet-austria-air { padding: 0 20px; margin: 0; }
+
+.ico-winglet-austria-air.ico-block { height: 40px; margin: 0; }
+
+.ico-email-link { padding: 0 7.5px; margin: 0; }
+
+.ico-email-link.ico-block { height: 13px; margin: 0; }
+
+.ico-arrow-gray3-down { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray3-down.ico-block { height: 7px; margin: 0; }
+
+.ico-bookingbar-mybookings-active { padding: 0 17.5px; margin: 0; }
+
+.ico-bookingbar-mybookings-active.ico-block { height: 35px; margin: 0; }
+
+.ico-arrow-gray5-right { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray5-right.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-teaser-gray2 { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-teaser-gray2.ico-block { height: 11px; margin: 0; }
+
+.ico-opener-economy { padding: 0 14px; margin: 0; }
+
+.ico-opener-economy.ico-block { height: 28px; margin: 0; }
+
+.ico-winglet-lufthansa { padding: 0 20px; margin: 0; }
+
+.ico-winglet-lufthansa.ico-block { height: 40px; margin: 0; }
+
+.ico-bookingbar-mybookings { padding: 0 17.5px; margin: 0; }
+
+.ico-bookingbar-mybookings.ico-block { height: 35px; margin: 0; }
+
+.ico-forward-dark { padding: 0 9px; margin: 0; }
+
+.ico-forward-dark.ico-block { height: 18px; margin: 0; }
+
+.ico-login-profile-normal { padding: 0 20px; margin: 0; }
+
+.ico-login-profile-normal.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-prepare-special-services { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-prepare-special-services.ico-block { height: 60px; margin: 0; }
+
+.ico-close-bglight-hover { padding: 0 13.5px; margin: 0; }
+
+.ico-close-bglight-hover.ico-block { height: 27px; margin: 0; }
+
+.ico-error { padding: 0 13px; margin: 0; }
+
+.ico-error.ico-block { height: 26px; margin: 0; }
+
+.ico-close-fare-family { padding: 0 20px; margin: 0; }
+
+.ico-close-fare-family.ico-block { height: 40px; margin: 0; }
+
+.ico-arrow-gray3-up { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray3-up.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-gray5-up { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray5-up.ico-block { height: 7px; margin: 0; }
+
+.ico-accordion-footer-open { padding: 0 6px; margin: 0; }
+
+.ico-accordion-footer-open.ico-block { height: 7px; margin: 0; }
+
+.ico-search-white { padding: 0 20px; margin: 0; }
+
+.ico-search-white.ico-block { height: 40px; margin: 0; }
+
+.ico-opener-business-hover { padding: 0 14px; margin: 0; }
+
+.ico-opener-business-hover.ico-block { height: 28px; margin: 0; }
+
+.ico-arrownav-bglight-next-hover { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bglight-next-hover.ico-block { height: 27px; margin: 0; }
+
+.ico-arrow-red-left { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-red-left.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-gray1-left { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray1-left.ico-block { height: 7px; margin: 0; }
+
+.ico-form-info-bglight-hover { padding: 0 12px; margin: 0; }
+
+.ico-form-info-bglight-hover.ico-block { height: 24px; margin: 0; }
+
+.ico-passenger-crew-pilot { padding: 0 4px; margin: 0; }
+
+.ico-passenger-crew-pilot.ico-block { height: 23px; margin: 0; }
+
+.ico-external-link-hover { padding: 0 5px; margin: 0; }
+
+.ico-external-link-hover.ico-block { height: 10px; margin: 0; }
+
+.ico-mark-datepicker-today { padding: 0 2.5px; margin: 0; }
+
+.ico-mark-datepicker-today.ico-block { height: 5px; margin: 0; }
+
+.ico-arrow-teaser-red { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-teaser-red.ico-block { height: 11px; margin: 0; }
+
+.ico-dropdown-book-corporate-clients { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-book-corporate-clients.ico-block { height: 60px; margin: 0; }
+
+.ico-pagination-arrow-right-grey { padding: 0 5.5px; margin: 0; }
+
+.ico-pagination-arrow-right-grey.ico-block { height: 5px; margin: 0; }
+
+.ico-dropdown-book-flight-information { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-book-flight-information.ico-block { height: 60px; margin: 0; }
+
+.ico-arrow-gray1-up { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray1-up.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-widgets-slider-right-active { padding: 0 9px; margin: 0; }
+
+.ico-arrow-widgets-slider-right-active.ico-block { height: 44px; margin: 0; }
+
+.ico-arrow-gray1-right { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray1-right.ico-block { height: 7px; margin: 0; }
+
+.ico-social-twitter-hover { padding: 0 14px; margin: 0; }
+
+.ico-social-twitter-hover.ico-block { height: 28px; margin: 0; }
+
+.ico-dropdown-explore-bangkok { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-explore-bangkok.ico-block { height: 60px; margin: 0; }
+
+.ico-logout-hover { padding: 0 8px; margin: 0; }
+
+.ico-logout-hover.ico-block { height: 20px; margin: 0; }
+
+.ico-star-special-offer { padding: 0 20px; margin: 0; }
+
+.ico-star-special-offer.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-fly-fleet { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-fly-fleet.ico-block { height: 60px; margin: 0; }
+
+.ico-passenger-first { padding: 0 4px; margin: 0; }
+
+.ico-passenger-first.ico-block { height: 23px; margin: 0; }
+
+.ico-button-confirmation-print { padding: 0 36.5px; margin: 0; }
+
+.ico-button-confirmation-print.ico-block { height: 73px; margin: 0; }
+
+.ico-accordion-footer-white { padding: 0 6px; margin: 0; }
+
+.ico-accordion-footer-white.ico-block { height: 7px; margin: 0; }
+
+.ico-print-dark { padding: 0 9px; margin: 0; }
+
+.ico-print-dark.ico-block { height: 18px; margin: 0; }
+
+.ico-search-hover { padding: 0 6px; margin: 0; }
+
+.ico-search-hover.ico-block { height: 13px; margin: 0; }
+
+.ico-arrow-currency-converter { padding: 0 8px; margin: 0; }
+
+.ico-arrow-currency-converter.ico-block { height: 8px; margin: 0; }
+
+.ico-buttonicon-add { padding: 0 10px; margin: 0; }
+
+.ico-buttonicon-add.ico-block { height: 20px; margin: 0; }
+
+.ico-shareable-facebook-hover { padding: 0 10px; margin: 0; }
+
+.ico-shareable-facebook-hover.ico-block { height: 20px; margin: 0; }
+
+.ico-opener-fare-family { padding: 0 20px; margin: 0; }
+
+.ico-opener-fare-family.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-fly-world-of-swiss { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-fly-world-of-swiss.ico-block { height: 60px; margin: 0; }
+
+.ico-social-twitter { padding: 0 14px; margin: 0; }
+
+.ico-social-twitter.ico-block { height: 28px; margin: 0; }
+
+.ico-notification { padding: 0 13px; margin: 0; }
+
+.ico-notification.ico-block { height: 26px; margin: 0; }
+
+.ico-passenger-business { padding: 0 4px; margin: 0; }
+
+.ico-passenger-business.ico-block { height: 23px; margin: 0; }
+
+.ico-close-bgdark-hover { padding: 0 13.5px; margin: 0; }
+
+.ico-close-bgdark-hover.ico-block { height: 27px; margin: 0; }
+
+.ico-accordion-footer-open-white { padding: 0 6px; margin: 0; }
+
+.ico-accordion-footer-open-white.ico-block { height: 7px; margin: 0; }
+
+.ico-login-bar-profile { padding: 0 11px; margin: 0; }
+
+.ico-login-bar-profile.ico-block { height: 22px; margin: 0; }
+
+.ico-checked-white { padding: 0 8.5px; margin: 0; }
+
+.ico-checked-white.ico-block { height: 17px; margin: 0; }
+
+.ico-share-light { padding: 0 9px; margin: 0; }
+
+.ico-share-light.ico-block { height: 18px; margin: 0; }
+
+.ico-arrow-select { padding: 0 11px; margin: 0; }
+
+.ico-arrow-select.ico-block { height: 40px; margin: 0; }
+
+.ico-pagination-arrow-left-grey { padding: 0 5.5px; margin: 0; }
+
+.ico-pagination-arrow-left-grey.ico-block { height: 5px; margin: 0; }
+
+.ico-dropdown-fly-at-the-airport { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-fly-at-the-airport.ico-block { height: 60px; margin: 0; }
+
+.ico-pagination-dotted { padding: 0 4.5px; margin: 0; }
+
+.ico-pagination-dotted.ico-block { height: 9px; margin: 0; }
+
+.ico-social-facebook { padding: 0 14px; margin: 0; }
+
+.ico-social-facebook.ico-block { height: 28px; margin: 0; }
+
+.ico-arrow-red-right { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-red-right.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-white-down { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-white-down.ico-block { height: 7px; margin: 0; }
+
+.ico-bus-booking-matrix { padding: 0 20px; margin: 0; }
+
+.ico-bus-booking-matrix.ico-block { height: 40px; margin: 0; }
+
+.ico-social-blog { padding: 0 14px; margin: 0; }
+
+.ico-social-blog.ico-block { height: 28px; margin: 0; }
+
+.ico-dropdown-prepare-immigration-regulation { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-prepare-immigration-regulation.ico-block { height: 60px; margin: 0; }
+
+.ico-form-info-bgdark { padding: 0 12px; margin: 0; }
+
+.ico-form-info-bgdark.ico-block { height: 24px; margin: 0; }
+
+.ico-backtotop { padding: 0 5px; margin: 0; }
+
+.ico-backtotop.ico-block { height: 11px; margin: 0; }
+
+.ico-quote-before { padding: 0 20px; margin: 0; }
+
+.ico-quote-before.ico-block { height: 40px; margin: 0; }
+
+.ico-close-bgdark { padding: 0 13.5px; margin: 0; }
+
+.ico-close-bgdark.ico-block { height: 27px; margin: 0; }
+
+.ico-faredetails-not-included { padding: 0 8px; margin: 0; }
+
+.ico-faredetails-not-included.ico-block { height: 16px; margin: 0; }
+
+.ico-arrow-gray1-down { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray1-down.ico-block { height: 7px; margin: 0; }
+
+.ico-bookingbar-flight-active { padding: 0 17.5px; margin: 0; }
+
+.ico-bookingbar-flight-active.ico-block { height: 35px; margin: 0; }
+
+.ico-info-fare-conditions-hover { padding: 0 8px; margin: 0; }
+
+.ico-info-fare-conditions-hover.ico-block { height: 16px; margin: 0; }
+
+.ico-arrownav-bgdark-prev { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bgdark-prev.ico-block { height: 27px; margin: 0; }
+
+.ico-round-add { padding: 0 14px; margin: 0; }
+
+.ico-round-add.ico-block { height: 28px; margin: 0; }
+
+.ico-logo-swiss-winglet-red { padding: 0 20px; margin: 0; }
+
+.ico-logo-swiss-winglet-red.ico-block { height: 40px; margin: 0; }
+
+.ico-locate-me { padding: 0 20px; margin: 0; }
+
+.ico-locate-me.ico-block { height: 40px; margin: 0; }
+
+.ico-checked-red { padding: 0 8.5px; margin: 0; }
+
+.ico-checked-red.ico-block { height: 17px; margin: 0; }
+
+.ico-arrow-teaser-gray6 { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-teaser-gray6.ico-block { height: 11px; margin: 0; }
+
+.ico-winglet-default { padding: 0 20px; margin: 0; }
+
+.ico-winglet-default.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-fly-on-board { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-fly-on-board.ico-block { height: 60px; margin: 0; }
+
+.ico-close-notification { padding: 0 5px; margin: 0; }
+
+.ico-close-notification.ico-block { height: 10px; margin: 0; }
+
+.ico-dropdown-book-where-we-fly { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-book-where-we-fly.ico-block { height: 60px; margin: 0; }
+
+.ico-social-google-hover { padding: 0 14px; margin: 0; }
+
+.ico-social-google-hover.ico-block { height: 28px; margin: 0; }
+
+.ico-arrownav-bgdark-prev-hover { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bgdark-prev-hover.ico-block { height: 27px; margin: 0; }
+
+.ico-plane-heading-right { padding: 0 20px; margin: 0; }
+
+.ico-plane-heading-right.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-explore-london { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-explore-london.ico-block { height: 60px; margin: 0; }
+
+.ico-opener-economy-hover { padding: 0 14px; margin: 0; }
+
+.ico-opener-economy-hover.ico-block { height: 28px; margin: 0; }
+
+.ico-success { padding: 0 13px; margin: 0; }
+
+.ico-success.ico-block { height: 26px; margin: 0; }
+
+.ico-search { padding: 0 6px; margin: 0; }
+
+.ico-search.ico-block { height: 13px; margin: 0; }
+
+.ico-arrow-select-white { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-select-white.ico-block { height: 14px; margin: 0; }
+
+.ico-bookingbar-flightstatus-active { padding: 0 17.5px; margin: 0; }
+
+.ico-bookingbar-flightstatus-active.ico-block { height: 35px; margin: 0; }
+
+.ico-arrow-gray4-up { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray4-up.ico-block { height: 7px; margin: 0; }
+
+.ico-close-white { padding: 0 3.5px; margin: 0; }
+
+.ico-close-white.ico-block { height: 7px; margin: 0; }
+
+.ico-login-bar-company { padding: 0 11px; margin: 0; }
+
+.ico-login-bar-company.ico-block { height: 22px; margin: 0; }
+
+.ico-calendar-white { padding: 0 20px; margin: 0; }
+
+.ico-calendar-white.ico-block { height: 40px; margin: 0; }
+
+.ico-opener-first { padding: 0 14px; margin: 0; }
+
+.ico-opener-first.ico-block { height: 28px; margin: 0; }
+
+.ico-close-dark { padding: 0 3.5px; margin: 0; }
+
+.ico-close-dark.ico-block { height: 7px; margin: 0; }
+
+.ico-local-tip-marker { padding: 0 20px; margin: 0; }
+
+.ico-local-tip-marker.ico-block { height: 40px; margin: 0; }
+
+.ico-print-light { padding: 0 9px; margin: 0; }
+
+.ico-print-light.ico-block { height: 18px; margin: 0; }
+
+.ico-pagination-dotted-active { padding: 0 4.5px; margin: 0; }
+
+.ico-pagination-dotted-active.ico-block { height: 9px; margin: 0; }
+
+.ico-social-facebook-hover { padding: 0 14px; margin: 0; }
+
+.ico-social-facebook-hover.ico-block { height: 28px; margin: 0; }
+
+.ico-shareable-googleplus-hover { padding: 0 10px; margin: 0; }
+
+.ico-shareable-googleplus-hover.ico-block { height: 20px; margin: 0; }
+
+.ico-warning { padding: 0 13px; margin: 0; }
+
+.ico-warning.ico-block { height: 26px; margin: 0; }
+
+.ico-lightbox-explore-arrow-left { padding: 0 6.5px; margin: 0; }
+
+.ico-lightbox-explore-arrow-left.ico-block { height: 20px; margin: 0; }
+
+.ico-tick-checkbox { padding: 0 8.5px; margin: 0; }
+
+.ico-tick-checkbox.ico-block { height: 17px; margin: 0; }
+
+.ico-pagination-arrow-right-white { padding: 0 5.5px; margin: 0; }
+
+.ico-pagination-arrow-right-white.ico-block { height: 5px; margin: 0; }
+
+.ico-minimize-map { padding: 0 20px; margin: 0; }
+
+.ico-minimize-map.ico-block { height: 40px; margin: 0; }
+
+.ico-forward-light { padding: 0 9px; margin: 0; }
+
+.ico-forward-light.ico-block { height: 18px; margin: 0; }
+
+.ico-dropdown-explore-top-destinations { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-explore-top-destinations.ico-block { height: 60px; margin: 0; }
+
+.ico-login-profile-company { padding: 0 20px; margin: 0; }
+
+.ico-login-profile-company.ico-block { height: 40px; margin: 0; }
+
+.ico-passenger-economy { padding: 0 4px; margin: 0; }
+
+.ico-passenger-economy.ico-block { height: 23px; margin: 0; }
+
+.ico-shareable-twitter { padding: 0 10px; margin: 0; }
+
+.ico-shareable-twitter.ico-block { height: 20px; margin: 0; }
+
+.ico-bookingbar-flightstatus { padding: 0 17.5px; margin: 0; }
+
+.ico-bookingbar-flightstatus.ico-block { height: 35px; margin: 0; }
+
+.ico-arrow-gray5-left { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray5-left.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-widgets-slider-left { padding: 0 9px; margin: 0; }
+
+.ico-arrow-widgets-slider-left.ico-block { height: 44px; margin: 0; }
+
+.ico-arrownav-bgdark-next { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bgdark-next.ico-block { height: 27px; margin: 0; }
+
+.ico-adress-map-marker { padding: 0 20px; margin: 0; }
+
+.ico-adress-map-marker.ico-block { height: 40px; margin: 0; }
+
+.ico-arrow-gray4-right { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray4-right.ico-block { height: 7px; margin: 0; }
+
+.ico-shareable-facebook { padding: 0 10px; margin: 0; }
+
+.ico-shareable-facebook.ico-block { height: 20px; margin: 0; }
+
+.ico-special-fare-cell { padding: 0 15px; margin: 0; }
+
+.ico-special-fare-cell.ico-block { height: 30px; margin: 0; }
+
+.ico-arrow-widgets-slider-left-active { padding: 0 9px; margin: 0; }
+
+.ico-arrow-widgets-slider-left-active.ico-block { height: 44px; margin: 0; }
+
+.ico-dropdown-explore-paris { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-explore-paris.ico-block { height: 60px; margin: 0; }
+
+.ico-dropdown-explore-new-york { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-explore-new-york.ico-block { height: 60px; margin: 0; }
+
+.ico-passenger-big { padding: 0 10.5px; margin: 0; }
+
+.ico-passenger-big.ico-block { height: 60px; margin: 0; }
+
+.ico-arrow-gray4-left { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray4-left.ico-block { height: 7px; margin: 0; }
+
+.ico-radio-active { padding: 0 2.5px; margin: 0; }
+
+.ico-radio-active.ico-block { height: 5px; margin: 0; }
+
+.ico-bookingbar-flight { padding: 0 17.5px; margin: 0; }
+
+.ico-bookingbar-flight.ico-block { height: 35px; margin: 0; }
+
+.ico-train-booking-matrix { padding: 0 20px; margin: 0; }
+
+.ico-train-booking-matrix.ico-block { height: 40px; margin: 0; }
+
+.ico-checked-dark { padding: 0 8.5px; margin: 0; }
+
+.ico-checked-dark.ico-block { height: 17px; margin: 0; }
+
+.ico-arrow-white-right { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-white-right.ico-block { height: 7px; margin: 0; }
+
+.ico-profile-logged-in { padding: 0 6.5px; margin: 0; }
+
+.ico-profile-logged-in.ico-block { height: 17px; margin: 0; }
+
+.ico-list-checklist { padding: 0 13px; margin: 0; }
+
+.ico-list-checklist.ico-block { height: 26px; margin: 0; }
+
+.ico-arrow-gray3-right { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray3-right.ico-block { height: 7px; margin: 0; }
+
+.ico-opener-business { padding: 0 14px; margin: 0; }
+
+.ico-opener-business.ico-block { height: 28px; margin: 0; }
+
+.ico-buttonicon-remove { padding: 0 10px; margin: 0; }
+
+.ico-buttonicon-remove.ico-block { height: 20px; margin: 0; }
+
+.ico-plane-heading-left { padding: 0 20px; margin: 0; }
+
+.ico-plane-heading-left.ico-block { height: 40px; margin: 0; }
+
+.ico-checked-green { padding: 0 8.5px; margin: 0; }
+
+.ico-checked-green.ico-block { height: 17px; margin: 0; }
+
+.ico-arrow-gray5-down { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray5-down.ico-block { height: 7px; margin: 0; }
+
+.ico-calendar-grey { padding: 0 20px; margin: 0; }
+
+.ico-calendar-grey.ico-block { height: 40px; margin: 0; }
+
+.ico-plane-booking-matrix { padding: 0 20px; margin: 0; }
+
+.ico-plane-booking-matrix.ico-block { height: 40px; margin: 0; }
+
+.ico-arrow-red-up { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-red-up.ico-block { height: 7px; margin: 0; }
+
+.ico-buttonicon-update { padding: 0 10px; margin: 0; }
+
+.ico-buttonicon-update.ico-block { height: 20px; margin: 0; }
+
+.ico-arrownav-bgdark-hover { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bgdark-hover.ico-block { height: 27px; margin: 0; }
+
+.ico-arrow-white-left { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-white-left.ico-block { height: 7px; margin: 0; }
+
+.ico-winglet-swiss { padding: 0 20px; margin: 0; }
+
+.ico-winglet-swiss.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-prepare-checkin-information { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-prepare-checkin-information.ico-block { height: 60px; margin: 0; }
+
+.ico-login-bar-logout { padding: 0 11px; margin: 0; }
+
+.ico-login-bar-logout.ico-block { height: 22px; margin: 0; }
+
+.ico-external-link { padding: 0 5px; margin: 0; }
+
+.ico-external-link.ico-block { height: 10px; margin: 0; }
+
+.ico-opener-first-hover { padding: 0 14px; margin: 0; }
+
+.ico-opener-first-hover.ico-block { height: 28px; margin: 0; }
+
+.ico-logout-white { padding: 0 20px; margin: 0; }
+
+.ico-logout-white.ico-block { height: 40px; margin: 0; }
+
+.ico-arrownav-bglight-prev { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bglight-prev.ico-block { height: 27px; margin: 0; }
+
+.ico-close-bglight { padding: 0 13.5px; margin: 0; }
+
+.ico-close-bglight.ico-block { height: 27px; margin: 0; }
+
+.ico-arrow-widgets-slider-right { padding: 0 9px; margin: 0; }
+
+.ico-arrow-widgets-slider-right.ico-block { height: 44px; margin: 0; }
+
+.ico-passenger-crew { padding: 0 4px; margin: 0; }
+
+.ico-passenger-crew.ico-block { height: 23px; margin: 0; }
+
+.ico-plane-form-tab-nav { padding: 0 6.5px; margin: 0; }
+
+.ico-plane-form-tab-nav.ico-block { height: 12px; margin: 0; }
+
+.ico-pagination-arrow-left-white { padding: 0 5.5px; margin: 0; }
+
+.ico-pagination-arrow-left-white.ico-block { height: 5px; margin: 0; }
+
+.ico-arrow-gray4-down { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray4-down.ico-block { height: 7px; margin: 0; }
+
+.ico-winglet-codeshare { padding: 0 20px; margin: 0; }
+
+.ico-winglet-codeshare.ico-block { height: 40px; margin: 0; }
+
+.ico-quote-after { padding: 0 20px; margin: 0; }
+
+.ico-quote-after.ico-block { height: 40px; margin: 0; }
+
+.ico-faredetails-included { padding: 0 8px; margin: 0; }
+
+.ico-faredetails-included.ico-block { height: 16px; margin: 0; }
+
+.ico-form-info-bgdark-hover { padding: 0 12px; margin: 0; }
+
+.ico-form-info-bgdark-hover.ico-block { height: 24px; margin: 0; }
+
+.ico-download-document { padding: 0 8px; margin: 0; }
+
+.ico-download-document.ico-block { height: 19px; margin: 0; }
+
+.ico-round-edit { padding: 0 14px; margin: 0; }
+
+.ico-round-edit.ico-block { height: 28px; margin: 0; }
+
+.ico-logout-grey { padding: 0 20px; margin: 0; }
+
+.ico-logout-grey.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-explore-explore-by-interest { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-explore-explore-by-interest.ico-block { height: 60px; margin: 0; }
+
+.ico-buttonicon-edit { padding: 0 10px; margin: 0; }
+
+.ico-buttonicon-edit.ico-block { height: 20px; margin: 0; }
+
+.ico-spickel-recommend { padding: 0 75px; margin: 0; }
+
+.ico-spickel-recommend.ico-block { height: 22px; margin: 0; }
+
+.ico-dropdown-explore-explore-by-category { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-explore-explore-by-category.ico-block { height: 60px; margin: 0; }
+
+.ico-info-fare-conditions { padding: 0 8px; margin: 0; }
+
+.ico-info-fare-conditions.ico-block { height: 16px; margin: 0; }
+
+.ico-accordion-footer { padding: 0 6px; margin: 0; }
+
+.ico-accordion-footer.ico-block { height: 7px; margin: 0; }
+
+.ico-infinite-scroll-load-more { padding: 0 20px; margin: 0; }
+
+.ico-infinite-scroll-load-more.ico-block { height: 40px; margin: 0; }
+
+.ico-winglet-edelweiss { padding: 0 20px; margin: 0; }
+
+.ico-winglet-edelweiss.ico-block { height: 40px; margin: 0; }
+
+.ico-social-blog-hover { padding: 0 14px; margin: 0; }
+
+.ico-social-blog-hover.ico-block { height: 28px; margin: 0; }
+
+.ico-login-bar-my-bookings { padding: 0 11px; margin: 0; }
+
+.ico-login-bar-my-bookings.ico-block { height: 22px; margin: 0; }
+
+.ico-pagination-dotted-hover { padding: 0 4.5px; margin: 0; }
+
+.ico-pagination-dotted-hover.ico-block { height: 9px; margin: 0; }
+
+.ico-lightbox-explore-arrow-right { padding: 0 6.5px; margin: 0; }
+
+.ico-lightbox-explore-arrow-right.ico-block { height: 20px; margin: 0; }
+
+.ico-arrow-white-up { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-white-up.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-gray3-left { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-gray3-left.ico-block { height: 7px; margin: 0; }
+
+.ico-arrow-red-down { padding: 0 3.5px; margin: 0; }
+
+.ico-arrow-red-down.ico-block { height: 7px; margin: 0; }
+
+.ico-logout { padding: 0 8px; margin: 0; }
+
+.ico-logout.ico-block { height: 20px; margin: 0; }
+
+.ico-search-active { padding: 0 6px; margin: 0; }
+
+.ico-search-active.ico-block { height: 13px; margin: 0; }
+
+.ico-search-grey { padding: 0 20px; margin: 0; }
+
+.ico-search-grey.ico-block { height: 40px; margin: 0; }
+
+.ico-dropdown-prepare-baggage-regulation { padding: 0 30px; margin: 0; }
+
+.ico-dropdown-prepare-baggage-regulation.ico-block { height: 60px; margin: 0; }
+
+.ico-arrownav-bglight-next { padding: 0 13.5px; margin: 0; }
+
+.ico-arrownav-bglight-next.ico-block { height: 27px; margin: 0; }
+
+.ico-share-dark { padding: 0 9px; margin: 0; }
+
+.ico-share-dark.ico-block { height: 18px; margin: 0; }
+
+.ico-shareable-twitter-hover { padding: 0 10px; margin: 0; }
+
+.ico-shareable-twitter-hover.ico-block { height: 20px; margin: 0; }
+
+.ico { display: inline; display: -webkit-inline-box; min-height: 1ex; letter-spacing: -1ex; text-decoration: none; position: relative; }
+.ico:before { content: ''; }
+.cssreflections .ico:before { content: '\00a0'; letter-spacing: -1ex; }
+.ico:after { content: ""; position: absolute; top: 50%; left: 50%; background-image: url("../PublishingImages/icons-sb4fcaa018f.png"); background-repeat: no-repeat; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .ico:after { background-image: url("../PublishingImages/icons2x-s3d67b350b0.png"); background-size: 5284px auto; } }
+
+.ico-block { display: inline-block; vertical-align: middle; text-indent: -9999px; letter-spacing: -1ex; text-decoration: none; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.ico-delete-row { position: absolute; top: 8px; margin-left: 20px; }
+
+.some-random-bugfix-selector { background-image: url("../PublishingImages/icons-sb4fcaa018f.png"); background-image: url("../PublishingImages/icons2x-s3d67b350b0.png"); }
+
+.icon { margin: 0; padding: 0; border: 0; display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; line-height: 1; text-indent: -9999px; border: none; outline: none; background-image: url("../PublishingImages/icons-sb4fcaa018f.png"); background-repeat: no-repeat; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .icon { background-image: url("../PublishingImages/icons2x-s3d67b350b0.png"); -webkit-background-size: 5284px auto; -moz-background-size: 5284px auto; -o-background-size: 5284px auto; background-size: 5284px auto; } }
+
+.icon-info-fare-conditions:hover, .icon-info-fare-conditions:focus { margin: 0; }
+
+.icon-social-facebook:hover, .icon-social-facebook:focus { margin: 0; }
+
+.icon-social-google-plus:hover, .icon-social-google-plus:focus { margin: 0; }
+
+.icon-social-blog:hover, .icon-social-blog:focus { margin: 0; }
+
+.icon-social-twitter:hover, .icon-social-twitter:focus { margin: 0; }
+
+.icons-shareable-facebook:hover, .icons-shareable-facebook:focus { margin: 0; }
+
+.icons-shareable-twitter:hover, .icons-shareable-twitter:focus { margin: 0; }
+
+.icons-shareable-google:hover, .icons-shareable-google:focus { margin: 0; }
+
+.some-random-bugfix-selector { background-image: url("../PublishingImages/icons-sb4fcaa018f.png"); background-image: url("../PublishingImages/icons2x-s3d67b350b0.png"); }
+
+.flag-Albania:after { background-position: 0 0; }
+
+.flag-Algeria:after { background-position: 0 -18px; }
+
+.flag-Andorra:after { background-position: 0 -36px; }
+
+.flag-Argentina:after { background-position: 0 -54px; }
+
+.flag-Armenia:after { background-position: 0 -72px; }
+
+.flag-Australia:after { background-position: 0 -90px; }
+
+.flag-Austria:after { background-position: 0 -108px; }
+
+.flag-Azerbeidschan:after { background-position: 0 -126px; }
+
+.flag-Bahrain:after { background-position: 0 -144px; }
+
+.flag-Belarus:after { background-position: 0 -162px; }
+
+.flag-Belgium:after { background-position: 0 -180px; }
+
+.flag-Belgium_and_Luxemburg:after { background-position: 0 -198px; }
+
+.flag-Belize:after { background-position: 0 -216px; }
+
+.flag-Bolivia:after { background-position: 0 -234px; }
+
+.flag-Bosnia-Herzegovina:after { background-position: 0 -252px; }
+
+.flag-Botswana:after { background-position: 0 -270px; }
+
+.flag-Brazil:after { background-position: 0 -288px; }
+
+.flag-Bulgaria:after { background-position: 0 -306px; }
+
+.flag-Cambodia:after { background-position: 0 -324px; }
+
+.flag-Cameroon:after { background-position: 0 -342px; }
+
+.flag-Canada:after { background-position: 0 -360px; }
+
+.flag-Chile:after { background-position: 0 -378px; }
+
+.flag-China:after { background-position: 0 -396px; }
+
+.flag-Colombia:after { background-position: 0 -414px; }
+
+.flag-Costa_Rica:after { background-position: 0 -432px; }
+
+.flag-Croatia:after { background-position: 0 -450px; }
+
+.flag-Cuba:after { background-position: 0 -468px; }
+
+.flag-Cyprus:after { background-position: 0 -486px; }
+
+.flag-Czech_Republic:after { background-position: 0 -504px; }
+
+.flag-Denmark:after { background-position: 0 -522px; }
+
+.flag-Dominican_Republic:after { background-position: 0 -540px; }
+
+.flag-Ecuador:after { background-position: 0 -558px; }
+
+.flag-Egypt:after { background-position: 0 -576px; }
+
+.flag-El_Salvador:after { background-position: 0 -594px; }
+
+.flag-EquatorialGuniea:after { background-position: 0 -612px; }
+
+.flag-Estonia:after { background-position: 0 -630px; }
+
+.flag-Feroe_Island:after { background-position: 0 -648px; }
+
+.flag-Finnland:after { background-position: 0 -666px; }
+
+.flag-France:after { background-position: 0 -684px; }
+
+.flag-Gabon:after { background-position: 0 -702px; }
+
+.flag-Germany:after { background-position: 0 -720px; }
+
+.flag-Ghana:after { background-position: 0 -738px; }
+
+.flag-Gibraltar:after { background-position: 0 -756px; }
+
+.flag-Greece:after { background-position: 0 -774px; }
+
+.flag-Guatemala:after { background-position: 0 -792px; }
+
+.flag-Honduras:after { background-position: 0 -810px; }
+
+.flag-Hong_Kong:after { background-position: 0 -828px; }
+
+.flag-Hungary:after { background-position: 0 -846px; }
+
+.flag-Iceland:after { background-position: 0 -864px; }
+
+.flag-India:after { background-position: 0 -882px; }
+
+.flag-Indonesia:after { background-position: 0 -900px; }
+
+.flag-Iran:after { background-position: 0 -918px; }
+
+.flag-Ireland:after { background-position: 0 -936px; }
+
+.flag-Israel:after { background-position: 0 -954px; }
+
+.flag-Italy:after { background-position: 0 -972px; }
+
+.flag-Jamaica:after { background-position: 0 -990px; }
+
+.flag-Japan:after { background-position: 0 -1008px; }
+
+.flag-Jordan:after { background-position: 0 -1026px; }
+
+.flag-Kazakhstan:after { background-position: 0 -1044px; }
+
+.flag-Kenia:after { background-position: 0 -1062px; }
+
+.flag-Kosovo:after { background-position: 0 -1080px; }
+
+.flag-Kuwait:after { background-position: 0 -1098px; }
+
+.flag-Laos:after { background-position: 0 -1116px; }
+
+.flag-Latvia:after { background-position: 0 -1134px; }
+
+.flag-Lebanon:after { background-position: 0 -1152px; }
+
+.flag-Libya:after { background-position: 0 -1170px; }
+
+.flag-Lichtenstein:after { background-position: 0 -1188px; }
+
+.flag-Lithuania:after { background-position: 0 -1206px; }
+
+.flag-Luxembourg:after { background-position: 0 -1224px; }
+
+.flag-Macau:after { background-position: 0 -1242px; }
+
+.flag-Macedonia:after { background-position: 0 -1260px; }
+
+.flag-Malawi:after { background-position: 0 -1278px; }
+
+.flag-Malaysia:after { background-position: 0 -1296px; }
+
+.flag-Maldives:after { background-position: 0 -1314px; }
+
+.flag-Malta:after { background-position: 0 -1332px; }
+
+.flag-Mauritius:after { background-position: 0 -1350px; }
+
+.flag-Mexico:after { background-position: 0 -1368px; }
+
+.flag-Moldova:after { background-position: 0 -1386px; }
+
+.flag-Monaco:after { background-position: 0 -1404px; }
+
+.flag-Montenegro:after { background-position: 0 -1422px; }
+
+.flag-Morocco:after { background-position: 0 -1440px; }
+
+.flag-Mozambique:after { background-position: 0 -1458px; }
+
+.flag-Myanmar:after { background-position: 0 -1476px; }
+
+.flag-Namibia:after { background-position: 0 -1494px; }
+
+.flag-Nepal:after { background-position: 0 -1512px; }
+
+.flag-Netherlands:after { background-position: 0 -1530px; }
+
+.flag-New_Zealand:after { background-position: 0 -1548px; }
+
+.flag-Nicaragua:after { background-position: 0 -1566px; }
+
+.flag-North_Korea:after { background-position: 0 -1584px; }
+
+.flag-Norway:after { background-position: 0 -1602px; }
+
+.flag-Oman:after { background-position: 0 -1620px; }
+
+.flag-Pakistan:after { background-position: 0 -1638px; }
+
+.flag-Panama:after { background-position: 0 -1656px; }
+
+.flag-Paraguay:after { background-position: 0 -1674px; }
+
+.flag-Philippines:after { background-position: 0 -1710px; }
+
+.flag-Poland:after { background-position: 0 -1728px; }
+
+.flag-Portugal:after { background-position: 0 -1746px; }
+
+.flag-Puerto_Rico:after { background-position: 0 -1764px; }
+
+.flag-Qatar:after { background-position: 0 -1782px; }
+
+.flag-Rest_Of_World:after { background-position: 0 -1800px; }
+
+.flag-Romania:after { background-position: 0 -1818px; }
+
+.flag-Russia:after { background-position: 0 -1836px; }
+
+.flag-Russia_and_Ukraine:after { background-position: 0 -1854px; }
+
+.flag-San_Marino:after { background-position: 0 -1872px; }
+
+.flag-Saudi_Arabia:after { background-position: 0 -1890px; }
+
+.flag-Senegal:after { background-position: 0 -1908px; }
+
+.flag-Serbia:after { background-position: 0 -1926px; }
+
+.flag-Serbia_Montenegro:after { background-position: 0 -1944px; }
+
+.flag-Singapore:after { background-position: 0 -1962px; }
+
+.flag-Slovakia:after { background-position: 0 -1980px; }
+
+.flag-Slovenia:after { background-position: 0 -1998px; }
+
+.flag-South_Africa:after { background-position: 0 -2016px; }
+
+.flag-South_Korea:after { background-position: 0 -2034px; }
+
+.flag-Spain:after { background-position: 0 -2052px; }
+
+.flag-Sri_Lanka:after { background-position: 0 -2070px; }
+
+.flag-Swaziland:after { background-position: 0 -2088px; }
+
+.flag-Sweden:after { background-position: 0 -2106px; }
+
+.flag-Switzerland:after { background-position: 0 -2124px; }
+
+.flag-Syria:after { background-position: 0 -2142px; }
+
+.flag-Taiwan:after { background-position: 0 -2160px; }
+
+.flag-Tajikistan:after { background-position: 0 -2178px; }
+
+.flag-Tanzania:after { background-position: 0 -2196px; }
+
+.flag-Thailand:after { background-position: 0 -2214px; }
+
+.flag-Tunisia:after { background-position: 0 -2232px; }
+
+.flag-Turkey:after { background-position: 0 -2250px; }
+
+.flag-uk:after { background-position: 0 -2448px; }
+
+.flag-UK_and_Ireland:after { background-position: 0 -2268px; }
+
+.flag-Ukraine:after { background-position: 0 -2286px; }
+
+.flag-United_Arab_Emirates:after { background-position: 0 -2304px; }
+
+.flag-United_States_of_Amerika:after { background-position: 0 -2322px; }
+
+.flag-Uruguay:after { background-position: 0 -2340px; }
+
+.flag-Uzbekistan:after { background-position: 0 -2358px; }
+
+.flag-Venezuela:after { background-position: 0 -2376px; }
+
+.flag-Vietnam:after { background-position: 0 -2394px; }
+
+.flag-Zambia:after { background-position: 0 -2412px; }
+
+.flag-Zimbabwe:after { background-position: 0 -2430px; }
+
+.flag-Peru:after { background-position: 0 -1692px; }
+
+.flag:after { background-image: url("../PublishingImages/flags/1x-s0c7ce882ea.png"); background-repeat: no-repeat; width: 24px; height: 18px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .flag:after { background-image: url("../PublishingImages/flags/2x-s4338c7c80e.png"); background-size: 24px auto; } }
+
+.flag:after { content: ""; position: absolute; top: 50%; margin-top: -9px; left: 0; }
+
+.flag { position: relative; }
+
+.flag-inline { display: inline; letter-spacing: -1ex; text-decoration: none; position: relative; padding: 0 12px; }
+.flag-inline:before { content: ''; }
+.cssreflections .flag-inline:before { content: '\00a0'; letter-spacing: -1ex; }
+
+.flag-block { display: inline-block; vertical-align: middle; text-indent: -9999px; letter-spacing: -1ex; text-decoration: none; padding: 0; width: 24px; height: 18px; }
+
+@font-face { font-family: "swiss-piktos"; src: url("../fonts/swiss-piktos.eot"); src: url("../fonts/swiss-piktos.eot?#iefix") format("embedded-opentype"), url("../fonts/swiss-piktos.svg#swiss-piktos") format("svg"), url("../fonts/swiss-piktos.woff?3") format("woff"), url("../fonts/swiss-piktos.ttf?3") format("truetype"); font-weight: normal; font-style: normal; }
+
+.picto, .picto-block { position: relative; padding: 0 15px; }
+.picto:after, .picto-block:after { position: absolute; top: 50%; left: 50%; margin-left: -15px; margin-top: -15px; font-family: "swiss-piktos"; font-size: 30px; color: #47423f; content: attr(data-icon); text-align: left; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none !important; speak: none; display: inline-block; text-decoration: none; width: 30px; line-height: 1em; -webkit-font-smoothing: antialiased; }
+
+.picto { display: inline; display: -webkit-inline-box; min-height: 1ex; max-height: 1em; letter-spacing: -1ex; text-decoration: none; }
+.picto:before { content: ''; }
+.cssreflections .picto:before { content: '\00a0'; letter-spacing: -1ex; }
+
+html.html-loading .picto:after { content: none !important; }
+
+.picto-block { display: inline-block; vertical-align: middle; letter-spacing: -1ex; text-decoration: none; width: 30px; height: 30px; max-height: none; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.picto-medium { padding: 0 22px; }
+.picto-medium:after { width: 44px; height: 44px; margin-left: -22px; margin-top: -22px; font-size: 44px; }
+
+.picto-block.picto-medium { width: 44px; height: 44px; padding: 0; }
+
+.picto-large { padding: 0 30px; }
+.picto-large:after { width: 60px; height: 60px; margin-left: -30px; margin-top: -30px; font-size: 60px; }
+
+.picto-block.picto-large { width: 60px; height: 60px; padding: 0; }
+
+.picto-gray:after { color: #6f6660; }
+
+.picto-white:after { color: white; }
+
+/*
+	\.icon\-(.+?)\:before
+	.picto-$1:after
+*/
+/* update pictolist in pictos.haml */
+.picto-add-document:after { content: "a"; }
+
+.picto-airport:after { content: "b"; }
+
+.picto-arrival:after { content: "c"; }
+
+.picto-arrival-service:after { content: "d"; }
+
+.picto-arrow-left:after { content: "e"; }
+
+.picto-arrow-right:after { content: "f"; }
+
+.picto-at-the-airport:after { content: "g"; }
+
+.picto-baggage:after { content: "h"; }
+
+.picto-beverage:after { content: "i"; }
+
+.picto-bicycle:after { content: "j"; }
+
+.picto-booking:after { content: "k"; }
+
+.picto-bookmarklet:after { content: "l"; }
+
+.picto-bookmarklet-2:after { content: "m"; }
+
+.picto-copyright-information:after { content: "n"; }
+
+.picto-contact:after { content: "o"; }
+
+.picto-conditions-of-carriage:after { content: "p"; }
+
+.picto-cold-meal:after { content: "q"; }
+
+.picto-clock:after { content: "r"; }
+
+.picto-breakfast:after { content: "s"; }
+
+.picto-bus:after { content: "t"; }
+
+.picto-calendar:after { content: "u"; }
+
+.picto-car-rental:after { content: "v"; }
+
+.picto-car-rental-pick-up:after { content: "w"; }
+
+.picto-car-rental-return:after { content: "x"; }
+
+.picto-check-in:after { content: "y"; }
+
+.picto-check-list:after { content: "z"; }
+
+.picto-document-checked:after { content: "A"; }
+
+.picto-disclaimer:after { content: "B"; }
+
+.picto-desktop:after { content: "C"; }
+
+.picto-departure:after { content: "D"; }
+
+.picto-currency:after { content: "E"; }
+
+.picto-crew:after { content: "F"; }
+
+.picto-credit-card:after { content: "G"; }
+
+.picto-create-profile:after { content: "H"; }
+
+.picto-fleet:after { content: "I"; }
+
+.picto-flexibility:after { content: "J"; }
+
+.picto-flight:after { content: "K"; }
+
+.picto-flight-history:after { content: "L"; }
+
+.picto-flight-information:after { content: "M"; }
+
+.picto-flight-status:after { content: "N"; }
+
+.picto-frequent-flyer:after { content: "O"; }
+
+.picto-fullscreen:after { content: "P"; }
+
+.picto-globe:after { content: "Q"; }
+
+.picto-hairdryer:after { content: "R"; }
+
+.picto-hand-baggage:after { content: "S"; }
+
+.picto-hot-meal:after { content: "T"; }
+
+.picto-hot-meal-a-la-carte:after { content: "U"; }
+
+.picto-favorite:after { content: "V"; }
+
+.picto-edit:after { content: "W"; }
+
+.picto-double-page:after { content: "X"; }
+
+.picto-dog:after { content: "Y"; }
+
+.picto-documents:after { content: "Z"; }
+
+.picto-men:after { content: "0"; }
+
+.picto-mobile:after { content: "1"; }
+
+.picto-mobile-service:after { content: "2"; }
+
+.picto-more-options:after { content: "3"; }
+
+.picto-multi-city:after { content: "4"; }
+
+.picto-medical-service:after { content: "5"; }
+
+.picto-meal:after { content: "6"; }
+
+.picto-lounge:after { content: "7"; }
+
+.picto-information:after { content: "8"; }
+
+.picto-immigration:after { content: "9"; }
+
+.picto-hotel-check-out:after { content: "!"; }
+
+.picto-hotel-check-in:after { content: "\""; }
+
+.picto-hotel:after { content: "#"; }
+
+.picto-multi-course-meal:after { content: "$"; }
+
+.picto-my-data:after { content: "%"; }
+
+.picto-news:after { content: "&"; }
+
+.picto-newsletter:after { content: "'"; }
+
+.picto-no-baggage:after { content: "("; }
+
+.picto-no-baggage-cart:after { content: ")"; }
+
+.picto-no-smoking:after { content: "*"; }
+
+.picto-note:after { content: "+"; }
+
+.picto-notes-and-safety:after { content: ","; }
+
+.picto-on-board:after { content: "-"; }
+
+.picto-online-check-in:after { content: "."; }
+
+.picto-open-email:after { content: "/"; }
+
+.picto-option-additional-baggage:after { content: ":"; }
+
+.picto-option-hold-my-booking:after { content: ";"; }
+
+.picto-passenger-child:after { content: "<"; }
+
+.picto-passenger-adult:after { content: "="; }
+
+.picto-outbound:after { content: ">"; }
+
+.picto-option-voucher:after { content: "?"; }
+
+.picto-option-upgrade-farefamily:after { content: "@"; }
+
+.picto-option-upgrade-2:after { content: "["; }
+
+.picto-option-upgrade:after { content: "]"; }
+
+.picto-option-seat-selection:after { content: "^"; }
+
+.picto-option-meal-selection:after { content: "_"; }
+
+.picto-option-insurance:after { content: "`"; }
+
+.picto-passport:after { content: "{"; }
+
+.picto-passenger-information:after { content: "|"; }
+
+.picto-phone:after { content: "}"; }
+
+.picto-pilot:after { content: "~"; }
+
+.picto-privacy-statement:after { content: "\\"; }
+
+.picto-return:after { content: "\e000"; }
+
+.picto-round-trip:after { content: "\e001"; }
+
+.picto-route-network:after { content: "\e002"; }
+
+.picto-sandwich:after { content: "\e003"; }
+
+.picto-search:after { content: "\e004"; }
+
+.picto-services:after { content: "\e005"; }
+
+.picto-settings:after { content: "\e006"; }
+
+.picto-shower:after { content: "\e007"; }
+
+.picto-passenger-infant:after { content: "\e008"; }
+
+.picto-passenger-group:after { content: "\e009"; }
+
+.picto-timetable:after { content: "\e00a"; }
+
+.picto-toilet:after { content: "\e00b"; }
+
+.picto-terms-and-conditions:after { content: "\e00c"; }
+
+.picto-technical-service:after { content: "\e00d"; }
+
+.picto-table-of-contents:after { content: "\e00e"; }
+
+.picto-special-surprise:after { content: "\e00f"; }
+
+.picto-special-seat:after { content: "\e010"; }
+
+.picto-social-media:after { content: "\e011"; }
+
+.picto-snack-sweet:after { content: "\e012"; }
+
+.picto-snack-salted:after { content: "\e013"; }
+
+.picto-snack-business:after { content: "\e014"; }
+
+.picto-smallscreen:after { content: "\e015"; }
+
+.picto-single-page:after { content: "\e016"; }
+
+.picto-toilet-disabled:after { content: "\e017"; }
+
+.picto-train:after { content: "\e018"; }
+
+.picto-train-arrival:after { content: "\e019"; }
+
+.picto-travel-partner:after { content: "\e01a"; }
+
+.picto-unaccompanied-minors:after { content: "\e01b"; }
+
+.picto-winglet:after { content: "\e01c"; }
+
+.picto-woman:after { content: "\e01d"; }
+
+.picto-weather-bedeckt:after { content: "\e01e"; }
+
+.picto-weather-bewoelkt:after { content: "\e01f"; }
+
+.picto-weather-gewitter:after { content: "\e020"; }
+
+.picto-weather-nebel:after { content: "\e021"; }
+
+.picto-weather-regen:after { content: "\e022"; }
+
+.picto-weather-regenschauer:after { content: "\e023"; }
+
+.picto-weather-schneefall:after { content: "\e024"; }
+
+.picto-weather-sonnig:after { content: "\e025"; }
+
+.picto-weather-spruehregen:after { content: "\e026"; }
+
+.picto-weather-wolkig:after { content: "\e027"; }
+
+.picto-plane-arrival:after { content: "\e028"; }
+
+.picto-plane-departure:after { content: "\e029"; }
+
+.picto-temperature:after { content: "\e02a"; }
+
+.pictocontainer-left { display: block; position: relative; padding-left: 35px; }
+.pictocontainer-left .picto { position: absolute; top: 0; left: 0; }
+
+.pictocontainer-right { display: block; position: relative; padding-right: 38px; }
+.pictocontainer-right .picto { position: absolute; top: 0; right: 0; }
+
+.pictocontainer-middle .picto { top: 50%; margin-top: -15px; }
+
+.css-arrow-up, .indicator-up { position: relative; width: 0; height: 0; border: 11px solid transparent; border-bottom-color: #d6d3cc; border-top: none; }
+.css-arrow-up:after, .indicator-up:after { position: absolute; content: ""; bottom: -11px; left: -10px; width: 0; height: 0; border: 10px solid transparent; border-bottom-color: #f5f4f1; border-top: none; }
+
+.css-arrow-up.css-arrow-white:after { border-bottom-color: white; }
+.css-arrow-up.css-arrow-black:after { border-bottom-color: #47423f; }
+
+.css-arrow-down, .indicator-down { position: relative; width: 0; height: 0; border: 11px solid transparent; border-top-color: #d6d3cc; border-bottom: none; }
+.css-arrow-down:after, .indicator-down:after { position: absolute; content: ""; top: -11px; left: -10px; width: 0; height: 0; border: 10px solid transparent; border-top-color: #f5f4f1; border-bottom: none; }
+
+.css-arrow-down.css-arrow-white:after { border-top-color: white; }
+.css-arrow-down.css-arrow-black:after { border-top-color: #47423f; }

@@ -1,0 +1,2338 @@
+/* For IE 6/7 only Include this rule to trigger hasLayout and contain floats. */
+.seat-selection__passenger-list .i-passenger-item, .seat-selection__passenger-list li.title { *zoom: 1; }
+.seat-selection__passenger-list .i-passenger-item:before, .seat-selection__passenger-list li.title:before, .seat-selection__passenger-list .i-passenger-item:after, .seat-selection__passenger-list li.title:after { content: ""; display: table; }
+.seat-selection__passenger-list .i-passenger-item:after, .seat-selection__passenger-list li.title:after { clear: both; }
+
+.some-random-bugfix-selector { background-image: url("../PublishingImages/icons-sb4fcaa018f.png"); background-image: url("../PublishingImages/icons2x-s3d67b350b0.png"); }
+
+.seat-teaser { border: 1px solid #d6d3cc; background-color: white; }
+
+.seat-teaser--image { margin: 10px; }
+
+.seat-teaser--content { padding: 0 10px 10px; min-height: 3em; }
+
+.seat-teaser--prices { width: 100%; border-top: 1px solid #d6d3cc; }
+.seat-teaser--prices th { padding-top: 10px; padding-bottom: 5px; vertical-align: bottom; }
+.seat-teaser--prices td { padding-bottom: 10px; font-weight: bold; vertical-align: top; }
+.seat-teaser--prices th, .seat-teaser--prices td { line-height: 1.1; padding-left: 5px; padding-right: 5px; }
+.seat-teaser--prices th:first-child, .seat-teaser--prices td:first-child { padding-left: 10px; }
+.seat-teaser--prices th:last-child, .seat-teaser--prices td:last-child { padding-right: 10px; }
+
+.l-grid.seat-teaser-list { margin-right: -11px; }
+.l-grid.seat-teaser-list > .l-column { padding-right: 10px; }
+
+@media only screen and (max-width: 750px) { .seat-teaser--image { float: right; }
+  .seat-teaser--content { padding: 10px; } }
+.seatmap-tooltip-flyout .flyout-body { min-width: 12em; max-width: 20em; background-color: white; color: #6f6660; }
+
+.is-hovered .seatmap-tooltip-flyout { pointer-events: none; }
+
+.seatmap-tooltip-flyout--header { background-color: #47423f; color: white; padding: 10px 10px 10px 52px; position: relative; line-height: 1.1; }
+.seatmap-tooltip-flyout--header > .picto { position: absolute; top: 6px; left: 6px; }
+.seatmap-tooltip-flyout--header > strong { display: block; font-weight: bold; font-size: 140%; }
+
+.is-hovered .seatmap-tooltip-flyout--footer, .is-hovered .seatmap-tooltip-flyout--close-btn { display: none !important; }
+
+.seatmap-tooltip-flyout--body { padding: 10px; }
+
+.seatmap-tooltip-flyout--desc { margin: 0; margin-bottom: 1ex; }
+
+.seatmap-tooltip-flyout--price { display: block; font-weight: bold; font-size: 120%; }
+
+.seatmap-tooltip-flyout--pricediff { font-size: 90%; }
+
+.seatmap-tooltip-flyout--footer { padding: 10px; }
+.seatmap-tooltip-flyout--footer > .btn { display: block; width: 100%; }
+
+.seatselection-layout { border-top: 1px solid #d6d3cc; border-bottom: 1px solid #d6d3cc; background-color: #f5f4f1; }
+.seatselection-layout > .l-left, .seatselection-layout > .l-right { vertical-align: top; }
+.seatselection-layout > .l-right { width: 1%; }
+.seatselection-layout .seatmap--seats { margin: 0 auto; }
+
+.seat-selection__passenger-pane { border-bottom: 1px solid #d6d3cc; }
+.seat-selection__passenger-pane.is-active { background-color: #faf9f8; }
+
+.seat-selection__passenger-list { background-color: white; width: 100%; }
+.seat-selection__passenger-list > li { margin-top: -1px; position: relative; }
+.seat-selection__passenger-list > li .btn-close { position: absolute; top: 50%; margin-top: -13px; right: 7px; z-index: 10; display: none; }
+.seat-selection__passenger-list .i-passenger-item, .seat-selection__passenger-list li.title { display: block; width: 100%; border: 1px solid #d6d3cc; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.seat-selection__passenger-list .i-passenger-item > .i-value, .seat-selection__passenger-list .i-passenger-item > .i-title, .seat-selection__passenger-list li.title > strong { display: block; float: left; width: 49%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.seat-selection__passenger-list .i-passenger-item { position: relative; text-align: left; }
+.seat-selection__passenger-list .i-passenger-item > .i-value, .seat-selection__passenger-list .i-passenger-item > .i-title { padding: 10px 10px; }
+.seat-selection__passenger-list button.i-passenger-item { cursor: pointer; }
+.seat-selection__passenger-list button.i-passenger-item:hover, .seat-selection__passenger-list button.i-passenger-item:focus { outline: 0; border-color: #7f766e; z-index: 2; background-color: #f5f4f1; }
+.seat-selection__passenger-list button.i-passenger-item.is-active { border-color: #cc0000; z-index: 1; }
+.seat-selection__passenger-list li.title { font-size: 11px; font-size: 0.78571rem; text-transform: uppercase; }
+.seat-selection__passenger-list li.title > strong { padding: 5px 10px; }
+
+.seat-selection__seat-list { width: 100%; table-layout: collapse; }
+.seat-selection__seat-list tr:focus { outline: 0; }
+.seat-selection__seat-list tr td, .seat-selection__seat-list tr th { background-color: white; border-color: #d6d3cc; border-width: 1px; border-style: none; border-top-style: solid; padding: 7px 3px; }
+.seat-selection__seat-list tr td:first-child, .seat-selection__seat-list tr th:first-child { border-left-style: solid; }
+.seat-selection__seat-list tr td:last-child, .seat-selection__seat-list tr th:last-child { border-right-style: solid; }
+.seat-selection__seat-list tr.is-active td { border-color: #cc0000; background-color: #f5f4f1; }
+.seat-selection__seat-list tr.is-active + tr td { border-top-color: #cc0000; }
+.seat-selection__seat-list tr:last-child td { border-bottom-style: solid; }
+.seat-selection__seat-list tr th { font-size: 11px; font-weight: bold; text-transform: uppercase; }
+.seat-selection__seat-list tr th:first-child { padding: 7px; }
+.seat-selection__seat-list tr td { color: #47423f; }
+.seat-selection__seat-list .seatmap-seat { display: inline-block; margin-top: -10px; margin-bottom: -5px; }
+.seat-selection__seat-list .btn-close { display: none; }
+
+.seat-selection__seat-list__row[role="button"] { cursor: pointer; }
+.seat-selection__seat-list__row[role="button"]:hover, .no-touch .seat-selection__seat-list__row[role="button"]:focus { outline: 0; border-color: #7f766e; background-color: #f5f4f1; }
+
+.seat-selection__seat-list td, .seat-selection__seat-list th { width: 1%; white-space: nowrap; }
+
+.seat-selection__seat-list .seat-selection__seat-list__passenger { width: 50%; white-space: normal; }
+.seat-selection__seat-list .seat-selection__seat-list__price { width: 50%; text-align: right; padding-right: 10px; }
+.seat-selection__seat-list .seat-selection__seat-list__cmd { padding-left: 0; width: 30px; text-align: right; }
+
+.seat-selection__seat-list__total { font-weight: bold; }
+.seat-selection__seat-list__total td { background: none !important; border-left-style: none !important; border-right-style: none !important; padding-left: 0; padding-right: 0; }
+
+.seat-selection__seat-list.is-static .seat-selection__seat-list__row td { border-top-style: none; border-left-style: none; border-right-style: none; background-color: transparent; }
+.seat-selection__seat-list.is-static td, .seat-selection__seat-list.is-static strong { font-weight: normal !important; }
+.seat-selection__seat-list.is-static .seat-selection__seat-list__title { display: none; }
+
+.seat-selection__mobile-header { position: fixed; top: 0; left: 0; right: 0; z-index: 201; padding: 10px; font-weight: bold; color: #333333; background-color: rgba(245, 244, 241, 0.8); }
+.seat-selection__mobile-header .btn-close { float: right; }
+
+.seat-selection__caption { text-align: left; padding: 20px; max-width: 312px; margin: 15px auto 0 auto; }
+.seat-selection__caption .seat-selection__seat-preview { position: absolute; top: -5px; left: 0; display: inline-block; background-color: #d6d3cc; padding: 3px; vertical-align: middle; margin-right: 1ex; width: 23px; height: 23px; }
+.seat-selection__caption .seat-selection__seat-preview .seatmap-seat { margin-top: 2px; margin-left: 3px; }
+.seat-selection__caption > li { position: relative; padding-left: 38px; }
+.seat-selection__caption > li + li { margin-top: 20px; }
+
+.seat-selection__seatmap-pane { background-color: #edece8; }
+
+@media (max-width: 850px) { .seatselection-layout > .seat-selection__seatmap-pane { padding-top: 50px; background-color: #f5f4f1; width: 100%; position: fixed; top: 0; left: -200%; width: 100%; bottom: 0; z-index: 200; overflow: auto; -webkit-transition: left 0s, -webkit-transform 150ms, opacity 150ms; -webkit-transition-delay: 500ms, 200ms, 200ms; -moz-transition: left 0s 500ms, -moz-transform 150ms 200ms, opacity 150ms 200ms; -o-transition: left 0s 500ms, -o-transform 150ms 200ms, opacity 150ms 200ms; transition: left 0s 500ms, transform 150ms 200ms, opacity 150ms 200ms; -webkit-transform: scale(0.9); -moz-transform: scale(0.9); -ms-transform: scale(0.9); -o-transform: scale(0.9); transform: scale(0.9); opacity: 0; }
+  .is-seatmap-active { overflow: hidden; }
+  .is-seatmap-active body { overflow: hidden; }
+  .is-seatmap-active .seatselection-layout > .seat-selection__seatmap-pane { left: 0; -webkit-transition: -webkit-transform 250ms ease-out, opacity 250ms; -moz-transition: -moz-transform 250ms ease-out, opacity 250ms; -o-transition: -o-transform 250ms ease-out, opacity 250ms; transition: transform 250ms ease-out, opacity 250ms; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); opacity: 1; } }
+/* Export */
+.avro-rj100 #seat1a { top: 123px; left: 80px; }
+
+.avro-rj100 #seat1b { top: 123px; left: 96px; }
+
+.avro-rj100 #seat1d { top: 123px; left: 135px; }
+
+.avro-rj100 #seat1e { top: 123px; left: 151px; }
+
+.avro-rj100 #seat1f { top: 123px; left: 167px; }
+
+.avro-rj100 #seat2a { top: 149px; left: 80px; }
+
+.avro-rj100 #seat2b { top: 149px; left: 96px; }
+
+.avro-rj100 #seat2d { top: 149px; left: 135px; }
+
+.avro-rj100 #seat2e { top: 149px; left: 151px; }
+
+.avro-rj100 #seat2f { top: 149px; left: 167px; }
+
+.avro-rj100 #seat3a { top: 175px; left: 80px; }
+
+.avro-rj100 #seat3b { top: 175px; left: 96px; }
+
+.avro-rj100 #seat3d { top: 175px; left: 135px; }
+
+.avro-rj100 #seat3e { top: 175px; left: 151px; }
+
+.avro-rj100 #seat3f { top: 175px; left: 167px; }
+
+.avro-rj100 #seat4a { top: 201px; left: 80px; }
+
+.avro-rj100 #seat4b { top: 201px; left: 96px; }
+
+.avro-rj100 #seat4d { top: 201px; left: 135px; }
+
+.avro-rj100 #seat4e { top: 201px; left: 151px; }
+
+.avro-rj100 #seat4f { top: 201px; left: 167px; }
+
+.avro-rj100 #seat5a { top: 227px; left: 80px; }
+
+.avro-rj100 #seat5b { top: 227px; left: 96px; }
+
+.avro-rj100 #seat5d { top: 227px; left: 135px; }
+
+.avro-rj100 #seat5e { top: 227px; left: 151px; }
+
+.avro-rj100 #seat5f { top: 227px; left: 167px; }
+
+.avro-rj100 #seat6a { top: 253px; left: 80px; }
+
+.avro-rj100 #seat6b { top: 253px; left: 96px; }
+
+.avro-rj100 #seat6d { top: 253px; left: 135px; }
+
+.avro-rj100 #seat6e { top: 253px; left: 151px; }
+
+.avro-rj100 #seat6f { top: 253px; left: 167px; }
+
+.avro-rj100 #seat7a { top: 279px; left: 80px; }
+
+.avro-rj100 #seat7b { top: 279px; left: 96px; }
+
+.avro-rj100 #seat7d { top: 279px; left: 135px; }
+
+.avro-rj100 #seat7e { top: 279px; left: 151px; }
+
+.avro-rj100 #seat7f { top: 279px; left: 167px; }
+
+.avro-rj100 #seat8a { top: 305px; left: 80px; }
+
+.avro-rj100 #seat8b { top: 305px; left: 96px; }
+
+.avro-rj100 #seat8d { top: 305px; left: 135px; }
+
+.avro-rj100 #seat8e { top: 305px; left: 151px; }
+
+.avro-rj100 #seat8f { top: 305px; left: 167px; }
+
+.avro-rj100 #seat9a { top: 336px; left: 80px; }
+
+.avro-rj100 #seat9b { top: 336px; left: 96px; }
+
+.avro-rj100 #seat9d { top: 336px; left: 135px; }
+
+.avro-rj100 #seat9e { top: 336px; left: 151px; }
+
+.avro-rj100 #seat9f { top: 336px; left: 167px; }
+
+.avro-rj100 #seat10a { top: 363px; left: 80px; }
+
+.avro-rj100 #seat10b { top: 363px; left: 96px; }
+
+.avro-rj100 #seat10d { top: 363px; left: 135px; }
+
+.avro-rj100 #seat10e { top: 363px; left: 151px; }
+
+.avro-rj100 #seat10f { top: 363px; left: 167px; }
+
+.avro-rj100 #seat11a { top: 389px; left: 80px; }
+
+.avro-rj100 #seat11b { top: 389px; left: 96px; }
+
+.avro-rj100 #seat11d { top: 389px; left: 135px; }
+
+.avro-rj100 #seat11e { top: 389px; left: 151px; }
+
+.avro-rj100 #seat11f { top: 389px; left: 167px; }
+
+.avro-rj100 #seat12a { top: 416px; left: 80px; }
+
+.avro-rj100 #seat12b { top: 416px; left: 96px; }
+
+.avro-rj100 #seat12d { top: 416px; left: 135px; }
+
+.avro-rj100 #seat12e { top: 416px; left: 151px; }
+
+.avro-rj100 #seat12f { top: 416px; left: 167px; }
+
+.avro-rj100 #seat14a { top: 443px; left: 80px; }
+
+.avro-rj100 #seat14b { top: 443px; left: 96px; }
+
+.avro-rj100 #seat14d { top: 443px; left: 135px; }
+
+.avro-rj100 #seat14e { top: 443px; left: 151px; }
+
+.avro-rj100 #seat14f { top: 443px; left: 167px; }
+
+.avro-rj100 #seat15a { top: 470px; left: 80px; }
+
+.avro-rj100 #seat15b { top: 470px; left: 96px; }
+
+.avro-rj100 #seat15d { top: 470px; left: 135px; }
+
+.avro-rj100 #seat15e { top: 470px; left: 151px; }
+
+.avro-rj100 #seat15f { top: 470px; left: 167px; }
+
+.avro-rj100 #seat16a { top: 496px; left: 80px; }
+
+.avro-rj100 #seat16b { top: 496px; left: 96px; }
+
+.avro-rj100 #seat16d { top: 496px; left: 135px; }
+
+.avro-rj100 #seat16e { top: 496px; left: 151px; }
+
+.avro-rj100 #seat16f { top: 496px; left: 167px; }
+
+.avro-rj100 #seat17a { top: 523px; left: 80px; }
+
+.avro-rj100 #seat17b { top: 523px; left: 96px; }
+
+.avro-rj100 #seat17d { top: 523px; left: 135px; }
+
+.avro-rj100 #seat17e { top: 523px; left: 151px; }
+
+.avro-rj100 #seat17f { top: 523px; left: 167px; }
+
+.avro-rj100 #seat18a { top: 550px; left: 80px; }
+
+.avro-rj100 #seat18b { top: 550px; left: 96px; }
+
+.avro-rj100 #seat18d { top: 550px; left: 135px; }
+
+.avro-rj100 #seat18e { top: 550px; left: 151px; }
+
+.avro-rj100 #seat18f { top: 550px; left: 167px; }
+
+.avro-rj100 #seat19a { top: 577px; left: 80px; }
+
+.avro-rj100 #seat19b { top: 577px; left: 96px; }
+
+.avro-rj100 #seat19d { top: 577px; left: 135px; }
+
+.avro-rj100 #seat19e { top: 577px; left: 151px; }
+
+.avro-rj100 #seat19f { top: 577px; left: 167px; }
+
+.avro-rj100 #seat20a { top: 603px; left: 82px; }
+
+.avro-rj100 #seat20b { top: 603px; left: 98px; }
+
+.avro-rj100 #seat20d { top: 603px; left: 135px; }
+
+.avro-rj100 #seat20e { top: 603px; left: 151px; }
+
+.avro-rj100 #seat20f { top: 603px; left: 167px; }
+
+.avro-rj100 #seat21a { top: 630px; left: 85px; }
+
+.avro-rj100 #seat21b { top: 630px; left: 101px; }
+
+.a319-112 #seat1a { top: 119px; left: 73px; }
+
+.a319-112 #seat1b { top: 119px; left: 89px; }
+
+.a319-112 #seat1c { top: 119px; left: 105px; }
+
+.a319-112 #seat1d { top: 119px; left: 140px; }
+
+.a319-112 #seat1e { top: 119px; left: 156px; }
+
+.a319-112 #seat1f { top: 119px; left: 172px; }
+
+.a319-112 #seat2a { top: 145px; left: 73px; }
+
+.a319-112 #seat2b { top: 145px; left: 89px; }
+
+.a319-112 #seat2c { top: 145px; left: 105px; }
+
+.a319-112 #seat2d { top: 145px; left: 140px; }
+
+.a319-112 #seat2e { top: 145px; left: 156px; }
+
+.a319-112 #seat2f { top: 145px; left: 172px; }
+
+.a319-112 #seat3a { top: 171px; left: 73px; }
+
+.a319-112 #seat3b { top: 171px; left: 89px; }
+
+.a319-112 #seat3c { top: 171px; left: 105px; }
+
+.a319-112 #seat3d { top: 171px; left: 140px; }
+
+.a319-112 #seat3e { top: 171px; left: 156px; }
+
+.a319-112 #seat3f { top: 171px; left: 172px; }
+
+.a319-112 #seat4a { top: 198px; left: 73px; }
+
+.a319-112 #seat4b { top: 198px; left: 89px; }
+
+.a319-112 #seat4c { top: 198px; left: 105px; }
+
+.a319-112 #seat4d { top: 198px; left: 140px; }
+
+.a319-112 #seat4e { top: 198px; left: 156px; }
+
+.a319-112 #seat4f { top: 198px; left: 172px; }
+
+.a319-112 #seat5a { top: 224px; left: 73px; }
+
+.a319-112 #seat5b { top: 224px; left: 89px; }
+
+.a319-112 #seat5c { top: 224px; left: 105px; }
+
+.a319-112 #seat5d { top: 224px; left: 140px; }
+
+.a319-112 #seat5e { top: 224px; left: 156px; }
+
+.a319-112 #seat5f { top: 224px; left: 172px; }
+
+.a319-112 #seat6a { top: 250px; left: 73px; }
+
+.a319-112 #seat6b { top: 250px; left: 89px; }
+
+.a319-112 #seat6c { top: 250px; left: 105px; }
+
+.a319-112 #seat6d { top: 250px; left: 140px; }
+
+.a319-112 #seat6e { top: 250px; left: 156px; }
+
+.a319-112 #seat6f { top: 250px; left: 172px; }
+
+.a319-112 #seat7a { top: 276px; left: 73px; }
+
+.a319-112 #seat7b { top: 276px; left: 89px; }
+
+.a319-112 #seat7c { top: 276px; left: 105px; }
+
+.a319-112 #seat7d { top: 276px; left: 140px; }
+
+.a319-112 #seat7e { top: 276px; left: 156px; }
+
+.a319-112 #seat7f { top: 276px; left: 172px; }
+
+.a319-112 #seat8a { top: 303px; left: 73px; }
+
+.a319-112 #seat8b { top: 303px; left: 89px; }
+
+.a319-112 #seat8c { top: 303px; left: 105px; }
+
+.a319-112 #seat8d { top: 303px; left: 140px; }
+
+.a319-112 #seat8e { top: 303px; left: 156px; }
+
+.a319-112 #seat8f { top: 303px; left: 172px; }
+
+.a319-112 #seat9a { top: 329px; left: 73px; }
+
+.a319-112 #seat9b { top: 329px; left: 89px; }
+
+.a319-112 #seat9c { top: 329px; left: 105px; }
+
+.a319-112 #seat9d { top: 329px; left: 140px; }
+
+.a319-112 #seat9e { top: 329px; left: 156px; }
+
+.a319-112 #seat9f { top: 329px; left: 172px; }
+
+.a319-112 #seat10a { top: 357px; left: 73px; }
+
+.a319-112 #seat10b { top: 357px; left: 89px; }
+
+.a319-112 #seat10c { top: 357px; left: 105px; }
+
+.a319-112 #seat10d { top: 357px; left: 140px; }
+
+.a319-112 #seat10e { top: 357px; left: 156px; }
+
+.a319-112 #seat10f { top: 357px; left: 172px; }
+
+.a319-112 #seat11a { top: 382px; left: 73px; }
+
+.a319-112 #seat11b { top: 382px; left: 89px; }
+
+.a319-112 #seat11c { top: 382px; left: 105px; }
+
+.a319-112 #seat11d { top: 382px; left: 140px; }
+
+.a319-112 #seat11e { top: 382px; left: 156px; }
+
+.a319-112 #seat11f { top: 382px; left: 172px; }
+
+.a319-112 #seat12a { top: 407px; left: 73px; }
+
+.a319-112 #seat12b { top: 407px; left: 89px; }
+
+.a319-112 #seat12c { top: 407px; left: 105px; }
+
+.a319-112 #seat12d { top: 407px; left: 140px; }
+
+.a319-112 #seat12e { top: 407px; left: 156px; }
+
+.a319-112 #seat12f { top: 407px; left: 172px; }
+
+.a319-112 #seat14a { top: 432px; left: 73px; }
+
+.a319-112 #seat14b { top: 432px; left: 89px; }
+
+.a319-112 #seat14c { top: 432px; left: 105px; }
+
+.a319-112 #seat14d { top: 432px; left: 140px; }
+
+.a319-112 #seat14e { top: 432px; left: 156px; }
+
+.a319-112 #seat14f { top: 432px; left: 172px; }
+
+.a319-112 #seat15a { top: 457px; left: 73px; }
+
+.a319-112 #seat15b { top: 457px; left: 89px; }
+
+.a319-112 #seat15c { top: 457px; left: 105px; }
+
+.a319-112 #seat15d { top: 457px; left: 140px; }
+
+.a319-112 #seat15e { top: 457px; left: 156px; }
+
+.a319-112 #seat15f { top: 457px; left: 172px; }
+
+.a319-112 #seat16a { top: 482px; left: 73px; }
+
+.a319-112 #seat16b { top: 482px; left: 89px; }
+
+.a319-112 #seat16c { top: 482px; left: 105px; }
+
+.a319-112 #seat16d { top: 482px; left: 140px; }
+
+.a319-112 #seat16e { top: 482px; left: 156px; }
+
+.a319-112 #seat16f { top: 482px; left: 172px; }
+
+.a319-112 #seat29a { top: 507px; left: 73px; }
+
+.a319-112 #seat29b { top: 507px; left: 89px; }
+
+.a319-112 #seat29c { top: 507px; left: 105px; }
+
+.a319-112 #seat29d { top: 507px; left: 140px; }
+
+.a319-112 #seat29e { top: 507px; left: 156px; }
+
+.a319-112 #seat29f { top: 507px; left: 172px; }
+
+.a319-112 #seat30a { top: 533px; left: 73px; }
+
+.a319-112 #seat30b { top: 533px; left: 89px; }
+
+.a319-112 #seat30c { top: 533px; left: 105px; }
+
+.a319-112 #seat30d { top: 533px; left: 140px; }
+
+.a319-112 #seat30e { top: 533px; left: 156px; }
+
+.a319-112 #seat30f { top: 533px; left: 172px; }
+
+.a319-112 #seat31a { top: 558px; left: 73px; }
+
+.a319-112 #seat31b { top: 558px; left: 89px; }
+
+.a319-112 #seat31c { top: 558px; left: 105px; }
+
+.a319-112 #seat31d { top: 558px; left: 140px; }
+
+.a319-112 #seat31e { top: 558px; left: 156px; }
+
+.a319-112 #seat31f { top: 558px; left: 172px; }
+
+.a319-112 #seat32a { top: 583px; left: 73px; }
+
+.a319-112 #seat32b { top: 583px; left: 89px; }
+
+.a319-112 #seat32c { top: 583px; left: 105px; }
+
+.a319-112 #seat32d { top: 583px; left: 140px; }
+
+.a319-112 #seat32e { top: 583px; left: 156px; }
+
+.a319-112 #seat32f { top: 583px; left: 172px; }
+
+.a319-112 #seat33a { top: 608px; left: 73px; }
+
+.a319-112 #seat33b { top: 608px; left: 89px; }
+
+.a319-112 #seat33c { top: 608px; left: 105px; }
+
+.a319-112 #seat33d { top: 608px; left: 140px; }
+
+.a319-112 #seat33e { top: 608px; left: 156px; }
+
+.a319-112 #seat33f { top: 608px; left: 172px; }
+
+.a319-112 #seat34a { top: 633px; left: 73px; }
+
+.a319-112 #seat34b { top: 633px; left: 89px; }
+
+.a319-112 #seat34c { top: 633px; left: 105px; }
+
+.a319-112 #seat34d { top: 633px; left: 140px; }
+
+.a319-112 #seat34e { top: 633px; left: 156px; }
+
+.a319-112 #seat34f { top: 633px; left: 172px; }
+
+.a319-112 #seat35a { top: 658px; left: 73px; }
+
+.a319-112 #seat35b { top: 658px; left: 89px; }
+
+.a319-112 #seat35c { top: 658px; left: 105px; }
+
+.a319-112 #seat35d { top: 658px; left: 140px; }
+
+.a319-112 #seat35e { top: 658px; left: 156px; }
+
+.a319-112 #seat35f { top: 658px; left: 172px; }
+
+.a319-112 #seat36a { top: 683px; left: 73px; }
+
+.a319-112 #seat36b { top: 683px; left: 89px; }
+
+.a319-112 #seat36c { top: 683px; left: 105px; }
+
+.a319-112 #seat36d { top: 683px; left: 140px; }
+
+.a319-112 #seat36e { top: 683px; left: 156px; }
+
+.a319-112 #seat36f { top: 683px; left: 172px; }
+
+.a320-214 #seat1a { top: 124px; left: 70px; }
+
+.a320-214 #seat1b { top: 124px; left: 86px; }
+
+.a320-214 #seat1c { top: 124px; left: 102px; }
+
+.a320-214 #seat1d { top: 124px; left: 146px; }
+
+.a320-214 #seat1e { top: 124px; left: 162px; }
+
+.a320-214 #seat1f { top: 124px; left: 178px; }
+
+.a320-214 #seat2a { top: 153px; left: 70px; }
+
+.a320-214 #seat2b { top: 153px; left: 86px; }
+
+.a320-214 #seat2c { top: 153px; left: 102px; }
+
+.a320-214 #seat2d { top: 153px; left: 146px; }
+
+.a320-214 #seat2e { top: 153px; left: 162px; }
+
+.a320-214 #seat2f { top: 153px; left: 178px; }
+
+.a320-214 #seat3a { top: 182px; left: 70px; }
+
+.a320-214 #seat3b { top: 182px; left: 86px; }
+
+.a320-214 #seat3c { top: 182px; left: 102px; }
+
+.a320-214 #seat3d { top: 182px; left: 146px; }
+
+.a320-214 #seat3e { top: 182px; left: 162px; }
+
+.a320-214 #seat3f { top: 182px; left: 178px; }
+
+.a320-214 #seat4a { top: 211px; left: 70px; }
+
+.a320-214 #seat4b { top: 211px; left: 86px; }
+
+.a320-214 #seat4c { top: 211px; left: 102px; }
+
+.a320-214 #seat4d { top: 211px; left: 146px; }
+
+.a320-214 #seat4e { top: 211px; left: 162px; }
+
+.a320-214 #seat4f { top: 211px; left: 178px; }
+
+.a320-214 #seat5a { top: 240px; left: 70px; }
+
+.a320-214 #seat5b { top: 240px; left: 86px; }
+
+.a320-214 #seat5c { top: 240px; left: 102px; }
+
+.a320-214 #seat5d { top: 240px; left: 146px; }
+
+.a320-214 #seat5e { top: 240px; left: 162px; }
+
+.a320-214 #seat5f { top: 240px; left: 178px; }
+
+.a320-214 #seat6a { top: 269px; left: 70px; }
+
+.a320-214 #seat6b { top: 269px; left: 86px; }
+
+.a320-214 #seat6c { top: 269px; left: 102px; }
+
+.a320-214 #seat6d { top: 269px; left: 146px; }
+
+.a320-214 #seat6e { top: 269px; left: 162px; }
+
+.a320-214 #seat6f { top: 269px; left: 178px; }
+
+.a320-214 #seat7a { top: 298px; left: 70px; }
+
+.a320-214 #seat7b { top: 298px; left: 86px; }
+
+.a320-214 #seat7c { top: 298px; left: 102px; }
+
+.a320-214 #seat7d { top: 298px; left: 146px; }
+
+.a320-214 #seat7e { top: 298px; left: 162px; }
+
+.a320-214 #seat7f { top: 298px; left: 178px; }
+
+.a320-214 #seat8a { top: 328px; left: 70px; }
+
+.a320-214 #seat8b { top: 328px; left: 86px; }
+
+.a320-214 #seat8c { top: 328px; left: 102px; }
+
+.a320-214 #seat8d { top: 328px; left: 146px; }
+
+.a320-214 #seat8e { top: 328px; left: 162px; }
+
+.a320-214 #seat8f { top: 328px; left: 178px; }
+
+.a320-214 #seat9a { top: 357px; left: 70px; }
+
+.a320-214 #seat9b { top: 357px; left: 86px; }
+
+.a320-214 #seat9c { top: 357px; left: 102px; }
+
+.a320-214 #seat9d { top: 357px; left: 146px; }
+
+.a320-214 #seat9e { top: 357px; left: 162px; }
+
+.a320-214 #seat9f { top: 357px; left: 178px; }
+
+.a320-214 #seat10a { top: 386px; left: 70px; }
+
+.a320-214 #seat10b { top: 386px; left: 86px; }
+
+.a320-214 #seat10c { top: 386px; left: 102px; }
+
+.a320-214 #seat10d { top: 386px; left: 146px; }
+
+.a320-214 #seat10e { top: 386px; left: 162px; }
+
+.a320-214 #seat10f { top: 386px; left: 178px; }
+
+.a320-214 #seat11a { top: 415px; left: 70px; }
+
+.a320-214 #seat11b { top: 415px; left: 86px; }
+
+.a320-214 #seat11c { top: 415px; left: 102px; }
+
+.a320-214 #seat11d { top: 415px; left: 146px; }
+
+.a320-214 #seat11e { top: 415px; left: 162px; }
+
+.a320-214 #seat11f { top: 415px; left: 178px; }
+
+.a320-214 #seat12a { top: 444px; left: 70px; }
+
+.a320-214 #seat12b { top: 444px; left: 86px; }
+
+.a320-214 #seat12c { top: 444px; left: 102px; }
+
+.a320-214 #seat12d { top: 444px; left: 146px; }
+
+.a320-214 #seat12e { top: 444px; left: 162px; }
+
+.a320-214 #seat12f { top: 444px; left: 178px; }
+
+.a320-214 #seat14a { top: 473px; left: 70px; }
+
+.a320-214 #seat14b { top: 473px; left: 86px; }
+
+.a320-214 #seat14c { top: 473px; left: 102px; }
+
+.a320-214 #seat14d { top: 473px; left: 146px; }
+
+.a320-214 #seat14e { top: 473px; left: 162px; }
+
+.a320-214 #seat14f { top: 473px; left: 178px; }
+
+.a320-214 #seat15a { top: 502px; left: 70px; }
+
+.a320-214 #seat15b { top: 502px; left: 86px; }
+
+.a320-214 #seat15c { top: 502px; left: 102px; }
+
+.a320-214 #seat15d { top: 502px; left: 146px; }
+
+.a320-214 #seat15e { top: 502px; left: 162px; }
+
+.a320-214 #seat15f { top: 502px; left: 178px; }
+
+.a320-214 #seat16a { top: 531px; left: 70px; }
+
+.a320-214 #seat16b { top: 531px; left: 86px; }
+
+.a320-214 #seat16c { top: 531px; left: 102px; }
+
+.a320-214 #seat16d { top: 531px; left: 146px; }
+
+.a320-214 #seat16e { top: 531px; left: 162px; }
+
+.a320-214 #seat16f { top: 531px; left: 178px; }
+
+.a320-214 #seat17a { top: 560px; left: 70px; }
+
+.a320-214 #seat17b { top: 560px; left: 86px; }
+
+.a320-214 #seat17c { top: 560px; left: 102px; }
+
+.a320-214 #seat17d { top: 560px; left: 146px; }
+
+.a320-214 #seat17e { top: 560px; left: 162px; }
+
+.a320-214 #seat17f { top: 560px; left: 178px; }
+
+.a320-214 #seat25a { top: 589px; left: 70px; }
+
+.a320-214 #seat25b { top: 589px; left: 86px; }
+
+.a320-214 #seat25c { top: 589px; left: 102px; }
+
+.a320-214 #seat25d { top: 589px; left: 146px; }
+
+.a320-214 #seat25e { top: 589px; left: 162px; }
+
+.a320-214 #seat25f { top: 589px; left: 178px; }
+
+.a320-214 #seat26a { top: 618px; left: 70px; }
+
+.a320-214 #seat26b { top: 618px; left: 86px; }
+
+.a320-214 #seat26c { top: 618px; left: 102px; }
+
+.a320-214 #seat26d { top: 618px; left: 146px; }
+
+.a320-214 #seat26e { top: 618px; left: 162px; }
+
+.a320-214 #seat26f { top: 618px; left: 178px; }
+
+.a320-214 #seat27a { top: 647px; left: 70px; }
+
+.a320-214 #seat27b { top: 647px; left: 86px; }
+
+.a320-214 #seat27c { top: 647px; left: 102px; }
+
+.a320-214 #seat27d { top: 647px; left: 146px; }
+
+.a320-214 #seat27e { top: 647px; left: 162px; }
+
+.a320-214 #seat27f { top: 647px; left: 178px; }
+
+.a320-214 #seat28a { top: 676px; left: 70px; }
+
+.a320-214 #seat28b { top: 676px; left: 86px; }
+
+.a320-214 #seat28c { top: 676px; left: 102px; }
+
+.a320-214 #seat28d { top: 676px; left: 146px; }
+
+.a320-214 #seat28e { top: 676px; left: 162px; }
+
+.a320-214 #seat28f { top: 676px; left: 178px; }
+
+.a320-214 #seat29a { top: 705px; left: 70px; }
+
+.a320-214 #seat29b { top: 705px; left: 86px; }
+
+.a320-214 #seat29c { top: 705px; left: 102px; }
+
+.a320-214 #seat29d { top: 705px; left: 146px; }
+
+.a320-214 #seat29e { top: 705px; left: 162px; }
+
+.a320-214 #seat29f { top: 705px; left: 178px; }
+
+.a320-214 #seat30a { top: 735px; left: 70px; }
+
+.a320-214 #seat30b { top: 735px; left: 86px; }
+
+.a320-214 #seat30c { top: 735px; left: 102px; }
+
+.a320-214 #seat30d { top: 735px; left: 146px; }
+
+.a320-214 #seat30e { top: 735px; left: 162px; }
+
+.a320-214 #seat30f { top: 735px; left: 178px; }
+
+.a320-214 #seat31a { top: 764px; left: 70px; }
+
+.a320-214 #seat31b { top: 764px; left: 86px; }
+
+.a320-214 #seat31c { top: 764px; left: 102px; }
+
+.a320-214 #seat31d { top: 764px; left: 146px; }
+
+.a320-214 #seat31e { top: 764px; left: 162px; }
+
+.a320-214 #seat31f { top: 764px; left: 178px; }
+
+.a320-214 #seat32a { top: 793px; left: 70px; }
+
+.a320-214 #seat32b { top: 793px; left: 86px; }
+
+.a320-214 #seat32c { top: 793px; left: 102px; }
+
+.a320-214 #seat32d { top: 793px; left: 146px; }
+
+.a320-214 #seat32e { top: 793px; left: 162px; }
+
+.a320-214 #seat32f { top: 793px; left: 178px; }
+
+.a320-214 #seat33a { top: 822px; left: 70px; }
+
+.a320-214 #seat33b { top: 822px; left: 86px; }
+
+.a320-214 #seat33c { top: 822px; left: 102px; }
+
+.a320-214 #seat33d { top: 822px; left: 146px; }
+
+.a320-214 #seat33e { top: 822px; left: 162px; }
+
+.a320-214 #seat33f { top: 822px; left: 178px; }
+
+.a320-214 #seat34a { top: 851px; left: 70px; }
+
+.a320-214 #seat34b { top: 851px; left: 86px; }
+
+.a320-214 #seat34c { top: 851px; left: 102px; }
+
+.a320-214 #seat34d { top: 851px; left: 146px; }
+
+.a320-214 #seat34e { top: 851px; left: 162px; }
+
+.a320-214 #seat34f { top: 851px; left: 178px; }
+
+.a320-214 #seat35a { top: 880px; left: 70px; }
+
+.a320-214 #seat35b { top: 880px; left: 86px; }
+
+.a320-214 #seat35c { top: 880px; left: 102px; }
+
+.a320-214 #seat35d { top: 880px; left: 146px; }
+
+.a320-214 #seat35e { top: 880px; left: 162px; }
+
+.a320-214 #seat35f { top: 880px; left: 178px; }
+
+.a320-214 #seat36a { top: 909px; left: 70px; }
+
+.a320-214 #seat36b { top: 909px; left: 86px; }
+
+.a320-214 #seat36c { top: 909px; left: 102px; }
+
+.a320-214 #seat36d { top: 909px; left: 146px; }
+
+.a320-214 #seat36e { top: 909px; left: 162px; }
+
+.a320-214 #seat36f { top: 909px; left: 178px; }
+
+.a321-111 #seat1a { top: 110px; left: 69px; }
+
+.a321-111 #seat1b { top: 110px; left: 85px; }
+
+.a321-111 #seat1c { top: 110px; left: 101px; }
+
+.a321-111 #seat1d { top: 110px; left: 144px; }
+
+.a321-111 #seat1e { top: 110px; left: 160px; }
+
+.a321-111 #seat1f { top: 110px; left: 176px; }
+
+.a321-111 #seat2a { top: 139px; left: 69px; }
+
+.a321-111 #seat2b { top: 139px; left: 85px; }
+
+.a321-111 #seat2c { top: 139px; left: 101px; }
+
+.a321-111 #seat2d { top: 139px; left: 144px; }
+
+.a321-111 #seat2e { top: 139px; left: 160px; }
+
+.a321-111 #seat2f { top: 139px; left: 176px; }
+
+.a321-111 #seat3a { top: 167px; left: 69px; }
+
+.a321-111 #seat3b { top: 167px; left: 85px; }
+
+.a321-111 #seat3c { top: 167px; left: 101px; }
+
+.a321-111 #seat3d { top: 167px; left: 144px; }
+
+.a321-111 #seat3e { top: 167px; left: 160px; }
+
+.a321-111 #seat3f { top: 167px; left: 176px; }
+
+.a321-111 #seat4a { top: 196px; left: 69px; }
+
+.a321-111 #seat4b { top: 196px; left: 85px; }
+
+.a321-111 #seat4c { top: 196px; left: 101px; }
+
+.a321-111 #seat4d { top: 196px; left: 144px; }
+
+.a321-111 #seat4e { top: 196px; left: 160px; }
+
+.a321-111 #seat4f { top: 196px; left: 176px; }
+
+.a321-111 #seat5a { top: 225px; left: 69px; }
+
+.a321-111 #seat5b { top: 225px; left: 85px; }
+
+.a321-111 #seat5c { top: 225px; left: 101px; }
+
+.a321-111 #seat5d { top: 225px; left: 144px; }
+
+.a321-111 #seat5e { top: 225px; left: 160px; }
+
+.a321-111 #seat5f { top: 225px; left: 176px; }
+
+.a321-111 #seat6a { top: 253px; left: 69px; }
+
+.a321-111 #seat6b { top: 253px; left: 85px; }
+
+.a321-111 #seat6c { top: 253px; left: 101px; }
+
+.a321-111 #seat6d { top: 253px; left: 144px; }
+
+.a321-111 #seat6e { top: 253px; left: 160px; }
+
+.a321-111 #seat6f { top: 253px; left: 176px; }
+
+.a321-111 #seat7a { top: 282px; left: 69px; }
+
+.a321-111 #seat7b { top: 282px; left: 85px; }
+
+.a321-111 #seat7c { top: 282px; left: 101px; }
+
+.a321-111 #seat7d { top: 282px; left: 144px; }
+
+.a321-111 #seat7e { top: 282px; left: 160px; }
+
+.a321-111 #seat7f { top: 282px; left: 176px; }
+
+.a321-111 #seat8a { top: 310px; left: 69px; }
+
+.a321-111 #seat8b { top: 310px; left: 85px; }
+
+.a321-111 #seat8c { top: 310px; left: 101px; }
+
+.a321-111 #seat8d { top: 310px; left: 144px; }
+
+.a321-111 #seat8e { top: 310px; left: 160px; }
+
+.a321-111 #seat8f { top: 310px; left: 176px; }
+
+.a321-111 #seat9a { top: 339px; left: 69px; }
+
+.a321-111 #seat9b { top: 339px; left: 85px; }
+
+.a321-111 #seat9c { top: 339px; left: 101px; }
+
+.a321-111 #seat9d { top: 339px; left: 144px; }
+
+.a321-111 #seat9e { top: 339px; left: 160px; }
+
+.a321-111 #seat9f { top: 339px; left: 176px; }
+
+.a321-111 #seat10b { top: 378px; left: 85px; }
+
+.a321-111 #seat10c { top: 378px; left: 101px; }
+
+.a321-111 #seat10d { top: 378px; left: 144px; }
+
+.a321-111 #seat10e { top: 378px; left: 160px; }
+
+.a321-111 #seat11a { top: 405px; left: 69px; }
+
+.a321-111 #seat11b { top: 405px; left: 85px; }
+
+.a321-111 #seat11c { top: 405px; left: 101px; }
+
+.a321-111 #seat11d { top: 405px; left: 144px; }
+
+.a321-111 #seat11e { top: 405px; left: 160px; }
+
+.a321-111 #seat11f { top: 405px; left: 176px; }
+
+.a321-111 #seat12a { top: 432px; left: 69px; }
+
+.a321-111 #seat12b { top: 432px; left: 85px; }
+
+.a321-111 #seat12c { top: 432px; left: 101px; }
+
+.a321-111 #seat12d { top: 432px; left: 144px; }
+
+.a321-111 #seat12e { top: 432px; left: 160px; }
+
+.a321-111 #seat12f { top: 432px; left: 176px; }
+
+.a321-111 #seat14a { top: 459px; left: 69px; }
+
+.a321-111 #seat14b { top: 459px; left: 85px; }
+
+.a321-111 #seat14c { top: 459px; left: 101px; }
+
+.a321-111 #seat14d { top: 459px; left: 144px; }
+
+.a321-111 #seat14e { top: 459px; left: 160px; }
+
+.a321-111 #seat14f { top: 459px; left: 176px; }
+
+.a321-111 #seat15a { top: 485px; left: 69px; }
+
+.a321-111 #seat15b { top: 485px; left: 85px; }
+
+.a321-111 #seat15c { top: 485px; left: 101px; }
+
+.a321-111 #seat15d { top: 485px; left: 144px; }
+
+.a321-111 #seat15e { top: 485px; left: 160px; }
+
+.a321-111 #seat15f { top: 485px; left: 176px; }
+
+.a321-111 #seat16a { top: 512px; left: 69px; }
+
+.a321-111 #seat16b { top: 512px; left: 85px; }
+
+.a321-111 #seat16c { top: 512px; left: 101px; }
+
+.a321-111 #seat16d { top: 512px; left: 144px; }
+
+.a321-111 #seat16e { top: 512px; left: 160px; }
+
+.a321-111 #seat16f { top: 512px; left: 176px; }
+
+.a321-111 #seat17a { top: 539px; left: 69px; }
+
+.a321-111 #seat17b { top: 539px; left: 85px; }
+
+.a321-111 #seat17c { top: 539px; left: 101px; }
+
+.a321-111 #seat17d { top: 539px; left: 144px; }
+
+.a321-111 #seat17e { top: 539px; left: 160px; }
+
+.a321-111 #seat17f { top: 539px; left: 176px; }
+
+.a321-111 #seat18a { top: 566px; left: 69px; }
+
+.a321-111 #seat18b { top: 566px; left: 85px; }
+
+.a321-111 #seat18c { top: 566px; left: 101px; }
+
+.a321-111 #seat18d { top: 566px; left: 144px; }
+
+.a321-111 #seat18e { top: 566px; left: 160px; }
+
+.a321-111 #seat18f { top: 566px; left: 176px; }
+
+.a321-111 #seat19a { top: 593px; left: 69px; }
+
+.a321-111 #seat19b { top: 593px; left: 85px; }
+
+.a321-111 #seat19c { top: 593px; left: 101px; }
+
+.a321-111 #seat19d { top: 593px; left: 144px; }
+
+.a321-111 #seat19e { top: 593px; left: 160px; }
+
+.a321-111 #seat19f { top: 593px; left: 176px; }
+
+.a321-111 #seat20a { top: 620px; left: 69px; }
+
+.a321-111 #seat20b { top: 620px; left: 85px; }
+
+.a321-111 #seat20c { top: 620px; left: 101px; }
+
+.a321-111 #seat20d { top: 620px; left: 144px; }
+
+.a321-111 #seat20e { top: 620px; left: 160px; }
+
+.a321-111 #seat20f { top: 620px; left: 176px; }
+
+.a321-111 #seat21a { top: 646px; left: 69px; }
+
+.a321-111 #seat21b { top: 646px; left: 85px; }
+
+.a321-111 #seat21c { top: 646px; left: 101px; }
+
+.a321-111 #seat21d { top: 646px; left: 144px; }
+
+.a321-111 #seat21e { top: 646px; left: 160px; }
+
+.a321-111 #seat21f { top: 646px; left: 176px; }
+
+.a321-111 #seat22a { top: 673px; left: 69px; }
+
+.a321-111 #seat22b { top: 673px; left: 85px; }
+
+.a321-111 #seat22c { top: 673px; left: 101px; }
+
+.a321-111 #seat22d { top: 673px; left: 144px; }
+
+.a321-111 #seat22e { top: 673px; left: 160px; }
+
+.a321-111 #seat22f { top: 673px; left: 176px; }
+
+.a321-111 #seat23a { top: 700px; left: 69px; }
+
+.a321-111 #seat23b { top: 700px; left: 85px; }
+
+.a321-111 #seat23c { top: 700px; left: 101px; }
+
+.a321-111 #seat23d { top: 700px; left: 144px; }
+
+.a321-111 #seat23e { top: 700px; left: 160px; }
+
+.a321-111 #seat23f { top: 700px; left: 176px; }
+
+.a321-111 #seat24a { top: 727px; left: 69px; }
+
+.a321-111 #seat24b { top: 727px; left: 85px; }
+
+.a321-111 #seat24c { top: 727px; left: 101px; }
+
+.a321-111 #seat24d { top: 727px; left: 144px; }
+
+.a321-111 #seat24e { top: 727px; left: 160px; }
+
+.a321-111 #seat25b { top: 766px; left: 85px; }
+
+.a321-111 #seat25c { top: 766px; left: 101px; }
+
+.a321-111 #seat25d { top: 766px; left: 144px; }
+
+.a321-111 #seat25e { top: 766px; left: 160px; }
+
+.a321-111 #seat26a { top: 793px; left: 69px; }
+
+.a321-111 #seat26b { top: 793px; left: 85px; }
+
+.a321-111 #seat26c { top: 793px; left: 101px; }
+
+.a321-111 #seat26d { top: 793px; left: 144px; }
+
+.a321-111 #seat26e { top: 793px; left: 160px; }
+
+.a321-111 #seat26f { top: 793px; left: 176px; }
+
+.a321-111 #seat27a { top: 820px; left: 69px; }
+
+.a321-111 #seat27b { top: 820px; left: 85px; }
+
+.a321-111 #seat27c { top: 820px; left: 101px; }
+
+.a321-111 #seat27d { top: 820px; left: 144px; }
+
+.a321-111 #seat27e { top: 820px; left: 160px; }
+
+.a321-111 #seat27f { top: 820px; left: 176px; }
+
+.a321-111 #seat28a { top: 847px; left: 69px; }
+
+.a321-111 #seat28b { top: 847px; left: 85px; }
+
+.a321-111 #seat28c { top: 847px; left: 101px; }
+
+.a321-111 #seat28d { top: 847px; left: 144px; }
+
+.a321-111 #seat28e { top: 847px; left: 160px; }
+
+.a321-111 #seat28f { top: 847px; left: 176px; }
+
+.a321-111 #seat29a { top: 873px; left: 69px; }
+
+.a321-111 #seat29b { top: 873px; left: 85px; }
+
+.a321-111 #seat29c { top: 873px; left: 101px; }
+
+.a321-111 #seat29d { top: 873px; left: 144px; }
+
+.a321-111 #seat29e { top: 873px; left: 160px; }
+
+.a321-111 #seat29f { top: 873px; left: 176px; }
+
+.a321-111 #seat30a { top: 900px; left: 69px; }
+
+.a321-111 #seat30b { top: 900px; left: 85px; }
+
+.a321-111 #seat30c { top: 900px; left: 101px; }
+
+.a321-111 #seat30d { top: 900px; left: 144px; }
+
+.a321-111 #seat30e { top: 900px; left: 160px; }
+
+.a321-111 #seat30f { top: 900px; left: 176px; }
+
+.a321-111 #seat31a { top: 927px; left: 69px; }
+
+.a321-111 #seat31b { top: 927px; left: 85px; }
+
+.a321-111 #seat31c { top: 927px; left: 101px; }
+
+.a321-111 #seat31d { top: 927px; left: 144px; }
+
+.a321-111 #seat31e { top: 927px; left: 160px; }
+
+.a321-111 #seat31f { top: 927px; left: 176px; }
+
+.a321-111 #seat32a { top: 954px; left: 69px; }
+
+.a321-111 #seat32b { top: 954px; left: 85px; }
+
+.a321-111 #seat32c { top: 954px; left: 101px; }
+
+.a321-111 #seat32d { top: 954px; left: 144px; }
+
+.a321-111 #seat32e { top: 954px; left: 160px; }
+
+.a321-111 #seat32f { top: 954px; left: 176px; }
+
+.a321-111 #seat33a { top: 981px; left: 69px; }
+
+.a321-111 #seat33b { top: 981px; left: 85px; }
+
+.a321-111 #seat33c { top: 981px; left: 101px; }
+
+.a321-111 #seat33d { top: 981px; left: 144px; }
+
+.a321-111 #seat33e { top: 981px; left: 160px; }
+
+.a321-111 #seat33f { top: 981px; left: 176px; }
+
+.a321-111 #seat34a { top: 1008px; left: 69px; }
+
+.a321-111 #seat34b { top: 1008px; left: 85px; }
+
+.a321-111 #seat34c { top: 1008px; left: 101px; }
+
+.a321-111 #seat34d { top: 1008px; left: 144px; }
+
+.a321-111 #seat34e { top: 1008px; left: 160px; }
+
+.a321-111 #seat34f { top: 1008px; left: 176px; }
+
+.a321-111 #seat35a { top: 1034px; left: 69px; }
+
+.a321-111 #seat35b { top: 1034px; left: 85px; }
+
+.a321-111 #seat35c { top: 1034px; left: 101px; }
+
+.a321-111 #seat35d { top: 1034px; left: 144px; }
+
+.a321-111 #seat35e { top: 1034px; left: 160px; }
+
+.a321-111 #seat35f { top: 1034px; left: 176px; }
+
+.a321-111 #seat36a { top: 1061px; left: 69px; }
+
+.a321-111 #seat36b { top: 1061px; left: 85px; }
+
+.a321-111 #seat36c { top: 1061px; left: 101px; }
+
+.a321-111 #seat36d { top: 1061px; left: 144px; }
+
+.a321-111 #seat36e { top: 1061px; left: 160px; }
+
+.a321-111 #seat36f { top: 1061px; left: 176px; }
+
+.a321-111 #seat37a { top: 1088px; left: 70px; }
+
+.a321-111 #seat37b { top: 1088px; left: 86px; }
+
+.a321-111 #seat37c { top: 1088px; left: 102px; }
+
+.a330-300-business #seat4a { top: 70px; left: 59px; }
+
+.a330-300-business #seat4d { top: 66px; left: 110px; }
+
+.a330-300-business #seat4g { top: 66px; left: 137px; }
+
+.a330-300-business #seat4k { top: 71px; left: 187px; }
+
+.a330-300-business #seat5a { top: 109px; left: 47px; }
+
+.a330-300-business #seat5b { top: 109px; left: 74px; }
+
+.a330-300-business #seat5d { top: 109px; left: 121px; }
+
+.a330-300-business #seat5g { top: 109px; left: 148px; }
+
+.a330-300-business #seat5k { top: 109px; left: 197px; }
+
+.a330-300-business #seat6a { top: 302px; left: 59px; }
+
+.a330-300-business #seat6d { top: 298px; left: 110px; }
+
+.a330-300-business #seat6g { top: 298px; left: 137px; }
+
+.a330-300-business #seat6k { top: 302px; left: 186px; }
+
+.a330-300-business #seat7a { top: 341px; left: 47px; }
+
+.a330-300-business #seat7b { top: 341px; left: 74px; }
+
+.a330-300-business #seat7d { top: 336px; left: 121px; }
+
+.a330-300-business #seat7g { top: 336px; left: 148px; }
+
+.a330-300-business #seat7k { top: 341px; left: 196px; }
+
+.a330-300-business #seat8a { top: 379px; left: 59px; }
+
+.a330-300-business #seat8d { top: 374px; left: 110px; }
+
+.a330-300-business #seat8g { top: 374px; left: 137px; }
+
+.a330-300-business #seat8k { top: 379px; left: 186px; }
+
+.a330-300-business #seat9a { top: 417px; left: 47px; }
+
+.a330-300-business #seat9b { top: 417px; left: 74px; }
+
+.a330-300-business #seat9d { top: 412px; left: 121px; }
+
+.a330-300-business #seat9g { top: 412px; left: 148px; }
+
+.a330-300-business #seat9k { top: 417px; left: 196px; }
+
+.a330-300-business #seat10a { top: 455px; left: 59px; }
+
+.a330-300-business #seat10d { top: 450px; left: 110px; }
+
+.a330-300-business #seat10g { top: 450px; left: 137px; }
+
+.a330-300-business #seat10k { top: 455px; left: 186px; }
+
+.a330-300-business #seat11a { top: 493px; left: 47px; }
+
+.a330-300-business #seat11b { top: 493px; left: 74px; }
+
+.a330-300-business #seat11d { top: 488px; left: 121px; }
+
+.a330-300-business #seat11g { top: 488px; left: 148px; }
+
+.a330-300-business #seat11k { top: 493px; left: 196px; }
+
+.a330-300-business #seat12a { top: 531px; left: 59px; }
+
+.a330-300-business #seat12d { top: 526px; left: 110px; }
+
+.a330-300-business #seat12g { top: 526px; left: 137px; }
+
+.a330-300-business #seat12k { top: 531px; left: 186px; }
+
+.a330-300-business #seat14a { top: 571px; left: 47px; }
+
+.a330-300-business #seat14b { top: 571px; left: 74px; }
+
+.a330-300-business #seat14d { top: 566px; left: 121px; }
+
+.a330-300-business #seat14g { top: 566px; left: 148px; }
+
+.a330-300-business #seat14k { top: 571px; left: 196px; }
+
+.a330-300-eco #seat22d { top: 27px; left: 107px; }
+
+.a330-300-eco #seat22e { top: 27px; left: 123px; }
+
+.a330-300-eco #seat22g { top: 27px; left: 139px; }
+
+.a330-300-eco #seat23a { top: 41px; left: 46px; }
+
+.a330-300-eco #seat23b { top: 41px; left: 62px; }
+
+.a330-300-eco #seat23d { top: 55px; left: 99px; }
+
+.a330-300-eco #seat23e { top: 55px; left: 115px; }
+
+.a330-300-eco #seat23f { top: 55px; left: 131px; }
+
+.a330-300-eco #seat23g { top: 55px; left: 147px; }
+
+.a330-300-eco #seat23j { top: 41px; left: 184px; }
+
+.a330-300-eco #seat23k { top: 41px; left: 200px; }
+
+.a330-300-eco #seat24a { top: 68px; left: 46px; }
+
+.a330-300-eco #seat24b { top: 68px; left: 62px; }
+
+.a330-300-eco #seat24d { top: 82px; left: 99px; }
+
+.a330-300-eco #seat24e { top: 82px; left: 115px; }
+
+.a330-300-eco #seat24f { top: 82px; left: 131px; }
+
+.a330-300-eco #seat24g { top: 82px; left: 147px; }
+
+.a330-300-eco #seat24j { top: 68px; left: 184px; }
+
+.a330-300-eco #seat24k { top: 68px; left: 200px; }
+
+.a330-300-eco #seat25a { top: 95px; left: 46px; }
+
+.a330-300-eco #seat25b { top: 95px; left: 62px; }
+
+.a330-300-eco #seat25d { top: 109px; left: 99px; }
+
+.a330-300-eco #seat25e { top: 109px; left: 115px; }
+
+.a330-300-eco #seat25f { top: 109px; left: 131px; }
+
+.a330-300-eco #seat25g { top: 109px; left: 147px; }
+
+.a330-300-eco #seat25j { top: 95px; left: 184px; }
+
+.a330-300-eco #seat25k { top: 95px; left: 200px; }
+
+.a330-300-eco #seat26a { top: 121px; left: 46px; }
+
+.a330-300-eco #seat26b { top: 121px; left: 62px; }
+
+.a330-300-eco #seat26d { top: 136px; left: 99px; }
+
+.a330-300-eco #seat26e { top: 136px; left: 115px; }
+
+.a330-300-eco #seat26f { top: 136px; left: 131px; }
+
+.a330-300-eco #seat26g { top: 136px; left: 147px; }
+
+.a330-300-eco #seat26j { top: 121px; left: 184px; }
+
+.a330-300-eco #seat26k { top: 121px; left: 200px; }
+
+.a330-300-eco #seat27a { top: 148px; left: 46px; }
+
+.a330-300-eco #seat27b { top: 148px; left: 62px; }
+
+.a330-300-eco #seat27d { top: 163px; left: 99px; }
+
+.a330-300-eco #seat27e { top: 163px; left: 115px; }
+
+.a330-300-eco #seat27f { top: 163px; left: 131px; }
+
+.a330-300-eco #seat27g { top: 163px; left: 147px; }
+
+.a330-300-eco #seat27j { top: 148px; left: 184px; }
+
+.a330-300-eco #seat27k { top: 148px; left: 200px; }
+
+.a330-300-eco #seat28a { top: 175px; left: 46px; }
+
+.a330-300-eco #seat28b { top: 175px; left: 62px; }
+
+.a330-300-eco #seat28d { top: 189px; left: 99px; }
+
+.a330-300-eco #seat28e { top: 189px; left: 115px; }
+
+.a330-300-eco #seat28f { top: 189px; left: 131px; }
+
+.a330-300-eco #seat28g { top: 189px; left: 147px; }
+
+.a330-300-eco #seat28j { top: 175px; left: 184px; }
+
+.a330-300-eco #seat28k { top: 175px; left: 200px; }
+
+.a330-300-eco #seat29a { top: 274px; left: 46px; }
+
+.a330-300-eco #seat29b { top: 274px; left: 62px; }
+
+.a330-300-eco #seat29d { top: 274px; left: 99px; }
+
+.a330-300-eco #seat29e { top: 274px; left: 115px; }
+
+.a330-300-eco #seat29f { top: 274px; left: 131px; }
+
+.a330-300-eco #seat29g { top: 274px; left: 147px; }
+
+.a330-300-eco #seat29j { top: 274px; left: 184px; }
+
+.a330-300-eco #seat29k { top: 274px; left: 200px; }
+
+.a330-300-eco #seat30a { top: 301px; left: 46px; }
+
+.a330-300-eco #seat30b { top: 301px; left: 62px; }
+
+.a330-300-eco #seat30d { top: 301px; left: 99px; }
+
+.a330-300-eco #seat30e { top: 301px; left: 115px; }
+
+.a330-300-eco #seat30f { top: 301px; left: 131px; }
+
+.a330-300-eco #seat30g { top: 301px; left: 147px; }
+
+.a330-300-eco #seat30j { top: 301px; left: 184px; }
+
+.a330-300-eco #seat30k { top: 301px; left: 200px; }
+
+.a330-300-eco #seat31a { top: 328px; left: 46px; }
+
+.a330-300-eco #seat31b { top: 328px; left: 62px; }
+
+.a330-300-eco #seat31d { top: 328px; left: 99px; }
+
+.a330-300-eco #seat31e { top: 328px; left: 115px; }
+
+.a330-300-eco #seat31f { top: 328px; left: 131px; }
+
+.a330-300-eco #seat31g { top: 328px; left: 147px; }
+
+.a330-300-eco #seat31j { top: 328px; left: 184px; }
+
+.a330-300-eco #seat31k { top: 328px; left: 200px; }
+
+.a330-300-eco #seat32a { top: 354px; left: 46px; }
+
+.a330-300-eco #seat32b { top: 354px; left: 62px; }
+
+.a330-300-eco #seat32d { top: 355px; left: 99px; }
+
+.a330-300-eco #seat32e { top: 355px; left: 115px; }
+
+.a330-300-eco #seat32f { top: 355px; left: 131px; }
+
+.a330-300-eco #seat32g { top: 355px; left: 147px; }
+
+.a330-300-eco #seat32j { top: 354px; left: 184px; }
+
+.a330-300-eco #seat32k { top: 354px; left: 200px; }
+
+.a330-300-eco #seat33a { top: 381px; left: 46px; }
+
+.a330-300-eco #seat33b { top: 381px; left: 62px; }
+
+.a330-300-eco #seat33d { top: 382px; left: 99px; }
+
+.a330-300-eco #seat33e { top: 382px; left: 115px; }
+
+.a330-300-eco #seat33f { top: 382px; left: 131px; }
+
+.a330-300-eco #seat33g { top: 382px; left: 147px; }
+
+.a330-300-eco #seat33j { top: 381px; left: 184px; }
+
+.a330-300-eco #seat33k { top: 381px; left: 200px; }
+
+.a330-300-eco #seat34a { top: 408px; left: 46px; }
+
+.a330-300-eco #seat34b { top: 408px; left: 62px; }
+
+.a330-300-eco #seat34d { top: 408px; left: 99px; }
+
+.a330-300-eco #seat34e { top: 408px; left: 115px; }
+
+.a330-300-eco #seat34f { top: 408px; left: 131px; }
+
+.a330-300-eco #seat34g { top: 408px; left: 147px; }
+
+.a330-300-eco #seat34j { top: 408px; left: 184px; }
+
+.a330-300-eco #seat34k { top: 408px; left: 200px; }
+
+.a330-300-eco #seat35a { top: 435px; left: 46px; }
+
+.a330-300-eco #seat35b { top: 435px; left: 62px; }
+
+.a330-300-eco #seat35d { top: 435px; left: 99px; }
+
+.a330-300-eco #seat35e { top: 435px; left: 115px; }
+
+.a330-300-eco #seat35f { top: 435px; left: 131px; }
+
+.a330-300-eco #seat35g { top: 435px; left: 147px; }
+
+.a330-300-eco #seat35j { top: 435px; left: 184px; }
+
+.a330-300-eco #seat35k { top: 435px; left: 200px; }
+
+.a330-300-eco #seat36a { top: 462px; left: 46px; }
+
+.a330-300-eco #seat36b { top: 462px; left: 62px; }
+
+.a330-300-eco #seat36d { top: 462px; left: 99px; }
+
+.a330-300-eco #seat36e { top: 462px; left: 115px; }
+
+.a330-300-eco #seat36f { top: 462px; left: 131px; }
+
+.a330-300-eco #seat36g { top: 462px; left: 147px; }
+
+.a330-300-eco #seat36j { top: 462px; left: 184px; }
+
+.a330-300-eco #seat36k { top: 462px; left: 200px; }
+
+.a330-300-eco #seat37a { top: 489px; left: 46px; }
+
+.a330-300-eco #seat37b { top: 489px; left: 62px; }
+
+.a330-300-eco #seat37d { top: 489px; left: 99px; }
+
+.a330-300-eco #seat37e { top: 489px; left: 115px; }
+
+.a330-300-eco #seat37f { top: 489px; left: 131px; }
+
+.a330-300-eco #seat37g { top: 489px; left: 147px; }
+
+.a330-300-eco #seat37j { top: 489px; left: 184px; }
+
+.a330-300-eco #seat37k { top: 489px; left: 200px; }
+
+.a330-300-eco #seat38a { top: 515px; left: 46px; }
+
+.a330-300-eco #seat38b { top: 515px; left: 62px; }
+
+.a330-300-eco #seat38d { top: 516px; left: 99px; }
+
+.a330-300-eco #seat38e { top: 516px; left: 115px; }
+
+.a330-300-eco #seat38f { top: 516px; left: 131px; }
+
+.a330-300-eco #seat38g { top: 516px; left: 147px; }
+
+.a330-300-eco #seat38j { top: 515px; left: 184px; }
+
+.a330-300-eco #seat38k { top: 515px; left: 200px; }
+
+.a330-300-eco #seat39a { top: 542px; left: 47px; }
+
+.a330-300-eco #seat39b { top: 542px; left: 63px; }
+
+.a330-300-eco #seat39d { top: 543px; left: 99px; }
+
+.a330-300-eco #seat39e { top: 543px; left: 115px; }
+
+.a330-300-eco #seat39f { top: 543px; left: 131px; }
+
+.a330-300-eco #seat39g { top: 543px; left: 147px; }
+
+.a330-300-eco #seat39j { top: 542px; left: 183px; }
+
+.a330-300-eco #seat39k { top: 542px; left: 199px; }
+
+.a330-300-eco #seat40a { top: 569px; left: 48px; }
+
+.a330-300-eco #seat40b { top: 569px; left: 64px; }
+
+.a330-300-eco #seat40d { top: 570px; left: 99px; }
+
+.a330-300-eco #seat40e { top: 570px; left: 115px; }
+
+.a330-300-eco #seat40f { top: 570px; left: 131px; }
+
+.a330-300-eco #seat40g { top: 570px; left: 147px; }
+
+.a330-300-eco #seat40j { top: 569px; left: 182px; }
+
+.a330-300-eco #seat40k { top: 569px; left: 198px; }
+
+.a330-300-eco #seat41a { top: 596px; left: 50px; }
+
+.a330-300-eco #seat41b { top: 596px; left: 66px; }
+
+.a330-300-eco #seat41d { top: 597px; left: 99px; }
+
+.a330-300-eco #seat41e { top: 597px; left: 115px; }
+
+.a330-300-eco #seat41f { top: 597px; left: 131px; }
+
+.a330-300-eco #seat41g { top: 597px; left: 147px; }
+
+.a330-300-eco #seat41j { top: 596px; left: 180px; }
+
+.a330-300-eco #seat41k { top: 596px; left: 196px; }
+
+.a330-300-eco #seat42a { top: 623px; left: 51px; }
+
+.a330-300-eco #seat42b { top: 623px; left: 67px; }
+
+.a330-300-eco #seat42d { top: 623px; left: 107px; }
+
+.a330-300-eco #seat42e { top: 623px; left: 123px; }
+
+.a330-300-eco #seat42g { top: 623px; left: 139px; }
+
+.a330-300-eco #seat42j { top: 623px; left: 179px; }
+
+.a330-300-eco #seat42k { top: 623px; left: 195px; }
+
+.a330-300-eco #seat43a { top: 649px; left: 53px; }
+
+.a330-300-eco #seat43b { top: 649px; left: 69px; }
+
+.a330-300-eco #seat43d { top: 650px; left: 107px; }
+
+.a330-300-eco #seat43e { top: 650px; left: 123px; }
+
+.a330-300-eco #seat43g { top: 650px; left: 139px; }
+
+.a330-300-eco #seat43j { top: 649px; left: 177px; }
+
+.a330-300-eco #seat43k { top: 649px; left: 193px; }
+
+.a330-300-eco #seat44a { top: 676px; left: 56px; }
+
+.a330-300-eco #seat44b { top: 676px; left: 72px; }
+
+.a330-300-eco #seat44d { top: 677px; left: 107px; }
+
+.a330-300-eco #seat44e { top: 677px; left: 123px; }
+
+.a330-300-eco #seat44g { top: 677px; left: 139px; }
+
+.a330-300-eco #seat44j { top: 676px; left: 174px; }
+
+.a330-300-eco #seat44k { top: 676px; left: 190px; }
+
+.a330-300-eco #seat45a { top: 703px; left: 56px; }
+
+.a330-300-eco #seat45b { top: 703px; left: 72px; }
+
+.a330-300-eco #seat45d { top: 704px; left: 107px; }
+
+.a330-300-eco #seat45e { top: 704px; left: 123px; }
+
+.a330-300-eco #seat45g { top: 704px; left: 139px; }
+
+.a330-300-eco #seat45j { top: 703px; left: 173px; }
+
+.a330-300-eco #seat45k { top: 703px; left: 189px; }
+
+.a330-300-first #seat1a { top: 316px; left: 55px; }
+
+.a330-300-first #seat1d { top: 320px; left: 98px; }
+
+.a330-300-first #seat1g { top: 320px; left: 139px; }
+
+.a330-300-first #seat1k { top: 316px; left: 182px; }
+
+.a330-300-first #seat2a { top: 383px; left: 55px; }
+
+.a330-300-first #seat2d { top: 387px; left: 98px; }
+
+.a330-300-first #seat2g { top: 387px; left: 139px; }
+
+.a330-300-first #seat2k { top: 383px; left: 182px; }
+
+.a340-300-business #seat4a { top: 63px; left: 60px; }
+
+.a340-300-business #seat4d { top: 63px; left: 110px; }
+
+.a340-300-business #seat4g { top: 63px; left: 137px; }
+
+.a340-300-business #seat4k { top: 63px; left: 187px; }
+
+.a340-300-business #seat5a { top: 114px; left: 47px; }
+
+.a340-300-business #seat5b { top: 114px; left: 74px; }
+
+.a340-300-business #seat5d { top: 114px; left: 121px; }
+
+.a340-300-business #seat5g { top: 114px; left: 148px; }
+
+.a340-300-business #seat5k { top: 114px; left: 194px; }
+
+.a340-300-business #seat6a { top: 310px; left: 60px; }
+
+.a340-300-business #seat6d { top: 288px; left: 110px; }
+
+.a340-300-business #seat6g { top: 288px; left: 137px; }
+
+.a340-300-business #seat6k { top: 310px; left: 187px; }
+
+.a340-300-business #seat7a { top: 347px; left: 47px; }
+
+.a340-300-business #seat7b { top: 347px; left: 74px; }
+
+.a340-300-business #seat7d { top: 327px; left: 121px; }
+
+.a340-300-business #seat7g { top: 327px; left: 148px; }
+
+.a340-300-business #seat7k { top: 347px; left: 194px; }
+
+.a340-300-business #seat8a { top: 384px; left: 60px; }
+
+.a340-300-business #seat8d { top: 363px; left: 110px; }
+
+.a340-300-business #seat8g { top: 363px; left: 137px; }
+
+.a340-300-business #seat8k { top: 384px; left: 186px; }
+
+.a340-300-business #seat9a { top: 423px; left: 47px; }
+
+.a340-300-business #seat9b { top: 423px; left: 74px; }
+
+.a340-300-business #seat9d { top: 400px; left: 121px; }
+
+.a340-300-business #seat9g { top: 400px; left: 148px; }
+
+.a340-300-business #seat9k { top: 423px; left: 195px; }
+
+.a340-300-business #seat10a { top: 460px; left: 60px; }
+
+.a340-300-business #seat10d { top: 436px; left: 110px; }
+
+.a340-300-business #seat10g { top: 436px; left: 137px; }
+
+.a340-300-business #seat10k { top: 460px; left: 186px; }
+
+.a340-300-business #seat11a { top: 496px; left: 47px; }
+
+.a340-300-business #seat11b { top: 496px; left: 74px; }
+
+.a340-300-business #seat11d { top: 474px; left: 121px; }
+
+.a340-300-business #seat11g { top: 474px; left: 148px; }
+
+.a340-300-business #seat11k { top: 496px; left: 195px; }
+
+.a340-300-business #seat12a { top: 533px; left: 60px; }
+
+.a340-300-business #seat12d { top: 510px; left: 110px; }
+
+.a340-300-business #seat12g { top: 510px; left: 137px; }
+
+.a340-300-business #seat12k { top: 533px; left: 186px; }
+
+.a340-300-business #seat14a { top: 570px; left: 47px; }
+
+.a340-300-business #seat14b { top: 570px; left: 74px; }
+
+.a340-300-business #seat14d { top: 547px; left: 121px; }
+
+.a340-300-business #seat14g { top: 547px; left: 148px; }
+
+.a340-300-business #seat14k { top: 570px; left: 195px; }
+
+.a340-300-business #seat15d { top: 583px; left: 110px; }
+
+.a340-300-business #seat15g { top: 583px; left: 137px; }
+
+.a340-300-eco #seat23a { top: 49px; left: 46px; }
+
+.a340-300-eco #seat23b { top: 49px; left: 62px; }
+
+.a340-300-eco #seat23d { top: 62px; left: 99px; }
+
+.a340-300-eco #seat23e { top: 62px; left: 115px; }
+
+.a340-300-eco #seat23f { top: 62px; left: 131px; }
+
+.a340-300-eco #seat23g { top: 62px; left: 147px; }
+
+.a340-300-eco #seat23j { top: 49px; left: 184px; }
+
+.a340-300-eco #seat23k { top: 49px; left: 200px; }
+
+.a340-300-eco #seat24a { top: 76px; left: 46px; }
+
+.a340-300-eco #seat24b { top: 76px; left: 62px; }
+
+.a340-300-eco #seat24d { top: 89px; left: 99px; }
+
+.a340-300-eco #seat24e { top: 89px; left: 115px; }
+
+.a340-300-eco #seat24f { top: 89px; left: 131px; }
+
+.a340-300-eco #seat24g { top: 89px; left: 147px; }
+
+.a340-300-eco #seat24j { top: 76px; left: 184px; }
+
+.a340-300-eco #seat24k { top: 76px; left: 200px; }
+
+.a340-300-eco #seat25a { top: 104px; left: 46px; }
+
+.a340-300-eco #seat25b { top: 104px; left: 62px; }
+
+.a340-300-eco #seat25d { top: 117px; left: 99px; }
+
+.a340-300-eco #seat25e { top: 117px; left: 115px; }
+
+.a340-300-eco #seat25f { top: 117px; left: 131px; }
+
+.a340-300-eco #seat25g { top: 117px; left: 147px; }
+
+.a340-300-eco #seat25j { top: 104px; left: 184px; }
+
+.a340-300-eco #seat25k { top: 104px; left: 200px; }
+
+.a340-300-eco #seat26a { top: 131px; left: 46px; }
+
+.a340-300-eco #seat26b { top: 131px; left: 62px; }
+
+.a340-300-eco #seat26d { top: 144px; left: 99px; }
+
+.a340-300-eco #seat26e { top: 144px; left: 115px; }
+
+.a340-300-eco #seat26f { top: 144px; left: 131px; }
+
+.a340-300-eco #seat26g { top: 144px; left: 147px; }
+
+.a340-300-eco #seat26j { top: 131px; left: 184px; }
+
+.a340-300-eco #seat26k { top: 131px; left: 200px; }
+
+.a340-300-eco #seat27a { top: 159px; left: 46px; }
+
+.a340-300-eco #seat27b { top: 159px; left: 62px; }
+
+.a340-300-eco #seat27d { top: 172px; left: 99px; }
+
+.a340-300-eco #seat27e { top: 172px; left: 115px; }
+
+.a340-300-eco #seat27f { top: 172px; left: 131px; }
+
+.a340-300-eco #seat27g { top: 172px; left: 147px; }
+
+.a340-300-eco #seat27j { top: 159px; left: 184px; }
+
+.a340-300-eco #seat27k { top: 159px; left: 200px; }
+
+.a340-300-eco #seat29d { top: 243px; left: 99px; }
+
+.a340-300-eco #seat29e { top: 243px; left: 115px; }
+
+.a340-300-eco #seat29f { top: 243px; left: 131px; }
+
+.a340-300-eco #seat29g { top: 243px; left: 147px; }
+
+.a340-300-eco #seat30a { top: 262px; left: 46px; }
+
+.a340-300-eco #seat30b { top: 262px; left: 62px; }
+
+.a340-300-eco #seat30d { top: 270px; left: 99px; }
+
+.a340-300-eco #seat30e { top: 270px; left: 115px; }
+
+.a340-300-eco #seat30f { top: 270px; left: 131px; }
+
+.a340-300-eco #seat30g { top: 270px; left: 147px; }
+
+.a340-300-eco #seat30j { top: 262px; left: 184px; }
+
+.a340-300-eco #seat30k { top: 262px; left: 200px; }
+
+.a340-300-eco #seat31a { top: 289px; left: 46px; }
+
+.a340-300-eco #seat31b { top: 289px; left: 62px; }
+
+.a340-300-eco #seat31d { top: 298px; left: 99px; }
+
+.a340-300-eco #seat31e { top: 298px; left: 115px; }
+
+.a340-300-eco #seat31f { top: 298px; left: 131px; }
+
+.a340-300-eco #seat31g { top: 298px; left: 147px; }
+
+.a340-300-eco #seat31j { top: 289px; left: 184px; }
+
+.a340-300-eco #seat31k { top: 289px; left: 200px; }
+
+.a340-300-eco #seat32a { top: 317px; left: 46px; }
+
+.a340-300-eco #seat32b { top: 317px; left: 62px; }
+
+.a340-300-eco #seat32d { top: 325px; left: 99px; }
+
+.a340-300-eco #seat32e { top: 325px; left: 115px; }
+
+.a340-300-eco #seat32f { top: 325px; left: 131px; }
+
+.a340-300-eco #seat32g { top: 325px; left: 147px; }
+
+.a340-300-eco #seat32j { top: 317px; left: 184px; }
+
+.a340-300-eco #seat32k { top: 317px; left: 200px; }
+
+.a340-300-eco #seat33a { top: 344px; left: 46px; }
+
+.a340-300-eco #seat33b { top: 344px; left: 62px; }
+
+.a340-300-eco #seat33d { top: 353px; left: 99px; }
+
+.a340-300-eco #seat33e { top: 353px; left: 115px; }
+
+.a340-300-eco #seat33f { top: 353px; left: 131px; }
+
+.a340-300-eco #seat33g { top: 353px; left: 147px; }
+
+.a340-300-eco #seat33j { top: 344px; left: 184px; }
+
+.a340-300-eco #seat33k { top: 344px; left: 200px; }
+
+.a340-300-eco #seat34a { top: 372px; left: 46px; }
+
+.a340-300-eco #seat34b { top: 372px; left: 62px; }
+
+.a340-300-eco #seat34d { top: 380px; left: 99px; }
+
+.a340-300-eco #seat34e { top: 380px; left: 115px; }
+
+.a340-300-eco #seat34f { top: 380px; left: 131px; }
+
+.a340-300-eco #seat34g { top: 380px; left: 147px; }
+
+.a340-300-eco #seat34j { top: 372px; left: 184px; }
+
+.a340-300-eco #seat34k { top: 372px; left: 200px; }
+
+.a340-300-eco #seat35a { top: 399px; left: 46px; }
+
+.a340-300-eco #seat35b { top: 399px; left: 62px; }
+
+.a340-300-eco #seat35d { top: 407px; left: 99px; }
+
+.a340-300-eco #seat35e { top: 407px; left: 115px; }
+
+.a340-300-eco #seat35f { top: 407px; left: 131px; }
+
+.a340-300-eco #seat35g { top: 407px; left: 147px; }
+
+.a340-300-eco #seat35j { top: 399px; left: 184px; }
+
+.a340-300-eco #seat35k { top: 399px; left: 200px; }
+
+.a340-300-eco #seat36a { top: 427px; left: 46px; }
+
+.a340-300-eco #seat36b { top: 427px; left: 62px; }
+
+.a340-300-eco #seat36d { top: 435px; left: 99px; }
+
+.a340-300-eco #seat36e { top: 435px; left: 115px; }
+
+.a340-300-eco #seat36f { top: 435px; left: 131px; }
+
+.a340-300-eco #seat36g { top: 435px; left: 147px; }
+
+.a340-300-eco #seat36j { top: 427px; left: 184px; }
+
+.a340-300-eco #seat36k { top: 427px; left: 200px; }
+
+.a340-300-eco #seat37a { top: 454px; left: 46px; }
+
+.a340-300-eco #seat37b { top: 454px; left: 62px; }
+
+.a340-300-eco #seat37d { top: 462px; left: 99px; }
+
+.a340-300-eco #seat37e { top: 462px; left: 115px; }
+
+.a340-300-eco #seat37f { top: 462px; left: 131px; }
+
+.a340-300-eco #seat37g { top: 462px; left: 147px; }
+
+.a340-300-eco #seat37j { top: 454px; left: 184px; }
+
+.a340-300-eco #seat37k { top: 454px; left: 200px; }
+
+.a340-300-eco #seat38a { top: 481px; left: 46px; }
+
+.a340-300-eco #seat38b { top: 481px; left: 62px; }
+
+.a340-300-eco #seat38d { top: 489px; left: 99px; }
+
+.a340-300-eco #seat38e { top: 489px; left: 115px; }
+
+.a340-300-eco #seat38f { top: 489px; left: 131px; }
+
+.a340-300-eco #seat38g { top: 489px; left: 147px; }
+
+.a340-300-eco #seat38j { top: 481px; left: 184px; }
+
+.a340-300-eco #seat38k { top: 481px; left: 200px; }
+
+.a340-300-eco #seat39a { top: 509px; left: 46px; }
+
+.a340-300-eco #seat39b { top: 509px; left: 62px; }
+
+.a340-300-eco #seat39d { top: 517px; left: 99px; }
+
+.a340-300-eco #seat39e { top: 517px; left: 115px; }
+
+.a340-300-eco #seat39f { top: 517px; left: 131px; }
+
+.a340-300-eco #seat39g { top: 517px; left: 147px; }
+
+.a340-300-eco #seat39j { top: 509px; left: 184px; }
+
+.a340-300-eco #seat39k { top: 509px; left: 200px; }
+
+.a340-300-eco #seat40a { top: 536px; left: 48px; }
+
+.a340-300-eco #seat40b { top: 536px; left: 64px; }
+
+.a340-300-eco #seat40d { top: 544px; left: 99px; }
+
+.a340-300-eco #seat40e { top: 544px; left: 115px; }
+
+.a340-300-eco #seat40f { top: 544px; left: 131px; }
+
+.a340-300-eco #seat40g { top: 544px; left: 147px; }
+
+.a340-300-eco #seat40j { top: 536px; left: 182px; }
+
+.a340-300-eco #seat40k { top: 536px; left: 198px; }
+
+.a340-300-eco #seat41a { top: 564px; left: 49px; }
+
+.a340-300-eco #seat41b { top: 564px; left: 65px; }
+
+.a340-300-eco #seat41d { top: 572px; left: 99px; }
+
+.a340-300-eco #seat41e { top: 572px; left: 115px; }
+
+.a340-300-eco #seat41f { top: 572px; left: 131px; }
+
+.a340-300-eco #seat41g { top: 572px; left: 147px; }
+
+.a340-300-eco #seat41j { top: 564px; left: 181px; }
+
+.a340-300-eco #seat41k { top: 564px; left: 197px; }
+
+.a340-300-eco #seat42a { top: 591px; left: 51px; }
+
+.a340-300-eco #seat42b { top: 591px; left: 67px; }
+
+.a340-300-eco #seat42d { top: 598px; left: 107px; }
+
+.a340-300-eco #seat42e { top: 598px; left: 123px; }
+
+.a340-300-eco #seat42g { top: 598px; left: 139px; }
+
+.a340-300-eco #seat42j { top: 591px; left: 179px; }
+
+.a340-300-eco #seat42k { top: 591px; left: 195px; }
+
+.a340-300-eco #seat43a { top: 619px; left: 53px; }
+
+.a340-300-eco #seat43b { top: 619px; left: 69px; }
+
+.a340-300-eco #seat43d { top: 625px; left: 107px; }
+
+.a340-300-eco #seat43e { top: 625px; left: 123px; }
+
+.a340-300-eco #seat43g { top: 625px; left: 139px; }
+
+.a340-300-eco #seat43j { top: 619px; left: 177px; }
+
+.a340-300-eco #seat43k { top: 619px; left: 193px; }
+
+.a340-300-eco #seat44a { top: 646px; left: 55px; }
+
+.a340-300-eco #seat44b { top: 646px; left: 71px; }
+
+.a340-300-eco #seat44d { top: 653px; left: 107px; }
+
+.a340-300-eco #seat44e { top: 653px; left: 123px; }
+
+.a340-300-eco #seat44g { top: 653px; left: 139px; }
+
+.a340-300-eco #seat44j { top: 646px; left: 175px; }
+
+.a340-300-eco #seat44k { top: 646px; left: 191px; }
+
+.a340-300-eco #seat45d { top: 680px; left: 107px; }
+
+.a340-300-eco #seat45e { top: 680px; left: 123px; }
+
+.a340-300-eco #seat45g { top: 680px; left: 139px; }
+
+.a340-300-first #seat1a { top: 348px; left: 55px; }
+
+.a340-300-first #seat1d { top: 353px; left: 98px; }
+
+.a340-300-first #seat1g { top: 353px; left: 139px; }
+
+.a340-300-first #seat1k { top: 348px; left: 182px; }
+
+.a340-300-first #seat2a { top: 415px; left: 55px; }
+
+.a340-300-first #seat2d { top: 420px; left: 98px; }
+
+.a340-300-first #seat2g { top: 420px; left: 139px; }
+
+.a340-300-first #seat2k { top: 415px; left: 182px; }
+
+/*
+- states = ['unselectable','limited','special','occupied','occupied','occupied','','','','','','']
+*/
+.seatmap--seats { position: relative; }
+.seatmap--seats li { position: absolute; width: 16px; height: 18px; }
+.seatmap--seats .seat { position: absolute; }
+
+.seatmap--seats .js-seat:hover, .seatmap--seats .js-seat:focus { left: -3px; top: -3px; margin-bottom: -6px; margin-right: -6px; z-index: 1; border-color: #7f766e; width: 21px; height: 24px; }
+.seatmap--seats .js-seat, .seatmap--seats .js-seat:focus { outline: none; }
+
+.seatmap--seats .seat, .seatmap-seat { padding: 0; margin: 0; -webkit-appearance: none; -moz-appearance: none; appearance: none; margin-left: -1px; margin-top: -1px; text-transform: uppercase; font-size: 8px; background-color: white; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; display: block; text-align: center; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.seatmap--seats .seat .seat-nr, .seatmap-seat .seat-nr { color: transparent; overflow: hidden; line-height: 20; }
+.seatmap--seats .seat, .seatmap--seats .seat[disabled], .seatmap-seat, .seatmap-seat[disabled] { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); opacity: 1; top: 0; left: 0; width: 15px; height: 18px; border: 1px solid #9e9890; }
+.seatmap--seats .seat.is-limited, .seatmap-seat.is-limited { background-image: url(../PublishingImages/seatmap/icons/limited.png); background-repeat: no-repeat; background-color: white; background-position: center center; border-color: #9e9890; background-position: 0px 0px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats .seat.is-limited, .seatmap-seat.is-limited { background-image: url(../PublishingImages/seatmap/icons/limited2x.png); background-size: 15px 15px; } }
+.seatmap--seats .seat.is-limited-b, .seatmap-seat.is-limited-b { background-image: url(../PublishingImages/seatmap/icons/limited-b.png); background-repeat: no-repeat; background-color: white; background-position: center center; border-color: #9e9890; background-position: 0px 0px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats .seat.is-limited-b, .seatmap-seat.is-limited-b { background-image: url(../PublishingImages/seatmap/icons/limited-b2x.png); background-size: 15px 15px; } }
+.seatmap--seats .seat.is-limited-c, .seatmap-seat.is-limited-c { background-image: url(../PublishingImages/seatmap/icons/limited-grey.png); background-repeat: no-repeat; background-color: white; background-position: center center; border-color: #9e9890; background-position: 0px 0px; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats .seat.is-limited-c, .seatmap-seat.is-limited-c { background-image: url(../PublishingImages/seatmap/icons/limited-grey2x.png); background-size: 15px 15px; } }
+.seatmap--seats .seat.is-special, .seatmap-seat.is-special { background-image: url(../PublishingImages/seatmap/icons/special.png); background-repeat: no-repeat; background-color: #cfa900; background-position: center center; border-color: #cfa900; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats .seat.is-special, .seatmap-seat.is-special { background-image: url(../PublishingImages/seatmap/icons/special2x.png); background-size: 15px 15px; } }
+.seatmap--seats .seat.is-occupied, .seatmap-seat.is-occupied { background-image: url(../PublishingImages/seatmap/icons/occupied.png); background-repeat: no-repeat; background-color: white; background-position: center center; border-color: #cc0000; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats .seat.is-occupied, .seatmap-seat.is-occupied { background-image: url(../PublishingImages/seatmap/icons/occupied2x.png); background-size: 15px 15px; } }
+.seatmap--seats .seat.is-unselectable, .seatmap-seat.is-unselectable { background-color: #E1DFDA; border-color: #BAB6AE; }
+.seatmap--seats .seat.is-preferred, .seatmap-seat.is-preferred { background-color: #f7dec9; border-color: #b57a5d; }
+.seatmap--seats .seat.is-legspace, .seatmap-seat.is-legspace { background-color: #d9eaee; border-color: #32678b; }
+.seatmap--seats .seat.is-blocked, .seatmap-seat.is-blocked { background-image: url(../PublishingImages/seatmap/icons/blocked.png); background-repeat: no-repeat; background-color: white; background-position: center center; border-color: #9e9890; background-repeat: repeat; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats .seat.is-blocked, .seatmap-seat.is-blocked { background-image: url(../PublishingImages/seatmap/icons/blocked2x.png); background-size: 20px 20px; } }
+.seatmap--seats .seat.is-selected, .seatmap-seat.is-selected { background-image: url(../PublishingImages/seatmap/icons/selected.png); background-repeat: no-repeat; background-color: #868839; background-position: center center; border-color: #868839; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats .seat.is-selected, .seatmap-seat.is-selected { background-image: url(../PublishingImages/seatmap/icons/selected2x.png); background-size: 15px 15px; } }
+.seatmap--seats .seat.is-mine, .seatmap-seat.is-mine { -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.9); -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.9); box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.9); }
+.seatmap--seats .seat.is-business, .seatmap--seats .seat.is-business[disabled], .seatmap-seat.is-business, .seatmap-seat.is-business[disabled] { width: 16px; height: 16px; }
+.seatmap--seats .seat.is-business:hover, .seatmap--seats .seat.is-business:focus, .seatmap-seat.is-business:hover, .seatmap-seat.is-business:focus { width: 22px; height: 22px; }
+.seatmap--seats .seat.is-first, .seatmap--seats .seat.is-first[disabled], .seatmap-seat.is-first, .seatmap-seat.is-first[disabled] { width: 22px; height: 25px; }
+.seatmap--seats .seat.is-first:hover, .seatmap--seats .seat.is-first:focus, .seatmap-seat.is-first:hover, .seatmap-seat.is-first:focus { width: 27px; height: 31px; }
+.seatmap--seats .seat.is-preview, .seatmap-seat.is-preview { margin-left: 0; margin-top: 0; }
+.seatmap--seats .seat.is-preview, .seatmap--seats .seat.is-preview[disabled], .seatmap--seats .seat.is-preview:hover, .seatmap--seats .seat.is-preview:focus, .seatmap-seat.is-preview, .seatmap-seat.is-preview[disabled], .seatmap-seat.is-preview:hover, .seatmap-seat.is-preview:focus { left: 0; top: 0; width: 15px; height: 17px; }
+
+.seatmap-icon-exit, .seatmap-icon-lavatory { display: inline-block; width: 23px; height: 23px; }
+
+.seatmap-icon-exit { background: url("../PublishingImages/seatmap/icons/exit.png") no-repeat center center; }
+
+.seatmap-icon-lavatory { background: url("../PublishingImages/seatmap/icons/lavatory.png") no-repeat center center; }
+
+.seatmap--seats { background: no-repeat; }
+.seatmap--seats.avro-rj100 { width: 260px; height: 730px; background-image: url(../PublishingImages/seatmap/planes/avro-rj100.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.avro-rj100 { background-image: url(../PublishingImages/seatmap/planes/avro-rj1002x.png); background-size: 260px 730px; } }
+.seatmap--seats.a319-112 { width: 260px; height: 790px; background-image: url(../PublishingImages/seatmap/planes/a319-112.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a319-112 { background-image: url(../PublishingImages/seatmap/planes/a319-1122x.png); background-size: 260px 790px; } }
+.seatmap--seats.a320-214 { width: 260px; height: 1020px; background-image: url(../PublishingImages/seatmap/planes/a320-214.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a320-214 { background-image: url(../PublishingImages/seatmap/planes/a320-2142x.png); background-size: 260px 1020px; } }
+.seatmap--seats.a321-111 { width: 260px; height: 1206px; background-image: url(../PublishingImages/seatmap/planes/a321-111.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a321-111 { background-image: url(../PublishingImages/seatmap/planes/a321-1112x.png); background-size: 260px 1206px; } }
+.seatmap--seats.a330-300-business { width: 260px; height: 636px; background-image: url(../PublishingImages/seatmap/planes/a330-300-business.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a330-300-business { background-image: url(../PublishingImages/seatmap/planes/a330-300-business2x.png); background-size: 260px 636px; } }
+.seatmap--seats.a330-300-eco { width: 260px; height: 790px; background-image: url(../PublishingImages/seatmap/planes/a330-300-eco.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a330-300-eco { background-image: url(../PublishingImages/seatmap/planes/a330-300-eco2x.png); background-size: 260px 790px; } }
+.seatmap--seats.a330-300-first { width: 260px; height: 474px; background-image: url(../PublishingImages/seatmap/planes/a330-300-first.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a330-300-first { background-image: url(../PublishingImages/seatmap/planes/a330-300-first2x.png); background-size: 260px 474px; } }
+.seatmap--seats.a340-300-business { width: 260px; height: 630px; background-image: url(../PublishingImages/seatmap/planes/a340-300-business.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a340-300-business { background-image: url(../PublishingImages/seatmap/planes/a340-300-business2x.png); background-size: 260px 630px; } }
+.seatmap--seats.a340-300-eco { width: 260px; height: 768px; background-image: url(../PublishingImages/seatmap/planes/a340-300-eco.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a340-300-eco { background-image: url(../PublishingImages/seatmap/planes/a340-300-eco2x.png); background-size: 260px 768px; } }
+.seatmap--seats.a340-300-first { width: 260px; height: 480px; background-image: url(../PublishingImages/seatmap/planes/a340-300-first.png); }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap--seats.a340-300-first { background-image: url(../PublishingImages/seatmap/planes/a340-300-first2x.png); background-size: 260px 480px; } }
+
+.seatmap--seats.seatmap--seats-generic { width: 260px; margin-bottom: 30px; }
+.seatmap--seats.seatmap--seats-generic .generic { width: 259px; position: relative; font-size: 12px; }
+
+.seatmap-generic-table { width: 100%; margin: 0; padding: 0; border-spacing: 0; empty-cells: show; background: #edece8; border-collapse: collapse; }
+.seatmap-generic-table .seat { position: relative; }
+.seatmap-generic-table td, .seatmap-generic-table th { padding: 0; height: 28px; text-align: center; }
+.seatmap-generic-table th { font-size: 11px; font-weight: bold; background: #edece8; color: #9e9890; }
+.seatmap-generic-table td.nowing { background: #edece8; }
+.seatmap-generic-table td.wing { background: white; }
+.seatmap-generic-table .nowing, .seatmap-generic-table .wing { width: 50%; border-right: 5px solid #edece8; }
+.seatmap-generic-table td.nowing, .seatmap-generic-table td.wing { border-right: 5px solid white; }
+.seatmap-generic-table td.seatcell + td.nowing, .seatmap-generic-table td.seatcell + td.wing { border-right: none; border-left: 5px solid white; }
+.seatmap-generic-table td.firstwingleft { background-image: url(../PublishingImages/seatmap/icons/wing-top-left.png); background-repeat: no-repeat; background-position: bottom left; background-color: #edece8; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap-generic-table td.firstwingleft { background-image: url(../PublishingImages/seatmap/icons/wing-top-left2x.png); background-size: 130px 70px; } }
+.seatmap-generic-table td.firstwingright { background-image: url(../PublishingImages/seatmap/icons/wing-top-right.png); background-repeat: no-repeat; background-position: bottom right; background-color: #edece8; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap-generic-table td.firstwingright { background-image: url(../PublishingImages/seatmap/icons/wing-top-right2x.png); background-size: 130px 70px; } }
+.seatmap-generic-table td.exitleft { background-image: url(../PublishingImages/seatmap/icons/exit-left.png); background-repeat: no-repeat; background-position: right; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap-generic-table td.exitleft { background-image: url(../PublishingImages/seatmap/icons/exit-left2x.png); background-size: 16px 16px; } }
+.seatmap-generic-table td.exitright { background-image: url(../PublishingImages/seatmap/icons/exit-right.png); background-repeat: no-repeat; background-position: left; }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 192dpi) { .seatmap-generic-table td.exitright { background-image: url(../PublishingImages/seatmap/icons/exit-right2x.png); background-size: 16px 16px; } }
+.seatmap-generic-table th.seatcol, .seatmap-generic-table td.seatcell { width: 15px; min-width: 15px; }
+.seatmap-generic-table td.seatcell { height: 25px; padding-left: 2px; border-bottom: 3px solid rgba(0, 0, 0, 0.05); vertical-align: bottom; background-color: #e1dfda; }
+.seatmap-generic-table td.seatcell.is-empty { border-bottom-color: #e1dfda; }
+.seatmap-generic-table th.floor, .seatmap-generic-table td.floor { width: 10px; min-width: 10px; }
+.seatmap-generic-table td.floor { background-color: #e1dfda; }
+.seatmap-generic-table td.outer, .seatmap-generic-table th.outer { width: 28px; min-width: 28px; background: #edece8; }
+.seatmap-generic-table tr:hover th { color: #6f6660; }
