@@ -1,1 +1,0 @@
-var require={paths:{jquery:"lib/util/loaded-jquery",moment:"vendor/moment"},shim:{"app/plugins":{deps:["jquery"]},"app/modules":{deps:["jquery","app/plugins"]}}};
