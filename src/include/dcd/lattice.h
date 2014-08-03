@@ -31,8 +31,8 @@ using fst::VectorFst;
 namespace dcd {
 class Lattice {
  public:
-  struct LatticeState;
-  
+  struct State; 
+  typedef State* LatticeState;
   struct LatticeArc {
     
     LatticeArc() { Clear(); }
@@ -42,13 +42,13 @@ class Lattice {
       olabel_(other.olabel_), dur_(other.dur_), am_weight_(other.am_weight_), 
       lm_weight_(other.lm_weight_), dur_weight_(other.dur_weight_) { }
 
-    LatticeArc(LatticeState* prevstate, int ilabel, int olabel, float am_weight,
+    LatticeArc(State* prevstate, int ilabel, int olabel, float am_weight,
         float lm_weight, float dur_weight)
       : prevstate_(prevstate), ilabel_(ilabel), olabel_(olabel), 
       am_weight_(am_weight), lm_weight_(lm_weight), 
       dur_weight_(dur_weight) { }
 
-    LatticeState* prevstate_;
+    State* prevstate_;
     int ilabel_;
     int olabel_;
     int dur_;
@@ -77,7 +77,7 @@ class Lattice {
       return *this;
     }
 
-    LatticeState* PrevState() const { return prevstate_; }
+    State* PrevState() const { return prevstate_; }
 
     int ILabel() const { return ilabel_; }
 
@@ -97,7 +97,7 @@ class Lattice {
     }
   };
 
-  struct LatticeState {
+  struct State {
    public:
     void Init(int time, int state, int id, int index,
         float forwards_cost = kMaxCost) {
@@ -127,7 +127,7 @@ class Lattice {
       return d;
     }
 
-    LatticeState* PrevState() const {
+    State* PrevState() const {
       return best_arc_.prevstate_;
     }
 
@@ -141,7 +141,7 @@ class Lattice {
     }
     //Add a new arc to lattice state
     template<class T>
-    pair<float, float> AddArc(LatticeState* src, float cost,  const T& arc,
+    pair<float, float> AddArc(State* src, float cost,  const T& arc,
         float threshold, const SearchOptions& opts) {
       //TODO add rescoring here
 
@@ -184,7 +184,7 @@ class Lattice {
       if (best_arc_.prevstate_)
         best_arc_.prevstate_->GcMark(); 
       for (int i = 0; i != arcs_.size(); ++i) {
-        LatticeState* prev = arcs_[i].prevstate_;
+        State* prev = arcs_[i].prevstate_;
         prev->GcMark();
       }
       marked_ = true;
@@ -252,24 +252,24 @@ class Lattice {
   }
 
   void Check() {
-    unordered_set<LatticeState*> lss;
+    unordered_set<State*> lss;
     for (int i = 0; i < used_list_.size(); ++i) {
-      LatticeState* ls = used_list_[i];
+      State* ls = used_list_[i];
       lss.insert(ls);
       if (ls->Index() != i) 
         LOG(FATAL) << "Lattice::Check : Index problem in lattice ls->Index() "
           << ls->Index() << " i " << i;
     }
 
-    unordered_set<LatticeState*> fss;
+    unordered_set<State*> fss;
     for (int i = 0; i < free_list_.size(); ++i) {
-      LatticeState* ls = free_list_[i];
+      State* ls = free_list_[i];
       fss.insert(ls);
     }
 
     for (int i = 0; i < used_list_.size(); ++i) {
-      const LatticeState& ls = *used_list_[i];
-      const LatticeState::LatticeArcVector& arcs = ls.arcs_;
+      const State& ls = *used_list_[i];
+      const State::LatticeArcVector& arcs = ls.arcs_;
       for (int j = 0; j != arcs.size(); ++j) {
         const LatticeArc& arc = arcs[j];
         if (lss.find(arc.prevstate_) == lss.end()) {
@@ -284,13 +284,13 @@ class Lattice {
     }
 
     for (int i = 0; i != free_list_.size(); ++i ) {
-      LatticeState* lattice_state = free_list_[i];
+      State* lattice_state = free_list_[i];
       lattice_state->Check();
     }
   }
 
-  LatticeState* CreateStartState(int state) {
-    LatticeState* ls =  NewLatticeState(-1, state);
+  State* CreateStartState(int state) {
+    State* ls =  NewState(-1, state);
     ls->forwards_cost_ = 0.0f;
     return ls;
   }
@@ -305,14 +305,14 @@ class Lattice {
         << "\t# in free list " << free_list_.size();
   }
 
-  LatticeState* NewLatticeState(int time, int state) { 
+  State* NewState(int time, int state) { 
     PROFILE_FUNC();
-    LatticeState* lattice_state = 0;
+    State* lattice_state = 0;
     if (use_pool_ && free_list_.size()) {
       lattice_state = free_list_.back();
       free_list_.pop_back();
     } else { 
-      lattice_state = new LatticeState;
+      lattice_state = new State;
     }
     lattice_state->Init(time, state, next_id_++, used_list_.size());       
     used_list_.push_back(lattice_state);
@@ -320,7 +320,7 @@ class Lattice {
     return lattice_state;
   }
 
-  void FreeLatticeState(LatticeState* lattice_state) { 
+  void FreeState(State* lattice_state) { 
     PROFILE_FUNC();
     if (use_pool_)
       free_list_.push_back(lattice_state);
@@ -329,11 +329,11 @@ class Lattice {
     ++num_frees_;
   }
 
-  LatticeState* AddState(int time, int state) {
-    return NewLatticeState(time, state);
+  State* AddState(int time, int state) {
+    return NewState(time, state);
   }
 
-  void DeleteState(LatticeState* ls) {
+  void DeleteState(State* ls) {
     if (ls->Index())
       used_list_[ls->Index()] = 0;
     delete ls;
@@ -342,7 +342,7 @@ class Lattice {
   //First field is the best cost arriving in the lattice state (forward cost)
   //Second field is the the cost of the SearchArc arrvining in the lattice state
   template<class SearchArc>
-  pair<float, float> AddArc(LatticeState* src, LatticeState* dest, float cost, 
+  pair<float, float> AddArc(State* src, State* dest, float cost, 
       const SearchArc& arc, float threshold, 
       const SearchOptions & opts) {
     //Add the lattice arc in the reverse direction
@@ -379,14 +379,14 @@ class Lattice {
     PROFILE_FUNC();
     int j = 0;
     for (int i = 0; i != used_list_.size(); ++i) {
-      LatticeState* lattice_state = used_list_[i];
+      State* lattice_state = used_list_[i];
       if (used_list_[i]->GcMarked()) {
         //Check j is null or the same as i
         lattice_state->SetIndex(j);
         used_list_[j++] = lattice_state;
       } else { 
         lattice_state->SetIndex(-1);
-        FreeLatticeState(used_list_[i]);
+        FreeState(used_list_[i]);
         used_list_[i] = 0;
       }
     }
@@ -406,13 +406,13 @@ class Lattice {
 
     if (early_mission) {
       //Work backward from a frontier node.
-      vector<LatticeState*> stack;
-      for (LatticeState* ls = used_list_.back(); !ls->IsStart(); 
+      vector<State*> stack;
+      for (State* ls = used_list_.back(); !ls->IsStart(); 
           ls = ls->PrevState())
         stack.push_back(ls);
 
       while (!stack.empty()) {
-        LatticeState *ls = stack.back();
+        State *ls = stack.back();
         stack.pop_back();
         if (ls->OLabel())
           early_mission->push_back(ls->OLabel());
@@ -427,7 +427,7 @@ class Lattice {
   }
 
   template<class Arc>
-  int GetLattice(LatticeState* state, MutableFst<Arc>* ofst) {
+  int GetLattice(State* state, MutableFst<Arc>* ofst) {
     GcClearMarks();
     state->GcMark();
     //After GcSweep the used_list indexes should be contigous
@@ -439,7 +439,7 @@ class Lattice {
       ofst->AddState();
     int numarcs = 0;
     for (int i = 0; i != used_list_.size(); ++i) {
-      const LatticeState& ls = *used_list_[i];
+      const State& ls = *used_list_[i];
       if (ls.IsStart()) {
         ofst->SetStart(ls.index_);
       } else {
@@ -474,7 +474,7 @@ class Lattice {
       ofst->AddState();
     ofst->SetStart(0);
     for (int i = 0; i != used_list_.size(); ++i) {
-      const LatticeState &state = *used_list_[i];
+      const State &state = *used_list_[i];
       if (!state.marked_)
         ofst->SetFinal(i, W::One());
       if (ssyms) {
@@ -518,17 +518,17 @@ class Lattice {
     std::sort(free_list_.begin(), free_list_.end());
   }
 
-  bool IsActive(LatticeState* state) const {
+  bool IsActive(State* state) const {
     return std::binary_search(used_list_.begin(), used_list_.end(), state);
   }
 
-  bool IsFree(LatticeState* state) const { 
+  bool IsFree(State* state) const { 
     return std::binary_search(free_list_.begin(), free_list_.end(), state);
   }
 
  protected:
-  vector<LatticeState*> used_list_;
-  vector<LatticeState*> free_list_;
+  vector<State*> used_list_;
+  vector<State*> free_list_;
   Logger logger_;
   int next_id_;
   //Sanity check, num_allocs_ should equal num_frees_ after decoding

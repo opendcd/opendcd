@@ -31,8 +31,8 @@ LDFLAGS+= -ldl -L/usr/local/lib/fst/ -L/usr/local/lib/
 #CXXFLAGS+=-fopenmp -lpthread 
 #LDFLAGS+=-fopenmp -lpthread 
 
-CXXFLAGS+=-I../../3rdparty/Shiny/include/ -DHAVESHINY 
-LDFLAGS+=-L../../3rdparty/Shiny/lib/ -lshiny
+#CXXFLAGS+=-I../../3rdparty/Shiny/include/ -DHAVESHINY 
+#LDFLAGS+=-L../../3rdparty/Shiny/lib/ -lshiny
 
 CXXFLAGS+=-DMEMDEBUG 
 #CXXFLAGS+= -DHAVEJEMALLOC -I/Users/dixonp/installed/include/

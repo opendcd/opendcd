@@ -78,6 +78,10 @@ size_t GetCurrentRSS();
 
 void PrintVersionInfo();
 
+void PrintMachineInfo();
+
+int SwallowRedpill(); 
+
 //Based on the timer class from Kaldi
 #if defined(_WIN32)
 class Timer {

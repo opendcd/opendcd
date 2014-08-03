@@ -321,6 +321,9 @@ int main(int argc, char *argv[]) {
         "features-rspecifier far-wspecifier";
   
   PrintVersionInfo();
+  cerr << endl;
+  PrintMachineInfo();
+  cerr << endl;
   cerr << "Program arguments : " << endl;
   ParseOptions po(usage);
   SearchOptions opts;

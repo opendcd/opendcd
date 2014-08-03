@@ -33,7 +33,8 @@ namespace dcd {
   
 class SimpleLattice {
  public:
- struct LatticeState;
+ struct State;
+ typedef State* LatticeState;
  struct LatticeArc {
   
   LatticeArc() { Clear(); }
@@ -43,13 +44,13 @@ class SimpleLattice {
         olabel_(other.olabel_), dur_(other.dur_), am_weight_(other.am_weight_), 
         lm_weight_(other.lm_weight_), dur_weight_(other.dur_weight_) { }
 
-  LatticeArc(LatticeState* prevstate, int ilabel, int olabel, float am_weight,
+  LatticeArc(State* prevstate, int ilabel, int olabel, float am_weight,
              float lm_weight, float dur_weight)
       : prevstate_(prevstate), ilabel_(ilabel), olabel_(olabel), 
         am_weight_(am_weight), lm_weight_(lm_weight), 
         dur_weight_(dur_weight) { }
 
-  LatticeState* prevstate_;
+  State* prevstate_;
   int ilabel_;
   int olabel_;
   int dur_;
@@ -78,7 +79,7 @@ class SimpleLattice {
     return *this;
   }
 
-  LatticeState* PrevState() const { return prevstate_; }
+  State* PrevState() const { return prevstate_; }
 
   int ILabel() const { return ilabel_; }
 
@@ -86,7 +87,7 @@ class SimpleLattice {
 };
 
 
-struct LatticeState {
+struct State {
  public:
     void Init(int time, int state, int id, int index,
             float forwards_cost = kMaxCost) {
@@ -117,13 +118,13 @@ struct LatticeState {
   }
 
 
-	LatticeState* PrevState() const {
+	State* PrevState() const {
 		return best_arc_.prevstate_;
 	}
 
   //Add a new arc to lattice state
   template<class T>
-  pair<float, float> AddArc(LatticeState* src, float cost,  const T& arc,
+  pair<float, float> AddArc(State* src, float cost,  const T& arc,
       float threshold, const SearchOptions& opts) {
     float arc_cost = cost - src->ForwardsCost();
     float am_cost = arc_cost - arc.Weight();
@@ -174,12 +175,12 @@ struct LatticeState {
  protected:
   //this is internal and ls should not be modified  by this function
   template<class Arc>
-  void GetLattice(LatticeState* ls, VectorFst<Arc>* lattice) const {
+  void GetLattice(State* ls, VectorFst<Arc>* lattice) const {
   }
 
   //ls is internal and should not be written by this function
   template<class Arc>
-  void GetBestSequence(LatticeState* ls, VectorFst<Arc>* best) {
+  void GetBestSequence(State* ls, VectorFst<Arc>* best) {
   }
 
   
@@ -196,7 +197,7 @@ struct LatticeState {
   friend class SimpleLattice;
 };
 
-
+ public:
  explicit SimpleLattice(const SearchOptions& opts, ostream* logstream =
      &std::cerr) 
      : next_id_(0), num_allocs_(0), num_frees_(0) { }
@@ -208,8 +209,8 @@ struct LatticeState {
  void Check() {
  }
 
- LatticeState* CreateStartState(int state) {
-   LatticeState* ls =  NewLatticeState(-1, state);
+ State* CreateStartState(int state) {
+   State* ls =  NewState(-1, state);
    ls->forwards_cost_ = 0.0f;
    return ls;
  }
@@ -217,30 +218,30 @@ struct LatticeState {
  void DumpInfo() {
  }
 
- LatticeState* NewLatticeState(int time, int state) { 
-   LatticeState* lattice_state = new LatticeState;
+ State* NewState(int time, int state) { 
+   State* lattice_state = new State;
    lattice_state->Init(time, state, next_id_++, used_list_.size());       
    ++num_allocs_;
    used_list_.push_back(lattice_state);
    return lattice_state;
  }
 
- void FreeLatticeState(LatticeState* lattice_state) { 
+ void FreeState(State* lattice_state) { 
    ++num_frees_;
  }
  
- LatticeState* AddState(int time, int state) {
-   return NewLatticeState(time, state);
+ State* AddState(int time, int state) {
+   return NewState(time, state);
  }
 
- void DeleteState(LatticeState* ls) {
+ void DeleteState(State* ls) {
    delete ls;
  }
 
  //First field is the best cost arriving in the lattice state (forward cost)
  //Second field is the the cost of the SearchArc arrvining in the lattice state
  template<class SearchArc>
- pair<float, float> AddArc(LatticeState* src, LatticeState* dest, float cost, 
+ pair<float, float> AddArc(State* src, State* dest, float cost, 
               const SearchArc& arc, float threshold, 
               const SearchOptions &opts) {
    //Add the lattice arc in the reverse direction
@@ -268,20 +269,20 @@ struct LatticeState {
 
  
  template<class Arc>
- int GetLattice(LatticeState* state, MutableFst<Arc>* ofst) {
+ int GetLattice(State* state, MutableFst<Arc>* ofst) {
    return 0;
  }
 
  //Debugging and check functions
  
- void SortLists() {
- }
+  void SortLists() {
+  }
 
-  bool IsActive(LatticeState* state) const {
+  bool IsActive(State* state) const {
     return true;
   }
 
-  bool IsFree(LatticeState* state) const { 
+  bool IsFree(State* state) const { 
     return true;
   }
 
@@ -293,14 +294,12 @@ struct LatticeState {
     typedef typename Arc::Weight W;
   }
 
-
-  
   static string Type() {
     return "SimpleLattice";
   }
 
  protected:
-  vector<LatticeState*> used_list_;
+  vector<State*> used_list_;
   int next_id_;
   int num_allocs_;
   int num_frees_;

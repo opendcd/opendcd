@@ -55,7 +55,7 @@ shiny:
 	$(MAKE) -C ../../3rdparty/Shiny
 
 clean:
-	rm -rf *.o dcd-decode arc-expand dcd-lexicon dcd-ngram
+	rm -rf *.o dcd-recog arc-expand dcd-lexicon dcd-ngram compiler-flags.cc compiler-version.cc
 
 %.o:%.cc ${includes}
 	$(CXX) $(CXXFLAGS) -c $<

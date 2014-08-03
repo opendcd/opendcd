@@ -81,7 +81,7 @@ class CLevelDecoder {
   class SearchArc;
   class SearchState;
   typedef typename L::LatticeState LatticeState;
-  typedef TokenTpl<LatticeState*> Token;
+  typedef TokenTpl<LatticeState> Token;
   typedef Pair<float,float> FloatPair;
 
   typedef typename HashMapHelper<int, SearchState*>::HashMap SearchHash;
@@ -97,7 +97,7 @@ class CLevelDecoder {
       : best_(best), threshold_(threshold), lbest_(lbest), 
       lthreshold_(lthreshold), tokens_(tokens), scratch_(scratch), 
       opts_(opts), lattice_(lattice) { }
-    typedef TokenTpl<LatticeState*> Token;
+    typedef TokenTpl<LatticeState> Token;
     float best_;
     float threshold_;
     float lbest_;
@@ -945,7 +945,7 @@ class CLevelDecoder {
     int s = fst_->Start();
     if (s == kNoStateId)
       return false;
-    LatticeState* ls = lattice_->CreateStartState(s);
+    LatticeState ls = lattice_->CreateStartState(s);
     Token token(ls, 0); //Create token associated with the start lattice state 
     //and set the cost to zero.
     SearchState* ss = FindSearchState(s);
@@ -1248,6 +1248,57 @@ class CLevelDecoder {
   //TODO: could some sort of epsilon synchronization help here?
 
   void ExpandEpsilonArcs(int max_cycles = std::numeric_limits<int>::max()) {
+    PROFILE_FUNC();
+    //TODO: Use the std::pair lexicographic ordering to implement a heap with 
+    //decrease key
+    //set<SearchState*> q;
+    EpsQueue q;
+    float best = kMaxCost;
+    float threshold = kMaxCost;
+    float worst = kMinCost;
+    int num_before = active_states_.size();
+    //Add all states with outgoing epsilons to the queue
+    for (int i = 0; i != active_states_.size(); ++i) {
+      SearchState* ss = active_states_[i];
+      best = min(best, ss->Cost());
+      if (ss->NumEpsilons()) {
+        //logger_(DEBUG) << "Adding state " <<  ss->StateId();
+        assert(!ss->InEpsQueue());
+        ss->AddToEpsQueue();
+        q.push_back(ss);
+      }
+    }
+    //Generic SSSP algorithm, however care needs to be taken here due 
+    //to the presence of negative weights
+
+    num_active_states_ = active_states_.size();
+    num_epsilon_cycles_ = 0;
+    while (!q.empty()) {
+      SearchState* ss = q.front();
+      q.pop_front();
+      assert(ss->InEpsQueue());
+      ss->RemoveFromEpsQueue();
+      if (ss->Cost() <  threshold) { 
+        search_stats_.EpsilonExpanded(ss->StateId());
+        float f = ss->ExpandEpsilonArcs(&active_states_, &q, this,
+            search_opts_.prune_eps ? best + search_opts_.beam : kMaxCost, 
+            search_opts_);
+        if (f < best) {
+          best = f;
+          threshold = best + search_opts_.beam;
+        }
+        ++num_epsilon_cycles_;
+      } else {
+        ++total_num_states_pruned_;
+      }
+    }
+    num_epsilons_activated_ = active_states_.size() - num_before;
+    best_state_cost_ = best;
+    worst_state_cost_ = worst;
+    total_num_epsilson_states_relaxed_ += num_epsilon_cycles_;
+  }
+
+  void ExpandEpsilonArcs2(int max_cycles = std::numeric_limits<int>::max()) {
     PROFILE_FUNC();
     //TODO: Use the std::pair lexicographic ordering to implement a heap with 
     //decrease key
