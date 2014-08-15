@@ -247,8 +247,10 @@ class Lattice {
   virtual ~Lattice() { 
     Clear();
     for (int i = 0; i != free_list_.size(); ++i)
-      delete free_list_[i];
+      DeleteState(free_list_[i]);
     free_list_.clear();
+    if (num_frees_ != num_allocs_)
+      logger_(ERROR) << "Mismatch number of lattice state allocations";
   }
 
   void Check() {

@@ -46,9 +46,10 @@ size_t GetTotalSystemMemory() {
 }
 #else
 size_t GetTotalSystemMemory() {
+    /*
     long pages = sysconf(_SC_PHYS_PAGES);
     long page_size = sysconf(_SC_PAGE_SIZE);
-    return pages * page_size;
+    return pages * page_size; */
 }
 #endif
 
@@ -58,7 +59,7 @@ void PrintMachineInfo() {
   cerr << "\tNumber of threads\t: " << endl;
   cerr << "\tMachine load\t\t: " << endl;
   cerr << "\tMachine is virtual\t: " << endl;
-  cerr << "\tAmount of memory\t: " GetTotalSystemMemory()  << endl;
+  cerr << "\tAmount of memory\t: " << GetTotalSystemMemory()  << endl;
   cerr << "\tOS version\t\t: " << endl;
   cerr << "\tHostname\t\t: " << endl;
 }

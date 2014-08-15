@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Copyright 2014 Paul R. Dixon
 // \file
 // Main decoding command
 
@@ -26,7 +27,7 @@
 #include <dcd/config.h>
 #include <dcd/cpu-stats.h>
 #include <dcd/generic-transition-model.h>
-//#include <dcd/hmm-transition-model.h>
+#include <dcd/hmm-transition-model.h>
 #include <dcd/kaldi-lattice-arc.h>
 #include <dcd/lattice.h>
 #include <dcd/simple-lattice.h>
@@ -80,7 +81,8 @@ template<class TransModel, class B>
 int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts, 
     const string &word_symbols_file) {
   typedef typename TransModel::FrontEnd FrontEnd;
-  typedef SimpleLattice L;
+  //typedef SimpleLattice L;
+  typedef Lattice L;
   typedef CLevelDecoder<StdFst, TransModel, L> Decoder;
   PROFILE_BEGIN(ModelLoad);
   string trans_model_rs = po.GetArg(1);
@@ -139,8 +141,9 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
   cpustats.GetSystemCPULoad();
  
   StdFst *fst = 0;
-  Decoder *decoder = 0;  
-  for (int num = 0; !feature_reader.Done(); feature_reader.Next(), ++num) {
+  Decoder *decoder = 0;
+  int num = 0;
+  for (; !feature_reader.Done(); feature_reader.Next(), ++num) {
     if (num % opts->fst_reset_period == 0) {
       logger(INFO) << "Rebuilding cascade and decoder at utterance : " << num;
       if (decoder) {
@@ -225,6 +228,7 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
     <<  total_time * 100 / total_num_frames << endl
     << "\t\t  Peak memory usage  : " 
     << GetPeakRSS() / (1024 * 1024) << " MB" << endl
+    << "\t\t  Total # of utterances : " << num << endl
     << "\t\t  Total # of frames : " << total_num_frames << endl
     << "\t\t  Total decoding time : " << total_time << endl;
 
@@ -307,7 +311,8 @@ struct DecodeMainRegisterer {
   static DecodeMainRegisterer<T<D>, B> \
     decode_registerer ## _ ## T ## _ ## D ## _ ## B(S);
 
-//REGISTER_DECODER_MAIN("hmm", HMMTransitionModel, Decodable, StdArc);
+
+REGISTER_DECODER_MAIN("hmm", HMMTransitionModel, Decodable, StdArc);
 //REGISTER_DECODER_MAIN("hmm_kaldi_lattice", HMMTransitionModel, Decodable, KaldiLatticeArc);
 //REGISTER_DECODER_MAIN("hmm_hitstats", HMMTransitionModel, SimpleDecodableHitStats, StdArc);
 REGISTER_DECODER_MAIN("generic", GenericTransitionModel, Decodable, StdArc);

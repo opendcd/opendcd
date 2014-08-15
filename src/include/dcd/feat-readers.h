@@ -143,7 +143,10 @@ class SequentialMatrixReader {
     ReadNextUtterance();
   }
  
-  ~SequentialMatrixReader() { }
+  ~SequentialMatrixReader() { 
+    if (featstream_)
+      delete featstream_;
+  }
 
   bool ReadNextUtterance() {
     if (featstream_->peek() == EOF) {
