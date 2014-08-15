@@ -1,6 +1,7 @@
 #all: dcd-decode fstxprintstrings
-all: dcd-recog farfilter shiny \
-	   farprintnbeststrings 
+all: dcd-recog 
+	#farfilter shiny \
+	#farprintnbeststrings 
 	
 	#arc-expand dcd-lexicon 
 

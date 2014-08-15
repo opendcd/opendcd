@@ -76,20 +76,19 @@ class TableWriter {
 };
 
 
+//L is the decoder lattice type
 //B is the output lattice semiring
-template<class TransModel, class B>
+template<class TransModel, class L, class B>
 int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts, 
     const string &word_symbols_file) {
   typedef typename TransModel::FrontEnd FrontEnd;
-  //typedef SimpleLattice L;
-  typedef Lattice L;
   typedef CLevelDecoder<StdFst, TransModel, L> Decoder;
   PROFILE_BEGIN(ModelLoad);
   string trans_model_rs = po.GetArg(1);
   string fst_rs = po.GetArg(2);
   string feat_rs = po.GetArg(3);
   string out_ws = po.GetArg(4);
-  Logger logger("dcd-decode", std::cerr, opts->colorize);
+  Logger logger("dcd-recog", std::cerr, opts->colorize);
   logger(INFO) << "Decoder type : " << Decoder::Type();
   
   FarWriter<B>* farwriter = 
@@ -250,23 +249,36 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
 DECLARE_int32(v);
 
 struct DecodeMainEntryBase {
-  string desc;
-  const string Description() {
-    return "something";
+  
+  explicit DecodeMainEntryBase(const string& desc = "") :
+    desc_(desc) { }
+
+  const string& Description() {
+    return desc_;
   }
+
   virtual int Run(ParseOptions &po, SearchOptions *opts, 
                   const string &word_symbols_file) = 0;
+
   virtual ~DecodeMainEntryBase() = 0;
+
+  string desc_;
 };
 
 DecodeMainEntryBase::~DecodeMainEntryBase() {
 }
 
-template<class T, class B>
+template<class T, class L, class B>
 struct DecodeMainEntry : public DecodeMainEntryBase {
+
+  typedef CLevelDecoder<StdFst,T, L> D;
+
+  DecodeMainEntry() : DecodeMainEntryBase(D::Type() + "_" + B::Type()) {    
+  }
+
   virtual int Run(ParseOptions &po, SearchOptions *opts, 
                   const string &word_symbols_file) {
-    return CLevelDecoderMain<T, B>(po, opts, word_symbols_file);
+    return CLevelDecoderMain<T, L, B>(po, opts, word_symbols_file);
   }
 };
 
@@ -300,29 +312,40 @@ DecodeMainEntryBase* FindEntry(const string& key) {
   }
 }
 
-template<class T, class B>
+template<class T, class L, class B>
 struct DecodeMainRegisterer {
-  explicit DecodeMainRegisterer(const string& name) {
-    main_map[name] = new DecodeMainEntry<T, B>;
+  explicit DecodeMainRegisterer(const string& name, const string& desc = "") {
+    if (main_map.find(name) != main_map.end())
+      LOG(FATAL)  << "Registered type already exists : " << name;
+    main_map[name] = new DecodeMainEntry<T, L, B>;
   }
 };
 
-#define REGISTER_DECODER_MAIN(S, T, D, B) \
-  static DecodeMainRegisterer<T<D>, B> \
-    decode_registerer ## _ ## T ## _ ## D ## _ ## B(S);
+#define REGISTER_DECODER_MAIN(N, T, D, B, L) \
+  static DecodeMainRegisterer<T<D>, L, B> \
+    decode_registerer ## _ ## T ## _ ## D ## _ ## _ ## L ## B(N);
 
 
-REGISTER_DECODER_MAIN("hmm", HMMTransitionModel, Decodable, StdArc);
-//REGISTER_DECODER_MAIN("hmm_kaldi_lattice", HMMTransitionModel, Decodable, KaldiLatticeArc);
-//REGISTER_DECODER_MAIN("hmm_hitstats", HMMTransitionModel, SimpleDecodableHitStats, StdArc);
-REGISTER_DECODER_MAIN("generic", GenericTransitionModel, Decodable, StdArc);
+REGISTER_DECODER_MAIN("hmm_lattice", HMMTransitionModel, 
+    Decodable, StdArc, Lattice);
 
+REGISTER_DECODER_MAIN("hmm_lattice_kaldi", HMMTransitionModel, 
+    Decodable, KaldiLatticeArc, Lattice);
+
+REGISTER_DECODER_MAIN("hmm_simple", HMMTransitionModel, 
+    Decodable, StdArc, SimpleLattice);
+
+REGISTER_DECODER_MAIN("generic_lattice", GenericTransitionModel,
+    Decodable, StdArc, Lattice);
+
+//REGISTER_DECODER_MAIN("hmm_hitstats", HMMTransitionModel, 
+//  SimpleDecodableHitStats, StdArc);
 
 int main(int argc, char *argv[]) {
   PROFILE_FUNC();
   g_dcd_global_allocated = g_dcd_current_num_allocated;
   const char *usage = "Decode some speech\n"
-        "Usage: dcd-decode [options] trans-model-in (fst-in|fsts-rspecifier) "
+        "Usage: dcd-recog [options] trans-model-in (fst-in|fsts-rspecifier) "
         "features-rspecifier far-wspecifier";
   
   PrintVersionInfo();
@@ -332,7 +355,7 @@ int main(int argc, char *argv[]) {
   cerr << "Program arguments : " << endl;
   ParseOptions po(usage);
   SearchOptions opts;
-  po.Register("tmtype", &tm_type, "Type of transition model to use");
+  po.Register("decoder_type", &tm_type, "Type of decoder to use");
   po.Register("word_symbols_table", &word_symbols_file, "");
   po.Register("lingware", &lingware, "");
   po.Register("logfile", &logfile, "/dev/stderr");

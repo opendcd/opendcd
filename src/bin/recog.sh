@@ -2,7 +2,7 @@
 ROOT=/Users/dixonp/Desktop/opendcd/test
 ./dcd-recog \
   --verbose=0 \
-  --tmtype=generic \
+  --decoder_type=hmm_lattice \
   --beam=11 \
   --acoustic-scale=0.11 \
   --trans-scale=0.1 \
