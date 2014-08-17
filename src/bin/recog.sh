@@ -1,8 +1,8 @@
 #!/bin/bash
 ROOT=/Users/dixonp/Desktop/opendcd/test
-./dcd-recog \
+nice -n 19 ./dcd-recog \
   --verbose=0 \
-  --decoder_type=hmm_lattice \
+  --decoder_type=hmm_lattice_kaldi \
   --beam=11 \
   --acoustic-scale=0.11 \
   --trans-scale=0.1 \

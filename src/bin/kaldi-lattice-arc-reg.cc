@@ -21,7 +21,7 @@
 #include <fst/script/register.h>
 #include <fst/script/fstscript.h>
 #include <fst/extensions/far/farscript.h>
-#include <dcd/lattice-arc.h>
+#include <dcd/kaldi-lattice-arc.h>
 
 using namespace fst;
 

@@ -44,7 +44,7 @@ dcd-lexicon: dcd-lexicon.o parse-options.o text-utils.o log.o
 	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst 
 
 farfilter: farfilter.o exec-stream.o
-	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar -lfstfarscript
 
 far-to-lattice: far-to-lattice.o
 	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar -lfstfarscript

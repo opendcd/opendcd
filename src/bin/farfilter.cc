@@ -19,7 +19,14 @@
 
 #include <exec-stream/exec-stream.h>
 #include <fst/vector-fst.h>
+
+#include <fst/script/arg-packs.h>
+#include <fst/script/script-impl.h>
 #include <fst/extensions/far/far.h>
+#include <fst/extensions/far/main.h>
+#include <fst/extensions/far/farscript.h>
+
+#include <dcd/kaldi-lattice-arc.h>
 
 using namespace std;
 using namespace fst;
@@ -154,46 +161,77 @@ void ProcessFst(const string& cmd,
   ProcessFstImpl(fst, cmds, 0, 0, out);
 }
 
+namespace fst {
+namespace script {
+  
+typedef args::Package<const string&, const string&, 
+                      const string&, const string&,
+                      bool> 
+  FarFilterArgs;
 
+template<class Arc>
+void FarFilter(FarFilterArgs* args) {
+  typedef typename Arc::StateId StateId;
+  typedef typename Arc::Label Label;
+  typedef typename Arc::Weight Weight;
 
-DEFINE_bool(text, false, "Last command in the pipeline write text output");
-int main(int argc, char **argv) {
-  string usage = "Composes two FSTs.\n\n  Usage: ";
-  usage += argv[0];
-  usage += " in.far [out.far]\n";
-
-  std::set_new_handler(FailedNewHandler);
-  SET_FLAGS(usage.c_str(), &argc, &argv, true);
-  if (argc < 2 && argc > 4) {
-    ShowUsage();
-    return 1;
-  }
-
-  string cmd(argv[1]);
-  FarReader<StdArc> *reader = FarReader<StdArc>::Open((argc > 2 &&
-      (strcmp(argv[2], "-") !=0 )) ? argv[2] : "");
-
-  if (FLAGS_text) {
-    ofstream strm((argc > 3 &&
-        (strcmp(argv[3], "-") !=0 )) ? argv[3] : "/dev/stdout");
-
+  LOG(INFO) << args->arg1 << " " << args->arg2 << " " << args->arg3 << " " << args->arg4;
+  const string& cmd = args->arg1;
+  FarReader<Arc>* reader = FarReader<Arc>::Open(args->arg2);
+  if (args->arg5) {
+    ofstream strm(args->arg3);
     for (; !reader->Done(); reader->Next()) {
-      const StdFst& fst = reader->GetFst();
+      const Fst<Arc>& fst = reader->GetFst();
       strm << "[" << reader->GetKey() << "]" << endl;
       ProcessFst(cmd, fst, &strm);
+      strm << endl;
     }
   } else {
-    FarWriter<StdArc> *writer = FarWriter<StdArc>::Create((argc > 2 &&
-        (strcmp(argv[3], "-") !=0 )) ? argv[3] : "");
+    FarWriter<Arc> *writer = FarWriter<Arc>::Create(args->arg3);
     for (; !reader->Done(); reader->Next()) {
-      StdVectorFst ofst;
-      const StdFst& fst = reader->GetFst();
+      VectorFst<Arc> ofst;
+      const Fst<Arc>& fst = reader->GetFst();
       ProcessFst(cmd, fst, &ofst);
       writer->Add(reader->GetKey(), ofst);
     }
     delete writer;
   }
   delete reader;
+}
+
+void FarFilter(const string& cmd, const string& ifilename, 
+    const string& ofilename, const string& arc_type, bool text) {
+   FarFilterArgs args(cmd, ifilename, ofilename, arc_type, text);
+   Apply< Operation<FarFilterArgs> >("FarFilter", arc_type, &args);
+}
+REGISTER_FST_OPERATION(FarFilter, StdArc, FarFilterArgs);
+REGISTER_FST_OPERATION(FarFilter, KaldiLatticeArc, FarFilterArgs); 
+} // namespace script
+REGISTER_FST(VectorFst, KaldiLatticeArc);
+} // namespace fst
+
+DEFINE_bool(text, false, "Last command in the pipeline write text output");
+
+int main(int argc, char **argv) {
+  namespace s = fst::script;
+  string usage = "Filter a far archieve.\n\n  Usage: ";
+  usage += argv[0];
+  usage += " in.far [out.far]\n";
+
+  std::set_new_handler(FailedNewHandler);
+  SET_FLAGS(usage.c_str(), &argc, &argv, true);
+  
+  if (argc != 4) {
+    ShowUsage();
+    return 1;
+  }
+  string cmd(argv[1]);
+  string ifilename(argv[2]);
+  string ofilename(argv[3]);
+
+  string arc_type = fst::LoadArcTypeFromFar(ifilename);
+  s::FarFilter(cmd, ifilename, ofilename, arc_type, FLAGS_text);
+
   return 0;
 }
 
