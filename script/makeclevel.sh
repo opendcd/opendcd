@@ -20,19 +20,20 @@ mkdir -p ${GRAPH}
 
 if [ 2 == 1 ]; then
   fstdeterminize ${LANG}/L_disambig.fst  ${GRAPH}/det.L.fst
-
+fi
 ${KALDI_ROOT}/src/fstbin/fstcomposecontext \
-  --context-size=3 --central-position=1 \
+  --context-size=3 --central-position=1 --binary=false \
   --read-disambig-syms=${LANG}/phones/disambig.int \
-  --write-disambig-syms=${LANG}/disambig_ilabels_3_1.int \
+  --write-disambig-syms=${GRAPH}/disambig_ilabels_3_1.int \
   ${GRAPH}/ilabels_3_1 ${GRAPH}/det.L.fst | fstarcsort - ${GRAPH}/C.det.L.fst
 
-fstconvert --fst_type=olabel_lookahead \
+${KALDI_ROOT}/src/fstbin/fstrmsymbols ${GRAPH}/disambig_ilabels_3_1.int \
+  ${GRAPH}/C.det.L.fst - \
+ fstconvert --fst_type=olabel_lookahead \
   --save_relabel_opairs=${GRAPH}/g.irelabel ${GRAPH}/C.det.L.fst \
   ${GRAPH}/la.C.det.L.fst
 
 fstrelabel --relabel_opairs=${GRAPH}/g.irelabel ${LANG}/G.fst \
   | fstarcsort - ${GRAPH}/G.fst
 
-fi
 fstcompose ${GRAPH}/la.C.det.L.fst ${GRAPH}/G.fst ${GRAPH}/C.det.L.G.fst
