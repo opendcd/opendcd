@@ -138,7 +138,6 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
   //calls to the function
   cpustats.GetCurrentProcessCPULoad();
   cpustats.GetSystemCPULoad();
- 
   StdFst *fst = 0;
   Decoder *decoder = 0;
   int num = 0;
