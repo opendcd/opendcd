@@ -10,17 +10,23 @@ loopscale=0.1
 N=3
 P=1
 
+if [ "$#" -ne 4 ]; then
+  echo "usage: makeclevel.sh lang.dir[in] model.dir[in] graph.dir[out] kaldi.root[in]"
+  exit 1;
+fi
 
-#required="$lang/L.fst $lang/G.fst $lang/phones.txt $lang/words.txt $lang/phones/silence.csl $lang/phones/disambig.int $model $tree"
-#for f in $required; do
-#  [ ! -f $f ] && echo "mkgraph.sh: expected $f to exist" && exit 1;
-#done
+required="$LANG/L_disambig.fst $LANG/phones/disambig.int $LANG/G.fst"
+for f in $required; do
+  [ ! -f $f ] && echo "mkgraph.sh: expected $f to exist" && exit 1;
+done
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/fst/
 
 mkdir -p ${GRAPH}
 
-if [ 2 == 1 ]; then
+if [ 1 == 1 ]; then
   fstdeterminize ${LANG}/L_disambig.fst  ${GRAPH}/det.L.fst
-fi
+
 ${KALDI_ROOT}/src/fstbin/fstcomposecontext \
   --context-size=3 --central-position=1 --binary=false \
   --read-disambig-syms=${LANG}/phones/disambig.int \
@@ -28,12 +34,14 @@ ${KALDI_ROOT}/src/fstbin/fstcomposecontext \
   ${GRAPH}/ilabels_3_1 ${GRAPH}/det.L.fst | fstarcsort - ${GRAPH}/C.det.L.fst
 
 ${KALDI_ROOT}/src/fstbin/fstrmsymbols ${GRAPH}/disambig_ilabels_3_1.int \
-  ${GRAPH}/C.det.L.fst - \
- fstconvert --fst_type=olabel_lookahead \
+  ${GRAPH}/C.det.L.fst - | fstconvert --fst_type=olabel_lookahead \
   --save_relabel_opairs=${GRAPH}/g.irelabel ${GRAPH}/C.det.L.fst \
   ${GRAPH}/la.C.det.L.fst
 
-fstrelabel --relabel_opairs=${GRAPH}/g.irelabel ${LANG}/G.fst \
-  | fstarcsort - ${GRAPH}/G.fst
+fi
 
-fstcompose ${GRAPH}/la.C.det.L.fst ${GRAPH}/G.fst ${GRAPH}/C.det.L.G.fst
+fstrelabel --relabel_opairs=${GRAPH}/g.irelabel ${LANG}/G.fst \
+  | fstarcsort | fstconvert --fst_type=const - ${GRAPH}/G.fst
+
+fstcompose ${GRAPH}/la.C.det.L.fst ${GRAPH}/G.fst | \
+  fstconvert --fst_type=const - ${GRAPH}/C.det.L.G.fst 
