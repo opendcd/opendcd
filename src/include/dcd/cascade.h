@@ -32,7 +32,7 @@ class Cascade {
   }
 
   static Cascade *Read(const string &path) {
-    Logger logger("dcdrecog", std::cerr, true);
+    Logger logger("ocdrecog", std::cerr, true);
     char* str = new char[path.size() + 1];
     strcpy(str, path.c_str());
     vector<char*> paths;

@@ -1,4 +1,4 @@
-KALDI_ROOT=/Users/dixonp/tools/kaldi-trunk/
+KALDI_ROOT=/Users/dixonp/tools/kaldi-trunk2/
 
 all: make-arc-types
 
