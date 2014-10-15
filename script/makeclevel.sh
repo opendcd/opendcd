@@ -25,7 +25,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/fst/
 mkdir -p ${GRAPH}
 
 #
-fstdeterminize ${LANG}/L_disambig.fst  ${GRAPH}/det.L.fst
+fstdeterminize ${LANG}/L_disambig.fst ${GRAPH}/det.L.fst
 
 #
 ${KALDI_ROOT}/src/fstbin/fstcomposecontext \
@@ -52,4 +52,6 @@ fstrelabel --relabel_opairs=${GRAPH}/g.irelabel ${LANG}/G.fst \
 #
 fstcompose ${GRAPH}/la.C.det.L.fst ${GRAPH}/G.fst | \
   fstconvert --fst_type=const - ${GRAPH}/C.det.L.G.fst 
+
+cp ${LANG}/words.txt ${GRAPH}/words.txt
 
