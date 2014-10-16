@@ -32,6 +32,7 @@
 
 #include <dcd/config.h>
 #include <dcd/constants.h>
+#include <dcd/memdebug.h>
 
 #undef DEBUG //For MSVC 
 #undef ERROR //For MSVC
@@ -70,6 +71,8 @@ class Logger {
               << type << "\033[m: ";
         else
           os_ << source << ": " << type << ": ";
+        if (g_dcd_memdebug_enabled)
+          os_ << "(" << g_dcd_current_num_allocated / kMegaByte << "MB) ";
       }
     }
     
@@ -78,7 +81,7 @@ class Logger {
    //LogMessage(const LogMessage&& other) : os_(other.os_) { }
     
     ~LogMessage() {
-      os_ << std::endl;
+      os_ << "\n";
       if (fatal_)
         exit(1);
     }

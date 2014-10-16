@@ -88,7 +88,7 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
   string fst_rs = po.GetArg(2);
   string feat_rs = po.GetArg(3);
   string out_ws = po.GetArg(4);
-  Logger logger("dcd-recog", std::cerr, opts->colorize);
+  Logger logger("ocdrecog", std::cerr, opts->colorize);
   logger(INFO) << "Decoder type : " << Decoder::Type();
   
   FarWriter<B>* farwriter = 
@@ -124,7 +124,7 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
   PROFILE_END();
 
   logger(INFO) << "Attempting to read features from " << feat_rs;
-  SequentialBaseFloatMatrixReader feature_reader(feat_rs, true);
+  SequentialBaseFloatMatrixReader feature_reader(feat_rs);
   Timer timer;
   int total_num_frames = 0;
   double total_time = 0.0f;
@@ -344,7 +344,7 @@ int main(int argc, char *argv[]) {
   PROFILE_FUNC();
   g_dcd_global_allocated = g_dcd_current_num_allocated;
   const char *usage = "Decode some speech\n"
-        "Usage: dcd-recog [options] trans-model-in (fst-in|fsts-rspecifier) "
+        "Usage: ocdrecog [options] trans-model-in (fst-in|fsts-rspecifier) "
         "features-rspecifier far-wspecifier";
   
   PrintVersionInfo();

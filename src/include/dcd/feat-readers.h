@@ -124,6 +124,10 @@ class SequentialMatrixReader {
 
     if (cacheall) {
       std::ifstream ifs(fields[1].c_str(), std::fstream::binary);
+      if (!ifs.is_open())
+        FSTERROR() << "SequentialMatrixReader : Failed to open stream " <<
+          fields[1];
+
       ifs.seekg(0, std::ios::end);
       std::streampos filesize = ifs.tellg();
       ifs.seekg(0, std::ios::beg);
@@ -157,7 +161,7 @@ class SequentialMatrixReader {
     hdr_.Clear();
     features_.Clear();
     if (!hdr_.Read(*featstream_)) {
-      LOG(ERROR) << "Failed to read header";
+      FSTERROR() << "ReadNextUtterance :  Failed to read header";
       return false;
     }
     features_.Clear();
@@ -226,7 +230,8 @@ class SimpleDecodableHitStats {
 
   ~SimpleDecodableHitStats() {
     if (hit_dump_.is_open()) {
-      hit_dump_ << "# of frames = " << hit_stats_.size() << ", # of states = " << max_index_ << endl;
+      hit_dump_ << "# of frames = " << hit_stats_.size() 
+        << ", # of states = " << max_index_ << endl;
       std::stringstream ss;
       for (int i = 0; i != hit_stats_.size(); ++i) {
         vector<int>& frame_stats = hit_stats_[i];

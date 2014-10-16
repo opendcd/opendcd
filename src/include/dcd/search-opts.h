@@ -74,7 +74,7 @@ struct SearchOptions {
 
   SearchOptions() {
     Init(&beam, kDefaultBeam, "beam");
-    Init(&band, kMaxArcs, "band");
+    Init(&band, kMaxArcs, "max_arcs");
     Init(&acoustic_scale, kDefaultAcousticScale, "acoustic_scale");
     Init(&trans_scale, kDefaultTranScale, "trans_scale");
     Init(&use_lattice_pool, false, "use_lattice_pool");

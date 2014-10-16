@@ -573,6 +573,8 @@ class HMMTransitionModel {
  	}
 
   int NumStates(int ilabel) const {
+    if (ilabel >= num_states_.size())
+      LOG(FATAL) << "Out of bounds arc look-up - relabelling or aux symbols? " << ilabel << " " <<  num_states_.size();
     return num_states_[ilabel] - 1;
 		switch (types_[ilabel]) {
 		  case kEpsilon: return 0;
