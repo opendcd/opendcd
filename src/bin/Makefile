@@ -6,7 +6,11 @@ all: dcd-recog
 	#arc-expand dcd-lexicon 
 
 #Allow this to be specified for the platform
-include ../dcd.mk
+ifeq ($(UNAME_S),Darwin)
+  include ../dcd.mk
+else
+  include ../linux.mk
+endif
 
 includes = $(wildcard $(TOP)/include/dcd/*.h)
 
