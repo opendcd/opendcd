@@ -23,8 +23,6 @@ openfst: openfst_compiled
 openfst_compiled: openfst-src/Makefile
 	cd openfst-src && $(MAKE) -j install
 
-
-
 clean:
 	rm openfst-src/Makefile
 
