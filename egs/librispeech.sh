@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir -p data_test_tgsmall
+mkdir -p data_test_tgsmall/phones
+
 if [ ! -f 3-gram.pruned.1e-7.arpa.gz ]; then
   wget http://www.openslr.org/resources/11/3-gram.pruned.1e-7.arpa.gz
 fi
