@@ -17,21 +17,14 @@ fi
 
 required="$LANG/L_disambig.fst $LANG/phones/disambig.int $LANG/G.fst"
 for f in $required; do
-  [ ! -f $f ] && echo "mkgraph.sh: expected $f to exist" && exit 1;
+  [ ! -f $f ] && echo "makeclevel.sh: expected $f to exist" && exit 1;
 done
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/fst/
+export PATH=$PATH:../3rdparty/openfst-src/bin/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../3rdparty/openfst-src/lib/:../3rdparty/openfst-src/lib/fst/
 
 mkdir -p ${GRAPH}
 
 #
-#Generate the arcs files and logical to physical mapping
-../src/kaldibin/make-arc-types --use_trans_ids=false ${GRAPH}/ilabels_3_1 \
-  ${EXP}/tree ${EXP}/final.mdl ${GRAPH}/arcs.far ${GRAPH}/log2phys
-
-awk '{print $1,0}' ${GRAPH}/disambig_ilabels_3_1.int | \
-  cat ${GRAPH}/log2phys - > ${GRAPH}/cl.irelabel
-
 if [ 1 == 1 ]; then
 fstpush --push_labels ${LANG}/L_disambig.fst |
   fstdeterminize - ${GRAPH}/det.L.fst
@@ -42,10 +35,16 @@ ${KALDI_ROOT}/src/fstbin/fstcomposecontext \
   --write-disambig-syms=${GRAPH}/disambig_ilabels_3_1.int \
   ${GRAPH}/ilabels_3_1 ${GRAPH}/det.L.fst | fstarcsort - ${GRAPH}/C.det.L.fst
 
+#Generate the arcs files and logical to physical mapping
+../src/kaldibin/make-arc-types --use_trans_ids=false ${GRAPH}/ilabels_3_1 \
+  ${EXP}/tree ${EXP}/final.mdl ${GRAPH}/arcs.far ${GRAPH}/log2phys
+
+awk '{print $1,0}' ${GRAPH}/disambig_ilabels_3_1.int | \
+  cat ${GRAPH}/log2phys - > ${GRAPH}/cl.irelabel
+
 #Relabel the input - this also removes the aux symbols
 #push the labels to aid composition and convert the olabel lookahead 
 #type
-
 fstrelabel --relabel_ipairs=${GRAPH}/log2phys ${GRAPH}/C.det.L.fst | \
   fstconvert --fst_type=olabel_lookahead \
   --save_relabel_opairs=${GRAPH}/g.irelabel - ${GRAPH}/la.C.det.L.fst
