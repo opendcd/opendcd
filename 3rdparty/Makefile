@@ -9,7 +9,7 @@ $(SRCDIR): | openfst-src.tar.gz
 openfst-src.tar.gz:
 	curl "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.4.1.tar.gz" -o openfst-src.tar.gz
 
-openfst-src/Makefile: openfst-src.tar.gz
+openfst-src/Makefile: $(SRCDIR)
 	cd openfst-src/; ./configure --prefix=`pwd` \
 	--enable-static --enable-bin --enable-compact-fsts --enable-const-fsts --enable-far \
 	--enable-linear-fsts --enable-lookahead-fsts --enable-ngram-fsts --enable-pdt --enable-bin \
