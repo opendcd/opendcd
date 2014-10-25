@@ -1,11 +1,8 @@
-KALDI_ROOT=/home/ubuntu/tools/kaldi/
-
-all: make-arc-types
-
 ifndef KALDI_ROOT
 $(error KALDI_ROOT is not set)
 endif
 
+all: make-arc-types
 
 include $(KALDI_ROOT)/src/kaldi.mk
 CXXFLAGS+=-I${KALDI_ROOT}/src/ -Wno-mismatched-tags

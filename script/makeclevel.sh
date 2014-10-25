@@ -19,6 +19,8 @@ required="$LANG/L_disambig.fst $LANG/phones/disambig.int $LANG/G.fst"
 for f in $required; do
   [ ! -f $f ] && echo "makeclevel.sh: expected $f to exist" && exit 1;
 done
+
+#Add openfst to path - use the one we built to ensure we have all dependencies
 export PATH=$PATH:../3rdparty/openfst-src/bin/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../3rdparty/openfst-src/lib/:../3rdparty/openfst-src/lib/fst/
 
