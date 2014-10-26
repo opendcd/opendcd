@@ -41,7 +41,7 @@ using namespace dcd;
 using namespace fst;
 
 string lingware;
-string tm_type = "generic";
+string tm_type = "hmm_lattice";
 string word_symbols_file;
 string logfile = "/dev/stderr";
 

@@ -89,7 +89,7 @@ class Cascade {
       if (fst)
         delete fst;
       else
-        LOG(WARN) << "Trying to destoy a null pointer!";
+        LOG(ERROR) << "Trying to destoy a null pointer!";
     }
     fsts->clear();
   }
