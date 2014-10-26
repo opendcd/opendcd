@@ -15,7 +15,8 @@ CXXFLAGS+=-I../include/ -I../../3rdparty/openfst-src/include/ \
 
 LIBDIR=$(shell readlink -f ../../3rdparty)/openfst-src/lib/
 LDFLAGS+= -ldl -L$(LIBDIR) -L$(LIBDIR)/fst
-LDFLAGS+= -Wl,-rpath -Wl,$(LIBDIR)
+LDFLAGS+= -Wl,-rpath -Wl,$(LIBDIR) -Wl,-rpath -Wl,$(LIBDIR)/fst/
+
 
 CXXFLAGS+=-DMEMDEBUG 
 
