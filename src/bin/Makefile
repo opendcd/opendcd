@@ -1,5 +1,4 @@
-#all: dcd-decode fstxprintstrings
-all: dcd-recog 
+all: dcd-recog far-to-lattice farprintnbeststrings 
 	#farfilter shiny \
 	#farprintnbeststrings 
 	

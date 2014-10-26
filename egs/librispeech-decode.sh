@@ -7,10 +7,10 @@
   ark:test-clean.utt2psk \
   "ark:~/tools/kaldi/src/featbin/wav-copy scp,p:test-clean.scp ark:- |" \
   ark:- 2> feats.log |\
-../src/bin/dcd-recog \
+ ../src/bin/dcd-recog \
   --word_symbols_table=words.txt \
   --decoder_type=hmm_lattice \
   --beam=15 \
   --acoustic_scale=0.1 \
   graph_test_tgsmall/arcs.far \
-  graph_test_tgsmall/C.det.L.G.fst ark:- /dev/null
+  graph_test_tgsmall/C.det.L.G.fst ark:- recog.far
