@@ -41,4 +41,5 @@ cut -f 1 -d' ' test-clean.scp  > names.txt
 paste names.txt names.txt > test-clean.utt2psk
 
 #Build the graph
-#../script/makeclevel.sh data_test_tgsmall nnet_a graph_test_tgsmall ../../kaldi
+../script/makeclevel.sh lang_test_tgsmall  nnet_a graph_test_tgsmall ../../kaldi
+

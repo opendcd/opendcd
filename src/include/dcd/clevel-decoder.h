@@ -623,7 +623,7 @@ class CLevelDecoder {
   CLevelDecoder(FST* fst, TransModel* trans_model, const SearchOptions& opts, 
       ostream* logstream = &std::cerr, L* lattice = 0) 
     : fst_(fst), trans_model_(trans_model), search_opts_(opts),
-    lattice_(0), logger_("ocdrecog", *logstream, opts.colorize), 
+    lattice_(0), logger_("dcd-recog", *logstream, opts.colorize), 
     time_(-1), debug_(true), num_search_state_allocs_(0), 
     num_search_state_frees_(0) { 
       active_arcs_.reserve(kDefaultActiveListSize);

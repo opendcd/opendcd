@@ -32,7 +32,7 @@ class Cascade {
   }
 
   static Cascade *Read(const string &path) {
-    Logger logger("ocdrecog", std::cerr, true);
+    Logger logger("dcd-recog", std::cerr, true);
     char* str = new char[path.size() + 1];
     strcpy(str, path.c_str());
     vector<char*> paths;
@@ -48,6 +48,7 @@ class Cascade {
       cascade->fsts_.push_back(fst);
     }
     delete str;
+    cascade->DumpInfo();
     return cascade;
   }
   
@@ -84,14 +85,19 @@ class Cascade {
   }
 
   void DestroyFsts(vector<Fst<Arc>*>* fsts) {
+    DumpInfo();
     for (int i = fsts->size() - 1; i >= 0; --i) {
       Fst<Arc>* fst = fsts->at(i);
-      if (fst)
+      if (fst) {
+        LOG(INFO) << "Destroying Fst of type " << fst->Type();
         delete fst;
-      else
+      } else {
         LOG(ERROR) << "Trying to destoy a null pointer!";
+      }
     }
     fsts->clear();
+    cascade_ = 0;
+    LOG(INFO) << "Finished Destroy Fsts";
   }
   //Build the recognition cascade storing the individual compose
   //fsts in the cacade vector - we will need these when we
@@ -115,11 +121,22 @@ class Cascade {
    return last;
   }
 
+  void DumpInfo() const {
+    LOG(INFO) << "# of component transducers\t" << fsts_.size() << "\n"
+              << "    # of temporary transducers\t" << tmp_fsts_.size();
+
+    for (int i = 0; i != fsts_.size(); ++i)
+      LOG(INFO) << fsts_[i]->Type();
+
+    for (int i = 0; i != tmp_fsts_.size(); ++i)
+      LOG(INFO) << tmp_fsts_[i]->Type();
+  }
+
   int NumFsts() const { return fsts_.size(); }
 
  private:
-  vector<FST*> fsts_;
-  vector<FST*> tmp_fsts_;
+  vector<FST*> fsts_; //Component Fsts fread from disk
+  vector<FST*> tmp_fsts_; //Intemediate Fsts there are constructed as part of the cascade
   FST* cascade_;
 };
 }

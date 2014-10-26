@@ -40,7 +40,6 @@ using namespace std;
 using namespace dcd;
 using namespace fst;
 
-string lingware;
 string tm_type = "hmm_lattice";
 string word_symbols_file;
 string logfile = "/dev/stderr";
@@ -88,7 +87,7 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
   string fst_rs = po.GetArg(2);
   string feat_rs = po.GetArg(3);
   string out_ws = po.GetArg(4);
-  Logger logger("ocdrecog", std::cerr, opts->colorize);
+  Logger logger("dcd-recog", std::cerr, opts->colorize);
   logger(INFO) << "Decoder type : " << Decoder::Type();
   
   FarWriter<B>* farwriter = 
@@ -344,7 +343,7 @@ int main(int argc, char *argv[]) {
   PROFILE_FUNC();
   g_dcd_global_allocated = g_dcd_current_num_allocated;
   const char *usage = "Decode some speech\n"
-        "Usage: ocdrecog [options] trans-model-in (fst-in|fsts-rspecifier) "
+        "Usage: dcd-recog [options] trans-model-in (fst-in|fsts-rspecifier) "
         "features-rspecifier far-wspecifier";
   
   PrintVersionInfo();
@@ -356,7 +355,6 @@ int main(int argc, char *argv[]) {
   SearchOptions opts;
   po.Register("decoder_type", &tm_type, "Type of decoder to use");
   po.Register("word_symbols_table", &word_symbols_file, "");
-  po.Register("lingware", &lingware, "");
   po.Register("logfile", &logfile, "/dev/stderr");
   /*po.Register("wfst");
   po.Register("trans_model");
