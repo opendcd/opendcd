@@ -18,7 +18,7 @@ LDFLAGS+= -ldl -L$(LIBDIR) -L$(LIBDIR)/fst
 LDFLAGS+= -Wl,-rpath -Wl,$(LIBDIR) -Wl,-rpath -Wl,$(LIBDIR)/fst/
 
 
-CXXFLAGS+=-DMEMDEBUG 
+#CXXFLAGS+=-DMEMDEBUG 
 
 #CXXFLAGS+= -DHAVEJEMALLOC -I/Users/dixonp/installed/include/
 #LDFLAGS+=-L/Users/dixonp/installed/lib/ -ljemalloc
