@@ -14,7 +14,7 @@ endif
 includes = $(wildcard $(TOP)/include/dcd/*.h)
 
 CXXFLAGS+=-I../../3rdparty/
-VPATH=../lib:../../3rdparty/exec-stream:../../3rdparty/gzstream/
+VPATH=../lib:../../3rdparty/exec-stream
 
 gitrevision.cc: ${DOTGITDIR}/HEAD ${DOTGITDIR}/index
 	echo "const char* g_dcd_gitrevision = \"$(shell git rev-parse HEAD)\";" > $@
@@ -26,6 +26,10 @@ compiler-flags.cc: Makefile ../dcd.mk
 	echo  "const char* g_dcd_cflags = \"$(CXXFLAGS)\"; const char* g_dcd_lflags =\"$(LDFLAGS) $(LDLIBS)\";" > $@
 
 dcd-recog: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrevision.o compiler-flags.o \
+	memdebug.o compiler-version.o cpu-stats.o config.o feat-readers.o
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar 
+
+dcd-recog-profile: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrevision.o compiler-flags.o \
 	memdebug.o compiler-version.o cpu-stats.o config.o feat-readers.o
 	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar 
 
