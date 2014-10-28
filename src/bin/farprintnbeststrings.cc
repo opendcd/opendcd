@@ -11,8 +11,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // 
+// Copyright Paul R. Dixon 2012
 // Copyright Yandex LLC 2013-2014 
-// Paul R. Dixon 2012
 // file
 // Modified version of fstxprintnbeststring to handle FAR input
 //
