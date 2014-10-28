@@ -1,6 +1,6 @@
 SRCDIR=openfst-src
 
-all: openfst
+all: openfst Shiny
 
 $(SRCDIR): | openfst-src.tar.gz
 	mkdir -p $(SRCDIR)
@@ -22,6 +22,9 @@ openfst: openfst_compiled
 .PHONY: openfst_compiled
 openfst_compiled: openfst-src/Makefile
 	cd openfst-src && $(MAKE) -j install
+
+Shiny :
+	$(MAKE) -j -C $@
 
 clean:
 	rm openfst-src/Makefile
