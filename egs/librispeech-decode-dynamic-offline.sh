@@ -2,7 +2,7 @@
 #Dynamic decoder which operates on offline features
 #Mostly just for testing
 
---args ../src/bin/dcd-recog \
+../src/bin/dcd-recog \
   --word_symbols_table=words.txt \
   --decoder_type=hmm_lattice \
   --beam=15 \
