@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// Copyright 2013-2014 Yandex LLC
+// Copyright 2013-2014 Yandex LLC (author: Paul R. Dixon)
 // Copyright 2014 Paul R. Dixon
 // \file
 // Helper class to construct the recongnition cascade
@@ -25,8 +25,7 @@ namespace dcd {
 template<class Arc>
 class Cascade {
  typedef Fst<Arc> FST;
- public:
-  
+ public: 
   ~Cascade() {
     DestroyFsts(&tmp_fsts_);
     DestroyFsts(&fsts_);
@@ -44,15 +43,14 @@ class Cascade {
       Fst<Arc>* fst = Fst<Arc>::Read(paths[i]);
       if (!fst)
         LOG(FATAL) << "Failed to read fst from : " << paths[i];
-      logger(INFO) << "Fst type = " << fst->Type() << 
+      logger(INFO) << "Fst type = " << fst->Type() <<
         ", # of states = " << CountStates(*fst);
       cascade->fsts_.push_back(fst);
     }
     delete str;
-    cascade->DumpInfo();
     return cascade;
   }
-  
+
   static Cascade *Read(istream& strm, const string& src = "") {
     vector<Fst<Arc>*> fsts;
     FstHeader hdr;
@@ -86,7 +84,6 @@ class Cascade {
   }
 
   void DestroyFsts(vector<Fst<Arc>*>* fsts) {
-    DumpInfo();
     for (int i = fsts->size() - 1; i >= 0; --i) {
       Fst<Arc>* fst = fsts->at(i);
       if (fst) {
