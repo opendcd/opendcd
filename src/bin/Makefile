@@ -15,6 +15,9 @@ includes = $(wildcard $(TOP)/include/dcd/*.h)
 
 CXXFLAGS+=-I../../3rdparty/
 VPATH=../lib:../../3rdparty/exec-stream
+LIBDIR=../../3rdparty/openfst-src/lib/
+LDFLAGS+= -ldl -L$(LIBDIR) -L$(LIBDIR)/fst
+LDFLAGS+= -Wl,-rpath -Wl,$(LIBDIR) -Wl,-rpath -Wl,$(LIBDIR)/fst/
 
 gitrevision.cc: ${DOTGITDIR}/HEAD ${DOTGITDIR}/index
 	echo "const char* g_dcd_gitrevision = \"$(shell git rev-parse HEAD)\";" > $@
