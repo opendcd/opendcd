@@ -1,4 +1,6 @@
 #!/bin/bash
+#Copyright 2014 Paul R. Dixon
+
 #Dynamic decoder which operates on offline features
 #Mostly just for testing
 
