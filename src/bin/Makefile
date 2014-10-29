@@ -1,28 +1,30 @@
-all: dcd-recog far-to-lattice farprintnbeststrings 
-	#farfilter shiny \
-	#farprintnbeststrings 
-	
-	#arc-expand dcd-lexicon 
+all: dcd-recog far-to-lattice farprintnbeststrings farfilter
+#arc-expand dcd-lexicon 
 
-#Allow this to be specified for the platform
+#Select the Makefile based on the platform
+UNAME_S=$(shell uname)
 ifeq ($(UNAME_S),Darwin)
-  include ../dcd.mk
+  MK=../darwin.mk
 else
-  include ../linux.mk
+  MK=../2linux.mk
 endif
+include ${MK}
 
 includes = $(wildcard $(TOP)/include/dcd/*.h)
 
 CXXFLAGS+=-I../../3rdparty/
 VPATH=../lib:../../3rdparty/exec-stream
+FSTLIBDIR=$(shell cd ../../3rdparty/openfst-src/lib; pwd)
+LDFLAGS+= -ldl -L$(FSTLIBDIR) -L$(FSTLIBDIR)/fst
+LDFLAGS+= -Wl,-rpath -Wl,$(FSTLIBDIR) -Wl,-rpath -Wl,$(FSTLIBDIR)/fst/
 
 gitrevision.cc: ${DOTGITDIR}/HEAD ${DOTGITDIR}/index
 	echo "const char* g_dcd_gitrevision = \"$(shell git rev-parse HEAD)\";" > $@
 
-compiler-version.cc: Makefile ../dcd.mk
+compiler-version.cc: Makefile ${MK}
 	echo "const char* g_dcd_compiler_version  = \"$(shell $(CXX) --version)\";" > $@
 
-compiler-flags.cc: Makefile ../dcd.mk
+compiler-flags.cc: Makefile ${MK}
 	echo  "const char* g_dcd_cflags = \"$(CXXFLAGS)\"; const char* g_dcd_lflags =\"$(LDFLAGS) $(LDLIBS)\";" > $@
 
 dcd-recog: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrevision.o compiler-flags.o \

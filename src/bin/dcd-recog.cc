@@ -89,8 +89,8 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
   string out_ws = po.GetArg(4);
   Logger logger("dcd-recog", std::cerr, opts->colorize);
   logger(INFO) << "Decoder type : " << Decoder::Type();
-  
-  FarWriter<B>* farwriter = 
+
+  FarWriter<B>* farwriter =
     FarWriter<B>::Create(out_ws, fst::FAR_DEFAULT);
   if (!farwriter)
     logger(FATAL) << "Failed to create far writer : " << out_ws;
@@ -115,9 +115,12 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
     logger(FATAL) << "Failed to read transition model";
   wordsyms = 0;
   if (!word_symbols_file.empty()) {
-    logger(INFO) << "Attempting to read word symbols from " 
+    logger(INFO) << "Attempting to read word symbols from : " 
       << word_symbols_file;
     wordsyms = SymbolTable::ReadText(word_symbols_file);
+    if (!wordsyms)
+      logger(FATAL) << "Failed to read word symbols from : "
+        << word_symbols_file;
     opts->wordsyms = wordsyms;
   }
   PROFILE_END();

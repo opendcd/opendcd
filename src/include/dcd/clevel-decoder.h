@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author: Paul R. Dixon
 // \file
 // Basic CLevelDecoder class
 

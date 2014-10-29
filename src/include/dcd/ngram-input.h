@@ -296,6 +296,7 @@ class NGramInput {
      } else {
        LOG(FATAL) << "NGramInput: Lower order prefix n-gram not found: ";
      }
+    return kNoStateId;
    }
 
    // Get the destination state of arc with requested label.  Assumed to exist.
@@ -835,12 +836,9 @@ class NGramInput {
 
    // From text corpus to symbol table
    void CompileSymbolTable() {
-     string str;
-     bool gotline = getline((*istrm_), str);
-     while (gotline) {  // for each string
+     for (string str; getline((*istrm_),str); ) {
        vector<Label> labels;
        FillStringLabels(&str, &labels, 0);
-       gotline = getline((*istrm_), str);
      }
      if (!OOV_symbol_.empty())
        syms_->AddSymbol(OOV_symbol_);
