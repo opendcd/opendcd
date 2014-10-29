@@ -1,4 +1,4 @@
-all: dcd-recog far-to-lattice farprintnbeststrings 
+all: dcd-recog far-to-lattice farprintnbeststrings dcd-ngram
 	#farfilter shiny \
 	#farprintnbeststrings 
 	
