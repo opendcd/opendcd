@@ -1,1 +1,1 @@
-const char* g_dcd_gitrevision = "153af04020ef3e58a3d59e1add373796bae4c148";
+const char* g_dcd_gitrevision = "367cd624ffb9eaedf6b484087715c50fef764e25";

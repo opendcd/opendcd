@@ -1,19 +1,16 @@
-all: dcd-recog far-to-lattice farprintnbeststrings dcd-ngram
-	#farfilter shiny \
-	#farprintnbeststrings 
-	
-	#arc-expand dcd-lexicon 
+all: dcd-recog far-to-lattice farprintnbeststrings farfilter
+#arc-expand dcd-lexicon 
 
-#Allow this to be specified for the platform
-
+#Select the Makefile based on the platform
+UNAME_S=$(shell uname)
 ifeq ($(UNAME_S),Darwin)
   MK=../darwin.mk
 else
-  MK=../linux.mk
+  MK=../2linux.mk
 endif
 include ${MK}
-includes = $(wildcard $(TOP)/include/dcd/*.h)
 
+includes = $(wildcard $(TOP)/include/dcd/*.h)
 
 CXXFLAGS+=-I../../3rdparty/
 VPATH=../lib:../../3rdparty/exec-stream
