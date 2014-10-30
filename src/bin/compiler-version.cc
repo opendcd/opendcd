@@ -1,1 +1,1 @@
-const char* g_dcd_compiler_version  = "Apple LLVM version 5.1 (clang-503.0.40) (based on LLVM 3.4svn) Target: x86_64-apple-darwin13.3.0 Thread model: posix";
+const char* g_dcd_compiler_version  = "g++ (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3 Copyright (C) 2011 Free Software Foundation, Inc. This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.";

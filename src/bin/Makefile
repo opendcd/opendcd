@@ -6,7 +6,7 @@ UNAME_S=$(shell uname)
 ifeq ($(UNAME_S),Darwin)
   MK=../darwin.mk
 else
-  MK=../2linux.mk
+  MK=../linux.mk
 endif
 include ${MK}
 
