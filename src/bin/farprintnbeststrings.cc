@@ -10,9 +10,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// 
+//
 // Copyright Paul R. Dixon 2012
-// Copyright Yandex LLC 2013-2014 
+// Copyright Yandex LLC 2013-2014
 // file
 // Modified version of fstxprintnbeststring to handle FAR input
 //
@@ -36,10 +36,6 @@
 
 
 using namespace std;
-/*using kaldi::LatticeWriter;
-using kaldi::LatticeArc;
-using kaldi::Lattice;
-using kaldi::LatticeWeight;*/
 
 DEFINE_string(symbols, "", "");
 DEFINE_string(wildcards, "", "");
@@ -57,10 +53,10 @@ DEFINE_string(disambiguate, "", "");
 
 namespace fst {
 
-//Compute all the simple paths in an acyclic WFST
-//It is assumed that final states have no out-going arcs
+// Compute all the simple paths in an acyclic WFST
+// It is assumed that final states have no out-going arcs
 template<class Arc, class C>
-int AllPaths(const Fst<Arc>& fst, C& c) {
+int AllPaths(const Fst<Arc>& fst, const C& c) {
   typedef typename Arc::StateId S;
   typedef typename Arc::Weight W;
   typedef typename Arc::Label L;
@@ -81,24 +77,25 @@ int AllPaths(const Fst<Arc>& fst, C& c) {
   if (start == kNoStateId) {
     return -1;
   }
+
   LifoQueue<S> queue;
   queue.Enqueue(start);
 
   while (!queue.Empty()) {
     S s = queue.Head();
     queue.Dequeue();
-    if ( s >= arc_iterators.size())     
+    if ( s >= arc_iterators.size())
       arc_iterators.resize(s + 1);
-    
+
     if (arc_iterators[s] == NULL)
       arc_iterators[s] = new AI(fst, s);
-    
+
     AI& iter = *arc_iterators[s];
     if (fst.Final(s) == W::Zero()) {
-      if (!iter.Done()) {       
+      if (!iter.Done()) {
         queue.Enqueue(s);
         const Arc& arc = iter.Value();
-        iter.Next();        
+        iter.Next();
         current_path.push_back(arc.ilabel);
         current_cost.push_back(Times(arc.weight, current_cost.back()));
         queue.Enqueue(arc.nextstate);
@@ -128,16 +125,16 @@ int AllPaths(const Fst<Arc>& fst, C& c) {
 
 namespace script {
 
-typedef args::Package<const vector<string>&, const string&> 
+typedef args::Package<const vector<string>&, const string&>
   FarPrintNBestStringsArgs;
 
 template <class Label, class Weight>
 struct PathInserter {
-  PathInserter(const SymbolTable* syms, vector<pair<string, Weight> >* strings) 
+  PathInserter(const SymbolTable* syms, vector<pair<string, Weight> >* strings)
     : syms_(syms), strings_(strings) { }
 
   template<class Iterator>
-  void PathToString(Iterator begin, Iterator end, stringstream& ss) {  
+  void PathToString(Iterator begin, Iterator end, stringstream& ss) {
     for ( ; begin != end; ++begin) {
       const Label& l = *begin;
       if (l == 0)
@@ -149,12 +146,12 @@ struct PathInserter {
     }
   }
 
-  void operator()(const list<Label>& path, const Weight& w) {    
+  void operator()(const list<Label>& path, const Weight& w) {
     stringstream ss;
     if (FLAGS_reverse)
       PathToString(path.rbegin(), path.rend(), ss);
     else
-      PathToString(path.begin(), path.end(), ss);      
+      PathToString(path.begin(), path.end(), ss);
     strings_->push_back(pair<string, Weight>(ss.str(), w));
   }
 
@@ -167,7 +164,7 @@ template<class Arc>
 void NShortest(const Fst<Arc>& ifst, MutableFst<Arc> *nbest) {
   vector<typename Arc::Weight> d;
   typedef AutoQueue<typename Arc::StateId> Q;
-  AnyArcFilter<Arc> filter; 
+  AnyArcFilter<Arc> filter;
   Q q(ifst, &d, filter);
   ShortestPathOptions<Arc, Q, AnyArcFilter<Arc> > opts(&q, filter);
   opts.nshortest = FLAGS_nshortest;
@@ -185,12 +182,12 @@ float ToReal(const KaldiLatticeWeight& w) {
   return expf(-w.Value1() -w.Value2());
 }
 
-template<class Arc> 
-void PrintStrings(const Fst<Arc>& ifst, const string& key, 
+template<class Arc>
+void PrintStrings(const Fst<Arc>& ifst, const string& key,
                   const SymbolTable* symbols, int utt) {
   typedef typename Arc::Weight Weight;
   typedef typename Arc::Label Label;
-  if (FLAGS_verify && !Verify(ifst)) 
+  if (FLAGS_verify && !Verify(ifst))
     LOG(FATAL) << "Bad fst detected : " << key;
   if (ifst.Start() != kNoStateId) {
     vector<pair<string, Weight> > strings;
@@ -198,11 +195,12 @@ void PrintStrings(const Fst<Arc>& ifst, const string& key,
     AllPaths(ifst, pi);
     stringstream ss;
     for (int i = 0; i != strings.size(); ++i) {
-      if (FLAGS_print_weights)
+      if (FLAGS_print_weights) {
         if (FLAGS_to_real)
           ss <<  ToReal(strings[i].second) << " ";
         else
           ss <<  strings[i].second << " ";
+      }
       if (FLAGS_format == "rnnlm")
         ss << utt << " ";
       ss << strings[i].first;
@@ -219,35 +217,20 @@ void PrintStrings(const Fst<Arc>& ifst, const string& key,
 
 template<class Arc>
 void FarPrintNBestStrings(FarPrintNBestStringsArgs* args) {
-  //LOG(INFO) << "Print strings";
   typedef typename Arc::StateId StateId;
   typedef typename Arc::Label Label;
   typedef typename Arc::Weight Weight;
- 
+
   if (FLAGS_symbols.empty())
     FSTERROR() << "--symbols flag must be set";
   SymbolTable* symbols = SymbolTable::ReadText(FLAGS_symbols);
-  if (!symbols)
+  if (!symbols) {
     return;
-  FarReader<Arc>* reader = FarReader<Arc>::Open(args->arg1);
-  if (!reader)
-    return;
+  }
 
-  typename MinimumBayesRiskNoTime<Arc>::EditMatrix* edm = 0;
-  if (!FLAGS_edit.empty() && symbols) {
-    LOG(INFO) << "Reading edit weights from " << FLAGS_edit;
-    ifstream ifs(FLAGS_edit.c_str());
-    edm = new typename MinimumBayesRiskNoTime<Arc>::EditMatrix;
-    typename MinimumBayesRiskNoTime<Arc>::EditMatrix& em = *edm;
-    for (string s; getline(ifs, s); ) {
-      vector<string> fields;
-      dcd::SplitStringToVector(s, " \t", true, &fields);
-      int s1 = symbols->Find(fields[1]);
-      int s2 = symbols->Find(fields[2]);
-      float prob = atof(fields[3].c_str());
-      prob = expf(-prob);
-      em[pair<int,int>(s1,s2)] = prob;
-    }
+  FarReader<Arc>* reader = FarReader<Arc>::Open(args->arg1);
+  if (!reader) {
+    return;
   }
 
   vector<pair<Label, Label> > relabel_pairs;
@@ -258,81 +241,60 @@ void FarPrintNBestStrings(FarPrintNBestStringsArgs* args) {
     SplitToVector(str, ",", &fields, true);
     for (int i = 0; i != fields.size(); ++i) {
       Label n = atoi(fields[i]);
-      relabel_pairs.push_back(pair<Label, Label>(n ,0));
+      relabel_pairs.push_back(pair<Label, Label>(n , 0));
     }
     delete[] str;
   }
+
   for (int utt = 0; !reader->Done(); reader->Next(), ++utt) {
     VectorFst<Arc> ifst(reader->GetFst());
     string key = reader->GetKey();
     int ndx = key.find_first_of('_');
-    if (ndx > 0) 
+    if (ndx > 0)
       key = key.substr(ndx + 1, key.size() - ndx - 1);
     fst::Project(&ifst, PROJECT_OUTPUT);
     if (relabel_pairs.size())
       fst::Relabel(&ifst, relabel_pairs, relabel_pairs);
     fst::RmEpsilon(&ifst);
-
-    if (true) { //FLAGS_disambiguate) {
-      VectorFst<Arc> disfst;
-      Disambiguate(ifst, &disfst);
-    } else {
-      if (FLAGS_push) {
-        VectorFst<Arc> pfst;
-        fst::Push<Arc, REWEIGHT_TO_INITIAL>(ifst, &pfst, kPushWeights);
-        ifst = pfst;
-      }
-      
-      if (FLAGS_mbr) {
-        StdVectorFst mbr;
-        StdVectorFst cnet;
-        if (edm) 
-          fst::MbrDecode(ifst, &mbr, &cnet, *edm);
-        else 
-          fst::MbrDecode(ifst, &mbr, &cnet);
-        StdVectorFst cnbest;
-        NShortest(cnet, &cnbest);
-        PrintStrings(cnbest, key, symbols, utt);
-         } else {
-        VectorFst<Arc> nbest;
-        NShortest(ifst, &nbest);
-        PrintStrings(nbest, key, symbols, utt);
-      }
-    }
+    VectorFst<Arc> nbest;
+    NShortest(ifst, &nbest);
+    PrintStrings(nbest, key, symbols, utt);
   }
 }
 
 void FarPrintNBestStrings(const vector<string>& ifilenames,
                   const string& arc_type) {
-   FarPrintNBestStringsArgs args(ifilenames, arc_type);
-   Apply< Operation<FarPrintNBestStringsArgs> >("FarPrintNBestStrings",
-                                        arc_type, &args);
+  FarPrintNBestStringsArgs args(ifilenames, arc_type);
+  Apply< Operation<FarPrintNBestStringsArgs> >("FarPrintNBestStrings",
+      arc_type, &args);
 }
 
 REGISTER_FST_OPERATION(FarPrintNBestStrings, StdArc, FarPrintNBestStringsArgs);
-REGISTER_FST_OPERATION(FarPrintNBestStrings, KaldiLatticeArc, 
+REGISTER_FST_OPERATION(FarPrintNBestStrings, KaldiLatticeArc,
     FarPrintNBestStringsArgs);
 }  // namespace script
+
 REGISTER_FST(VectorFst, KaldiLatticeArc);
-//REGISTER_FST(ConstFst, KaldiLatticeArc);
+// REGISTER_FST(ConstFst, KaldiLatticeArc);
 }  // namespace fst
 
 
 using namespace fst;
+
 int main(int argc, char **argv) {
   namespace s = fst::script;
-  
+
   string usage = "Useful nbest string printer for FAR files.\n\n  Usage: ";
   usage += argv[0];
   usage += " in.fst [out.text]\n";
-  
+
   std::set_new_handler(FailedNewHandler);
   SetFlags(usage.c_str(), &argc, &argv, true);
-  
-  vector<string> ifilenames;  
+
+  vector<string> ifilenames;
   for (int i = 1; i < argc; ++i)
     ifilenames.push_back(strcmp(argv[i], "") != 0 ? argv[i] : "");
-  if (ifilenames.empty()) 
+  if (ifilenames.empty())
     ifilenames.push_back("");
 
   string arc_type = fst::LoadArcTypeFromFar(ifilenames[0]);

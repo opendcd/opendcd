@@ -11,5 +11,5 @@
   --acoustic_scale=0.1 \
   --fst_reset_period=50 \
   graph_test_tgsmall/arcs.far \
-  graph_test_tgsmall/la.C.det.L.fst,G3.fst \
-  ark:test-clean.ark  recog.far
+  graph_test_tgsmall/la.C.det.L.fst,graph_test_tgsmall/G.fst \
+  ark:test-clean.ark  recog-dynamic.far
