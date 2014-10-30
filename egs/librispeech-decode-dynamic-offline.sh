@@ -10,4 +10,4 @@
   --fst_reset_period=50 \
   graph_test_tgsmall/arcs.far \
   graph_test_tgsmall/la.C.det.L.fst,graph_test_tgsmall/G.fst \
-  ark:test-clean.ark  recog.far
+  ark:test-clean.ark  recog-dynamic.far
