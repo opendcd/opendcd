@@ -202,13 +202,13 @@ class ArcExpandFstImpl : public CacheImpl<A> {
       //Element.state is the source state of the underlying transition
       //Element.index indexes into arcs leaving element.state
       //Element.arcstate tell us the internal state of arc
-      
+
       Label ilabel = FindTypeLabel(element);
       const FST* type =  arcs_[ilabel];
       int laststate = numstates_[ilabel] - 1;
       if (laststate <= 0)
         FSTERROR() << "Expand : Last state numbering problem " << laststate;
-     
+
       for (ArcIterator<FST> aiter(*type, element.arcstate); !aiter.Done();
            aiter.Next()) {
         const Arc& arc = aiter.Value();

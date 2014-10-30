@@ -17,10 +17,10 @@
 // Basic CLevelDecoder class
 
 //Most classes have a Clear() method that will reset the internals of
-//a class this more efficient than destroying and allocating new classes
+//a class this is often more  efficient than destroying and allocating new classes
 
-#ifndef DCD_HMM_ARC_DECODER_H__
-#define DCD_HMM_ARC_DECODER_H__
+#ifndef DCD_HMM_CLEVEL_DECODER_H__
+#define DCD_HMM_CLEVEL_DECODER_H__
 
 #include <algorithm> //For min
 #include <fstream>
