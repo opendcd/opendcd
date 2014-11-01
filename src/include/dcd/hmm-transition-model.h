@@ -14,7 +14,7 @@
 // Copyright 2013-2014 Yandex LLC
 
 // \file
-// Simple and slighlty optimized transition model for 
+// Simple and slighlty optimized transition model for
 // left-to-right and ergodic hmms
 
 #ifndef DCD_HMM_TRANSITION_MODEL_H__
@@ -79,9 +79,9 @@ struct LRHMMM {
 	LRHMMState states[4];
 };
 
-typedef TokenTpl<Lattice::LatticeState*> Token;
-//This class encapsulates the left-to-right
-//or ergodic transition model used in Kaldi's silence
+// typedef TokenTpl<Lattice::LatticeState*> Token;
+// This class encapsulates the left-to-right
+// or ergodic transition model used in Kaldi's silence
 //
 template<class Decodable>
 class HMMTransitionModel {
@@ -478,7 +478,7 @@ class HMMTransitionModel {
 
     for (int i = 0; i != numstates; ++i)
       nexttokens[i].Clear();
-    
+
     for (int i = 0; i != numstates - 1; ++i) {
       if (tokens[i].Active()) {
         for (ArcIterator<StdFst> aiter(topo, i); !aiter.Done(); aiter.Next()) {
@@ -500,7 +500,6 @@ class HMMTransitionModel {
 
     return FloatPair(bestcost, kMaxCost);
  }
- 
   //Expand the transition model corresponding
   //to the ilabel and return the cost from the
   //best scoring token

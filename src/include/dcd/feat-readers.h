@@ -12,13 +12,15 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author Josef R. Novak
+// Author Paul R. Dixon
 // \file
 /// Basic standalone feature reader for Kaldi .ark
 /// files. Supports text and binary format, but
 /// currently limited to matrix float readers.
 
-#ifndef DCD_FEATREADERS_H__
-#define DCD_FEATREADERS_H__
+#ifndef DCD_FEATURE_READERS_H__
+#define DCD_FEATURE_READERS_H__
 
 #include <vector>
 #include <fstream>
@@ -62,8 +64,8 @@ class Matrix {
 
   const std::vector<std::vector<T> >& Data() const { return data_; }
 
-  const T& operator() (int row, int column) const { 
-    return data_[row][column]; 
+  const T& operator() (int row, int column) const {
+    return data_[row][column];
   }
 
  private:
@@ -74,11 +76,8 @@ class Matrix {
 
 template<class T>
 class SequentialMatrixReader {
-
   struct UtteranceHeader {
-
     UtteranceHeader() : numframes(0), vecsize(0) { }
-  
     bool Read(std::istream& strm) {
       using fst::ReadType;
       strm >> id;
@@ -94,7 +93,7 @@ class SequentialMatrixReader {
       LOG(INFO) << id << " " << numframes << " " << vecsize;
     }
 
-    void Clear() { 
+    void Clear() {
       numframes = 0;
       vecsize = 0;
       id.clear();
@@ -104,7 +103,6 @@ class SequentialMatrixReader {
     std::string id;
     int numframes;
     int vecsize;
-    
   };
 
  public:
@@ -284,4 +282,4 @@ class SimpleDecodableHitStats {
 };
 }
 
-#endif // DCD_FEATREADERS_H__
+#endif // DCD_FEATURE_READERS_H__
