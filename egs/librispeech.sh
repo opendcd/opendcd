@@ -45,6 +45,7 @@ for F in $REQUIRED; do
     wget -P ivector_extractor/ $IVECTOR/$F
   fi
 done
+
 #Fetch some test data and make s short test
 if [ ! -f test-clean.tar.gz ]; then
   wget http:#www.openslr.org/resources/12/test-clean.tar.gz
@@ -55,6 +56,16 @@ fi
 cut -f 1 -d' ' test-clean.scp  > names.txt
 paste names.txt names.txt > test-clean.utt2psk
 
-#Build the graph
-../script/makeclevel.sh lang_test_tgsmall  nnet_a graph_test_tgsmall ../../kaldi
+if [ ! -f dev-clean.tar.gz ]; then
+  wget http://www.openslr.org/resources/12/dev-clean.tar.gz
+  tar -zxf dev-clean.tar.gz
+  curl http://www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5/data/dev_clean/archive.tar.gz  -o dev_clean_lists.tar.gz
+fi
+
+#Build the medium sized graph
+#wget http://www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5/data/lang_test_tgmed/archive.tar.gz
+#mkdir graph_test_tgmed
+#tar -zxvf archive.tar.gz -C graph_test_tgmed --strip-components=1
+#../script/makeclevel.sh lang_test_tgmed  nnet_a graph_test_tgmed ../../kaldi
+
 
