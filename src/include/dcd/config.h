@@ -14,17 +14,17 @@
 // Copyright 2013-2014 Yandex LLC
 // \file
 // Wrapper and utlilties for cross platform compilation and specifying
-// external libraries. Try and put all the cross platform and 
+// external libraries. Try and put all the cross platform and
 // build specific things inside this file
 
 #ifndef DCD_CONFIG_H__
 #define DCD_CONFIG_H__
 
 #ifdef _MSC_VER
-  //Probably don't need thread safety on Windows anyway
-  #define thread_local 
+  // Probably don't need thread safety on Windows anyway
+  #define thread_local
 #else
-  //Actually __thread is gcc verion specific
+  // Actually __thread is gcc verion specific
   #define thread_local
 #endif
 
@@ -52,7 +52,7 @@
   #include <util/parse-options.h>
   #include <itf/decodable-itf.h>
   #include <decoder/decodable-matrix.h>
-  using kaldi::SequentialBaseFloatMatrixReader;  
+  using kaldi::SequentialBaseFloatMatrixReader;
   using kaldi::Matrix;
   using kaldi::ParseOptions;
   using kaldi::Trim;
@@ -65,10 +65,10 @@
   }
 #endif
 
-extern const char *g_dcd_gitrevision;
-extern const char *g_dcd_cflags;
-extern const char *g_dcd_lflags;
-extern const char *g_dcd_compiler_version;
+extern const char* g_dcd_gitrevision;
+extern const char* g_dcd_cflags;
+extern const char* g_dcd_lflags;
+extern const char* g_dcd_compiler_version;
 
 namespace dcd {
 
@@ -80,9 +80,9 @@ void PrintVersionInfo();
 
 void PrintMachineInfo();
 
-int SwallowRedpill(); 
+int SwallowRedpill();
 
-//Based on the timer class from Kaldi
+// Based on the timer class from Kaldi
 #if defined(_WIN32)
 class Timer {
  public:
@@ -94,7 +94,8 @@ class Timer {
     LARGE_INTEGER time_end;
     LARGE_INTEGER freq;
     QueryPerformanceCounter(&time_end);
-    if (QueryPerformanceFrequency(&freq) == 0) return 0.0;  // Hardware does not support this.
+    if (QueryPerformanceFrequency(&freq) == 0)
+      return 0.0;  // Hardware does not support this.
     return ((double)time_end.QuadPart - (double)time_start_.QuadPart) /
         ((double)freq.QuadPart);
   }
@@ -108,7 +109,7 @@ class Timer {
 
   void Reset() { gettimeofday(&this->time_start_, &time_zone_); }
 
-  /// Returns time in seconds.
+  // Returns time in seconds.
   double Elapsed() {
     struct timeval time_end;
     gettimeofday(&time_end, &time_zone_);
@@ -125,6 +126,6 @@ class Timer {
 };
 #endif
 
-} //namespace dcd
+}  // namespace dcd
 
-#endif //DCD_CONFIG_H__ 
+#endif  // DCD_CONFIG_H__
