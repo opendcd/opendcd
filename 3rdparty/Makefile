@@ -2,8 +2,9 @@ SRCDIR=openfst-src
 GRMDIR=opengrm-src
 #all: openfst Shiny
 all: opengrm
-
 PWD=$(shell pwd)
+LOCAL=$(PWD)/local
+
 $(SRCDIR): | openfst-src.tar.gz
 	mkdir -p $(SRCDIR)
 	tar -zxf openfst-src.tar.gz -C $(SRCDIR) --strip=1
@@ -14,7 +15,7 @@ opengrm_compiled: opengrm-src/Makefile
 	cd opengrm-src && $(MAKE) -j install
 
 opengrm-src/Makefile: $(GRMDIR)
-	cd opengrm-src/; ./configure --prefix=`pwd` \
+	cd opengrm-src/; ./configure --prefix=$(LOCAL) \
 		CXXFLAGS=-I$(PWD)/openfst-src/include/ \
 		LDFLAGS="-L$(PWD)/openfst-src/lib/ -L$(PWD)/openfst-src/lib/fst/"
 
@@ -29,7 +30,7 @@ openfst-src.tar.gz:
 	curl "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.4.1.tar.gz" -o openfst-src.tar.gz
 
 openfst-src/Makefile: $(SRCDIR)
-	cd openfst-src/; ./configure --prefix=`pwd` \
+	cd openfst-src/; ./configure --prefix=$(LOCAL) \
 	--enable-static --enable-bin --enable-compact-fsts --enable-const-fsts --enable-far \
 	--enable-linear-fsts --enable-lookahead-fsts --enable-ngram-fsts --enable-pdt --enable-bin \
 	CXX=$(CXX) CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" LIBS="-ldl"
