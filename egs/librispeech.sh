@@ -60,6 +60,8 @@ if [ ! -f dev-clean.tar.gz ]; then
   wget http://www.openslr.org/resources/12/dev-clean.tar.gz
   tar -zxf dev-clean.tar.gz
   curl http://www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5/data/dev_clean/archive.tar.gz  -o dev_clean_lists.tar.gz
+  curl http://www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5/exp/nnet2_online/nnet_a_online/decode_dev_clean_tgsmall/scoring/test_filt.txt \
+    -o ./librispeech/dev_clean/dev_clean/test_filt.txt
 fi
 
 #Build the medium sized graph
