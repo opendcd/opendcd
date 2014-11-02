@@ -55,7 +55,6 @@ namespace fst {
 // It is assumed that final states have no out-going arcs
 template<class Arc, class C>
 int AllPaths(const Fst<Arc>& fst, C& c) {
-  LOG(INFO) << CountStates(fst);
   typedef typename Arc::StateId S;
   typedef typename Arc::Weight W;
   typedef typename Arc::Label L;

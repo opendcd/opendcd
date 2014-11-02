@@ -6,7 +6,7 @@ do
  ../src/bin/dcd-recog \
   --word_symbols_table=words.txt \
   --decoder_type=hmm_lattice \
-  --beam=10 \
+  --beam=15 \
   --acoustic_scale=0.1 \
   graph_test_tgsmall/arcs.far \
   graph_test_tgsmall/C.det.L.G.fst ark:dev-clean.$f.ark \
@@ -15,5 +15,5 @@ done
 
 ../src/bin/farprintnbeststrings \
   --symbols=words.txt --print_weights=false \
-  --format=kaldi --wildcards=3 dev-clean.aa.far | \
+  --format=kaldi --wildcards=3 dev-clean.a?.far | \
   compute-wer --text --mode=present ark:- ark:LibriSpeech/dev-clean/text
