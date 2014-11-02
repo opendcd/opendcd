@@ -19,13 +19,17 @@
 
 #ifndef DCD_CASCADE_H__
 #define DCD_CASCADE_H__
+
+#include <string>
+#include <vector>
+
 #include <fst/compose.h>
 
 namespace dcd {
 template<class Arc>
 class Cascade {
- typedef Fst<Arc> FST;
- public: 
+ public:
+  typedef Fst<Arc> FST;
   ~Cascade() {
     DestroyFsts(&tmp_fsts_);
     DestroyFsts(&fsts_);
@@ -66,13 +70,13 @@ class Cascade {
     Cascade* cascade  = new Cascade;
     cascade->fsts_ = fsts;
     return cascade;
-   }
+  }
 
   FST* Rebuild() {
-    if (fsts_.size() == 1)
+    if (fsts_.size() == 1) {
       return fsts_[0];
-    else if (fsts_.size() == 2) {
-      if (tmp_fsts_.size()) 
+    } else if (fsts_.size() == 2) {
+      if (tmp_fsts_.size())
         DestroyFsts(&tmp_fsts_);
       CacheOptions opts;
       opts.gc = false;
@@ -97,26 +101,25 @@ class Cascade {
     cascade_ = 0;
     LOG(INFO) << "Finished Destroy Fsts";
   }
-  //Build the recognition cascade storing the individual compose
-  //fsts in the cacade vector - we will need these when we
-  //delete the cascade later on
+  // Build the recognition cascade storing the individual compose fsts in the
+  // cacade vector - we will need these when we delete the cascade later on
   Fst<Arc>* BuildCascade(const vector<Fst<Arc>*>& fsts,
-                       vector<Fst<Arc>*>* cascade) {
-   if (fsts.size() == 0)
-     return 0;
-   if (fsts.size() == 1)
-     return fsts.back();
-   Fst<Arc>* last = fsts.back();
-   for (int i = fsts.size() - 2; i >= 0; --i) {
-     Fst<Arc>* composed = new ComposeFst<Arc>(*fsts[i], *last);
-     if (!composed) {
-       LOG(ERROR) << "Failed to construct composition Fst";
-     } else {
-       cascade->push_back(composed);
-       last = composed;
+                         vector<Fst<Arc>*>* cascade) {
+    if (fsts.size() == 0)
+      return 0;
+    if (fsts.size() == 1)
+      return fsts.back();
+    Fst<Arc>* last = fsts.back();
+    for (int i = fsts.size() - 2; i >= 0; --i) {
+      Fst<Arc>* composed = new ComposeFst<Arc>(*fsts[i], *last);
+      if (!composed) {
+        LOG(ERROR) << "Failed to construct composition Fst";
+      } else {
+        cascade->push_back(composed);
+        last = composed;
+      }
      }
-   }
-   return last;
+    return last;
   }
 
   void DumpInfo() const {
@@ -133,10 +136,11 @@ class Cascade {
   int NumFsts() const { return fsts_.size(); }
 
  private:
-  vector<FST*> fsts_; //Component Fsts fread from disk
-  vector<FST*> tmp_fsts_; //Intemediate Fsts there are constructed as part of the cascade
+  vector<FST*> fsts_;  // Component Fsts fread from disk
+  vector<FST*> tmp_fsts_;  // Intemediate Fsts there are constructed as part of
+                           // the cascade
   FST* cascade_;
 };
-}
+}  // namespace dcd
 
-#endif
+#endif  // DCD_CASCADE_H__

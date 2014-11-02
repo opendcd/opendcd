@@ -31,30 +31,30 @@ using fst::VectorFst;
 namespace dcd {
 class Lattice {
  public:
-  struct State; 
+  struct State;
   typedef State* LatticeState;
   struct LatticeArc {
-    
+
     LatticeArc() { Clear(); }
 
     LatticeArc(const LatticeArc& other)
-      : prevstate_(other.prevstate_), ilabel_(other.ilabel_), 
-      olabel_(other.olabel_), dur_(other.dur_), am_weight_(other.am_weight_), 
+      : prevstate_(other.prevstate_), ilabel_(other.ilabel_),
+      olabel_(other.olabel_), dur_(other.dur_), am_weight_(other.am_weight_),
       lm_weight_(other.lm_weight_), dur_weight_(other.dur_weight_) { }
 
     LatticeArc(State* prevstate, int ilabel, int olabel, float am_weight,
         float lm_weight, float dur_weight)
-      : prevstate_(prevstate), ilabel_(ilabel), olabel_(olabel), 
-      am_weight_(am_weight), lm_weight_(lm_weight), 
+      : prevstate_(prevstate), ilabel_(ilabel), olabel_(olabel),
+      am_weight_(am_weight), lm_weight_(lm_weight),
       dur_weight_(dur_weight) { }
 
     State* prevstate_;
     int ilabel_;
     int olabel_;
     int dur_;
-    float am_weight_; 
-    float lm_weight_; 
-    float dur_weight_; 
+    float am_weight_;
+    float lm_weight_;
+    float dur_weight_;
 
     void Clear() {
       prevstate_ = 0;
@@ -83,8 +83,8 @@ class Lattice {
 
     int OLabel() const { return olabel_; }
 
-    //We need function for each weight type to convert from 
-    //the LatticeArc to the OpenFst Arc type 
+    //We need function for each weight type to convert from
+    //the LatticeArc to the OpenFst Arc type
     //This is done using overloads
 
     void ConvertWeight(StdArc::Weight* w) const {
@@ -118,7 +118,7 @@ class Lattice {
       if (PrevState()) {
         int s = PrevState()->GetBestSequence(ofst);
         d = ofst->AddState();
-        ofst->AddArc(s, Arc(best_arc_.ilabel_, best_arc_.olabel_, 
+        ofst->AddArc(s, Arc(best_arc_.ilabel_, best_arc_.olabel_,
               Arc::Weight::One(), d));
       } else {
         d = ofst->AddState();
@@ -161,7 +161,7 @@ class Lattice {
       if (opts.gen_lattice && best_arc_.prevstate_) {
         float lat_threshold = forwards_cost_ + opts.lattice_beam;
         if (cost < lat_threshold) {
-          //TODO: check the another arcs in the isn't the same with 
+          //TODO: check the another arcs in the isn't the same with
           //just a different cost
           arcs_.push_back(lattice_arc);
         }
@@ -172,7 +172,7 @@ class Lattice {
     //Here we assume the start state has a null best_previous_ pointer
     bool IsStart() const { return !best_arc_.prevstate_; }
 
-    void GcClearMark() { marked_ = false; } 
+    void GcClearMark() { marked_ = false; }
 
     bool GcMarked() const { return marked_; }
 
@@ -182,7 +182,7 @@ class Lattice {
         return;
       }
       if (best_arc_.prevstate_)
-        best_arc_.prevstate_->GcMark(); 
+        best_arc_.prevstate_->GcMark();
       for (int i = 0; i != arcs_.size(); ++i) {
         State* prev = arcs_[i].prevstate_;
         prev->GcMark();
@@ -239,12 +239,12 @@ class Lattice {
   };
 
 
-  explicit Lattice(const SearchOptions& opts, ostream* logstream = &std::cerr) 
+  explicit Lattice(const SearchOptions& opts, ostream* logstream = &std::cerr)
     : logger_("Lattice", *logstream),
-    next_id_(0), num_allocs_(0), num_frees_(0), 
+    next_id_(0), num_allocs_(0), num_frees_(0),
     use_pool_(opts.use_lattice_pool) { }
 
-  virtual ~Lattice() { 
+  virtual ~Lattice() {
     Clear();
     for (int i = 0; i != free_list_.size(); ++i)
       DeleteState(free_list_[i]);
@@ -258,7 +258,7 @@ class Lattice {
     for (int i = 0; i < used_list_.size(); ++i) {
       State* ls = used_list_[i];
       lss.insert(ls);
-      if (ls->Index() != i) 
+      if (ls->Index() != i)
         LOG(FATAL) << "Lattice::Check : Index problem in lattice ls->Index() "
           << ls->Index() << " i " << i;
     }
@@ -307,22 +307,22 @@ class Lattice {
         << "\t# in free list " << free_list_.size();
   }
 
-  State* NewState(int time, int state) { 
+  State* NewState(int time, int state) {
     PROFILE_FUNC();
     State* lattice_state = 0;
     if (use_pool_ && free_list_.size()) {
       lattice_state = free_list_.back();
       free_list_.pop_back();
-    } else { 
+    } else {
       lattice_state = new State;
     }
-    lattice_state->Init(time, state, next_id_++, used_list_.size());       
+    lattice_state->Init(time, state, next_id_++, used_list_.size());
     used_list_.push_back(lattice_state);
     ++num_allocs_;
     return lattice_state;
   }
 
-  void FreeState(State* lattice_state) { 
+  void FreeState(State* lattice_state) {
     PROFILE_FUNC();
     if (use_pool_)
       free_list_.push_back(lattice_state);
@@ -344,8 +344,8 @@ class Lattice {
   //First field is the best cost arriving in the lattice state (forward cost)
   //Second field is the the cost of the SearchArc arrvining in the lattice state
   template<class SearchArc>
-  pair<float, float> AddArc(State* src, State* dest, float cost, 
-      const SearchArc& arc, float threshold, 
+  pair<float, float> AddArc(State* src, State* dest, float cost,
+      const SearchArc& arc, float threshold,
       const SearchOptions & opts) {
     //Add the lattice arc in the reverse direction
     return dest->AddArc(src, cost, arc, threshold, opts);
@@ -361,7 +361,7 @@ class Lattice {
     GcSweep();
     DumpInfo();
     if (num_frees_ != num_allocs_)
-      LOG(FATAL) << "Lattice state allocator mismatch detected " << endl 
+      LOG(FATAL) << "Lattice state allocator mismatch detected " << endl
         << " # Allocs " << num_allocs_ << endl
         << " # Frees " << num_frees_;
     num_frees_ = 0;
@@ -386,7 +386,7 @@ class Lattice {
         //Check j is null or the same as i
         lattice_state->SetIndex(j);
         used_list_[j++] = lattice_state;
-      } else { 
+      } else {
         lattice_state->SetIndex(-1);
         FreeState(used_list_[i]);
         used_list_[i] = 0;
@@ -403,13 +403,13 @@ class Lattice {
     int num_reclaimed = used_list_.size() - j;
     used_list_.resize(j);
     VLOG(1) << "Lattice Gc reclaimed " << num_reclaimed
-      << " states # in used_list " 
+      << " states # in used_list "
       << used_list_.size() << " # in free_list " << free_list_.size();
 
     if (early_mission) {
       //Work backward from a frontier node.
       vector<State*> stack;
-      for (State* ls = used_list_.back(); !ls->IsStart(); 
+      for (State* ls = used_list_.back(); !ls->IsStart();
           ls = ls->PrevState())
         stack.push_back(ls);
 
@@ -419,10 +419,10 @@ class Lattice {
         if (ls->OLabel())
           early_mission->push_back(ls->OLabel());
         if (ls->marked_ > 1) {
-          VLOG(2) << "Common prefix found index = " << ls->Index() 
+          VLOG(2) << "Common prefix found index = " << ls->Index()
             << " id = " << ls->Id();
           break;
-        }  
+        }
       }
     }
     return num_reclaimed;
@@ -491,14 +491,14 @@ class Lattice {
           const LatticeArc &arc = state.arcs_[j];
           W w;
           arc.ConvertWeight(&w);
-          ofst->AddArc(arc.PrevState()->Index(), 
-              StdArc(arc.ilabel_, arc.olabel_, w, i)); 
+          ofst->AddArc(arc.PrevState()->Index(),
+              StdArc(arc.ilabel_, arc.olabel_, w, i));
         }
       } else {
         const LatticeArc &arc = used_list_[i]->best_arc_;
         W w;
         arc.ConvertWeight(&w);
-        ofst->AddArc(used_list_[i]->PrevStateIndex(), StdArc(arc.ilabel_, 
+        ofst->AddArc(used_list_[i]->PrevStateIndex(), StdArc(arc.ilabel_,
               arc.olabel_, w, i));
       }
     }
@@ -524,7 +524,7 @@ class Lattice {
     return std::binary_search(used_list_.begin(), used_list_.end(), state);
   }
 
-  bool IsFree(State* state) const { 
+  bool IsFree(State* state) const {
     return std::binary_search(free_list_.begin(), free_list_.end(), state);
   }
 

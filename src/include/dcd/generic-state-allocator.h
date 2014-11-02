@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author: Paul R. Dixon
 // \file
 // Simple allocator class for memory pools in the decoder
 // maybe change to the new allocators in OpenFst 1.4.1
@@ -25,8 +26,8 @@ namespace dcd {
 template <class T>
 struct DefaultCacheStateAllocator {
 
-  DefaultCacheStateAllocator() 
-    : num_allocated_(0) { }
+  DefaultCacheStateAllocator()
+      : num_allocated_(0) { }
 
   ~DefaultCacheStateAllocator() { }
 
@@ -47,6 +48,6 @@ struct DefaultCacheStateAllocator {
   DISALLOW_COPY_AND_ASSIGN(DefaultCacheStateAllocator);
 };
 
-}//namespace dcd
+}  // namespace dcd
 
-#endif //DCD_GENERIC_STATE_ALLOCATER_H__
+#endif // DCD_GENERIC_STATE_ALLOCATER_H__

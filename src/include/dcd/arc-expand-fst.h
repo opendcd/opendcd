@@ -20,6 +20,8 @@
 #ifndef FST_LIB_ARCEXPAND_H___
 #define FST_LIB_ARCEXPAND_H__
 
+#include <vector>
+
 #include <fst/cache.h>
 #include <fst/log.h>
 
@@ -58,10 +60,10 @@ class ArcExpandFstImpl : public CacheImpl<A> {
   struct Element {
     StateId state;
     StateId arcstate;
-    int index; //size_t might not be signed
+    int index;  // size_t might not be signed
 
-		Element(const Element& other)
-			: state(other.state), arcstate(other.arcstate), index(other.index)  { }
+    Element(const Element& other)
+      : state(other.state), arcstate(other.arcstate), index(other.index)  { }
 
     Element()
       : state(kNoStateId), arcstate(kNoStateId), index(-1) { }
@@ -91,14 +93,14 @@ class ArcExpandFstImpl : public CacheImpl<A> {
     const ArcExpandFstOptions &opts)
     : CacheImpl<A>(opts), fst_(fst.Copy()), arcs_(arcs) {
       SetType("arcexpand");
-      //uint64 props = fst.Properties(kFstProperties, false);
-      //SetProperties(MyProperties(props, true), kCopyProperties);
-      //SetProperties(kFstProperties, kCopyProperties);
+      // uint64 props = fst.Properties(kFstProperties, false);
+      // SetProperties(MyProperties(props, true), kCopyProperties);
+      // SetProperties(kFstProperties, kCopyProperties);
       SetInputSymbols(fst.InputSymbols());
       SetOutputSymbols(fst.OutputSymbols());
       for (int i = 0; i != arcs.size(); ++i) {
         const Fst<A>& fst = *arcs[i];
-        //Assume the epsilon/disambiguation has 2 states
+        // Assume the epsilon/disambiguation has 2 states
         int numstates = CountStates(fst);
         if (numstates == 2)
           epsilons_.insert(i);
@@ -122,7 +124,7 @@ class ArcExpandFstImpl : public CacheImpl<A> {
   StateId Start() {
     if (!HasStart()) {
       Element e(fst_->Start());
-			StateId start = AddElement(e);
+      StateId start = AddElement(e);
       SetStart(start);
     }
     return CacheImpl<A>::Start();
@@ -186,7 +188,7 @@ class ArcExpandFstImpl : public CacheImpl<A> {
       FSTERROR() << "Expand : out of bounds state access";
     const Element element = elements_[s];
     if (element.arcstate == -1) {
-      //Expanding a state in the CLG and the first element is the source state
+      // Expanding a state in the CLG and the first element is the source state
       int i = 0;
       for (ArcIterator<Fst<A> > aiter(*fst_, element.state); !aiter.Done();
         aiter.Next()) {
@@ -194,21 +196,20 @@ class ArcExpandFstImpl : public CacheImpl<A> {
         Element delement = epsilons_.find(arc.ilabel) == epsilons_.end() ?
           Element(element.state, 0, i++) :
           Element(arc.nextstate, kNoStateId, -1);
-				StateId d = AddElement(delement);
+        StateId d = AddElement(delement);
         PushArc(s, Arc(0, arc.olabel, arc.weight, d));
       }
     } else {
-      //Expanding a state inside a HMM arc
-      //Element.state is the source state of the underlying transition
-      //Element.index indexes into arcs leaving element.state
-      //Element.arcstate tell us the internal state of arc
-      
+      // Expanding a state inside a HMM arc
+      // Element.state is the source state of the underlying transition
+      // Element.index indexes into arcs leaving element.state
+      // Element.arcstate tell us the internal state of arc
       Label ilabel = FindTypeLabel(element);
       const FST* type =  arcs_[ilabel];
       int laststate = numstates_[ilabel] - 1;
       if (laststate <= 0)
         FSTERROR() << "Expand : Last state numbering problem " << laststate;
-     
+
       for (ArcIterator<FST> aiter(*type, element.arcstate); !aiter.Done();
            aiter.Next()) {
         const Arc& arc = aiter.Value();
@@ -223,31 +224,31 @@ class ArcExpandFstImpl : public CacheImpl<A> {
           delement.arcstate = arc.nextstate;
           delement.index = element.index;
         }
-				StateId d = AddElement(delement);
+        StateId d = AddElement(delement);
         PushArc(s, Arc(arc.ilabel, 0, arc.weight, d));
       }
     }
-		SetArcs(s);
+    SetArcs(s);
   }
 
-	StateId AddElement(const Element& element) {
+  StateId AddElement(const Element& element) {
     if (element.state == -1)
       FSTERROR() << "Attempting to add bad element " <<
-        element.state << " " << element.arcstate << " " << element.index; 
-		StateId d = kNoStateId;
-		typename ElementMap::iterator it = element2state_.find(element);
-		if (it == element2state_.end()) {
-			//State doesn't exist yet
-			d = elements_.size();
-			elements_.push_back(element);
-			element2state_[element] = d;
-		} else {
-			d = it->second;
-		}
-		if (elements_.size() != element2state_.size())
-			FSTERROR() << "ArcExpandFstImpl::AddElement : element hashing error";
-		return d;
-	}
+        element.state << " " << element.arcstate << " " << element.index;
+    StateId d = kNoStateId;
+    typename ElementMap::iterator it = element2state_.find(element);
+    if (it == element2state_.end()) {
+      // State doesn't exist yet
+      d = elements_.size();
+      elements_.push_back(element);
+      element2state_[element] = d;
+    } else {
+      d = it->second;
+    }
+    if (elements_.size() != element2state_.size())
+      FSTERROR() << "ArcExpandFstImpl::AddElement : element hashing error";
+    return d;
+  }
 
   const Arc& FindArc(StateId s) {
     return FindArc(elements_[s]);
@@ -263,7 +264,7 @@ class ArcExpandFstImpl : public CacheImpl<A> {
     }
   }
 
-  StateId FstState(StateId s) { 
+  StateId FstState(StateId s) {
     if (s >= elements_.size())
       FSTERROR() << "FstState : Out of bounds state access " << s;
     return elements_[s].state;
@@ -285,19 +286,19 @@ class ArcExpandFstImpl : public CacheImpl<A> {
     return elements_[s].arcstate;
   }
 
-  const Fst<A>& GetFst() const { 
+  const Fst<A>& GetFst() const {
     return *fst_;
   }
-    
+
  private:
   const Fst<A> *fst_;
   const Arc arc_;
-  //Maps from a state in the expanded fst to pair corresponding
-  //to the state in the CLG and a state in an arc
+  // Maps from a state in the expanded fst to pair corresponding
+  // to the state in the CLG and a state in an arc
   vector<Element> elements_;
   typedef unordered_map<Element, StateId, ElementKey, ElementEqual> ElementMap;
   ElementMap element2state_;
-  //Number of states associated with the nth arc type
+  // Number of states associated with the nth arc type
   vector<int> numstates_;
   unordered_set<Label> epsilons_;
   const vector<const Fst<A>*>& arcs_;
@@ -338,14 +339,12 @@ class ArcExpandFst : public ImplToFst< ArcExpandFstImpl<A> > {
     GetImpl()->InitArcIterator(s, data);
   }
 
-  //Get the underlying state in the 'CLG' 
-  //search network
+  // Get the underlying state in the 'CLG' search network
   StateId FstState(StateId s) const {
     return GetImpl()->FstState(s);
   }
 
-  //Add a state could correspond to a arc 
-  //in the underlying network
+  // Add a state could correspond to a arc in the underlying network
   Arc FstArc(StateId s) const {
     return GetImpl()->FstArc(s);
   }
@@ -361,6 +360,7 @@ class ArcExpandFst : public ImplToFst< ArcExpandFstImpl<A> > {
   const Fst<Arc>& GetFst() const {
     return GetImpl()->GetFst();
   }
+
  private:
   // Makes visible to friends.
   Impl *GetImpl() const { return ImplToFst<Impl>::GetImpl(); }
@@ -403,12 +403,11 @@ void ArcExpandFst<A>::InitStateIterator(StateIteratorData<A> *data) const {
 typedef ArcExpandFst<StdArc> StdArcExpandFst;
 
 template <class Arc>
-void ArcExpand(const Fst<Arc> &ifst, const vector<const Fst<Arc>* >& arcs, 
+void ArcExpand(const Fst<Arc> &ifst, const vector<const Fst<Arc>* >& arcs,
                MutableFst<Arc> *ofst) {
-
   ArcExpandFstOptions nopts;
   nopts.gc_limit = 0;  // Cache only the last state for fastest copy.
   *ofst = ArcExpandFst<Arc>(ifst, arcs, nopts);
 }
-}
-#endif
+}  // namespace fst
+#endif  // FST_LIB_ARCEXPAND_H___

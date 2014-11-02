@@ -27,12 +27,13 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//Taken from Google mozc project and adapted for OpenDcd
+// Taken from Google mozc project and adapted for OpenDcd by Paul R. Dixon
 
 #ifndef DCD_BASE_CPU_STATS_H__
 #define DCD_BASE_CPU_STATS_H__
 
 #include <cstring>
+
 #include <fst/types.h>
 
 namespace dcd {

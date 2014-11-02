@@ -12,20 +12,24 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author : Josef R. Novak
+//        : Paul R. Dixon
 // \file
 /// Basic standalone feature reader for Kaldi .ark
 /// files. Supports text and binary format, but
 /// currently limited to matrix float readers.
 
-#ifndef DCD_FEATREADERS_H__
-#define DCD_FEATREADERS_H__
+#ifndef DCD_FEAT_READERS_H__
+#define DCD_FEAT_READERS_H__
 
-#include <vector>
+#include <algorithm>
+#include <cstdlib>
 #include <fstream>
 #include <limits>
-#include <string>
 #include <sstream>
-#include <cstdlib>
+#include <string>
+#include <vector>
+
 #include <fst/util.h>
 
 #include <dcd/utils.h>
@@ -48,7 +52,7 @@ class Matrix {
   Matrix() { }
 
   explicit Matrix(const std::vector<std::vector<T> >& data)
-  : data_(data) { }
+      : data_(data) { }
 
   int NumRows() const { return data_.size(); }
 
@@ -62,23 +66,20 @@ class Matrix {
 
   const std::vector<std::vector<T> >& Data() const { return data_; }
 
-  const T& operator() (int row, int column) const { 
-    return data_[row][column]; 
+  const T& operator() (int row, int column) const {
+    return data_[row][column];
   }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(Matrix);
   std::vector<std::vector<T> > data_;
+  DISALLOW_COPY_AND_ASSIGN(Matrix);
 };
 
 
 template<class T>
 class SequentialMatrixReader {
-
   struct UtteranceHeader {
-
     UtteranceHeader() : numframes(0), vecsize(0) { }
-  
     bool Read(std::istream& strm) {
       using fst::ReadType;
       strm >> id;
@@ -94,7 +95,7 @@ class SequentialMatrixReader {
       LOG(INFO) << id << " " << numframes << " " << vecsize;
     }
 
-    void Clear() { 
+    void Clear() {
       numframes = 0;
       vecsize = 0;
       id.clear();
@@ -104,19 +105,19 @@ class SequentialMatrixReader {
     std::string id;
     int numframes;
     int vecsize;
-    
   };
 
  public:
-  explicit SequentialMatrixReader(const std::string& path, bool cacheall = false)
-      : src_(path), done_(false) {
+  explicit SequentialMatrixReader(const std::string& path,
+                                  bool cacheall = false)
+               : src_(path), done_(false) {
     vector<string> fields;
     SplitStringToVector(src_, ":", true, &fields);
     if (fields.size() != 2)
       FSTERROR() << "SequentialMatrixReader::SequentialMatrixReader : "
                     "Incorrect read specifier : " << src_ <<
                     " Num fields " << fields.size();
-    
+
     if (fields[1] == "-") {
       fields[1] = "/dev/stdin";
       cacheall = false;
@@ -135,7 +136,8 @@ class SequentialMatrixReader {
       ifs.read(&buffer_[0], filesize);
       featstream_ = new std::istringstream(buffer_);
     } else {
-      std::ifstream* featstream = new std::ifstream(fields[1].c_str(), std::fstream::binary);
+      std::ifstream* featstream = new std::ifstream(fields[1].c_str(),
+                                                    std::fstream::binary);
       if (!featstream->is_open()) {
         delete featstream;
         FSTERROR() << "SequentialMatrixReader::SequentialMatrixReader : "
@@ -146,8 +148,8 @@ class SequentialMatrixReader {
     }
     ReadNextUtterance();
   }
- 
-  ~SequentialMatrixReader() { 
+
+  ~SequentialMatrixReader() {
     if (featstream_)
       delete featstream_;
   }
@@ -176,16 +178,16 @@ class SequentialMatrixReader {
     return true;
   }
 
-  void FreeCurrent() { 
-    hdr_.Clear(); 
+  void FreeCurrent() {
+    hdr_.Clear();
     features_.Clear();
-  } 
-  
+  }
+
   void Next() { ReadNextUtterance(); }
 
   bool Done() const { return done_; }
 
-  void Reset() { } //featstream_.seekg(0); }
+  void Reset() { }  // featstream_.seekg(0); }
 
   const std::string& Key() const { return hdr_.id; }
 
@@ -201,12 +203,12 @@ class SequentialMatrixReader {
   DISALLOW_COPY_AND_ASSIGN(SequentialMatrixReader);
 };
 
-typedef SequentialMatrixReader<float> SequentialBaseFloatMatrixReader;  
+typedef SequentialMatrixReader<float> SequentialBaseFloatMatrixReader;
 
 class SimpleDecodable {
  public:
   SimpleDecodable(const Matrix<float> &matrix, float scale)
-    : matrix_(matrix) { }
+      : matrix_(matrix) { }
 
   float LogLikelihood(int frame, int index) const {
     return matrix_(frame, index);
@@ -221,16 +223,17 @@ class SimpleDecodable {
   DISALLOW_COPY_AND_ASSIGN(SimpleDecodable);
 };
 
+// This class is a  decodable that will accumulate state hit statistics
 class SimpleDecodableHitStats {
  public:
   SimpleDecodableHitStats(const Matrix<float> &matrix, float scale)
-    : matrix_(matrix), max_index_(0) { 
-      hit_stats_.resize(matrix.NumRows());
-    }
+      : matrix_(matrix), max_index_(0) {
+    hit_stats_.resize(matrix.NumRows());
+  }
 
   ~SimpleDecodableHitStats() {
     if (hit_dump_.is_open()) {
-      hit_dump_ << "# of frames = " << hit_stats_.size() 
+      hit_dump_ << "# of frames = " << hit_stats_.size()
         << ", # of states = " << max_index_ << endl;
       std::stringstream ss;
       for (int i = 0; i != hit_stats_.size(); ++i) {
@@ -279,9 +282,10 @@ class SimpleDecodableHitStats {
   static std::ofstream hit_dump_;
 
   static bool OpenDumpFile(const std::string& path);
+
  private:
   DISALLOW_COPY_AND_ASSIGN(SimpleDecodableHitStats);
 };
-}
+}  // namespace dcd
 
-#endif // DCD_FEATREADERS_H__
+#endif  // DCD_FEAT_READERS_H__

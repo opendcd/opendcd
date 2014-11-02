@@ -12,8 +12,10 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
-/// \file
-/// Basic logger class with colorization support.
+// Author : Josef R. Novak
+//        : Paul R. Dixon
+// \file
+// Basic logger class with colorization support.
 
 /// TODO: Is it possible that dynamic support for
 /// color-changing could have an impact on thread-safety?
@@ -34,7 +36,7 @@
 #include <dcd/constants.h>
 #include <dcd/memdebug.h>
 
-#undef DEBUG //For MSVC 
+#undef DEBUG //For MSVC
 #undef ERROR //For MSVC
 
 namespace dcd {
@@ -75,11 +77,11 @@ class Logger {
           os_ << "(" << g_dcd_current_num_allocated / kMegaByte << "MB) ";
       }
     }
-    
+
     /// other.os_ (std::ostream) is *possibly* movable in principle but
     /// apparently not yet in practice with available compilers. ?
    //LogMessage(const LogMessage&& other) : os_(other.os_) { }
-    
+
     ~LogMessage() {
       os_ << "\n";
       if (fatal_)
@@ -93,7 +95,7 @@ class Logger {
       return *this;
     }
 
-    
+
     LogMessage& operator<< (std::wstring data) {
       return *this << ConvertWstringToString(data);
     }
@@ -127,12 +129,12 @@ class Logger {
   }
 
   Logger(const std::string& source, const colormap& colors, bool colorize = true)
-        : colors_(colors), source_(source), stream_(std::cerr), 
-        colorize_(colorize) { 
+        : colors_(colors), source_(source), stream_(std::cerr),
+        colorize_(colorize) {
     }
 
   Logger(const std::string& source, std::ostream& stream, bool colorize = true)
-         : source_(source), stream_(stream), colorize_(colorize)  { 
+         : source_(source), stream_(stream), colorize_(colorize)  {
      if (colorize)
        InitDefaultColors();
     }
@@ -156,14 +158,14 @@ class Logger {
     LogMessage  operator() (const std::string& type) {
       return LogMessage(stream_, type, source_, colors_, colorize_);
     }
-    
+
     LogMessage  operator() (int vlog) {
       std::stringstream ss;
-      if (vlog <= vlog_) 
+      if (vlog <= vlog_)
         ss << "VLOG(" << vlog << ")";
       return LogMessage(stream_, ss.str(), source_, colors_, colorize_);
     }
-  
+
   void SetColor(const std::string& msg, const std::string& color) {
     colors_[msg] = color;
   }

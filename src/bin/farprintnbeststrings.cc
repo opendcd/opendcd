@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// Copyright Paul R. Dixon 2012
+// Copyright Paul R. Dixon 2012, 2014
 // Copyright Yandex LLC 2013-2014
 // file
 // Modified version of fstxprintnbeststring to handle FAR input
@@ -56,7 +56,7 @@ namespace fst {
 // Compute all the simple paths in an acyclic WFST
 // It is assumed that final states have no out-going arcs
 template<class Arc, class C>
-int AllPaths(const Fst<Arc>& fst, const C& c) {
+int AllPaths(const Fst<Arc>& fst, C& c) {
   typedef typename Arc::StateId S;
   typedef typename Arc::Weight W;
   typedef typename Arc::Label L;
@@ -126,37 +126,37 @@ int AllPaths(const Fst<Arc>& fst, const C& c) {
 namespace script {
 
 typedef args::Package<const vector<string>&, const string&>
-  FarPrintNBestStringsArgs;
+    FarPrintNBestStringsArgs;
 
 template <class Label, class Weight>
 struct PathInserter {
   PathInserter(const SymbolTable* syms, vector<pair<string, Weight> >* strings)
-    : syms_(syms), strings_(strings) { }
+      : syms_(syms), strings_(strings) { }
 
   template<class Iterator>
-  void PathToString(Iterator begin, Iterator end, stringstream& ss) {
-    for ( ; begin != end; ++begin) {
-      const Label& l = *begin;
-      if (l == 0)
-          continue;
-      if (syms_ == 0)
-        ss << l << " ";
-      else
-        ss << syms_->Find(l) << " ";
-    }
-  }
-
-  void operator()(const list<Label>& path, const Weight& w) {
-    stringstream ss;
-    if (FLAGS_reverse)
-      PathToString(path.rbegin(), path.rend(), ss);
+void PathToString(Iterator begin, Iterator end, stringstream& ss) {
+  for ( ; begin != end; ++begin) {
+    const Label& l = *begin;
+    if (l == 0)
+      continue;
+    if (syms_ == 0)
+      ss << l << " ";
     else
-      PathToString(path.begin(), path.end(), ss);
-    strings_->push_back(pair<string, Weight>(ss.str(), w));
+      ss << syms_->Find(l) << " ";
   }
+}
 
-  const SymbolTable* syms_;
-  vector<pair<string, Weight> >* strings_;
+void operator()(const list<Label>& path, const Weight& w) {
+  stringstream ss;
+  if (FLAGS_reverse)
+    PathToString(path.rbegin(), path.rend(), ss);
+  else
+    PathToString(path.begin(), path.end(), ss);
+  strings_->push_back(pair<string, Weight>(ss.str(), w));
+}
+
+const SymbolTable* syms_;
+vector<pair<string, Weight> >* strings_;
 };
 
 
@@ -263,15 +263,15 @@ void FarPrintNBestStrings(FarPrintNBestStringsArgs* args) {
 }
 
 void FarPrintNBestStrings(const vector<string>& ifilenames,
-                  const string& arc_type) {
+                          const string& arc_type) {
   FarPrintNBestStringsArgs args(ifilenames, arc_type);
   Apply< Operation<FarPrintNBestStringsArgs> >("FarPrintNBestStrings",
-      arc_type, &args);
+                                               arc_type, &args);
 }
 
 REGISTER_FST_OPERATION(FarPrintNBestStrings, StdArc, FarPrintNBestStringsArgs);
 REGISTER_FST_OPERATION(FarPrintNBestStrings, KaldiLatticeArc,
-    FarPrintNBestStringsArgs);
+                       FarPrintNBestStringsArgs);
 }  // namespace script
 
 REGISTER_FST(VectorFst, KaldiLatticeArc);

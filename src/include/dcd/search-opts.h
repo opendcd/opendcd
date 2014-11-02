@@ -13,7 +13,7 @@
 //
 // Copyright 2013-2014 Yandex LLC
 // \file
-// Helper functions and structure for configuring the decoder 
+// Helper functions and structure for configuring the decoder
 #ifndef DCD_SEARCH_OPTS_H__
 #define DCD_SEARCH_OPTS_H__
 
@@ -26,19 +26,19 @@ namespace fst {
 }
 
 namespace dcd {
-  
+
 struct Variant {
-  
-  Variant() : type(kNone) { } 
+
+  Variant() : type(kNone) { }
 
   explicit Variant(int *value) : i(value), type(kInt)  { }
 
   explicit Variant(float *value) : f(value), type(kFloat) { }
 
-  explicit Variant(bool *value) : b(value), type(kBool) { } 
-  
-  explicit Variant(const Variant& other) : v(other.v), type(other.type) { } 
-  
+  explicit Variant(bool *value) : b(value), type(kBool) { }
+
+  explicit Variant(const Variant& other) : v(other.v), type(other.type) { }
+
   static const int kInt = 0;
   static const int kFloat = 1;
   static const int kBool = 2;
@@ -55,7 +55,7 @@ std::ostream& operator << (std::ostream& os, const Variant& value) {
     case Variant::kInt: os << *value.i; break;
     case Variant::kFloat: os << *value.f; break;
     case Variant::kBool: os << ((*value.b) ? "true" : "false"); break;
-    default: os << "Null"; 
+    default: os << "Null";
   }
   return os;
 }
@@ -119,7 +119,7 @@ struct SearchOptions {
   bool prune_eps;
   string source; //File name of input
   std::map<std::string, Variant> params;
-  
+
   template<class T>
   void Init(T* t, const T& def, const std::string& name) {
     *t = def;
@@ -132,11 +132,11 @@ struct SearchOptions {
   void Check() {
     lattice_beam = min(lattice_beam, beam);
   }
-  
+
   void Register(ParseOptions* po) {
     for (std::map<std::string, Variant>::iterator it = params.begin();
          it != params.end(); ++it) {
-      Variant& value = it->second;   
+      Variant& value = it->second;
       switch (value.type) {
           case Variant::kInt: po->Register(it->first, value.i, ""); break;
           case Variant::kFloat: po->Register(it->first, value.f, ""); break;
@@ -149,8 +149,8 @@ struct SearchOptions {
 };
 
 std::ostream& operator << (std::ostream& os, const SearchOptions& opts) {
-  for (std::map<string, Variant>::const_iterator it = opts.params.begin(); 
-         it != opts.params.end(); ++it)
+  for (std::map<string, Variant>::const_iterator it = opts.params.begin();
+       it != opts.params.end(); ++it)
     os << "\t\t  " << it->first << " : " << it->second << endl;
   return os;
 }

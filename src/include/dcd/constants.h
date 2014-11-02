@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author: Paul R. Dixon
 // \file
 // Global constants and definitions
 
@@ -22,7 +23,7 @@
 
 namespace dcd {
 
-const int kMaxTokensPerArc = 15;
+const int kMaxTokensPerArc = 5;
 const float kMaxCost = std::numeric_limits<int>::max();
 const float kMinCost = std::numeric_limits<int>::min();
 const float kDefaultBeam = kMaxCost;
@@ -35,9 +36,8 @@ const int kDefaultActiveListSize = 10000;
 const int kMegaByte = 1024 * 1024;
 const int kKiloByte = 1024;
 
-//Flags for final state mode. After, decoding we
-//can require final states, backoff to non-final
-//or always allow non-final
+// Flags for final state mode. After decoding we can require final states,
+// backoff to non-final final or always allow non-final
 const int kRequireFinal = 1;
 const int kBackoff = 2;
 const int kAnyFinal = 3;
@@ -47,6 +47,6 @@ const int kAnyFinal = 3;
   #define M_LOG_2PI 1.8378770664093454835606594728112
 #endif
 
-} //namespace dcd
+}  // namespace dcd
 
-#endif 
+#endif  // DCD_CONSTANTS_H__
