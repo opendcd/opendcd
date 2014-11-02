@@ -12,10 +12,10 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
-// \file 
+// \file
 // Simple lattice that uses 32bit ints to represent the lattice state useful
 // for applications that need to avoid 64bit pointers
-// Example to show how create a lattice implementation for the decoder 
+// Example to show how create a lattice implementation for the decoder
 // does not use any memory pools
 //
 #ifndef DCD_SIMPLE_LATTICE_H__
@@ -30,34 +30,34 @@
 using fst::VectorFst;
 
 namespace dcd {
-  
+
 class SimpleLattice {
  public:
  struct State;
  typedef State* LatticeState;
  struct LatticeArc {
-  
+
   LatticeArc() { Clear(); }
 
   LatticeArc(const LatticeArc& other)
-      : prevstate_(other.prevstate_), ilabel_(other.ilabel_), 
-        olabel_(other.olabel_), dur_(other.dur_), am_weight_(other.am_weight_), 
+      : prevstate_(other.prevstate_), ilabel_(other.ilabel_),
+        olabel_(other.olabel_), dur_(other.dur_), am_weight_(other.am_weight_),
         lm_weight_(other.lm_weight_), dur_weight_(other.dur_weight_) { }
 
   LatticeArc(State* prevstate, int ilabel, int olabel, float am_weight,
              float lm_weight, float dur_weight)
-      : prevstate_(prevstate), ilabel_(ilabel), olabel_(olabel), 
-        am_weight_(am_weight), lm_weight_(lm_weight), 
+      : prevstate_(prevstate), ilabel_(ilabel), olabel_(olabel),
+        am_weight_(am_weight), lm_weight_(lm_weight),
         dur_weight_(dur_weight) { }
 
   State* prevstate_;
   int ilabel_;
   int olabel_;
   int dur_;
-  float am_weight_; 
-  float lm_weight_; 
-  float dur_weight_; 
-  
+  float am_weight_;
+  float lm_weight_;
+  float dur_weight_;
+
   void Clear() {
     prevstate_ = 0;
     ilabel_ = kNoLabel;
@@ -98,7 +98,7 @@ struct State {
     index_ = index;
     forwards_cost_ = forwards_cost;
   }
-  
+
     //Create an OpenFst version of the best sequence from this state
   template<class Arc>
   int GetBestSequence(VectorFst<Arc>* ofst) const {
@@ -141,7 +141,7 @@ struct State {
   //Here we assume the start state has a null best_previous_ pointer
   bool IsStart() const { return !best_arc_.prevstate_; }
 
-  void GcClearMark() { } 
+  void GcClearMark() { }
 
   bool GcMarked() const { return true; }
 
@@ -183,7 +183,7 @@ struct State {
   void GetBestSequence(State* ls, VectorFst<Arc>* best) {
   }
 
-  
+
   int state_; //the state in the search fst
   int time_; //Time the lattice state was created
   int id_; //Unique id assigned to this state
@@ -199,10 +199,10 @@ struct State {
 
  public:
  explicit SimpleLattice(const SearchOptions& opts, ostream* logstream =
-     &std::cerr) 
+     &std::cerr)
      : next_id_(0), num_allocs_(0), num_frees_(0) { }
 
- virtual ~SimpleLattice() { 
+ virtual ~SimpleLattice() {
    Clear();
  }
 
@@ -218,18 +218,18 @@ struct State {
  void DumpInfo() {
  }
 
- State* NewState(int time, int state) { 
+ State* NewState(int time, int state) {
    State* lattice_state = new State;
-   lattice_state->Init(time, state, next_id_++, used_list_.size());       
+   lattice_state->Init(time, state, next_id_++, used_list_.size());
    ++num_allocs_;
    used_list_.push_back(lattice_state);
    return lattice_state;
  }
 
- void FreeState(State* lattice_state) { 
+ void FreeState(State* lattice_state) {
    ++num_frees_;
  }
- 
+
  State* AddState(int time, int state) {
    return NewState(time, state);
  }
@@ -241,13 +241,13 @@ struct State {
  //First field is the best cost arriving in the lattice state (forward cost)
  //Second field is the the cost of the SearchArc arrvining in the lattice state
  template<class SearchArc>
- pair<float, float> AddArc(State* src, State* dest, float cost, 
-              const SearchArc& arc, float threshold, 
+ pair<float, float> AddArc(State* src, State* dest, float cost,
+              const SearchArc& arc, float threshold,
               const SearchOptions &opts) {
    //Add the lattice arc in the reverse direction
    return dest->AddArc(src, cost, arc, threshold, opts);
  }
- 
+
  int NumStates() const { return num_allocs_ - num_frees_; }
 
   void Clear() {
@@ -267,14 +267,14 @@ struct State {
  void GetUsageStatistics(UtteranceSearchStatstics *search_statistics) {
  }
 
- 
+
  template<class Arc>
  int GetLattice(State* state, MutableFst<Arc>* ofst) {
    return 0;
  }
 
  //Debugging and check functions
- 
+
   void SortLists() {
   }
 
@@ -282,7 +282,7 @@ struct State {
     return true;
   }
 
-  bool IsFree(State* state) const { 
+  bool IsFree(State* state) const {
     return true;
   }
 

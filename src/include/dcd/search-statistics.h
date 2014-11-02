@@ -18,8 +18,8 @@
 // will not implement perform anything and will be optimized
 // out. Faster, neater and safer than using ifdef-else macros
 //
-#ifndef DCD_SEARCH_STATISTICS_H__ 
-#define DCD_SEARCH_STATISTICS_H__ 
+#ifndef DCD_SEARCH_STATISTICS_H__
+#define DCD_SEARCH_STATISTICS_H__
 
 #include <limits>
 #include <dcd/utils.h>
@@ -30,11 +30,11 @@ struct RunnningStatistic {
 
   void Clear() {
     num_ = 0;
-    max_ = kMaxCost; 
+    max_ = kMaxCost;
     min_ = kMinCost;
   }
 
-  void Push(float value) { 
+  void Push(float value) {
   }
 
   float Max() const { return max_; }
@@ -99,7 +99,7 @@ class SimpleStatistics {
   }
 
   void ArcExpanded(int ilabel) {
-    if (ilabel_hits_.size() < ilabel) 
+    if (ilabel_hits_.size() < ilabel)
       ilabel_hits_.resize(ilabel);
     ++ilabel_hits_[ilabel];
   }
@@ -117,7 +117,7 @@ class SimpleStatistics {
   /*
   void PrintEpsHits(const string& path) {
      ofstream ofs(path.c_str());
-     for (CountSet<int>::const_iterator it = eps_hits_.Begin(); 
+     for (CountSet<int>::const_iterator it = eps_hits_.Begin();
          it != eps_hits_.End(); ++it) {
        ofs << it->first << " " << it->second << endl;
      }
@@ -134,4 +134,4 @@ class SimpleStatistics {
 
 
 }//namespace dcd
-#endif 
+#endif

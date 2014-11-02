@@ -12,15 +12,16 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author : Paul R. Dixon
 // \file
 // Helper classes for wrapping different STL implementations.
 
 #ifndef DCD_STL_H__
 #define DCD_STL_H__
 
-#ifdef USERDESTL 
-//Optionally use the RDE hash_map 
-//Perhaps add EASTL or Google Sparsehash These should be faster and allow for
+#ifdef USERDESTL
+//Optionally use the RDE hash_map and vector
+//Perhaps add EASTL or Google Sparsehash These maybe be faster and allow for
 //better memory tweaking
 
 #include "../../../3rdparty/rdestl/vector.h"
@@ -76,4 +77,4 @@ struct TokenVectorHelper {
 };
 }
 #endif
-#endif 
+#endif
