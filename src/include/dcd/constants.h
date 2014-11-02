@@ -23,7 +23,7 @@
 
 namespace dcd {
 
-const int kMaxTokensPerArc = 5;
+const int kMaxTokensPerArc = 7;
 const float kMaxCost = std::numeric_limits<int>::max();
 const float kMinCost = std::numeric_limits<int>::min();
 const float kDefaultBeam = kMaxCost;

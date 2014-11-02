@@ -10,5 +10,5 @@ DOTGITDIR+=../../.git
 CXXFLAGS+=-I../include/ -I../../3rdparty/openfst-src/include/ \
 					-Wno-sign-compare -Wno-dangling-else \
 					-Wno-deprecated-writable-strings -DOS_LINUX  -std=c++0x -g -O2
-CXXFLAGS+=-DMEMDEBUG 
+CXXFLAGS+=-DMEMDEBUG
 
