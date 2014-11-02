@@ -39,7 +39,7 @@ using namespace std;
 
 DEFINE_string(symbols, "", "");
 DEFINE_string(wildcards, "", "");
-DEFINE_bool(print_weights, true, "");
+DEFINE_bool(print_weights, false, "");
 DEFINE_bool(reverse, false, "");
 DEFINE_bool(mbr, false, "");
 DEFINE_bool(unique, true, "Unique nbest");
@@ -47,15 +47,15 @@ DEFINE_int32(nshortest, 1, "# of shortest paths");
 DEFINE_bool(verify, false, "");
 DEFINE_bool(push, false, "");
 DEFINE_bool(to_real, false, "Print costs in the real semiring");
-DEFINE_string(format, "", "Format output");
+DEFINE_string(format, "", "Format output (sclite,kaldi)");
 DEFINE_string(disambiguate, "", "");
 
 namespace fst {
-
 // Compute all the simple paths in an acyclic WFST
 // It is assumed that final states have no out-going arcs
 template<class Arc, class C>
 int AllPaths(const Fst<Arc>& fst, C& c) {
+  LOG(INFO) << CountStates(fst);
   typedef typename Arc::StateId S;
   typedef typename Arc::Weight W;
   typedef typename Arc::Label L;
@@ -112,13 +112,11 @@ int AllPaths(const Fst<Arc>& fst, C& c) {
       if (!iter.Done())
         LOG(FATAL) << "Final state has out going arcs";
       c(current_path, current_cost.back());
-      current_path.pop_back();
-      num_paths++;
+      ++num_paths;
     }
   }
-
   for (size_t i = 0; i != arc_iterators.size(); ++i)
-    delete  arc_iterators[i];
+    delete arc_iterators[i];
   return num_paths;
 }
 
@@ -188,7 +186,7 @@ void PrintStrings(const Fst<Arc>& ifst, const string& key,
   typedef typename Arc::Label Label;
   if (FLAGS_verify && !Verify(ifst))
     LOG(FATAL) << "Bad fst detected : " << key;
-  if (ifst.Start() != kNoStateId) {
+  if (ifst.Start() != kNoStateId && CountStates(ifst) > 1) {
     vector<pair<string, Weight> > strings;
     PathInserter<Label, Weight> pi(symbols, &strings);
     AllPaths(ifst, pi);
@@ -200,11 +198,14 @@ void PrintStrings(const Fst<Arc>& ifst, const string& key,
         else
           ss <<  strings[i].second << " ";
       }
-      if (FLAGS_format == "rnnlm")
-        ss << utt << " ";
-      ss << strings[i].first;
-      if (FLAGS_format == "sclite")
-        ss << "(" << key << ")";
+      if (FLAGS_format == "rnnlm") {
+        ss << utt << " "; 
+      } else if (FLAGS_format == "sclite") {
+        ss << "(" << key << ") " << strings[i].first;
+      } else if (FLAGS_format == "kaldi") {
+        ss << key << " " << strings[i].first;
+      } else {
+      }
       ss << "\n";
     }
     cout << ss.str();

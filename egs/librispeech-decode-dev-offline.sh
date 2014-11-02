@@ -1,4 +1,5 @@
 #!/bin/bash
+#Script to deccode the segments and score the outputs
 
 for f in  aa ab ac ad ;
 do 
@@ -12,4 +13,7 @@ do
   dev-clean.$f.far &> dev-clean.$f.log &
 done
 
-wait
+../src/bin/farprintnbeststrings \
+  --symbols=words.txt --print_weights=false \
+  --format=kaldi --wildcards=3 dev-clean.aa.far | \
+  compute-wer --text --mode=present ark:- ark:LibriSpeech/dev-clean/text
