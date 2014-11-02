@@ -70,4 +70,3 @@ fi
 #tar -zxvf archive.tar.gz -C graph_test_tgmed --strip-components=1
 #../script/makeclevel.sh lang_test_tgmed  nnet_a graph_test_tgmed ../../kaldi
 
-
