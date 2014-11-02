@@ -28,3 +28,6 @@
 *.app
 
 *.log
+gitrevision.cc
+compiler-version.cc
+compiler-flags.cc

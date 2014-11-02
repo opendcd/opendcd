@@ -48,7 +48,6 @@ DEFINE_bool(verify, false, "");
 DEFINE_bool(push, false, "");
 DEFINE_bool(to_real, false, "Print costs in the real semiring");
 DEFINE_string(format, "", "Format output");
-DEFINE_string(edit, "", "");
 DEFINE_string(disambiguate, "", "");
 
 namespace fst {
