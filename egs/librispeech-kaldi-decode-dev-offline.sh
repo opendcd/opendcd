@@ -6,7 +6,7 @@ set -x
 b=15
 for f in  aa ab ac ad ;
 do 
-decode-faster-mapped \
+~/tools/kaldi/src/bin/latgen-faster-mapped \
   --max-active=7000 --beam=$b --acoustic-scale=0.1 \
   --word-symbol-table=tmp/words.txt \
   nnet_a/final.mdl \

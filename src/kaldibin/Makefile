@@ -18,6 +18,18 @@ make-arc-types: make-arc-types.o
 	$(KALDI_ROOT)/src/matrix/kaldi-matrix.a \
 	$(ATLASLIBS)
 
+lattice-to-far: lattice-to-far.o
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) \
+  $(KALDI_ROOT)/src/lat/kaldi-lat.a \
+	$(KALDI_ROOT)/src/util/kaldi-util.a \
+	$(KALDI_ROOT)/src/gmm/kaldi-gmm.a \
+	$(KALDI_ROOT)/src/hmm/kaldi-hmm.a \
+	$(KALDI_ROOT)/src/tree/kaldi-tree.a \
+  $(KALDI_ROOT)/src/base/kaldi-base.a \
+	$(KALDI_ROOT)/src/matrix/kaldi-matrix.a \
+	$(ATLASLIBS)
+
+
 clean:
 	rm -rf *.o make-arc-types
 

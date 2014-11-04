@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
     LatticeToFarOpts opts = { 1.0f, 1.0f, false };
     string arc_type = "std";
     const char *usage =
-        "Turn lattices into a FAR archieve containing FSTs with lattice compact lattice, std or log weights \n"
+        "Turn lattices into a FAR archieve containing FSTs with lattice, compact lattice, std or log weights \n"
         "By default, removes all weights and also epsilons (configure with\n"
         "with --acoustic-scale, --lm-scale and --rm-eps)\n"
         "Usage: lattice-to-fst [options] lattice-rspecifier fsts-wspecifier\n"
@@ -112,8 +112,8 @@ int main(int argc, char *argv[]) {
     }
     if (arc_type == "std") 
       ConvertLattices<StdArc>(&po, opts);
-    else if (arc_type == "log")
-      ConvertLattices<LogArc>(&po, opts);
+    //else if (arc_type == "log")
+    //  ConvertLattices<LogArc>(&po, opts);
     else if (arc_type == "lattice")
       ConvertLattices<LatticeArc>(&po, opts);
     else if (arc_type == "compactlattice")
