@@ -1,11 +1,17 @@
 #!/bin/bash
-~/tools/kaldi/src/online2bin/online2-wav-nnet2-latgen-faster \
-  --online=false --do-endpointing=false \
-  --config=online_nnet2_decoding.conf \
-  --max-active=7000 --beam=15.0 --lattice-beam=6.0 --acoustic-scale=0.1 \
+#Script to launch Kaldi decoder on the precompute features.
+#Used as a baseline comparison
+#Author : Paul R. Dixon
+set -x
+b=15
+for f in  aa ab ac ad ;
+do 
+decode-faster-mapped \
+  --max-active=7000 --beam=$b --acoustic-scale=0.1 \
   --word-symbol-table=tmp/words.txt \
   nnet_a/final.mdl \
   tmp/HCLG.fst \
-  ark:utt2spk \
-  "ark,s,cs:~/tools/kaldi/src/featbin/wav-copy scp,p:wav.scp ark:- |"\
-  "ark:|gzip -c > lat.1.gz" 
+  ark:dev-clean.$f.ark \
+  ark:dev-clean.kaldi.decode.$f.ark &> dev-clean.kaldi.decode.$f.log &
+done
+wait

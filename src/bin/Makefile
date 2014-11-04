@@ -1,4 +1,4 @@
-all: dcd-recog far-to-lattice farprintnbeststrings farfilter
+all: dcd-recog far-to-lattice farprintnbeststrings farfilter lattice-to-far
 #arc-expand dcd-lexicon 
 
 #Select the Makefile based on the platform

@@ -1,7 +1,7 @@
 #!/bin/bash
-./makescp.py `pwd`/LibriSpeech/dev-clean/ > dev-clean.scp
-awk '{print $1,$1}' < dev-clean.scp  > dev-clean.utt2spk
-split -l 676 dev-clean.utt2spk dev-clean-utt2spk.
+#./makescp.py `pwd`/LibriSpeech/dev-clean/ > dev-clean.scp
+#awk '{print $1,$1}' < dev-clean.scp  > dev-clean.utt2spk
+#split -l 676 dev-clean.utt2spk dev-clean-utt2spk.
 for f in  aa ab ac ad ;
 do 
   echo $f
