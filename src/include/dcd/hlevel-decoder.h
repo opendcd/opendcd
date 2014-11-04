@@ -18,7 +18,7 @@
 
 
 // Modified file from Kaldi standalone OpenDcd standalone compilation
-// used for comparison and initial development bootstrap
+// used for comparison and initial development bootstrap.
 
 #ifndef DCD_STATE_DECODER_H__
 #define DCD_STATE_DECODER_H__
@@ -52,11 +52,11 @@ class HLevelDecoder {
   typedef fst::StdArc Arc;
   typedef Arc::Label Label;
   typedef Arc::StateId StateId;
-  typedef Arc::Weight Weight;  
+  typedef Arc::Weight Weight;
 
 
   HLevelDecoder (const StdFst& fst,
-    const HLevelDecoderOptions &opts): 
+    const HLevelDecoderOptions &opts):
     fst_(fst), opts_(opts) {
     KALDI_ASSERT(opts_.hash_ratio >= 1.0);  // less doesn't make much sense.
     KALDI_ASSERT(opts_.max_active > 1);
@@ -69,7 +69,7 @@ class HLevelDecoder {
     ClearToks(toks_.Clear());
   }
 
-  float Decode(const vector<vector<float> > &features, 
+  float Decode(const vector<vector<float> > &features,
       fst::MutableFst<KaldiLatticeArc> *ofst) {
     // clean up from last time:
     ClearToks(toks_.Clear());
@@ -148,7 +148,7 @@ class HLevelDecoder {
     if (is_final) {
       Weight final_weight = fst_.Final(best_tok->arc_.nextstate);
       fst_out->SetFinal(cur_state, LatticeWeight(final_weight.Value(), 0.0));
-    } else {      
+    } else {
       fst_out->SetFinal(cur_state, LatticeWeight::One());
     }
     //RemoveEpsLocal(fst_out);
@@ -192,7 +192,7 @@ class HLevelDecoder {
       if (prev_ != NULL) HTokenDelete(prev_);
     }
     inline static void HTokenDelete(HToken *tok) {
-      if (tok->ref_count_ == 1) { 
+      if (tok->ref_count_ == 1) {
         delete tok;
       } else {
         tok->ref_count_--;
@@ -342,7 +342,7 @@ class HLevelDecoder {
 
   // TODO: first time we go through this, could avoid using the queue.
   void ProcessNonemitting(BaseFloat cutoff) {
-    // Processes nonemitting arcs for one frame. 
+    // Processes nonemitting arcs for one frame.
     KALDI_ASSERT(queue_.empty());
     for (Elem *e = toks_.GetList(); e != NULL;  e = e->tail)
       queue_.push_back(e->key);
@@ -388,7 +388,7 @@ class HLevelDecoder {
   // them at a time can be indexed by StateId.
 
   HashList<StateId, HToken*> toks_;
-  const fst::Fst<Arc>& fst_;  
+  const fst::Fst<Arc>& fst_;
   HLevelDecoderOptions opts_;
   std::vector<StateId> queue_;  // temp variable used in ProcessNonemitting,
   std::vector<BaseFloat> tmp_array_;  // used in GetCutoff.
