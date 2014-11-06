@@ -20,8 +20,14 @@
 #ifndef DCD_HMM_TRANSITION_MODEL_H__
 #define DCD_HMM_TRANSITION_MODEL_H__
 
+#include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <set>
+#include <string>
+#include <utility>
+#include <vector>
+
 #include <fst/extensions/far/far.h>
 
 #include <dcd/lattice.h>
@@ -47,31 +53,9 @@ const int kDisambiguation = 1;
 const int kLeftToRight = 2;
 const int kErgodic = 3;
 
-struct HMMArc {
-  int nexstate;
-  float weight;
-};
-
-struct HMMState {
-  int state;
-  int numarcs;
-  HMMArc arcs[0];
-};
-
-struct LRHMMState {
-  int state;
-  float next;
-  float loop;
-};
-
-struct LRHMMM {
-  LRHMMState states[4];
-};
-
 // typedef TokenTpl<Lattice::LatticeState*> Token;
 // This class encapsulates the left-to-right
 // or ergodic transition model used in Kaldi's silence
-//
 template<class Decodable>
 class HMMTransitionModel {
   typedef pair<float, float> FloatPair;
@@ -110,7 +94,7 @@ class HMMTransitionModel {
   }
 
   bool Write(ostream* strm) {
-    //TODO add a header
+    // TODO(Paul) add a header
     WriteType(*strm, num_hmms_);
     WriteType(*strm, total_num_states_);
     WriteType(*strm, num_eps_);
@@ -132,8 +116,8 @@ class HMMTransitionModel {
     return Write(&ofs);
   }
 
-  //Returns the final weight to leave the arc
-  //or some other exit penalty
+  // Returns the final weight to leave the arc
+  // or some other exit penalty
   float GetExitWeight(int ilabel) const {
     if (types_[ilabel] == kLeftToRight) {
       int woffset = weight_offsets_[ilabel];
@@ -161,7 +145,7 @@ class HMMTransitionModel {
   bool WriteLeftToRightType(ostream& strm, int type) {
     int woffset = weight_offsets_[type];
     int soffset = state_offsets_[type];
-    float* weights = &weights_[woffset + 1]; //Add one extra for the sentinel
+    float* weights = &weights_[woffset + 1];  // Add one extra for the sentinel
     int* labels = &state_labels_[soffset + 1];
     strm << "HMM " << type << " " << 3 << endl;
     for (int j = 0; j != 3; ++j) {
@@ -176,7 +160,7 @@ class HMMTransitionModel {
   bool WriteErgodicType(ostream& strm, int type) {
     int woffset = weight_offsets_[type];
     int soffset = state_offsets_[type];
-    float* weights = &weights_[woffset + 1]; //Add one extra for the sentinel
+    float* weights = &weights_[woffset + 1];  // Add one extra for the sentinel
     int* labels = &state_labels_[soffset + 1];
     int* next_states = &next_states_[woffset + 1];
     strm << "HMM " << type << endl;
@@ -244,7 +228,7 @@ class HMMTransitionModel {
     int numergodic = 0;
     int numhmms = 0;
     HMMTransitionModel* mdl = new HMMTransitionModel;
-    //We assume bakis have three states and ergodic have five states
+    // We assume bakis have three states and ergodic have five states
     for (int i = 0; i != fsts.size(); ++i) {
       const Fst<Arc>& fst = *(fsts[i]);
       int nstates = CountStates(fst);
@@ -259,13 +243,13 @@ class HMMTransitionModel {
                 break;
         case 4: ++numbakis;
                 mdl->types_.push_back(kLeftToRight);
-                mdl->weights_.push_back(0.0f); //Sentinels for token expansion
+                mdl->weights_.push_back(0.0f);  // Sentinels for token expansion
                 mdl->state_labels_.push_back(-1);
                 mdl->next_states_.push_back(0);
                 break;
         case 6: ++numergodic;
                 mdl->types_.push_back(kErgodic);
-                mdl->weights_.push_back(0.0f); //Sentinels for token expansion
+                mdl->weights_.push_back(0.0f);  // Sentinels for token expansion
                 mdl->state_labels_.push_back(-1);
                 mdl->next_states_.push_back(0);
                 break;
@@ -296,7 +280,7 @@ class HMMTransitionModel {
     mdl->num_ergodic_ = numergodic;
     mdl->fsts_ = fsts;
 
-    //Sanity check to make sure the arrays were filled correctly
+    // Sanity check to make sure the arrays were filled correctly
     int num_states = mdl->num_eps_ + mdl->num_bakis_ * 4 +
         mdl->num_ergodic_ * 6;
     assert(num_states == mdl->state_labels_.size());
@@ -305,7 +289,6 @@ class HMMTransitionModel {
         mdl->num_ergodic_ * 18;
 
     return mdl;
-
   }
 
   template<class Arc>
@@ -317,7 +300,7 @@ class HMMTransitionModel {
     int numergodic = 0;
     int numhmms = 0;
     HMMTransitionModel* mdl = new HMMTransitionModel;
-    //We assume bakis have three states and ergodic have five states
+    // We assume bakis have three states and ergodic have five states
     for (; !reader->Done(); reader->Next(), ++numhmms) {
       const string& str = reader->GetKey();
       mdl->hmm_syms_.AddSymbol(str);
@@ -333,13 +316,13 @@ class HMMTransitionModel {
                 break;
         case 4: ++numbakis;
                 mdl->types_.push_back(kLeftToRight);
-                mdl->weights_.push_back(0.0f); //Sentinels for token expansion
+                mdl->weights_.push_back(0.0f);  // Sentinels for token expansion
                 mdl->state_labels_.push_back(-1);
                 mdl->next_states_.push_back(0);
                 break;
         case 6: ++numergodic;
                 mdl->types_.push_back(kErgodic);
-                mdl->weights_.push_back(0.0f); //Sentinels for token expansion
+                mdl->weights_.push_back(0.0f);  // Sentinels for token expansion
                 mdl->state_labels_.push_back(-1);
                 mdl->next_states_.push_back(0);
                 break;
@@ -369,7 +352,7 @@ class HMMTransitionModel {
     mdl->num_bakis_ = numbakis;
     mdl->num_ergodic_ = numergodic;
 
-    //Sanity check to make sure the arrays were filled correctly
+    // Sanity check to make sure the arrays were filled correctly
     int num_states = mdl->num_eps_ + mdl->num_bakis_ * 4 +
         mdl->num_ergodic_ * 6;
     assert(num_states == mdl->state_labels_.size());
@@ -386,29 +369,33 @@ class HMMTransitionModel {
     return mdl;
   }
 
-    //Ergodic HMMs are more tricky, in this version just do
-  //the simpliest way
+    // Ergodic HMMs are more tricky, in this version just do
+  // the simpliest way
   template<class Token>
-  inline FloatPair ExpandErgodic(int label, Token* tokens, float* weights, int* states) {
+  inline FloatPair ExpandErgodic(int label, Token* tokens, float* weights,
+                                 int* states) {
     Token token_scratch_[kMaxTokensPerArc];
     ClearTokens(token_scratch_, kMaxTokensPerArc);
     float best_cost = kMaxCost;
 
     best_cost = min(token_scratch_[1].Combine(tokens[0]), best_cost);
 
-    //First transition outgoing arcs
+    // First transition outgoing arcs
     for (int i = 1; i != 5; ++i)
-      best_cost = min(token_scratch_[i].Combine(tokens[1], *weights++), best_cost);
+      best_cost = min(token_scratch_[i].Combine(tokens[1], *weights++),
+                      best_cost);
 
-    //Clearly re-arraning this will allow parallel expansion
+    // Clearly re-arraning this will allow parallel expansion
     for (int n = 2; n != 5; ++n)
       for (int i = 2; i != 6; i++)
-        best_cost = min(token_scratch_[i].Combine(tokens[n], *weights++), best_cost);
+        best_cost = min(token_scratch_[i].Combine(tokens[n], *weights++),
+                        best_cost);
 
-    //Last transition
-    best_cost = min(token_scratch_[5].Combine(tokens[5], *weights++), best_cost);
+    // Last transition
+    best_cost = min(token_scratch_[5].Combine(tokens[5], *weights++),
+                    best_cost);
 
-    //Delete the first token so we don't re-expand on the next frame
+    // Delete the first token so we don't re-expand on the next frame
     tokens[0].Clear();
     for (int i = 1; i != 6; ++i)
       tokens[i] = token_scratch_[i];
@@ -422,8 +409,8 @@ class HMMTransitionModel {
       tokens[i].Clear();
   }
 
-  //For left-to-right HMMs just work backwards down the array
-  //The prefetch work in reverse
+  // For left-to-right HMMs just work backwards down the array
+  // The prefetch work in reverse
   template<class Token>
   inline FloatPair ExpandLeftToRight(int label, Token* tokens, float* weights,
                                      int* states) {
@@ -431,8 +418,8 @@ class HMMTransitionModel {
     float best_cost = kMaxCost;
     for (int i = 3; i > 0; --i) {
       if (tokens[i].Active() || tokens[i - 1].Active()) {
-        //HMM weights are just a straight array
-        //state n loop | state n - 1 next
+        // HMM weights are just a straight array
+        // state n loop | state n - 1 next
         //  5          |  4
         //  3          |  2
         //  1          |  0
@@ -448,13 +435,13 @@ class HMMTransitionModel {
         best_cost = min(best_cost, tokens[i].Cost());
       }
     }
-    //Clear the first token so it doesn't get used again during
-    //the next expansion
+    // Clear the first token so it doesn't get used again during
+    // the next expansion
     tokens[0].Clear();
     return FloatPair(best_cost, kMaxCost);
   }
 
-  //Expand the tokens in the arc or (sub network)
+  // Expand the tokens in the arc or (sub network)
   template<class Options>
   inline FloatPair ExpandGeneric(int ilabel, Options *opts) {
     PROFILE_FUNC();
@@ -474,9 +461,10 @@ class HMMTransitionModel {
         for (ArcIterator<StdFst> aiter(topo, i); !aiter.Done(); aiter.Next()) {
           const StdArc& arc = aiter.Value();
           float cost = nexttokens[arc.nextstate].Combine(tokens[i],
-                                                         + arc.weight.Value() + Score(arc.ilabel));
+                                                         + arc.weight.Value()
+                                                         + Score(arc.ilabel));
           if (cost > threshold) {
-            //Maybe this doesn't help efficiency very much
+            // Maybe this doesn't help efficiency very much
             nexttokens[arc.nextstate].Clear();
           } else {
             bestcost = min(bestcost, cost);
@@ -490,10 +478,10 @@ class HMMTransitionModel {
 
     return FloatPair(bestcost, kMaxCost);
   }
-  //Expand the transition model corresponding
-  //to the ilabel and return the cost from the
-  //best scoring token
-  //Pass in an optional lattice pointer for state level lattice generation
+  // Expand the transition model corresponding
+  // to the ilabel and return the cost from the
+  // best scoring token
+  // Pass in an optional lattice pointer for state level lattice generation
   template<class Options>
   FloatPair Expand(int ilabel, Options* opts) {
     acoustic_scale_ = opts->opts_.acoustic_scale;
@@ -501,28 +489,28 @@ class HMMTransitionModel {
     float* weights = &weights_[woffset];
     int* states = &state_labels_[state_offsets_[ilabel]];
     float best_cost = kMaxCost;
-    switch(types_[ilabel]) {
+    switch (types_[ilabel]) {
       case kEpsilon:
-      case kDisambiguation: //Should never happen
+      case kDisambiguation:  // Should never happen
         break;
       case kLeftToRight:
         return ExpandLeftToRight(ilabel, opts->tokens_, weights, states);
         break;
       case kErgodic:
         return ExpandGeneric(ilabel, opts);
-        //return ExpandErgodic(ilabel, tokens, weights, states);
+        // return ExpandErgodic(ilabel, tokens, weights, states);
         break;
     }
     return FloatPair(best_cost, kMaxCost);
   }
 
-  //Returns the score with slabel
-  //Scores index are zero based
+  // Returns the score with slabel
+  // Scores index are zero based
   inline float Score(int slabel) {
     return -decodable_->LogLikelihood(index_, slabel - 1) * acoustic_scale_;
   }
 
-  //Set the input the
+  // Set the input the
   void SetInput(Decodable *decodable,
                 const SearchOptions &opts) {
     index_ = 0;
@@ -540,7 +528,7 @@ class HMMTransitionModel {
 
   int Type(int ilabel) const { return types_[ilabel]; }
 
-  //Returns true for epsilon or disambiguation symbols
+  // Returns true for epsilon or disambiguation symbols
   bool IsNonEmitting(int ilabel) const {
     return types_[ilabel] == kEpsilon || types_[ilabel] == kDisambiguation;
   }
@@ -563,7 +551,8 @@ class HMMTransitionModel {
 
   int NumStates(int ilabel) const {
     if (ilabel >= num_states_.size())
-      LOG(FATAL) << "Out of bounds arc look-up - relabelling or aux symbols? " << ilabel << " " <<  num_states_.size();
+      LOG(FATAL) << "Out of bounds arc look-up - relabelling or aux symbols? "
+          << ilabel << " " <<  num_states_.size();
     return num_states_[ilabel] - 1;
     switch (types_[ilabel]) {
       case kEpsilon: return 0;
@@ -579,9 +568,9 @@ class HMMTransitionModel {
   }
 
  protected:
-  //Temporary tokens when expanding ergodic hmms
+  // Temporary tokens when expanding ergodic hmms
   Decodable *decodable_;
-  int index_; //Current frame number
+  int index_;  // Current frame number
 
   struct TransitionModelHeader {
     int num_hmms_;
@@ -595,7 +584,7 @@ class HMMTransitionModel {
     }
   };
 
-  //HMM and state information
+  // HMM and state information
   int num_hmms_;
   int num_eps_;
   int num_bakis_;
@@ -606,25 +595,26 @@ class HMMTransitionModel {
   set<int> state_labels_set_;
   set<int> eps_labels_set_;
 
-  //HMM information
+  // HMM information
   vector<int> types_;
 
   vector<int> weight_offsets_;
   vector<int> state_offsets_;
 
-  vector<float> weights_; //Arc transition probs
-  vector<int> next_states_; //Destination states
-  vector<int> state_labels_; //HMM states labels (normally would a label per
-  //arc but we use a Moore machine with the
-  //labels on the states because the transitions
-  //leaving a state all have the same labels
+  vector<float> weights_;  // Arc transition probs
+  vector<int> next_states_;  // Destination states
+  vector<int> state_labels_;  // HMM states labels, normally would a label per
+                              // arc but we use a Moore machine with the
+                              // labels on the states because the transitions
+                              //  leaving a state all have the same labels
 
   SymbolTable hmm_syms_;
   vector<int> num_states_;
   vector<const Fst<StdArc>*> fsts_;
-  private:
-  DISALLOW_COPY_AND_ASSIGN(HMMTransitionModel);
-  };
-} //namepace dcd
 
-#endif
+ private:
+  DISALLOW_COPY_AND_ASSIGN(HMMTransitionModel);
+};
+}  // namespace dcd
+
+#endif  // DCD_HMM_TRANSITION_MODEL_H__
