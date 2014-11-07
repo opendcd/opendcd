@@ -16,8 +16,8 @@ opengrm_compiled: opengrm-src/Makefile
 
 opengrm-src/Makefile: $(GRMDIR)
 	cd opengrm-src/; ./configure --prefix=$(LOCAL) \
-		CXXFLAGS=-I$(PWD)/openfst-src/include/ \
-		LDFLAGS="-L$(PWD)/openfst-src/lib/ -L$(PWD)/openfst-src/lib/fst/"
+		CXXFLAGS=-I$(PWD)/local/include/ \
+		LDFLAGS="-L$(PWD)/local/lib/ -L$(PWD)/local/lib/fst/"
 
 $(GRMDIR): | opengrm-src.tar.gz
 	mkdir -p $(GRMDIR)
