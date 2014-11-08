@@ -20,12 +20,12 @@
 #define DCD_STL_H__
 
 #ifdef USERDESTL
-//Optionally use the RDE hash_map and vector
-//Perhaps add EASTL or Google Sparsehash These maybe be faster and allow for
-//better memory tweaking
+// Optionally use the RDE hash_map and vector
+// Perhaps add EASTL or Google's Sparsehash These maybe be faster and allow for
+// better memory control
 
-#include "../../../3rdparty/rdestl/vector.h"
-#include "../../../3rdparty/rdestl/hash_map.h"
+#include <rdestl/hash_map.h>
+#include <rdestl/vector.h>
 
 namespace dcd {
 template<class T>
@@ -42,7 +42,7 @@ template<class T>
 void ClearVector(rde::vector<T> *vec) {
   vec->clear();
 }
-}
+}  // namespace dcd
 
 #else
 #include <vector>
@@ -76,5 +76,5 @@ struct TokenVectorHelper {
   typedef std::array<T, N> TokenVector;
 };
 }
-#endif
-#endif
+#endif  // namespace dcd
+#endif  // DCD_STL_H__
