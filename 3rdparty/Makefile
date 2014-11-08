@@ -1,7 +1,7 @@
 SRCDIR=openfst-src
 GRMDIR=opengrm-src
 #all: openfst Shiny
-all: opengrm
+all: openfst
 PWD=$(shell pwd)
 LOCAL=$(PWD)/local
 
@@ -27,7 +27,7 @@ opengrm-src.tar.gz:
 	curl "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.2.1.tar.gz" -o opengrm-src.tar.gz
 
 openfst-src.tar.gz:
-	curl "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.4.1.tar.gz" -o openfst-src.tar.gz
+	curl "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.3.4.tar.gz" -o openfst-src.tar.gz
 
 openfst-src/Makefile: $(SRCDIR)
 	cd openfst-src/; ./configure --prefix=$(LOCAL) \

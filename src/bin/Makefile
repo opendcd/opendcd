@@ -1,5 +1,4 @@
 all: dcd-recog far-to-lattice farprintnbeststrings farfilter lattice-to-far
-#arc-expand dcd-lexicon 
 
 #Select the Makefile based on the platform
 UNAME_S=$(shell uname)
@@ -29,11 +28,11 @@ compiler-flags.cc: Makefile ${MK}
 
 dcd-recog: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrevision.o compiler-flags.o \
 	memdebug.o compiler-version.o cpu-stats.o config.o feat-readers.o
-	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar 
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfarscript
 
 dcd-recog-profile: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrevision.o compiler-flags.o \
 	memdebug.o compiler-version.o cpu-stats.o config.o feat-readers.o
-	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar 
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar
 
 dcd-recg.cc: ../include/dcd/arc-decoder.h
 

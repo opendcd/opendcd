@@ -30,6 +30,7 @@
 
 #include <fst/extensions/far/far.h>
 
+#include <dcd/config.h>
 #include <dcd/lattice.h>
 #include <dcd/token.h>
 #include <dcd/utils.h>

@@ -218,7 +218,7 @@ class SimpleLattice {
     return ls;
   }
 
-  void DumpInfo() {v}
+  void DumpInfo() { }
 
   State* NewState(int time, int state) {
     State* lattice_state = new State;

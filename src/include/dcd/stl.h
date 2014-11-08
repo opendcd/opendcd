@@ -19,6 +19,18 @@
 #ifndef DCD_STL_H__
 #define DCD_STL_H__
 
+#ifdef HAVEKALDI
+  #include <tr1/unordered_map>
+  #include <tr1/unordered_set>
+  using std::tr1::unordered_map;
+  using std::tr1::unordered_set;
+#else
+  #include <unordered_map>
+  #include <unordered_set>
+  using std::unordered_map;
+  using std::unordered_set;
+#endif
+
 #ifdef USERDESTL
 // Optionally use the RDE hash_map and vector
 // Perhaps add EASTL or Google's Sparsehash These maybe be faster and allow for
@@ -43,11 +55,8 @@ void ClearVector(rde::vector<T> *vec) {
   vec->clear();
 }
 }  // namespace dcd
-
 #else
 #include <vector>
-#include <unordered_map>
-#include <array>
 namespace dcd {
 
 template<class T>
@@ -63,7 +72,7 @@ void ClearVector(std::vector<T> *vec) {
 
 template<class K, class V>
 struct HashMapHelper {
-  typedef std::unordered_map<K, V> HashMap;
+  typedef unordered_map<K, V> HashMap;
 };
 
 template<class T, int N>
@@ -71,10 +80,12 @@ struct SmallVectorHelper {
   typedef std::vector<T> SmallVector;
 };
 
+/*
 template<class T, int N>
 struct TokenVectorHelper {
   typedef std::array<T, N> TokenVector;
 };
-}
-#endif  // namespace dcd
+*/
+}  // namespace dcd
+#endif
 #endif  // DCD_STL_H__
