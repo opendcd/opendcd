@@ -27,13 +27,12 @@ opengrm-src.tar.gz:
 	curl "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.2.1.tar.gz" -o opengrm-src.tar.gz
 
 openfst-src.tar.gz:
-	curl "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.3.4.tar.gz" -o openfst-src.tar.gz
+	curl "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.4.1.tar.gz" -o openfst-src.tar.gz
 
 openfst-src/Makefile: $(SRCDIR)
 	cd openfst-src/; ./configure --prefix=$(LOCAL) \
 	--enable-static --enable-bin --enable-compact-fsts --enable-const-fsts --enable-far \
-	--enable-linear-fsts --enable-lookahead-fsts --enable-ngram-fsts --enable-pdt --enable-bin \
-	CXX=$(CXX) CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" LIBS="-ldl"
+	--enable-linear-fsts --enable-lookahead-fsts --enable-ngram-fsts --enable-pdt --enable-bin
 
 .PHONY: openfst # so target will be made even though "openfst" exists.
 
