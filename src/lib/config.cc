@@ -63,6 +63,7 @@ string GetHostname() {
   memset(str, 0, 1024);
   gethostname(str, 1024);
   return string(str);
+}
 #endif
 
 void PrintMachineInfo() {

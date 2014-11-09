@@ -3,6 +3,7 @@ $(error KALDI_ROOT is not set)
 endif
 
 all: make-arc-types lattice-to-far dcd-recog-kaldi
+
 VPATH=../lib:../bin
 
 include $(KALDI_ROOT)/src/kaldi.mk
