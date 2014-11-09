@@ -36,7 +36,6 @@ void PrintVersionInfo() {
 
 //Functions to queury to the total system memory
 //Answer from http://stackoverflow.com/questions/2513505/how-to-get-available-memory-c-g
-
 #ifdef MSVCVER
 size_t GetTotalSystemMemory() {
     MEMORYSTATUSEX status;
@@ -54,6 +53,18 @@ size_t GetTotalSystemMemory() {
 }
 #endif
 
+#ifdef _MSCVER
+string GetHostname() {
+  return "";
+}
+#else
+string GetHostname() {
+  char str[1024];
+  memset(str, 0, 1024);
+  gethostname(str, 1024);
+  return string(str);
+#endif
+
 void PrintMachineInfo() {
   cerr << "Machine information : " << endl;
   cerr << "\tNumber of cores\t\t: " << endl;
@@ -62,7 +73,7 @@ void PrintMachineInfo() {
   cerr << "\tMachine is virtual\t: " << endl;
   cerr << "\tAmount of memory\t: " << GetTotalSystemMemory()  << endl;
   cerr << "\tOS version\t\t: " << endl;
-  cerr << "\tHostname\t\t: " << endl;
+  cerr << "\tHostname\t\t: " << GetHostname() << endl;
 }
 
 ///Code take from https://www.hackerzvoice.net/ouah/Red_%20Pill.html

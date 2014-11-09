@@ -12,8 +12,10 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author : Paul R. Dixon
 // \file Simple and generic lattice that support one-best or lattice generation
-// and partial hypothesis output in the former, backpointers are raw c++ pointers
+// and partial hypothesis output (one-best-only), backpointers are raw c++
+// pointers
 
 #ifndef DCD_LATTICE_H__
 #define DCD_LATTICE_H__
@@ -34,7 +36,6 @@ class Lattice {
   struct State;
   typedef State* LatticeState;
   struct LatticeArc {
-
     LatticeArc() { Clear(); }
 
     LatticeArc(const LatticeArc& other)
@@ -83,9 +84,8 @@ class Lattice {
 
     int OLabel() const { return olabel_; }
 
-    //We need function for each weight type to convert from
-    //the LatticeArc to the OpenFst Arc type
-    //This is done using overloads
+    // We need function for each weight type to convert fro the LatticeArc to
+    // the OpenFst Arc type This is done using overloads
 
     void ConvertWeight(StdArc::Weight* w) const {
       *w = am_weight_ + lm_weight_;
@@ -109,10 +109,10 @@ class Lattice {
       forwards_cost_ = forwards_cost;
     }
 
-    //Create an OpenFst version of the best sequence from this state
+    // Create an OpenFst version of the best sequence from this state
     template<class Arc>
     int GetBestSequence(VectorFst<Arc>* ofst) const {
-      //PROFILE_FUNC();
+      // PROFILE_FUNC();  // Commented out because this is slow
       assert(index_ != -1);
       int d = -1;
       if (PrevState()) {
@@ -135,34 +135,33 @@ class Lattice {
       return  best_arc_.prevstate_ ? best_arc_.prevstate_->Id() : -1;
     }
 
-
     int PrevStateIndex() const {
       return  best_arc_.prevstate_ ? best_arc_.prevstate_->index_ : -1;
     }
-    //Add a new arc to lattice state
+    // Add a new arc to lattice state, returns a pair that of the cost of the
+    // arc arriving in the state the forward (best) cost of arriving in the
+    // state
     template<class T>
-    pair<float, float> AddArc(State* src, float cost,  const T& arc,
-        float threshold, const SearchOptions& opts) {
-      //TODO add rescoring here
-
-      //Total LM/AM/Trn cost accumulated in the arc
+    pair<float, float> AddArc(State* src, float cost, const T& arc,
+                              float threshold, const SearchOptions& opts) {
+      // TODO(Paul) add rescoring here.
+      // Total LM/AM/Trn costs accumulated in the arc
       float arc_cost = cost - src->ForwardsCost();
       float am_cost = arc_cost - arc.Weight();
       LatticeArc lattice_arc(src, arc.ILabel(), arc.OLabel(), am_cost,
           arc.Weight(), 0.0f);
       if (cost < forwards_cost_) {
-        //New best token arriving
+        // New best token arriving
         best_arc_ = lattice_arc;
         forwards_cost_ = cost;
       }
 
-      //Generating a lattice
-      //Here we use a potentially tigher beam
+      // Generating a lattice, here we can use a potentially tigher beam
       if (opts.gen_lattice && best_arc_.prevstate_) {
         float lat_threshold = forwards_cost_ + opts.lattice_beam;
         if (cost < lat_threshold) {
-          //TODO: check the another arcs in the isn't the same with
-          //just a different cost
+          // TODO(Paul) check that another arc with  same label and worse cost
+          // doesn't already exist  different cost
           arcs_.push_back(lattice_arc);
         }
       }
@@ -221,20 +220,20 @@ class Lattice {
     int Time() const { return time_; }
 
    protected:
-    int state_; //the state in the search fst
-    int time_; //Time the lattice state was created
-    int id_; //Unique id assigned to this state
-    int marked_; //Integer useful for storing other values, e.g. refs count
-    //GC marks, id for value into VectorFsts when generating
-    int index_; //Where the lattice state is in the vector of lattice states;
+    int state_;  // The state in the search fst
+    int time_;  // Time the lattice state was created
+    int id_;  // Unique id assigned to this state
+    int marked_;  // Integer useful for storing other values, e.g. refs count
+                  // GC marks, id for value into VectorFsts when generating
+    int index_;  // Where the lattice state is in the vector of lattice states
     float forwards_cost_;
     float backwards_cost_;
 
-    LatticeArc best_arc_; //The best lattice arc arriving in this state
+    LatticeArc best_arc_;  // The best lattice arc arriving in this state
 
     typedef  VectorHelper<LatticeArc>::Vector LatticeArcVector;
-    LatticeArcVector arcs_;  //lattice arcs within the lattice
-    //beam arriving in this state
+    LatticeArcVector arcs_;  // lattice arcs within the lattice_beam poining
+                            //  back from this state
     friend class Lattice;
   };
 
@@ -260,7 +259,7 @@ class Lattice {
       lss.insert(ls);
       if (ls->Index() != i)
         LOG(FATAL) << "Lattice::Check : Index problem in lattice ls->Index() "
-          << ls->Index() << " i " << i;
+                   << ls->Index() << " i " << i;
     }
 
     unordered_set<State*> fss;

@@ -1,7 +1,7 @@
 SRCDIR=openfst-src
 GRMDIR=opengrm-src
 #all: openfst Shiny
-all: opengrm
+all: openfst
 PWD=$(shell pwd)
 LOCAL=$(PWD)/local
 
@@ -32,8 +32,7 @@ openfst-src.tar.gz:
 openfst-src/Makefile: $(SRCDIR)
 	cd openfst-src/; ./configure --prefix=$(LOCAL) \
 	--enable-static --enable-bin --enable-compact-fsts --enable-const-fsts --enable-far \
-	--enable-linear-fsts --enable-lookahead-fsts --enable-ngram-fsts --enable-pdt --enable-bin \
-	CXX=$(CXX) CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" LIBS="-ldl"
+	--enable-linear-fsts --enable-lookahead-fsts --enable-ngram-fsts --enable-pdt --enable-bin
 
 .PHONY: openfst # so target will be made even though "openfst" exists.
 

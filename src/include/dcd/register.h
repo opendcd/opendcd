@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author : Paul R. Dixon
 // \file
 // Classes for registering the different decoder types and generic
 // construction and IO
@@ -19,6 +20,7 @@
 #ifndef DCD_REGISTER_H__
 #define DCD_REGISTER_H__
 
+#include <string>
 #include <dcd/constants.h>
 
 namespace dcd {
@@ -27,12 +29,12 @@ class ParseOptions;
 class SearchOptions;
 
 template<class TransModel, class B>
-int ArcDecoderMain(ParseOptions &po, SearchOptions *opts, 
+int ArcDecoderMain(ParseOptions &po, SearchOptions *opts,
     const string &word_symbols_file);
 
 
 struct DecodeMainEntryBase {
-  virtual int Run(ParseOptions &po, SearchOptions *opts, 
+  virtual int Run(ParseOptions &po, SearchOptions *opts,
                   const string &word_symbols_file) = 0;
   virtual ~DecodeMainEntryBase() = 0;
 };
@@ -40,11 +42,11 @@ struct DecodeMainEntryBase {
 DecodeMainEntryBase::~DecodeMainEntryBase() {
 }
 
-//extern unordered_map<string, DecodeMainEntryBase*> main_map;
+// extern unordered_map<string, DecodeMainEntryBase*> main_map;
 
 template<class T, class B>
 struct DecodeMainEntry : public DecodeMainEntryBase {
-  virtual int Run(ParseOptions &po, SearchOptions *opts, 
+  virtual int Run(ParseOptions &po, SearchOptions *opts,
                   const string &word_symbols_file) {
     return ArcDecoderMain<T, B>(po, opts, word_symbols_file);
   }
@@ -52,7 +54,7 @@ struct DecodeMainEntry : public DecodeMainEntryBase {
 
 
 void ClearMainRegister() {
-  for (typename unordered_map<string, DecodeMainEntryBase*>::iterator it 
+  for (typename unordered_map<string, DecodeMainEntryBase*>::iterator it
       =  main_map.begin(); it != main_map.end(); ++it ) {
     delete it->second;
   }
@@ -60,9 +62,9 @@ void ClearMainRegister() {
 }
 
 DecodeMainEntryBase* FindEntry(const string& key) {
-  typename unordered_map<string, DecodeMainEntryBase*>::iterator it = 
+  typename unordered_map<string, DecodeMainEntryBase*>::iterator it =
     main_map.find(key);
-  if (it == main_map.end()) { 
+  if (it == main_map.end()) {
   #ifdef HAVEDL
     logger(INFO) << "Attempting to load shared object : " << key << "-dcd.so";
     void* handle = dlopen(key + "-dcd.so", RTLD_LAZY);
@@ -90,8 +92,8 @@ struct DecodeMainRegisterer {
   static DecodeMainRegisterer<T<D>, B> \
     decode_registerer ## _ ## T ## _ ## D ## _ ## B(S);
 
-//Idea for a wrapper class around the decoder to hide
-//the underlying template types
+// Idea for a wrapper class around the decoder to hide
+// the underlying template types
 
 class DecoderClassImplBase {
  public:
@@ -99,24 +101,22 @@ class DecoderClassImplBase {
   virtual float Decode() = 0;
 };
 
-template<class Arc, class Trans, class L = Lattice> 
+template<class Arc, class Trans, class L = Lattice>
 class DecoderClassImpl {
  public:
-   template<class F> 
-   virtual float Decode() {
-   };
- //ArcDecoder<Arc, Trans, L>;
+  template<class F>
+  virtual float Decode() { }
+  // ArcDecoder<Arc, Trans, L>;
 };
 
 class DecoderClass {
  public:
-
   template<class F>
   virtual float Decode(const F& f) {
     return impl_-Deocde(f);
   }
 
-  template<class Arc, class Trans, class L = Lattice> 
+  template<class Arc, class Trans, class L = Lattice>
   const ArcDecoder<Arc, Trans, L>*  GetDecoder() {
     string str = Arc::Type() + "_" + Trans::Type(); + "_" + L::Type();
     if (str != Type()) {
@@ -131,7 +131,7 @@ class DecoderClass {
   DecoderClassBaseImpl* impl_;
 };
 
-} //namespace dcd
+}  // namespace dcd
 
-#endif //DCD_REGISTER_H__
+#endif  // DCD_REGISTER_H__
 
