@@ -17,7 +17,7 @@
 set -x
 #First we fetch the small pre-built models then and the online neural networks
 #models
-LIBRISPEECH=http:#www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5
+LIBRISPEECH=http://www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5
 LANG=lang_test_tgsmall
 mkdir -p $LANG/
 mkdir -p $LANG/phones
@@ -34,11 +34,11 @@ done
 REQUIRED="tree final.mdl"
 for F in $REQUIRED; do
   if [ ! -f nnet_a/$F ]; then
-  wget $LIBRISPEECH exp/nnet2_online/nnet_a/tree -P nnet_a/
+    wget $LIBRISPEECH/exp/nnet2_online/nnet_a/$F -P nnet_a/
   fi
 done
 #We also need the models for the iVector extractor
-IVECTOR=http:#www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5/exp/nnet2_online/nnet_a_online/ivector_extractor
+IVECTOR=http://www.kaldi-asr.org/downloads/build/6/trunk/egs/librispeech/s5/exp/nnet2_online/nnet_a_online/ivector_extractor
 REQUIRED="final.dubm final.ie final.mat global_cmvn.stats online_cmvn.conf splice_opts"
 for F in $REQUIRED; do
   if [ ! -f ivector_extractor/$F ]; then
@@ -48,7 +48,7 @@ done
 
 #Fetch some test data and make s short test
 if [ ! -f test-clean.tar.gz ]; then
-  wget http:#www.openslr.org/resources/12/test-clean.tar.gz
+  wget http://www.openslr.org/resources/12/test-clean.tar.gz
   tar -zxf test-clean.tar.gz
 fi
 
@@ -69,4 +69,5 @@ fi
 #mkdir graph_test_tgmed
 #tar -zxvf archive.tar.gz -C graph_test_tgmed --strip-components=1
 #../script/makeclevel.sh lang_test_tgmed  nnet_a graph_test_tgmed ../../kaldi
-
+#http://www.openslr.org/resources/11/4-gram.arpa.gz
+#http://www.openslr.org/resources/11/3-gram.arpa.gz
