@@ -1,4 +1,4 @@
-all: dcd-recog far-to-lattice farprintnbeststrings farfilter lattice-to-far
+all: dcd-recog far-to-lattice farprintnbeststrings farfilter 
 
 #Select the Makefile based on the platform
 UNAME_S=$(shell uname)

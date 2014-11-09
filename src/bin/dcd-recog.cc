@@ -49,7 +49,6 @@ template <class A>
 class TableWriter {
  public:
   typedef A Arc;
-
   // Creates a new (empty) FST table; returns NULL on error.
   static TableWriter* Create(const string& filename) {
     ofstream* strm = new ofstream(filename.c_str());
@@ -73,7 +72,6 @@ class TableWriter {
   ostream* strm_;
   DISALLOW_COPY_AND_ASSIGN(TableWriter);
 };
-
 
 //L is the decoder lattice type
 //B is the output lattice semiring
@@ -341,6 +339,11 @@ REGISTER_DECODER_MAIN("generic_lattice", GenericTransitionModel,
 
 //REGISTER_DECODER_MAIN("hmm_hitstats", HMMTransitionModel, 
 //  SimpleDecodableHitStats, StdArc);
+// 
+
+
+// DecodableAmDiagGmmScaled gmm_decodable(am_gmm, trans_model, features,
+//                                        acoustic_scale);
 
 int main(int argc, char *argv[]) {
   PROFILE_FUNC();
