@@ -14,7 +14,7 @@ else
   CXXFLAGS+=-DOS_LINUX
 endif
 DOTGITDIR+=../../.git
-CXXFLAGS+=-I$(KALDI_ROOT)/src/ -Wno-mismatched-tags -DHAVEKALDI -I../include/
+CXXFLAGS+=-I$(KALDI_ROOT)/src/ -Wno-mismatched-tags -DHAVE_KALDI -I../include/
 FSTLIBDIR=$(KALDI_ROOT)/tools/openfst/
 
 gitrevision.cc: ${DOTGITDIR}/HEAD ${DOTGITDIR}/index

@@ -73,6 +73,8 @@ class TableWriter {
   DISALLOW_COPY_AND_ASSIGN(TableWriter);
 };
 
+
+
 //L is the decoder lattice type
 //B is the output lattice semiring
 template<class TransModel, class L, class B>
@@ -162,13 +164,14 @@ int CLevelDecoderMain(ParseOptions &po, SearchOptions *opts,
     logger(INFO) << "Decoding features : " << key << ", # frames " 
                  << frame_count;
 
-    FrontEnd frontend(features, 1.0f);
+    FrontEnd* frontend = new FrontEnd(features, 1.0f);
     VectorFst<B> ofst;
     VectorFst<B> lattice;
-    trans_model->SetInput(&frontend, *opts);
+    trans_model->SetInput(frontend, *opts);
     timer.Reset();
     float cost = decoder->Decode(trans_model, *opts, &ofst, 
         opts->gen_lattice ? &lattice : 0);
+    delete frontend;
     double elapsed = timer.Elapsed();
     stringstream farkey;
     farkey << setfill('0') << setw(5) << num << "_" << key;
@@ -339,11 +342,21 @@ REGISTER_DECODER_MAIN("generic_lattice", GenericTransitionModel,
 
 //REGISTER_DECODER_MAIN("hmm_hitstats", HMMTransitionModel, 
 //  SimpleDecodableHitStats, StdArc);
-// 
 
-
+/* TODO(PAUL) Refactor the code to allow for a user specified factory to build
+ * the various decoders. Each of the Kaldi Decodables have slightly different
+ * construtors and this makes it difficult to regsiter everything in a generic
+ * fashion
+#ifdef HAVE_KALDI
+#include <gmm/decodable-am-diag-gmm.h>
+using kaldi::DecodableAmDiagGmmScaled;
+REGISTER_DECODER_MAIN("gmm_lattice", HMMTransitionModel, 
+   DecodableAmDiagGmmScaled, StdArc, Lattice);
 // DecodableAmDiagGmmScaled gmm_decodable(am_gmm, trans_model, features,
 //                                        acoustic_scale);
+#endif
+*/
+
 
 int main(int argc, char *argv[]) {
   PROFILE_FUNC();

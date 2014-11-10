@@ -55,7 +55,7 @@ class SimpleLattice {
     LatticeArc(State* prevstate, int ilabel, int olabel, float am_weight,
                float lm_weight, float dur_weight)
         : prevstate_(prevstate), ilabel_(ilabel), olabel_(olabel),
-          am_weight_(am_weight), lm_weight_(lm_weight),
+          dur_(-1), am_weight_(am_weight), lm_weight_(lm_weight),
           dur_weight_(dur_weight) { }
 
     State* prevstate_;

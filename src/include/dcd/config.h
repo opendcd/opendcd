@@ -28,7 +28,7 @@
   #define thread_local
 #endif
 
-#ifdef HAVESHINY
+#ifdef HAVE_SHINY
   #include <Shiny.h>
 #else
   #define PROFILE_FUNC();
@@ -50,7 +50,7 @@
 #endif
 
 
-#ifdef HAVEKALDI
+#ifdef HAVE_KALDI
   #include <util/table-types.h>
   #include <util/parse-options.h>
   #include <itf/decodable-itf.h>

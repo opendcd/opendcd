@@ -143,7 +143,7 @@ bool ReadFstArcTypes(const string& path, vector<const fst::Fst<Arc>*>* arcs,
   return true;
 }
 
-#ifdef HAVEKALDI
+#ifdef HAVE_KALDI
 // Function to return the number of arcs in an FST.
 template <class Arc>
 typename Arc::StateId CountArcs(const fst::Fst<Arc> &fst) {

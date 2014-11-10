@@ -286,8 +286,8 @@ class HMMTransitionModel {
         mdl->num_ergodic_ * 6;
     assert(num_states == mdl->state_labels_.size());
 
-    int num_trans = mdl->num_eps_ + mdl->num_bakis_ * 7 +
-        mdl->num_ergodic_ * 18;
+    // int num_trans = mdl->num_eps_ + mdl->num_bakis_ * 7 +
+    //    mdl->num_ergodic_ * 18;
 
     return mdl;
   }

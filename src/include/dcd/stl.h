@@ -19,7 +19,7 @@
 #ifndef DCD_STL_H__
 #define DCD_STL_H__
 
-#ifdef HAVEKALDI
+#ifdef HAVE_KALDI
   #include <tr1/unordered_map>
   #include <tr1/unordered_set>
   using std::tr1::unordered_map;
@@ -31,7 +31,7 @@
   using std::unordered_set;
 #endif
 
-#ifdef USERDESTL
+#ifdef HAVE_RDESTL
 // Optionally use the RDE hash_map and vector
 // Perhaps add EASTL or Google's Sparsehash These maybe be faster and allow for
 // better memory control
