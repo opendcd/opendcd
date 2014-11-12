@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author : Paul R. Dixon (info@opendcd.org)
 // \file
 // Various helper function and ultities
 
@@ -28,7 +29,7 @@ namespace dcd {
 
 template<class A, class B>
 struct Pair {
-  Pair(const Pair& other) : 
+  Pair(const Pair& other) :
     first(other.first), second(other.second) { }
   Pair() { }
   Pair(const A &a, const B &b) : first(a), second(b) { }
@@ -41,10 +42,10 @@ template<class A, class B, class C>
 struct Triple {
   Triple(const Triple& other) :
     first(other.first), second(other.second), third(other.third) { }
-  
+
   Triple() { }
-  
-  Triple(const A& a, const  B& b, const C& c) 
+
+  Triple(const A& a, const  B& b, const C& c)
     : first(a), second(b),  third(c) { }
 
   A first;
@@ -65,14 +66,14 @@ void SplitStringToVector(const std::string &full, const char *delim,
                          std::vector<std::string> *out);
 
 
-template<class T> 
+template<class T>
 class CountSet {
  public:
-  CountSet() { } 
-  
+  CountSet() { }
+
   int Insert(const T& v) {
     //If the key is not present will return the
-    //default value;
+    // default value;
     int count = hash_map_[v] + 1;
     hash_map_[v] = count;
     return count;
@@ -95,7 +96,7 @@ class CountSet {
 
 template<class Arc>
 bool ReadArcTypes(const string& path, vector<fst::Fst<Arc>*>* arcs) {
-  
+
   fst::FarReader<Arc>* reader = fst::FarReader<Arc>::Open(path);
 
   if (!reader) {
@@ -113,7 +114,7 @@ bool ReadArcTypes(const string& path, vector<fst::Fst<Arc>*>* arcs) {
 
 
 template<class Arc>
-bool ReadFstArcTypes(const string& path, vector<const fst::Fst<Arc>*>* arcs, 
+bool ReadFstArcTypes(const string& path, vector<const fst::Fst<Arc>*>* arcs,
 	float scale, bool verify) {
   using namespace fst;
   typedef MutableFst<Arc> FST;
@@ -125,7 +126,7 @@ bool ReadFstArcTypes(const string& path, vector<const fst::Fst<Arc>*>* arcs,
   for (int i = 0; i != n; ++i) {
    VectorFst<Arc>* fst = VectorFst<Arc>::Read(ifs, FstReadOptions());
    for (StateIterator<FST> siter(*fst); !siter.Done(); siter.Next()) {
-     for (MutableArcIterator<FST> aiter(fst, siter.Value()); !aiter.Done(); 
+     for (MutableArcIterator<FST> aiter(fst, siter.Value()); !aiter.Done();
          aiter.Next()) {
        Arc arc = aiter.Value();
        arc.weight = arc.weight.Value() *  scale;
@@ -148,11 +149,12 @@ bool ReadFstArcTypes(const string& path, vector<const fst::Fst<Arc>*>* arcs,
 template <class Arc>
 typename Arc::StateId CountArcs(const fst::Fst<Arc> &fst) {
   size_t narcs = 0;
-  for (fst::StateIterator< fst::Fst<Arc> > siter(fst); !siter.Done(); siter.Next())
+  for (fst::StateIterator< fst::Fst<Arc> > siter(fst); !siter.Done();
+       siter.Next())
     narcs += fst.NumArcs(siter.Value());
   return narcs;
 }
 #endif
-} //namespace dcd
+} // namespace dcd
 
-#endif //DCD_UTILS_H__
+#endif // DCD_UTILS_H__
