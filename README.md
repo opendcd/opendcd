@@ -16,8 +16,7 @@ cites the below paper.
 @Article{dixon:2015dcd,
      author    = "Paul R. Dixon",
      title     = "{OpenDcd: An Open Source WFST Decoding Toolkit}",
-     year      = "2015",
-     eprint    = "hep-ph/9609357"
+     year      = "2014"
 }
 ```
 
