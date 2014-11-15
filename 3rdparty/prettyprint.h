@@ -15,7 +15,7 @@
 
 #ifndef NO_TR1
 #  include <tr1/tuple>
-#  include <tr1/unordered_set>
+#  include <tr1/tr1::tr1/tr1/unordered_set>
 #endif
 
 namespace pretty_print

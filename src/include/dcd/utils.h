@@ -20,6 +20,7 @@
 #define DCD_UTILS_H__
 
 #include <string>
+
 #include <fst/extensions/far/far.h>
 #include <fst/fst.h>
 #include <fst/vector-fst.h>
@@ -53,18 +54,6 @@ struct Triple {
   C third;
 };
 
-/// Taken from Kaldi
-/// Split a string using any of the single character delimiters.
-/// If omit_empty_strings == true, the output will contain any
-/// nonempty strings after splitting on any of the
-/// characters in the delimiter.  If omit_empty_strings == false,
-/// the output will contain n+1 strings if there are n characters
-/// in the set "delim" within the input string.  In this case
-/// the empty string is split to a single empty string.
-void SplitStringToVector(const std::string &full, const char *delim,
-                         bool omit_empty_strings,
-                         std::vector<std::string> *out);
-
 
 template<class T>
 class CountSet {
@@ -72,8 +61,7 @@ class CountSet {
   CountSet() { }
 
   int Insert(const T& v) {
-    //If the key is not present will return the
-    // default value;
+    // If the key is not present will return the default value;
     int count = hash_map_[v] + 1;
     hash_map_[v] = count;
     return count;
@@ -94,11 +82,24 @@ class CountSet {
   DISALLOW_COPY_AND_ASSIGN(CountSet);
 };
 
+/// Taken from Kaldi
+/// Split a string using any of the single character delimiters.
+/// If omit_empty_strings == true, the output will contain any
+/// nonempty strings after splitting on any of the
+/// characters in the delimiter.  If omit_empty_strings == false,
+/// the output will contain n+1 strings if there are n characters
+/// in the set "delim" within the input string.  In this case
+/// the empty string is split to a single empty string.
+void SplitStringToVector(const std::string &full, const char *delim,
+                         bool omit_empty_strings,
+                         std::vector<std::string> *out);
+
+} // namespace dcd
+
+namespace fst {
 template<class Arc>
 bool ReadArcTypes(const string& path, vector<fst::Fst<Arc>*>* arcs) {
-
   fst::FarReader<Arc>* reader = fst::FarReader<Arc>::Open(path);
-
   if (!reader) {
     FSTERROR() << "Failed to open arc types file : " << path;
     return false;
@@ -112,49 +113,34 @@ bool ReadArcTypes(const string& path, vector<fst::Fst<Arc>*>* arcs) {
   return true;
 }
 
-
 template<class Arc>
 bool ReadFstArcTypes(const string& path, vector<const fst::Fst<Arc>*>* arcs,
-	float scale, bool verify) {
-  using namespace fst;
+                     float scale, bool verify) {
   typedef MutableFst<Arc> FST;
   ifstream ifs(path.c_str(), ifstream::binary);
   if (!ifs.is_open())
     return false;
   int n = 0;
-  ReadType(ifs, &n);
+  fst::ReadType(ifs, &n);
   for (int i = 0; i != n; ++i) {
-   VectorFst<Arc>* fst = VectorFst<Arc>::Read(ifs, FstReadOptions());
-   for (StateIterator<FST> siter(*fst); !siter.Done(); siter.Next()) {
-     for (MutableArcIterator<FST> aiter(fst, siter.Value()); !aiter.Done();
+  fst::VectorFst<Arc>* fst = fst::VectorFst<Arc>::Read(ifs, fst::FstReadOptions());
+  for (fst::StateIterator<FST> siter(*fst); !siter.Done(); siter.Next()) {
+     for (fst::MutableArcIterator<FST> aiter(fst, siter.Value()); !aiter.Done();
          aiter.Next()) {
        Arc arc = aiter.Value();
        arc.weight = arc.weight.Value() *  scale;
        aiter.SetValue(arc);
      }
-   }
-   if (!fst) {
+  }
+  if (!fst) {
      FSTERROR() << "ReadArcTypes : Failed to read arctype " << i;
      return false;
-   }
-	 if (verify && !Verify(*fst))
-		 FSTERROR() << "Invalid FST in arcs files at index " << i;
-   arcs->push_back(fst);
+  }
+  if (verify && !Verify(*fst))
+    FSTERROR() << "Invalid FST in arcs files at index " << i;
+  arcs->push_back(fst);
   }
   return true;
 }
-
-#ifdef HAVEKALDI
-// Function to return the number of arcs in an FST.
-template <class Arc>
-typename Arc::StateId CountArcs(const fst::Fst<Arc> &fst) {
-  size_t narcs = 0;
-  for (fst::StateIterator< fst::Fst<Arc> > siter(fst); !siter.Done();
-       siter.Next())
-    narcs += fst.NumArcs(siter.Value());
-  return narcs;
-}
-#endif
-} // namespace dcd
-
+} // namespace fst
 #endif // DCD_UTILS_H__

@@ -31,7 +31,7 @@
 using namespace std;
 using namespace fst;
 
-//From kaldi text-utils
+// From kaldi text-utils
 void SplitStringToVector(const std::string &full, const char *delim,
                          bool omit_empty_strings,
                          std::vector<std::string> *out) {
@@ -48,7 +48,7 @@ void SplitStringToVector(const std::string &full, const char *delim,
 
 template<class Arc>
 void ProcessFinal(exec_stream_t* es, fst::VectorFst<Arc>* out) {
-  fst::VectorFst<Arc>* tmp = 
+  fst::VectorFst<Arc>* tmp =
     fst::VectorFst<Arc>::Read(es->out(), fst::FstReadOptions());
   *out = *tmp;
   delete tmp;
@@ -56,14 +56,14 @@ void ProcessFinal(exec_stream_t* es, fst::VectorFst<Arc>* out) {
 
 
 void ProcessFinal(exec_stream_t* es, ostream* out) {
-  for (string s; getline(es->out(), s); ) 
+  for (string s; getline(es->out(), s); )
     (*out) << s << endl;
 }
 
 template <class Arc, class Out>
-void ProcessFstImpl(const fst::Fst<Arc>& fst, const vector<string>& cmds, 
+void ProcessFstImpl(const fst::Fst<Arc>& fst, const vector<string>& cmds,
                     int i, exec_stream_t* est, Out* out) {
-  
+
   //Break the command and arguments apart and create
   //a new string of just the arguments
   vector<string> args;
