@@ -9,3 +9,15 @@ models. The toolkit was originally developed by Paul Dixon and members of
 open source project with an Apache Licence.
 See main documentation site at [opendcd.org](http://opendcd.github.io/)
 
+We request acknowledgement in any publications that make use of this software
+cites the below paper.
+
+```latex
+@Article{dixon:2015dcd,
+     author    = "Paul R. Dixon",
+     title     = "{OpenDcd: An Open Source WFST Decoding Toolkit}",
+     year      = "2015",
+     eprint    = "hep-ph/9609357"
+}
+```
+

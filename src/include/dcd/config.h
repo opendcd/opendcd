@@ -128,7 +128,24 @@ class Timer {
   struct timezone time_zone_;
 };
 #endif
-
 }  // namespace dcd
+
+#ifdef HAVEKALDI
+namespace fst{
+// Function to return the number of arcs in an FST.
+// This is required if we are building against Kaldi and OpenFst 1.3.4
+template <class Arc>
+typename Arc::StateId CountArcs(const fst::Fst<Arc> &fst) {
+  size_t narcs = 0;
+  for (fst::StateIterator< fst::Fst<Arc> > siter(fst); !siter.Done();
+       siter.Next())
+    narcs += fst.NumArcs(siter.Value());
+  return narcs;
+}
+} // namespace fst
+#endif
+
+
+
 
 #endif  // DCD_CONFIG_H__

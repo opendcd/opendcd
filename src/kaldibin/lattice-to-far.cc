@@ -17,6 +17,8 @@
  
 #pragma GCC diagnostic ignored "-Wuninitialized"
 
+#include <iomanip>
+
 #include <fst/extensions/far/far.h>
 
 #include "base/kaldi-common.h"
@@ -69,8 +71,11 @@ int ConvertLattices(ParseOptions* po, const LatticeToFarOpts& opts) {
   int n_done = 0; // there is no failure mode, barring a crash.
    
   string last_key;
-  for (; !lattice_reader.Done(); lattice_reader.Next()) {
-    std::string key = lattice_reader.Key();
+  for (int i; !lattice_reader.Done(); lattice_reader.Next(), ++i) {
+    stringstream ss;
+    ss << setfill('0') << setw(8);
+    ss << i << "###" << lattice_reader.Key();
+    std::string key = ss.str();
     CompactLattice clat = lattice_reader.Value();
     lattice_reader.FreeCurrent();
     ScaleLattice(scale, &clat); 

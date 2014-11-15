@@ -13,7 +13,7 @@ includes = $(wildcard $(TOP)/include/dcd/*.h)
 
 CXXFLAGS+=-I../../3rdparty/
 VPATH=../lib:../../3rdparty/exec-stream
-FSTLIBDIR=$(shell cd ../../3rdparty/openfst-src/lib; pwd)
+FSTLIBDIR=$(shell cd ../../3rdparty/local/lib; pwd)
 LDFLAGS+= -ldl -L$(FSTLIBDIR) -L$(FSTLIBDIR)/fst
 LDFLAGS+= -Wl,-rpath -Wl,$(FSTLIBDIR) -Wl,-rpath -Wl,$(FSTLIBDIR)/fst/
 

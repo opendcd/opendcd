@@ -13,9 +13,9 @@
 //
 // Copyright 2013-2014 Yandex LLC
 // \file
-// 
+// Author : Paul R. Dixon
 // Simplist possible transition model to allow for Kaldi HCLG
-// network to be used as is
+// network to be used directly in dcdrecog without needint
 
 #ifndef DCD_KALDI_GENERIC_TRANSITION_MODEL_H__
 #define DCD_KALDI_GENERIC_TRANSITION_MODEL_H__
