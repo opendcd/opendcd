@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Copyright 2014 Paul R. Dixon
 // Author : Paul R. Dixon
 // \file
 // Simple token defintion
@@ -25,11 +26,13 @@
 
 namespace dcd {
 
-// L is the type of the lattice state
-// TODO(Paul) Template on the lattice state instead
+// L is the type of the lattice, L must expose a member LatticeState that is
+// expected to be a simple type such as an integer or a pointer or have very
+// cheap copy costs
 template<class L>
 class TokenTpl {
  public:
+  typedef L Lattice;
   typedef typename L::LatticeState LatticeState;
   // Create a default inactive token
   TokenTpl() : tb_(0), cost_(kMaxCost) { }
@@ -62,10 +65,10 @@ class TokenTpl {
   // token.Cost() Return a pair giving the cost of the arc arriving in the state
   // and the best score of the state
   // TODO(Paul) are the extract parameters slowing things down
-  template<class LATTICE, class SearchArc>
+  template<class SearchArc>
   inline pair<float, float> Combine(const TokenTpl& token,
                                     const SearchArc& arc,
-                                    LATTICE* lattice, int time,
+                                    Lattice* lattice, int time,
                                     float threshold,
                                     const SearchOptions& opts) {
     // Token should be the exit token from the arc
@@ -125,10 +128,13 @@ class TokenTpl {
 
 // Extends the token cost by cost F
 template<class L, class F>
-inline TokenTpl<typename L::LatticeState> Times(const TokenTpl<typename L::LatticeState>& token, const F& f) {
+inline TokenTpl<typename L::LatticeState> Times(const TokenTpl<typename
+                                                L::LatticeState>& token,
+                                                const F& f) {
   if (!token.Active())
     return token;
-  return TokenTpl<typename L::LatticeState>(token.LatticeState(), token.Cost() + f);
+  return TokenTpl<typename L::LatticeState>(token.LatticeState(),
+                                            token.Cost() + f);
 }
 
 // For debugging
