@@ -60,6 +60,10 @@ far-to-lattice: far-to-lattice.o
 lattice4-arc.so: kaldi-lattice-arc-reg.o
 	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar -lfstfarscript -shared 
 
+olabel_cache_lookahead-fst.so: olabel_cache_lookahead-fst.o
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar -lfstfarscript -shared 
+
+
 shiny:
 	$(MAKE) -C ../../3rdparty/Shiny
 

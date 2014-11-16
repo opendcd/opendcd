@@ -142,22 +142,6 @@ bool ReadFstArcTypes(const string& path, vector<const fst::Fst<Arc>*>* arcs,
   }
   return true;
 }
-<<<<<<< HEAD
-
-#ifdef HAVE_KALDI
-// Function to return the number of arcs in an FST.
-template <class Arc>
-typename Arc::StateId CountArcs(const fst::Fst<Arc> &fst) {
-  size_t narcs = 0;
-  for (fst::StateIterator< fst::Fst<Arc> > siter(fst); !siter.Done(); siter.Next())
-    narcs += fst.NumArcs(siter.Value());
-  return narcs;
-}
-#endif
-} //namespace dcd
-
-#endif //DCD_UTILS_H__
-||||||| merged common ancestors
 
 #ifdef HAVEKALDI
 // Function to return the number of arcs in an FST.
@@ -172,7 +156,3 @@ typename Arc::StateId CountArcs(const fst::Fst<Arc> &fst) {
 } //namespace dcd
 
 #endif //DCD_UTILS_H__
-=======
-} // namespace fst
-#endif // DCD_UTILS_H__
->>>>>>> 959f73e586484a7611e68595a5ff853b430800b4

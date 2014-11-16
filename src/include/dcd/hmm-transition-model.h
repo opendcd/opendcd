@@ -431,7 +431,7 @@ class HMMTransitionModel {
         if (loop < prev) {
           tokens[i].SetCost(loop);
         } else {
-          tokens[i].SetValue(tokens[i - 1].LatticeState(), prev);
+          tokens[i].SetValue(tokens[i - 1].GetLatticeState(), prev);
         }
         best_cost = min(best_cost, tokens[i].Cost());
       }

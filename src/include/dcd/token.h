@@ -30,10 +30,11 @@ namespace dcd {
 template<class L>
 class TokenTpl {
  public:
+  typedef typename L::LatticeState LatticeState;
   // Create a default inactive token
   TokenTpl() : tb_(0), cost_(kMaxCost) { }
 
-  TokenTpl(L tb, float cost) : tb_(tb), cost_(cost) { }
+  TokenTpl(typename L::LatticeState tb, float cost) : tb_(tb), cost_(cost) { }
 
   // if the tb_ is zero or null return false
   inline bool Active() const {
@@ -45,7 +46,7 @@ class TokenTpl {
     cost_ = kMaxCost;
   }
 
-  inline void SetValue(L tb, float cost) {
+  inline void SetValue(LatticeState tb, float cost) {
     tb_ = tb;
     cost_ = cost;
   }
@@ -111,11 +112,11 @@ class TokenTpl {
 
   inline void SetCost(float cost) { cost_ = cost; }
 
-  inline L LatticeState() const { return tb_; }
+  inline LatticeState GetLatticeState() const { return tb_; }
 
   inline void GcMark() { if (tb_) tb_->GcMark(); }
 
-  L tb_;
+  LatticeState tb_;
 
   float cost_;
 
@@ -124,10 +125,10 @@ class TokenTpl {
 
 // Extends the token cost by cost F
 template<class L, class F>
-inline TokenTpl<L> Times(const TokenTpl<L>& token, const F& f) {
+inline TokenTpl<typename L::LatticeState> Times(const TokenTpl<typename L::LatticeState>& token, const F& f) {
   if (!token.Active())
     return token;
-  return TokenTpl<L>(token.LatticeState(), token.Cost() + f);
+  return TokenTpl<typename L::LatticeState>(token.LatticeState(), token.Cost() + f);
 }
 
 // For debugging

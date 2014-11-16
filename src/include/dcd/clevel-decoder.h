@@ -107,7 +107,7 @@ struct ArcExpandOptions {
 // FST is uppercase to avoid collisions wtih OpenFst
 // TODO(PAUL) Perhaps better to change FST to Arc
 template<class FST, class TransModel, class L,
-         class Token = TokenTpl<typename L::LatticeState>,
+         class Token = TokenTpl<L>,
          class Statistics = NullStatistics>
 class CLevelDecoder {
  public:
@@ -907,7 +907,7 @@ class CLevelDecoder {
         for (int j = 0; j != arc->NumStates(); ++j) {
           Token token = arc->GetToken(j);
           if (token.Active()) {
-            if (!lattice_->IsActive(token.LatticeState()))
+            if (!lattice_->IsActive(token.GetLatticeState()))
               logger_(FATAL) << "Lattice state is not in the active list";
           }
         }
@@ -998,7 +998,7 @@ class CLevelDecoder {
       // optionally generate the lattice arcs
       if (lattice) {
         int numarcs =
-          lattice_->GetLattice(ss->GetToken().LatticeState(), lattice);
+          lattice_->GetLattice(ss->GetToken().GetLatticeState(), lattice);
 
         logger_(INFO) << "Generated lattice with "
           << numarcs << " arcs "
