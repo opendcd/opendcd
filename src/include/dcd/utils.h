@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Copyright 2014 Paul R. Dixon
 // Author : Paul R. Dixon (info@opendcd.org)
 // \file
 // Various helper function and ultities
