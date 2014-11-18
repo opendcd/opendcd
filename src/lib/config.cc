@@ -34,8 +34,8 @@ void PrintVersionInfo() {
 }
 
 
-//Functions to queury to the total system memory
-//Answer from http://stackoverflow.com/questions/2513505/how-to-get-available-memory-c-g
+// Functions to queury to the total system memory take from
+// http://stackoverflow.com/questions/2513505/how-to-get-available-memory-c-g
 #ifdef MSVCVER
 size_t GetTotalSystemMemory() {
     MEMORYSTATUSEX status;
@@ -77,11 +77,12 @@ void PrintMachineInfo() {
   cerr << "\tHostname\t\t: " << GetHostname() << endl;
 }
 
-///Code take from https://www.hackerzvoice.net/ouah/Red_%20Pill.html
-int SwallowRedpill () {
+// Code take from https://www.hackerzvoice.net/ouah/Red_%20Pill.html
+// TODO(Paul) doesn't seem to work on 64bit
+int SwallowRedpill() {
   unsigned char m[2+4], rpill[] = "\x0f\x01\x0d\x00\x00\x00\x00\xc3";
   *((unsigned long*)&rpill[3]) = (unsigned long)m;
   ((void(*)())&rpill)();
-  return (m[5]>0xd0) ? 1 : 0;
- }
-} //namespace dcd
+  return (m[5] > 0xd0) ? 1 : 0;
+}
+}  // namespace dcd
