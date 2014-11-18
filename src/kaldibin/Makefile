@@ -64,6 +64,11 @@ dcd-recog-kaldi: dcd-recog.o text-utils.o log.o utils.o compiler-flags.o \
 	$(KALDI_ROOT)/src/base/kaldi-base.a \
 	$(ATLASLIBS)
 
+lattice4-arc.so: lattice-arc.cc
+	$(CXX) -I$(FSTLIBDIR)/include -I$(KALDI_ROOT)/src/ -DHAVE_ATLAS -fPIC $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar -lfstfarscript -shared
+
+compact-lattice4-arc.so: compact-lattice-arc.o
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar -lfstfarscript -shared
 
 clean:
 	rm -rf *.o make-arc-types dcd-recog-kaldi
