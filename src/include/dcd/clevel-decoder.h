@@ -67,7 +67,10 @@ using fst::AutoQueue;
 
 //  Forward declations for the various decoder classes
 //  these classes need to know the names of the other types
-template<class FST, class TransModel, class L, class Token, class Statistics>
+template<class FST, class TransModel,
+         class L,
+         template<class> class Token,
+         class Statistics>
 class CLevelDecoder;
 
 // Function to convert a weight to scale value sot the decoder is able
@@ -107,12 +110,13 @@ struct ArcExpandOptions {
 // FST is uppercase to avoid collisions wtih OpenFst
 // TODO(PAUL) Perhaps better to change FST to Arc
 template<class FST, class TransModel, class L,
-         class Token = TokenTpl<L>,
+         template<class> class T = TokenTpl,
          class Statistics = NullStatistics>
 class CLevelDecoder {
  public:
   class SearchArc;
   class SearchState;
+  typedef T<L> Token;
   typedef typename L::LatticeState LatticeState;
   //typedef TokenTpl<LatticeState> Token;
   typedef Pair<float, float> FloatPair;
@@ -338,8 +342,8 @@ class CLevelDecoder {
         : last_activated_(-1), ref_count_(0), index_(-1),
           state_id_(-1), num_activations_(0), in_eps_queue_(false) { }
     //  Initializea new search state wtht FST type F, Transmodel T
-    template<class F, class T>
-    bool Init(const F& fst, int state, const T& trans_model,
+    template<class F, class TM>
+    bool Init(const F& fst, int state, const TM& trans_model,
               const SearchOptions& opts) {
       PROFILE_FUNC();
       typedef typename F::Arc Arc;
