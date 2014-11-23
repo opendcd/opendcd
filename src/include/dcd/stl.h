@@ -19,7 +19,7 @@
 #ifndef DCD_STL_H__
 #define DCD_STL_H__
 
-#ifdef HAVE_KALDI
+#if __cplusplus==199711L
   #include <tr1/unordered_map>
   #include <tr1/unordered_set>
   using std::tr1::unordered_map;

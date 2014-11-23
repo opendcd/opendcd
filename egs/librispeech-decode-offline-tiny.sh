@@ -1,5 +1,5 @@
 #!/bin/bash
- ../src/bin/dcd-recog \
+ ../src/kaldibin/dcd-recog-kaldi \
   --word_symbols_table=words.txt \
   --decoder_type=hmm_lattice \
   --beam=15 \
