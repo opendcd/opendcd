@@ -1,3 +1,4 @@
 
  - Finish formatting and linting
  - Change C type to int16, int32, ...
+ - Integrate Lua and Python inside the Fst

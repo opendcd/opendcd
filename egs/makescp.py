@@ -9,4 +9,4 @@ for (dirpath, dirnames, filenames) in os.walk(sys.argv[1]):
       list_of_files.append(os.sep.join([dirpath, filename]))
 list_of_files.sort()
 for f in list_of_files:
-  print f
+  print "%s flac -c -d -s %s |"%(os.path.basename(f).split('.')[0],f)
