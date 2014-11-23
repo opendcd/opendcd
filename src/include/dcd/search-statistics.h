@@ -12,6 +12,7 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author : Paul R. Dixon
 // \file
 // This is the decoder statistics. The decoder
 // is templated on this class. Certain implementation
