@@ -12,11 +12,11 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
-// Author : Paul R. Dixon
+// Author: Paul R. Dixon
 // \file
 // This is the decoder statistics. The decoder
 // is templated on this class. Certain implementation
-// will not implement perform anything and will be optimized
+// will not t perform anything and will be optimized
 // out. Faster, neater and safer than using ifdef-else macros
 //
 #ifndef DCD_SEARCH_STATISTICS_H__
@@ -76,11 +76,9 @@ class NullStatistics {
 
   void Clear() { }
 
-  void Push(const NullStatistics) {
-  }
+  void Push(const NullStatistics) { }
 
-  void PushStatistic(int statistic) {
-  };
+  void PushStatistic(int statistic) { }
 
   const RunnningStatistic& GetStatistic(int stat) {
     return running_stat_;
@@ -134,5 +132,5 @@ class SimpleStatistics {
 };
 
 
-}//namespace dcd
-#endif
+}  // namespace dcd
+#endif  // DCD_SEARCH_STATISTICS_H__

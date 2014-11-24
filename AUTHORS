@@ -1,0 +1,10 @@
+Principal Contact:
+  Paul R. Dixon
+
+Contributors:
+  Josef R. Novak
+
+OpenDcd make use of code from the following projects
+  - OpenFst (www.openfst.org)
+  - Kaldi (kaldi.sourceforge.net)
+  - Mozc (https://code.google.com/p/mozc/)
