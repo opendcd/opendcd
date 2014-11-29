@@ -159,7 +159,6 @@ int main(int argc, char *argv[]) {
       output_frames -= nnet.LeftContext() + nnet.RightContext();
     
     NnetComputation(nnet, feats_cu, pad_input, &output);
-
     if (apply_log) {
       output.ApplyFloor(1.0e-20);
       output.ApplyLog();
