@@ -23,12 +23,11 @@
 #define DCD_SEARCH_STATISTICS_H__
 
 #include <limits>
+#include <vector>
 #include <dcd/utils.h>
 
 namespace dcd {
-
 struct RunnningStatistic {
-
   void Clear() {
     num_ = 0;
     max_ = kMaxCost;

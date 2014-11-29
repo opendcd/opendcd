@@ -12,23 +12,29 @@
 // limitations under the License.
 //
 // Copyright 2013-2014 Yandex LLC
+// Author: Paul R. Dixon
 // \file
 // Helper functions and structure for configuring the decoder
 #ifndef DCD_SEARCH_OPTS_H__
 #define DCD_SEARCH_OPTS_H__
 
+#include <algorithm>
+#include <map>
+#include <vector>
+
 #include <fst/symbol-table.h>
+
 #include <dcd/config.h>
 #include <dcd/constants.h>
 
+
 namespace fst {
- class SymbolTable;
+class SymbolTable;
 }
 
 namespace dcd {
 
 struct Variant {
-
   Variant() : type(kNone) { }
 
   explicit Variant(int *value) : i(value), type(kInt)  { }
@@ -61,11 +67,10 @@ std::ostream& operator << (std::ostream& os, const Variant& value) {
 }
 
 
-//Struct containing the parameters for the search. Feel like
-//there is a better way to do this.
+// Struct containing the parameters for the search. Feel like
+// there is a better way to do this.
 
 struct SearchOptions {
-
   struct Element {
     string flag;
     string description;
@@ -81,16 +86,16 @@ struct SearchOptions {
     Init(&cache_destinatation_states, true, "cache_dest_states");
     Init(&gc_period, kDefaultGcPeriod, "gc_period");
     Init(&gc_check, false, "gc_check");
-    //"Peform checking of the allocated states. "
-    //                       "(Will cause substantial slow downs)"
-    Init(&gen_lattice, false, "gen_lattice"); //Generate recognition lattices"
+    // "Peform checking of the allocated states. "
+    // "(Will cause substantial slow downs)"
+    Init(&gen_lattice, false, "gen_lattice");  // Generate recognition lattices"
     Init(&lattice_beam, kDefaultBeam, "lattice_beam");
     Init(&use_search_pool, false, "use_search_pool");
     Init(&fst_reset_period, 32, "fst_reset_period");
     Init(&early_mission, false, "early_mission");
     Init(&dump_traceback, false, "dump_traceback");
     Init(&acoustic_lookahead, 0.0f, "acoustic_lookahead");
-	  Init(&colorize, true, "colorize");
+    Init(&colorize, true, "colorize");
     Init(&prune_eps, true, "prune_eps");
     Init(&nbest, 0, "nbest");
     Init(&insertion_penalty, 0.0f, "insertion_penalty");
@@ -144,6 +149,7 @@ struct SearchOptions {
         }
     }
  }
+
  private:
   DISALLOW_COPY_AND_ASSIGN(SearchOptions);
 };
@@ -154,6 +160,5 @@ std::ostream& operator << (std::ostream& os, const SearchOptions& opts) {
     os << "\t\t  " << it->first << " : " << it->second << endl;
   return os;
 }
-} //namespace dcd
-
-#endif
+}  // namespace dcd
+#endif  // DCD_SEARCH_OPTS_H__
