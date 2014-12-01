@@ -34,9 +34,12 @@ dcd-recog-profile: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrev
 	memdebug.o compiler-version.o cpu-stats.o config.o feat-readers.o
 	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar
 
-dcd-recg.cc: ../include/dcd/arc-decoder.h
+dcd-recog.cc: ../include/dcd/arc-decoder.h
 
-fstxprintstrings: fstxprintstrings.o 
+dcd-lex: dcdlex.o
+	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfarscript
+
+fstxprintstrings: fstxprintstrings.o
 	$(CXX) $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstscript
 
 farprintnbeststrings: farprintnbeststrings.o text-utils.o
