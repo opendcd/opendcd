@@ -10,11 +10,11 @@ Quick Installation Guide
 -------------------------
 
 ````bash
+    export KALDI_ROOT=/path/to/kaldi-trunk/
     git clone https://github.com/opendcd/opendcd.git
-````
-
-````bash
-    cd src/bin
+    cd opendcd/3rdparty
+    make
+    cd ../src
     make
 ````
 
