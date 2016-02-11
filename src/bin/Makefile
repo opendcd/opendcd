@@ -34,7 +34,7 @@ dcd-recog-profile: dcd-recog.o parse-options.o text-utils.o log.o utils.o gitrev
 	memdebug.o compiler-version.o cpu-stats.o config.o feat-readers.o
 	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfar
 
-dcd-recog.cc: ../include/dcd/arc-decoder.h
+# dcd-recog.cc: ../include/dcd/arc-decoder.h
 
 dcd-lex: dcdlex.o
 	$(CXX)  $^ -o $@  $(LDFLAGS) $(LDLIBS) -lfst -lfstfarscript

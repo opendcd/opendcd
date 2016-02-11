@@ -31,3 +31,15 @@
 gitrevision.cc
 compiler-version.cc
 compiler-flags.cc
+
+
+3rdparty/local/
+3rdparty/openfst-src.tar.gz
+3rdparty/openfst-src/
+src/bin/dcd-recog
+src/bin/far-to-lattice
+src/bin/farfilter
+src/bin/farprintnbeststrings
+src/kaldibin/lattice-to-far
+src/kaldibin/make-arc-types
+src/nbproject/
